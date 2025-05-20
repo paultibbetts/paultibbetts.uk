@@ -1,0 +1,18 @@
+{{ define "main" }}
+<div class="mb-20">
+	<h1 class="mb-8 text-3xl text-light lowercase">#{{ .Title }}</h1>
+	{{- with .Content }}
+	<div class="mb-4">
+		{{ . }}
+	</div>
+	{{ end -}}
+
+	{{- range .Pages }}
+	<ul class="mb-2">
+		{{ .Render "li" }}
+	</ul>
+	{{ end -}}
+
+	{{ partial "pagination.html" (dict "page" . "format" "terse" )}}
+</div>
+{{ end }}

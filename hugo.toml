@@ -1,0 +1,54 @@
+baseURL = 'https://paultibbetts.uk/'
+languageCode = 'en-gb'
+title = 'Paul Tibbetts'
+description = "Blog"
+
+capitalizeListTitles = false
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
+
+[params]
+	images = [ '/apple-touch-icon.png' ]
+	[params.author]
+	  name = 'Paul Tibbetts'
+
+[permalinks]
+  articles = '/:year/:month/:day/:title/'
+
+[taxonomies]
+	tags = 'tags'
+
+[outputs]
+  home = ['html', 'rss']
+  section = ['html', 'rss']
+  taxonomy = ['html']
+  term = ['html', 'rss']
+
+[outputFormats.RSS]
+mediatype = "application/rss+xml"
+baseName = "feed"
+
+[build]
+  [build.buildStats]
+    enable = true
+  [[build.cachebusters]]
+    source = 'assets/notwatching/hugo_stats\.json'
+    target = 'css'
+  [[build.cachebusters]]
+    source = '(postcss|tailwind)\.config\.js'
+    target = 'css'
+[module]
+  [[module.mounts]]
+    source = 'assets'
+    target = 'assets'
+  [[module.mounts]]
+    disableWatch = true
+    source = 'hugo_stats.json'
+    target = 'assets/notwatching/hugo_stats.json'
+
+[markup.goldmark.renderer]
+      hardWraps = false
+      unsafe = true
+      xhtml = false

@@ -1,0 +1,41 @@
+{{ define "main" }}
+<div class="my-4">
+	{{ partial "hello.html" . }}
+</div>
+<div class="mb-6 text-white">
+	<p class="mb-2">I'm Paul, a DevOps Engineer in the UK.</p>
+	<p class="mb-2">You've found my blog.
+</div>
+<div class="mb-6" id="recent">
+	<div>
+		<h2 class="mb-2 lowercase">Recent</h2>
+		<ul class="mb-6">
+			{{ $posts := first 5 (where .Site.RegularPages "Section" "articles") }}
+			{{ range $posts }}
+			{{ .Render "li" }}
+			{{ end }}
+		</ul>
+		<div class="mb-2 lowercase">
+			<p class="text-white">View all <a href="/articles/">articles</a> or <a href="/tags/">tags</a>
+			</p>
+		</div>
+	</div>
+</div>
+<div class="mb-6" id="pages">
+	<div>
+		<h2 class="mb-2 lowercase">Pages</h2>
+		<div class="mb-2">
+			{{ partial "pages.html" }}
+		</div>
+	</div>
+</div>
+<div class="mb-6" id="links">
+	<div>
+		<h2 class="mb-2 lowercase">Elsewhere</h2>
+		<div>
+			<p><a href="https://github.com/paultibbetts" rel="me">github</a></p>
+			<p><a href="https://micro.blog/paultibbetts" rel="me">micro.blog</a></p>
+		</div>
+	</div>
+</div>
+{{ end }}
