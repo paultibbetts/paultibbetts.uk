@@ -8,7 +8,9 @@
 </div>
 <div class="h-feed hfeed mb-6" id="recent">
 	<div>
-		<h2 class="p-name mb-2 lowercase">Recent</h2>
+		<h2 class="p-name mb-2 lowercase">Recent <a class="u-url hidden" href="#recent">partial feed</a><a
+				class="u-url u-uid hidden" href="/articles">full feed</a>
+		</h2>
 		<ul class="mb-6">
 			{{ $posts := first 5 (where .Site.RegularPages "Section" "articles") }}
 			{{ range $posts }}
