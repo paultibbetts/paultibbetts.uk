@@ -3,6 +3,7 @@
 {{- partial "head.html" . -}}
 
 <body>
+	{{ partial "h-card.html" . -}}
 	{{- partial "header.html" . -}}
 	<main>
 		{{- block "main" . }}{{ end -}}
