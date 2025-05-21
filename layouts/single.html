@@ -1,6 +1,6 @@
 {{ define "main" }}
 <div class="mb-20">
-	<article>
+	<article class="h-entry">
 		<header>
 			{{- $rawParts := split .RelPermalink "/" -}}
 			{{- $parts := slice -}}
@@ -9,10 +9,10 @@
 			{{- $parts = $parts | append . -}}
 			{{- end -}}
 			{{- end }}
-			<h1 class="mb-8 text-3xl text-light {{ if le (len $parts) 1 }}lowercase{{ end }}">{{
+			<h1 class="p-name mb-8 text-3xl text-light {{ if le (len $parts) 1 }}lowercase{{ end }}">{{
 				.Title }}</h1>
 			{{ with .Date -}}
-			<p class="mb-2">
+			<p class="dt-published mb-2">
 				<time class="dt-published" datetime="{{ . }}"
 					itemprop="dateCreated pubdate datePublished">
 					{{ .| time.Format ":date_medium" }}
@@ -21,7 +21,7 @@
 			{{- end }}
 		</header>
 		<div
-			class="prose prose-invert text-light font-sans prose-lg prose-a:no-underline prose-a:border-b-2 prose-a:border-orange prose-a:hover:border-red mb-4">
+			class="e-content prose prose-invert text-light font-sans prose-lg prose-a:no-underline prose-a:border-b-2 prose-a:border-orange prose-a:hover:border-red mb-4">
 			{{ .Content }}
 		</div>
 		<footer>
@@ -30,7 +30,8 @@
 				<p class="mb-2">tagged with:</p>
 				<ul>
 					{{- range . }}
-					<li class="mb-2"><a href="{{ .RelPermalink }}">#{{ .Title }}</a></li>
+					<li class="p-category mb-2"><a href="{{ .RelPermalink }}" rel="category tag">#{{
+							.Title }}</a></li>
 					{{- end }}
 				</ul>
 				{{- end }}
