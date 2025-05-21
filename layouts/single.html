@@ -12,7 +12,7 @@
 			<h1 class="p-name mb-8 text-3xl text-light {{ if le (len $parts) 1 }}lowercase{{ end }}">{{
 				.Title }}</h1>
 			{{ with .Date -}}
-			<p class="dt-published mb-2">
+			<p class="mb-2">
 				<time class="dt-published" datetime="{{ . }}"
 					itemprop="dateCreated pubdate datePublished">
 					{{ .| time.Format ":date_medium" }}
