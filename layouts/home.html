@@ -6,9 +6,9 @@
 	<p class="mb-2">I'm Paul, a DevOps Engineer in the UK.</p>
 	<p class="mb-2">You've found my blog.
 </div>
-<div class="mb-6" id="recent">
+<div class="h-feed hfeed mb-6" id="recent">
 	<div>
-		<h2 class="mb-2 lowercase">Recent</h2>
+		<h2 class="p-name mb-2 lowercase">Recent</h2>
 		<ul class="mb-6">
 			{{ $posts := first 5 (where .Site.RegularPages "Section" "articles") }}
 			{{ range $posts }}

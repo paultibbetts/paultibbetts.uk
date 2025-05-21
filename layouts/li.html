@@ -1,3 +1,4 @@
-<li>
-	<p>{{ .Date.Format "2006-01-02" }} <a href="{{ .RelPermalink }}">{{ .Title }}</a></p>
+<li class="h-entry">
+	<p><span class="dt-published">{{ .Date.Format "2006-01-02" }}</span> <a class="p-name u-url"
+			href="{{ .RelPermalink }}">{{ .Title }}</a></p>
 </li>

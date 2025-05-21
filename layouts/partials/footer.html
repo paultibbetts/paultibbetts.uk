@@ -2,11 +2,11 @@
 	<div class="mt-4 text-sm lowercase" id="footer">
 		<div>
 			<h2 class="mb-2 lowercase">Footer</h2>
+			<div class="mb-2">
+				{{ partial "h-card.html" . }}
+			</div>
 			{{- if not .IsHome -}}
 			<div class="mb-2">
-				<p class="mb-1">
-					<a href="/">paultibbetts.uk</a>
-				</p>
 				{{ partial "pages.html" }}
 			</div>
 			{{- end }}
@@ -19,5 +19,6 @@
 				</p>
 			</div>
 		</div>
+	</div>
 	</div>
 </footer>
