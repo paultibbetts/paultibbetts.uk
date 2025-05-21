@@ -6,16 +6,18 @@
 				{{ partial "h-card.html" . }}
 			</div>
 			{{- if not .IsHome -}}
-			{{ partial "pages.html" }}
-		</div>
-		{{- end }}
-		<div class="mb-2">
-			<p>Powered by
-				<a href="https://gohugo.io">Hugo</a>
-			</p>
-			<p>
-				<a href="https://github.com/paultibbetts/paultibbetts.uk">View source</a>
-			</p>
+			<div class="mb-2">
+				{{ partial "pages.html" }}
+			</div>
+			{{- end }}
+			<div class="mb-2">
+				<p>Powered by
+					<a href="https://gohugo.io">Hugo</a>
+				</p>
+				<p>
+					<a href="https://github.com/paultibbetts/paultibbetts.uk">View source</a>
+				</p>
+			</div>
 		</div>
 	</div>
 	</div>
