@@ -9,6 +9,8 @@ See [uses.tech](https://uses.tech/) for more `/uses` pages.
 
 Accurate as of {{<gitinfo>}}.
 
+{{<toc>}}
+
 ## OS
 
 - 🍏 **MacOS** for personal use
