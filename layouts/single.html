@@ -22,7 +22,7 @@
 		</header>
 		<div
 			class="e-content prose prose-invert text-light font-sans prose-lg prose-a:no-underline prose-a:border-b-2 prose-a:border-orange prose-a:hover:border-red mb-4">
-			{{ .Content }}
+			{{ .Content | replaceRE `\#(\w+)` (printf "<a class=\"p-category auto-tag\" href=\"/tags/%s\" title=\"%s\">%s</a>" "$1" "$1" "$1") | safeHTML }}
 		</div>
 		<footer>
 			<div class="mb-4">
@@ -30,7 +30,7 @@
 				<p class="mb-2">tagged with:</p>
 				<ul>
 					{{- range . }}
-					<li class="p-category mb-2"><a href="{{ .RelPermalink }}" rel="category tag">#{{
+					<li class="p-category mb-2">#<a href="{{ .RelPermalink }}" rel="category tag">{{
 							.Title }}</a></li>
 					{{- end }}
 				</ul>
