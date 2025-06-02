@@ -1,7 +1,7 @@
 {{ define "main" }}
 <div class="mb-20">
 	<article class="h-entry">
-		<header>
+		<header class="mb-8">
 			{{- $rawParts := split .RelPermalink "/" -}}
 			{{- $parts := slice -}}
 			{{- range $rawParts -}}
@@ -9,7 +9,7 @@
 			{{- $parts = $parts | append . -}}
 			{{- end -}}
 			{{- end }}
-			<h1 class="p-name mb-8 text-3xl text-light {{ if le (len $parts) 1 }}lowercase{{ end }}">{{
+			<h1 class="p-name mb-2 text-3xl text-light {{ if le (len $parts) 1 }}lowercase{{ end }}">{{
 				.Title }}</h1>
 			{{ with .Date -}}
 			<p class="mb-2">
@@ -21,7 +21,7 @@
 			{{- end }}
 		</header>
 		<div
-			class="e-content prose prose-invert text-light font-sans prose-lg prose-a:no-underline prose-a:border-b-2 prose-a:border-orange prose-a:hover:border-red mb-4">
+			class="e-content prose prose-invert text-light font-sans prose-lg prose-a:no-underline prose-a:border-b-2 prose-a:border-orange prose-a:hover:border-red mb-8">
 			{{ .Content }}
 		</div>
 		<footer>
