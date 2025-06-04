@@ -47,7 +47,7 @@ Accurate as of {{<gitinfo>}}.
 
 - 📺 [ghostty](https://ghostty.org/) for my terminal
 - ⚡️ **tmux** for window management inside the terminal
-- ⌨️ **Neovim** as my editor - I'm in the process of migrating from VS Code
+- ⌨️ **Neovim** as my editor
 - 🦊 **Firefox Developer Edition** for web development
 - 🐳 **Docker** containers where possible
 - ☸️ **Kubernetes** for running containers
