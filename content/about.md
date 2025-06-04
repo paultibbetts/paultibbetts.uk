@@ -9,7 +9,7 @@ I'm a DevOps Engineer with over 10 years of experience working on the web.
 
 You can also find shorter posts of mine on [micro.blog](https://micro.paultibbetts.uk).
 
-Right [now](/now) I'm busy working on this website.
+My [now](/now) page shows what I'm currently up to.
 
 ## this website
 
