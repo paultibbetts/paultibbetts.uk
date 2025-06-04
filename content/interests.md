@@ -3,8 +3,6 @@ title = "Interests"
 type = "page"
 +++
 
-I like:
-
 <ul>
 <li><span role="img" aria-label="camping" title="camping">⛺️</span> <a href="https://pinthewild.micro.blog">camping</a></li>
 <li><span role="img" aria-label="coffee" title="coffee">☕️</span> coffee</li>
