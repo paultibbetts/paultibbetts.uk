@@ -64,7 +64,7 @@ This meant I could get some practise in using [Ansible](https://docs.ansible.com
 
 #### Services
 
-- **[PiHole](https://pi-hole.net/)** for blocking adverts as well as DNS and DHCP for my network
+- **[Pi-hole](https://pi-hole.net/)** for blocking adverts as well as DNS and DHCP for my network
 - **[Wireguard](https://www.pivpn.io/)** for a VPN so I can connect from out the house
 - **MySQL** and **Postgres** databases for "cloud" things to use
 - **[Caddy](https://caddyserver.com/)** as a reverse proxy to secure access to my "cloud" apps and services
