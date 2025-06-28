@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Exit if no title is provided
 if [ -z "$1" ]; then
   echo "Error: No title provided."
   echo "Usage: $0 \"Your Article Title\""
