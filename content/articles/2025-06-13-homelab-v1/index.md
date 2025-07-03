@@ -36,7 +36,9 @@ The TrueNAS devs thought the same thing and took out Kubernetes and replaced it 
 - **object storage** via [MinIO](https://min.io) installed as a Docker container
 - **backups** for virtual machines via [Proxmox Backup Server](https://www.proxmox.com/en/products/proxmox-backup-server/overview)
 
-and nothing else, because I just want it to do network attached storage, and I don't want to mess with it.
+and **nothing else**. 
+
+I just want it to do network attached storage, and I don't want to mess with it.
 
 #### Storage
 
