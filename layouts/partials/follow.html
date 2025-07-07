@@ -4,8 +4,9 @@
 	<div class="mb-2">
 		<p class="mb-1">
 			{{ if not $.IsHome }}
+			{{ $title := $.Title | urlize }}
 			{{- printf `
-			<a href=%q>/%s/feed.rss</a>` .RelPermalink $.Title | safeHTML -}}
+			<a href=%q>/%s/feed.rss</a>` .RelPermalink $title | safeHTML -}}
 			{{ else }}
 			{{- printf `
 			<a href=%q>/feed.rss</a>` .RelPermalink | safeHTML -}}
