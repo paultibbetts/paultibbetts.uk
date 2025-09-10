@@ -9,6 +9,5 @@
 		<li><a href="{{ .Page.RelPermalink }}">#{{ .Page.Title }}</a> {{ .Count }}
 	</ul>
 	{{- end }}
-	{{- partial "pagination.html" (dict "page" . "format" "terse" ) }}
 </div>
 {{ end }}
