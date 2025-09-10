@@ -1,7 +1,7 @@
 +++
 date = '2025-06-13T11:30:21+01:00'
 title = 'Using Terraform as the Inventory for Ansible'
-tags = ['ansible', 'terraform']
+tags = ['Ansible', 'Terraform']
 +++
 
 Terraform and Ansible are complementary tools with which you can do Infrastructure as Code. You would use [Terraform](https://www.terraform.io/) to request machines from providers and then [Ansible](https://docs.ansible.com/ansible/latest/index.html) to configure them.
