@@ -11,8 +11,8 @@ After six years working at the same place I've taken some time off to recover fr
 ✅ host a personal "cloud" in my homelab  
 ✅ make a new website ([Hello, World!](/2025/05/20/hello-world/))  
 ✅ configure my developer environment on my laptop  
-📍 set up a Kubernetes cluster in my homelab  
-🔲 write about what I know  
+✅ set up a Kubernetes cluster in my homelab  
+📍 write about what I know  
 🔲 work on some new ideas  
 ???  
 🔲 profit  
