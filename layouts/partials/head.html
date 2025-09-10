@@ -1,12 +1,13 @@
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
-  <meta name="description" content="Blog">
-  {{- with .OutputFormats.Get "rss" -}}
-  {{- printf `
-  <link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML -}}
-  {{ end }}
-  {{ partial "opengraph.html" . }}
-  {{ partialCached "css.html" . }}
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+	<meta name="description" content="Blog">
+	{{- with .OutputFormats.Get "rss" -}}
+	{{- printf `
+	<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML -}}
+	{{ end }}
+	{{ partial "opengraph.html" . }}
+	{{ partialCached "css.html" . }}
+	<meta name="fediverse:creator" content="@paultibbetts@indieweb.social">
 </head>
