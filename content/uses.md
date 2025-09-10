@@ -5,6 +5,8 @@ type = "page"
 
 This is the tech I use. 
 
+I have separate pages for my [developer environment](https://paultibbetts.github.io/dev) and [wildcamping gear](https://pinthewild.micro.blog/uses).
+
 See [uses.tech](https://uses.tech/) for more `/uses` pages.
 
 Accurate as of {{<gitinfo>}}.
