@@ -1,4 +1,4 @@
 +++
-title = 'tags'
+title = 'Tags'
 description = 'post tags'
 +++
