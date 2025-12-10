@@ -9,7 +9,7 @@
 			{{- $parts = $parts | append . -}}
 			{{- end -}}
 			{{- end }}
-			<h1 class="p-name mb-2 text-3xl text-light {{ if le (len $parts) 1 }}lowercase{{ end }}">{{
+			<h1 class="p-name mb-2 text-3xl text-light">{{
 				.Title }}</h1>
 			{{ with .Date -}}
 			<p class="mb-2">
