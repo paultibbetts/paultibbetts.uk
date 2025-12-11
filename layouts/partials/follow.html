@@ -1,17 +1,19 @@
 {{ with .OutputFormats.Get "rss" -}}
-<div class="lowercase mt-8 text-sm mb-4">
-	<h2 class="mb-2">Follow</h2>
-	<div class="mb-2">
-		<p class="mb-1">
-			{{ if not $.IsHome }}
-			{{ $title := $.Title | urlize }}
-			{{- printf `
-			<a href=%q>/%s/feed.rss</a>` .RelPermalink $title | safeHTML -}}
-			{{ else }}
-			{{- printf `
-			<a href=%q>/feed.rss</a>` .RelPermalink | safeHTML -}}
-			{{ end }}
-		</p>
-	</div>
-</div>
+  <div class="lowercase mt-8 text-sm mb-4">
+    <h2 class="mb-2">Follow</h2>
+    <div class="mb-2">
+      <p class="mb-1">
+        {{ if not $.IsHome }}
+          {{ $title := $.Title | urlize }}
+          {{- printf `
+            <a href=%q>/%s/feed.rss</a>` .RelPermalink $title | safeHTML
+          -}}
+        {{ else }}
+          {{- printf `
+            <a href=%q>/feed.rss</a>` .RelPermalink | safeHTML
+          -}}
+        {{ end }}
+      </p>
+    </div>
+  </div>
 {{ end }}

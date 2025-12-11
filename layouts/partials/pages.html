@@ -1,16 +1,16 @@
 {{- $pages := slice -}}
 
 {{- range site.Sections -}}
-{{- $pages = $pages | append . -}}
+  {{- $pages = $pages | append . -}}
 {{- end -}}
 
 {{- range site.RegularPages -}}
-{{- if eq .Section "" -}}
-{{- $pages = $pages | append . -}}
-{{- end -}}
+  {{- if eq .Section "" -}}
+    {{- $pages = $pages | append . -}}
+  {{- end -}}
 {{- end -}}
 {{- range sort $pages "Title" }}
-<p class="mb-1 lowercase">
-	<a href="{{ .RelPermalink }}">/{{ .Title }}</a>
-</p>
+  <p class="mb-1 lowercase">
+    <a href="{{ .RelPermalink }}">/{{ .Title }}</a>
+  </p>
 {{ end -}}

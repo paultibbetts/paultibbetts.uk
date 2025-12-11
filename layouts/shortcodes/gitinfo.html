@@ -1,5 +1,8 @@
 {{ with .Page.GitInfo }}
-<time datetime="{{ .AuthorDate }}">{{ .AuthorDate.Format "2006-01-02" }}</time> <code>{{ .Subject }} (<a
-		href="https://github.com/paultibbetts/paultibbetts.uk/commit/{{ .Hash }}">#{{ .AbbreviatedHash
-		}}</a>)</code>
+  <time datetime="{{ .AuthorDate }}">{{ .AuthorDate.Format "2006-01-02" }}</time>
+  <code
+    >{{ .Subject }} (<a href="https://github.com/paultibbetts/paultibbetts.uk/commit/{{ .Hash }}"
+      >#{{ .AbbreviatedHash }}</a
+    >)</code
+  >
 {{ end }}
