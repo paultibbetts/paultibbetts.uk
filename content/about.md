@@ -3,17 +3,17 @@ title = "About"
 type = "page"
 +++
 
-My name's Paul. I grew up in Birmingham and now live in North Wales.
+My name's Paul. I grew up in Birmingham and now live in North Wales <span aria-hidden="true">🏴󠁧󠁢󠁷󠁬󠁳󠁿</span>.
 
-I'm a software engineer with end-to-end experience across the full web stack and the infrastructure that supports it, contributing to products used by some of the most recognisable names in tech.
+I'm a software engineer with experience across the full web stack and the infrastructure that supports it. I've contributed to products used by some of the most recognisable names in tech.
 
-In recent years I've focused on DevOps and Platform Engineering, shaping release processes, making environments more predictable and improving overall system reliability.
+In recent years I’ve focused on DevOps and Platform Engineering, building the foundations that enable teams to deploy, observe, and iterate on backend services with confidence.
 
 I learn best by experimenting, which is why I run my own [homelab](/tags/homelab). It's where I explore new tools, break things safely, and host the services I use every day.
 
 Outside of work I'm usually hiking and/or camping, and sometimes I [write about my trips](https://pinthewild.micro.blog).
 
-My [now](/now) page shows what I'm currently up to.
+My [now](/now) page shows what I'm currently up to and I also have a page for my [interests](/interests).
 
 ## This website
 
