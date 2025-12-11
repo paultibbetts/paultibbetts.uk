@@ -1,18 +1,18 @@
 {{ define "main" }}
-<div class="h-feed hfeed mb-20">
-	<h1 class="p-name mb-8 text-3xl text-light">#{{ .Title }}</h1>
-	{{- with .Content }}
-	<div class="p-summary mb-4">
-		{{ . }}
-	</div>
-	{{ end -}}
+  <div class="h-feed hfeed mb-20">
+    <h1 class="p-name mb-8 text-3xl text-light">#{{ .Title }}</h1>
+    {{- with .Content }}
+      <div class="p-summary mb-4">
+        {{ . }}
+      </div>
+    {{ end -}}
 
-	{{- range .Pages }}
-	<ul class="mb-2">
-		{{ .Render "li" }}
-	</ul>
-	{{ end -}}
+    {{- range .Pages }}
+      <ul class="mb-2">
+        {{ .Render "li" }}
+      </ul>
+    {{ end -}}
 
-	{{ partial "pagination.html" (dict "page" . "format" "terse" )}}
-</div>
+    {{ partial "pagination.html" (dict "page" . "format" "terse" ) }}
+  </div>
 {{ end }}

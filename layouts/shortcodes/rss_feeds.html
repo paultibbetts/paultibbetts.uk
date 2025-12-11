@@ -1,13 +1,14 @@
 <ul class="lowercase">
-	{{ $sorted := sort site.Taxonomies.tags ".Count" "desc" }}
-	<li><a href="/feed.xml">Everything</a></li>
-	<li><a href="/articles/feed.xml">Articles</a></li>
-	<ul>
-		{{ range first 3 $sorted }}
-		<li>
-			<a href="{{ (printf " /tags/%s/feed.xml" .Page.Title | urlize) | relURL }}">#{{ .Page.Title
-				}}</a>
-		</li>
-		{{ end }}
-	</ul>
+  {{ $sorted := sort site.Taxonomies.tags ".Count" "desc" }}
+  <li><a href="/feed.xml">Everything</a></li>
+  <li><a href="/articles/feed.xml">Articles</a></li>
+  <ul>
+    {{ range first 3 $sorted }}
+      <li>
+        <a href="{{ (printf " /tags/%s/feed.xml" .Page.Title | urlize) | relURL }}"
+          >#{{ .Page.Title }}</a
+        >
+      </li>
+    {{ end }}
+  </ul>
 </ul>
