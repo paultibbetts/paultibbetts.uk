@@ -1,10 +1,12 @@
 {{ define "main" }}
-<div class="my-4">
+<div class="my-6">
   {{ partial "hello.html" . }}
 </div>
 <div class="mb-6 text-white">
-  <p class="mb-2">I'm Paul, a Software Engineer in the UK.</p>
-  <p class="mb-2">You've found my blog.</p>
+  <p class="mb-2">I'm Paul 👋</p>
+  <p class="mb-2">Software engineer based in the UK.</p>
+  <p class="mb-2">Learn more <a href="/about">about me</a>, view my <a href="/cv">CV</a>, or explore the <a
+      href="/articles">blog</a>.</p>
 </div>
 <div class="h-feed hfeed mb-6" id="recent">
   <div>
@@ -16,7 +18,7 @@
       {{ .Render "li" }}
       {{ end }}
     </ul>
-    <div class="mb-2 lowercase">
+    <div class="mb-2">
       <p class="text-white">
         View all <a class="u-url u-uid" href="/articles/">articles</a> or
         <a href="/tags/">tags</a>
