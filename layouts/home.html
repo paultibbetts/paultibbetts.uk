@@ -11,6 +11,7 @@
 <div class="h-feed hfeed mb-6" id="recent">
   <div>
     <h2 class="p-name mb-2 lowercase">Recent</h2>
+    <a href="#recent" class="u-url u-uid hidden">Recent</a>
 
     <ul class="mb-6">
       {{ $posts := first 5 (where .Site.RegularPages "Section" "articles") }}
@@ -20,7 +21,7 @@
     </ul>
     <div class="mb-2">
       <p class="text-white">
-        View all <a class="u-url u-uid" href="/articles/">articles</a> or
+        View all <a class="u-url" href="/articles/">articles</a> or
         <a href="/tags/">tags</a>
       </p>
     </div>
