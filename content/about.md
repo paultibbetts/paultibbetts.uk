@@ -11,9 +11,11 @@ In recent years I’ve focused on DevOps and Platform Engineering, building the 
 
 I learn best by experimenting, which is why I run my own [homelab](/tags/homelab). It's where I explore new tools, break things safely, and host the services I use every day.
 
-Outside of work I'm usually hiking and/or camping, and sometimes I [write about my trips](https://pinthewild.micro.blog).
+Outside of work I like hiking and/or camping, and sometimes I [write about my trips](https://pinthewild.micro.blog).
 
 My [now](/now) page shows what I'm currently up to and I also have a page for my [interests](/interests).
+
+For a more formal summary of my professional experience you can read my [CV](/cv).
 
 ## This website
 
