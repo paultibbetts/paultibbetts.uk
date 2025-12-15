@@ -15,12 +15,18 @@ Accurate as of {{<gitinfo>}}.
 
 ## OS
 
-- 🍏 **MacOS** for personal use
-- 💩 **Windows** for gaming
+- 🍏 **macOS** as my daily driver
+- 🐧 [CachyOS](https://cachyos.org/) for gaming on Linux
+- 💩 **Windows** for games that still require it
+- 🟠 **Ubuntu** on bare metal home servers and VMs
+- 🧊 **Proxmox** for virtualisation
+- 🧩 [Talos](https://www.talos.dev/) on my Kubernetes cluster
 
 ## Hardware
 
-- 💻 **M3 Macbook Pro** for personal use
+### Personal
+
+- 💻 **M3 Macbook Pro** as my daily driver
 - 👐 [Glove80](https://moergo.com/) split keyboard
 - 📱 **iPhone 14 Pro**
 - ⌚️ **Apple Watch Ultra**
@@ -29,33 +35,45 @@ Accurate as of {{<gitinfo>}}.
 
 ### Desk
 
-- 🖥️ **PC** for gaming in Windows and working in Ubuntu
+- 🖥️ **PC** primarily for gaming
 - ⌨️ **Razer Huntsman Elite keyboard** for gaming
 - 🖱️ **Razer Viper Ultimate mouse** for gaming
 - 🎧 **Steelseries Arctis Nova Pro headphones** for gaming
 - 🔊 **Samsung soundbar** for ambient background music
 - 🎙️ **Blue Yeti microphone**
 
+### Homelab
+
+- 🗄 NAS for shared storage and backups
+- ⚙️ Intel NUC for virtualisation
+- 🧩 [Turing Pi](https://turingpi.com/product/turing-pi-2-5/) with 3 x [RK1](https://turingpi.com/product/turing-rk1/) running my Kubernetes cluster
+- 🍓 Raspberry Pi 4 for monitoring
+
 ## Software
 
-- 🕸️ [Arc Browser](https://arc.net/gift/d6beda6b) is new to me, I'm still trying it out
+### Apps
+
+- 🧘 [Zen Browser](https://zen-browser.app/)
 - 🕵️‍♂️ **Signal** for secure messaging
 - ☎️ **Discord** for insecure messaging
 - 📝 **Logseq** for notes
 - 🎶 **Apple Music** for playlists and individual songs
 - 💿 [Mixcloud](https://www.mixcloud.com/paultibbetts/favorites/) for mixes and following DJs
 
-### Web
+### Dev
 
 - 📺 [ghostty](https://ghostty.org/) for my terminal
-- ⚡️ **tmux** for window management inside the terminal
+- ⚡️ **tmux** for terminal window management
 - ⌨️ **Neovim** as my editor
-- 🦊 **Firefox Developer Edition** for web development
-- 🐳 **Docker** containers where possible
+- 🦊 **Firefox Developer Edition** sometimes for web development
+- 🌱 Git for version control
+- 🐳 **Docker** containers
 - ☸️ **Kubernetes** for running containers
 - 🤖 **Ansible** for configuring servers
-- 🐹 **Go** on my personal projects
-- 🐘 **PHP** at work
+- 🐹 **Go** for backend and tooling
+- 🐍 **Python** for scripts and experiments
+
+See [paultibbetts/dev](https://paultibbetts.github.io/dev) for more.
 
 ## Desk
 
