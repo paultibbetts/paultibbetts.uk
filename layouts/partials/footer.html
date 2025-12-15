@@ -1,4 +1,4 @@
-<footer>
+<footer class="print:hidden">
   <div class="mt-4 text-sm lowercase" id="footer">
     <div>
       <h2 class="mb-2 lowercase">Footer</h2>
@@ -6,9 +6,9 @@
         {{ partial "h-card.html" . }}
       </div>
       {{- if not .IsHome -}}
-        <div class="mb-2">
-          {{ partial "pages.html" }}
-        </div>
+      <div class="mb-2">
+        {{ partial "pages.html" }}
+      </div>
       {{- end }}
       <div class="mb-2">
         <p>

@@ -1,0 +1,133 @@
+{{ define "main" }}
+{{ $r := .Params.resume }}
+
+<div class="h-resume mb-16">
+  <div id="bio">
+    <h1 class="text-light text-3xl font-bold mb-4">
+      <a class="p-contact h-card border-none" href="{{ $r.website }}">
+        {{ .Site.Params.author.name | default .Site.Title | default "Paul Tibbetts" }}
+      </a>
+      -
+      <span class="p-name">CV</span>
+
+      <span class="hidden">.</span>
+    </h1>
+
+    <p class="text-light mt-2">
+      {{ with $r.region }}{{ . }}{{ end }}{{ if and $r.region $r.country }}, {{ end }}
+      {{ with $r.country }}{{ . }}{{ end }}
+
+      {{ if or $r.email (gt (len $r.profile) 0) }} | {{ end }}
+
+      {{ with $r.email }}
+      <a class="u-email border-none text-inherit" style="font-weight:normal;" href="mailto:{{ . }}">{{ . }}</a>
+      {{ end }}
+
+      {{ range $i, $p := $r.profile }}
+      {{ if or (and (eq $i 0) $r.email) (gt $i 0) }} | {{ end }}
+      <a class="border-none text-inherit" style="font-weight:normal;" href="{{ $p.url }}" {{ with $p.rel }}rel="{{ . }}"
+        {{ end }}>{{ $p.label }}</a>
+      {{ end }}
+    </p>
+  </div>
+
+  <div
+    class="prose prose-invert text-light font-sans prose-lg prose-a:no-underline prose-a:border-b-2 prose-a:border-orange prose-a:hover:border-red">
+
+    {{ with $r.summary }}
+    <section id="summary">
+      <h2>Summary</h2>
+      <div class="p-summary">
+        {{ range . }}
+        <p>{{ . }}</p>
+        {{ end }}
+      </div>
+    </section>
+    {{ end }}
+
+    {{ with $r.skills }}
+    <section id="skills">
+      <h2>Skills</h2>
+      {{ range . }}
+      <h3>{{ .name }}</h3>
+      <ul>
+        {{ range .items }}
+        <li class="p-skill">{{ . }}</li>
+        {{ end }}
+      </ul>
+      {{ end }}
+    </section>
+    {{ end }}
+
+    {{ with $r.experience }}
+    <section>
+      <h2>Experience</h2>
+      {{ range . }}
+      {{ $company := .company }}
+      <article>
+        <header>
+          <h3 class="hidden">
+            {{ $company }}
+          </h3>
+        </header>
+
+        {{ range .role }}
+        <section class="p-experience h-event mt-4">
+          <h3 class="p-name"><span class="p-job-title">{{ .title }}</span> at {{ $company }}</h3>
+
+          <p>
+            {{ with .start }}<time class="dt-start" datetime="{{ . }}">{{ . }}</time>{{ end }}
+            {{ if or .end .current }} - {{ end }}
+            {{ with .end }}<time class="dt-end" datetime="{{ . }}">{{ . }}</time>{{ end }}
+            {{ if .current }}<span>Present</span>{{ end }}
+          </p>
+
+          {{ with .summary }}
+          {{ range . }}
+          <p class="p-summary">{{ . }}</p>
+          {{ end }}
+          {{ end }}
+
+          {{ with .highlights }}
+          <div class="e-content">
+            <ul>
+              {{- range . }}
+              <li>{{ . }}</li>
+              {{- end }}
+            </ul>
+            {{ end }}
+        </section>
+        {{ end }}
+      </article>
+      {{ end }}
+    </section>
+    {{ end }}
+
+    {{ with $r.education }}
+    <section id="education">
+      <h2>Education</h2>
+
+      {{ range . }}
+      <div class="p-education h-event">
+        <span class="p-name">{{ .name }}</span>,
+
+        <span class="h-card"><span class="p-name">{{ .institution }}</span></span>,
+
+        <span>
+          <time class="dt-start" datetime="{{ .start }}">{{ .start }}</time>
+          -
+          <time class="dt-end" datetime="{{ .end }}">{{ .end }}</time>
+        </span>
+      </div>
+      {{ end }}
+    </section>
+    {{ end }}
+
+    {{ if .Content }}
+    {{ .Content }}
+    {{ end }}
+
+  </div>
+
+</div>
+{{ end }}
