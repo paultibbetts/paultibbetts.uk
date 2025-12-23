@@ -12,7 +12,7 @@ type = "resume"
 
   summary = [
     "Senior software engineer with experience spanning full-stack web development, cloud infrastructure, and operational tooling.",
-    "I have spent my career building and operating long-lived production systems, moving comfortably between application code, delivery pipelines, and platform concerns while supporting teams shipping real products at scale.",
+    "I have spent my career developing and operating long-lived production systems, moving comfortably between application code, delivery pipelines, and platform concerns while supporting teams shipping real products at scale.",
   ]
 
   [[resume.profile]]
