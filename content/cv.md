@@ -27,7 +27,7 @@ type = "resume"
 
   [[resume.profile]]
     label = "LinkedIn"
-    url   = "https://linkedin.com/in/your-handle"
+    url   = "https://www.linkedin.com/in/paultibbetts"
     rel   = "me"
 
   [[resume.skills]]
