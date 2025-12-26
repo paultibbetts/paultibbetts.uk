@@ -14,32 +14,34 @@
         <span class="hidden">.</span>
       </h1>
 
-      <p class="text-light mt-2">
-        {{ with $r.region }}{{ . }}{{ end }}{{ if and $r.region $r.country }},{{ end }}
-        {{ with $r.country }}{{ . }}{{ end }}
-
-        {{ if or $r.email (gt (len $r.profile) 0) }}|{{ end }}
-
+      <div class="flex flex-col md:flex-row print:flex-row gap-4">
+        <p class="text-light">
+          {{ with $r.region }}{{ . }}{{ end }}{{ if and $r.region $r.country }},{{ end }}
+          {{ with $r.country }}{{ . }}{{ end }}
+        </p>
         {{ with $r.email }}
-          <a
-            class="u-email border-none text-inherit"
-            style="font-weight:normal;"
-            href="mailto:{{ . }}"
-            >{{ . }}</a
-          >
+          <p class="text-light">
+            <a
+              class="u-email border-none text-inherit"
+              style="font-weight:normal;"
+              href="mailto:{{ . }}"
+              >{{ . }}</a
+            >
+          </p>
         {{ end }}
 
         {{ range $i, $p := $r.profile }}
-          {{ if or (and (eq $i 0) $r.email) (gt $i 0) }}|{{ end }}
-          <a
-            class="border-none text-inherit"
-            style="font-weight:normal;"
-            href="{{ $p.url }}"
-            {{ with $p.rel }}rel="{{ . }}"{{ end }}
-            >{{ $p.label }}</a
-          >
+          <p class="text-light">
+            <a
+              class="border-none text-inherit print-link"
+              style="font-weight:normal;"
+              href="{{ $p.url }}"
+              {{ with $p.rel }}rel="{{ . }}"{{ end }}
+              >{{ $p.label }}</a
+            >
+          </p>
         {{ end }}
-      </p>
+      </div>
     </div>
 
     <div

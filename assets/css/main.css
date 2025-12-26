@@ -164,6 +164,10 @@ footer a {
   @apply font-normal;
   @apply text-2xl;
   @apply text-orange;
+
+  @media print {
+    color: inherit;
+  }
 }
 
 .nav-thing {
@@ -205,4 +209,17 @@ footer a {
 
 .alert-box.red a {
   @apply text-black;
+}
+
+@layer utilities {
+  @media print {
+    .print-link {
+      color: black;
+      text-decoration: none;
+    }
+
+    .print-link::after {
+      content: " - " attr(href);
+    }
+  }
 }
