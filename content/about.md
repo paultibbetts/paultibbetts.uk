@@ -9,9 +9,11 @@ I'm a software engineer with experience across the full web stack and the infras
 
 In recent years I’ve focused on DevOps and Platform Engineering, building the foundations that enable teams to deploy, observe, and iterate on backend services with confidence.
 
+## More about me
+
 I learn best by experimenting, which is why I run my own [homelab](/tags/homelab). It's where I explore new tools, break things safely, and host the services I use every day.
 
-Outside of work I like hiking and/or camping, and sometimes I [write about my trips](https://pinthewild.micro.blog).
+Outside of work I like hiking and camping. Sometimes I [write about my trips](https://pinthewild.micro.blog).
 
 My [now](/now) page shows what I'm currently up to and I also have a page for my [interests](/interests).
 
