@@ -9,7 +9,9 @@
             {{- $parts = $parts | append . -}}
           {{- end -}}
         {{- end }}
-        <h1 class="p-name mb-2 text-3xl text-orange">{{ .Title }}</h1>
+        <h1 class="p-name mb-2 text-3xl text-orange {{ if .Params.hide_title }}hidden{{ end }}">
+          {{ .Title }}
+        </h1>
         {{ with .Date -}}
           <p class="mb-2">
             <time

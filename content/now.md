@@ -1,6 +1,7 @@
 +++
 title = "Now"
 type = "page"
+hide_title = true
 +++
 
 ## I'm on a break.
