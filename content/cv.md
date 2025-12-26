@@ -77,8 +77,7 @@ type = "resume"
   [[resume.skills]]
     name = "Databases & Storage"
     items = [
-      "PostgreSQL",
-      "MySQL",
+      "PostgreSQL, MySQL",
       "Redis",
       "Object storage: S3, MinIO"
     ]
