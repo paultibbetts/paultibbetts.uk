@@ -129,11 +129,10 @@
 }
 
 body {
+  @apply font-mono;
   @apply max-w-3xl;
   @apply p-2;
   margin: 0.5rem auto 0.5rem auto;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
-  --un-text-opacity: 1;
 
   color: rgba(156, 163, 175, 1);
   line-height: 1.6;
@@ -141,9 +140,9 @@ body {
 }
 
 a {
-  @apply text-white;
   @apply border-b-2;
   @apply border-orange;
+  @apply text-white;
 
   @variant hover {
     @apply border-red;
@@ -158,6 +157,13 @@ footer a {
     @apply border-b-2;
     @apply border-purple-200;
   }
+}
+
+.prose h2 {
+  @apply font-mono;
+  @apply font-normal;
+  @apply text-2xl;
+  @apply text-orange;
 }
 
 .nav-thing {
