@@ -223,3 +223,13 @@ footer a {
     }
   }
 }
+
+.emoji-list {
+  list-style-position: outside;
+  padding-left: 1.5rem;
+}
+
+.emoji-list li::marker {
+  content: attr(data-emoji) " ";
+  font-size: 1rem;
+}
