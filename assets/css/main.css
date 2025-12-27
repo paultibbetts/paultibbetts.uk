@@ -225,11 +225,18 @@ footer a {
 }
 
 .emoji-list {
-  list-style-position: outside;
-  padding-left: 1.5rem;
+  list-style: none;
+  padding-left: 0;
 }
 
-.emoji-list li::marker {
-  content: attr(data-emoji) " ";
-  font-size: 1rem;
+.emoji-list li {
+  position: relative;
+  padding-left: 1.75rem;
+}
+
+.emoji-list li::before {
+  content: attr(data-emoji);
+  position: absolute;
+  left: 0;
+  top: 0;
 }
