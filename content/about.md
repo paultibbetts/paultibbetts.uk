@@ -15,9 +15,9 @@ I learn best by experimenting, which is why I run my own [homelab](/tags/homelab
 
 Outside of work I like hiking and camping. Sometimes I [write about my trips](https://pinthewild.micro.blog).
 
-My [now](/now) page shows what I'm currently up to and I also have a page for my [interests](/interests).
+My [now](/now) page shows what I'm up to and I also have a page for my [interests](/interests).
 
-For a more formal summary of my professional experience you can read my [CV](/cv).
+For a more formal summary of my experience you can read my [CV](/cv).
 
 ## This website
 
