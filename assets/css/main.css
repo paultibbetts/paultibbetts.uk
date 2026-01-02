@@ -231,12 +231,12 @@ footer a {
 
 .emoji-list li {
   position: relative;
-  padding-left: 1.75rem;
+  padding-left: 1.625rem;
 }
 
 .emoji-list li::before {
   content: attr(data-emoji);
   position: absolute;
-  left: 0;
+  left: .25rem;
   top: 0;
 }
