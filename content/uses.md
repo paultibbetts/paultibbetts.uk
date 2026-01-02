@@ -18,9 +18,9 @@ Accurate as of {{<gitinfo>}}.
 - 🍏 **macOS** as my daily driver
 - 🐧 [CachyOS](https://cachyos.org/) for gaming on Linux
 - 💩 **Windows** for games that still require it
-- 🟠 **Ubuntu** on bare metal home servers and VMs
+- 🟠 **Ubuntu** on home server VMs
 - 🧊 **Proxmox** for virtualisation
-- 🧩 [Talos](https://www.talos.dev/) on my Kubernetes cluster
+- 🧩 [Talos](https://www.talos.dev/) in my Kubernetes cluster
 
 ## Hardware
 
@@ -36,17 +36,17 @@ Accurate as of {{<gitinfo>}}.
 ### Desk
 
 - 🖥️ **PC** primarily for gaming
-- ⌨️ **Razer Huntsman Elite keyboard** for gaming
-- 🖱️ **Razer Viper Ultimate mouse** for gaming
-- 🎧 **Steelseries Arctis Nova Pro headphones** for gaming
-- 🔊 **Samsung soundbar** for ambient background music
+- ⌨️ **Razer Huntsman Elite keyboard**
+- 🖱️ **Razer Viper Ultimate mouse**
+- 🎧 **Steelseries Arctis Nova Pro headphones**
+- 🔊 **Samsung soundbar**
 - 🎙️ **Blue Yeti microphone**
 
 ### Homelab
 
 - 🗄 NAS for shared storage and backups
 - ⚙️ Intel NUC for virtualisation
-- 🧩 [Turing Pi](https://turingpi.com/product/turing-pi-2-5/) with 3 x [RK1](https://turingpi.com/product/turing-rk1/) running my Kubernetes cluster
+- 🧩 [Turing Pi](https://turingpi.com/product/turing-pi-2-5/) with 3 x [RK1](https://turingpi.com/product/turing-rk1/) for K8s
 - 🍓 Raspberry Pi 4 for monitoring
 
 ## Software
@@ -57,7 +57,7 @@ Accurate as of {{<gitinfo>}}.
 - 🕵️‍♂️ **Signal** for secure messaging
 - ☎️ **Discord** for insecure messaging
 - 📝 **Logseq** for notes
-- 🎶 **Apple Music** for playlists and individual songs
+- 🎶 **Apple Music** for playlists and songs
 - 💿 [Mixcloud](https://www.mixcloud.com/paultibbetts/favorites/) for mixes and following DJs
 
 ### Dev
@@ -65,7 +65,7 @@ Accurate as of {{<gitinfo>}}.
 - 📺 [ghostty](https://ghostty.org/) for my terminal
 - ⚡️ **tmux** for terminal window management
 - ⌨️ **Neovim** as my editor
-- 🦊 **Firefox Developer Edition** sometimes for web development
+- 🦊 **Firefox Developer Edition** sometimes
 - 🌱 Git for version control
 - 🐳 **Docker** containers
 - ☸️ **Kubernetes** for running containers
@@ -77,11 +77,11 @@ See [paultibbetts/dev](https://paultibbetts.github.io/dev) for more.
 
 ## Desk
 
-- 🖥️ **LG C1 48" TV** for when you want IMAX mode
-- 📺 **LG 27" monitor** in portrait mode for a second screen
+- 🖥️ **LG C1 48" TV** for IMAX mode
+- 📺 **LG 27" monitor** in portrait mode
 - 🪵 **DIY Desk** dark walnut stain
 - 🧍 **Sit/Stand desk legs made by Fully**
 - 💺 **Herman Miller Embody chair**
-- 📸 **GoPro 11 camera** as a webcam (I need a proper one)
+- 📸 **GoPro 11 camera** as a webcam
 - 💡 **2 x Elgato Key Light** for video calls
-- 🎹 **Elgato Stream Deck +** for extra buttons and dials
+- 🎹 **Elgato Stream Deck +**
