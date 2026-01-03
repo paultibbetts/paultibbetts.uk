@@ -44,10 +44,10 @@ Accurate as of {{<gitinfo>}}.
 
 ### Homelab
 
-- 🗄 NAS for shared storage and backups
-- ⚙️ Intel NUC for virtualisation
+- 🗄 **NAS** for shared storage and backups
+- ⚙️ **Intel NUC** for virtualisation
 - 🧩 [Turing Pi](https://turingpi.com/product/turing-pi-2-5/) with 3 x [RK1](https://turingpi.com/product/turing-rk1/) for K8s
-- 🍓 Raspberry Pi 4 for monitoring
+- 🍓 **Raspberry Pi 4** for monitoring
 
 ## Software
 
