@@ -54,16 +54,20 @@ Accurate as of {{<gitinfo>}}.
 ### Apps
 
 - 🧘 [Zen Browser](https://zen-browser.app/)
+- 📰 [NetNewsWire](https://netnewswire.com/) as an RSS client
 - 🕵️‍♂️ **Signal** for secure messaging
 - ☎️ **Discord** for insecure messaging
+- ⚡ [Raycast](https://www.raycast.com/) as a launcher
 - 📝 **Logseq** for notes
+- 📝 **Obsidian** for writing
+- 🔐 [1Password](https://1password.com/) for password management
 - 🎶 **Apple Music** for playlists and songs
 - 💿 [Mixcloud](https://www.mixcloud.com/paultibbetts/favorites/) for mixes and following DJs
 
 ### Dev
 
 - 📺 [ghostty](https://ghostty.org/) for my terminal
-- ⚡️ **tmux** for terminal window management
+- 🪟 **tmux** for terminal window management
 - ⌨️ **Neovim** as my editor
 - 🦊 **Firefox Developer Edition** sometimes
 - 🌱 Git for version control
