@@ -1,5 +1,6 @@
 +++
 title = "Elsewhere"
+page_title = "Paul Tibbetts Elsewhere"
 type = "page"
 +++
 

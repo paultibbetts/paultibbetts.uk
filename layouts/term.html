@@ -1,3 +1,9 @@
+{{ define "title" }}
+  #{{ .Title }}
+  -
+  {{ .Site.Title }}
+{{ end }}
+
 {{ define "main" }}
   <div class="h-feed hfeed mb-20">
     <h1 class="p-name mb-8 text-3xl text-light">#{{ .Title }}</h1>
