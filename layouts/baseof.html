@@ -3,7 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+    <title>
+      {{- block "title" . -}}
+        {{- $site := .Site.Title -}}
+        {{- if .Params.page_title -}}
+          {{ .Params.page_title }}
+        {{- else if .IsHome -}}
+          {{ $site }}
+        {{- else -}}
+          {{- with .Title -}}
+            {{ . }}
+            -
+            {{ $site }}
+          {{- else -}}
+            {{ $site }}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    </title>
     <meta name="description" content="Blog" />
     {{- with .OutputFormats.Get "rss" -}}
       {{- printf `

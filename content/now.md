@@ -1,7 +1,7 @@
 +++
 title = "Now"
-type = "page"
 hide_title = true
+type = "page"
 +++
 
 ## I'm on a break.
