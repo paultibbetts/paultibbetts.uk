@@ -7,7 +7,7 @@ Some things never change. My website does.
 
 ## 2026-01-06
 
-- [b806c25](https://github.com/paultibbetts/paultibbetts.uk/commit/b806c258309ad00ef195f2ea65035142dce90317): added ability to set custom page titles
+- [b806c25](https://github.com/paultibbetts/paultibbetts.uk/commit/b806c258309ad00ef195f2ea65035142dce90317): added the ability to set custom page titles
 
 Noticed my page titles were all the same when I found [my site on Marginalia Search](https://marginalia-search.com/site/paultibbetts.uk). Oops.
 
@@ -35,3 +35,52 @@ Noticed my page titles were all the same when I found [my site on Marginalia Sea
 ## 2025-05-20
 
 - [e5e1d75](https://github.com/paultibbetts/paultibbetts.uk/commit/e5e1d7547f4b533db7e4ad80ca6d882bb278507f): launched the Hugo iteration of my site 🚀
+
+<hr>
+
+## 2022-2025
+
+Powered by [îles](https://iles.pages.dev/).
+
+## 2020 - 2022
+
+Powered by [Gridsome](https://gridsome.org/).
+
+## 2018 - 2020
+
+Powered by [Nuxt](https://nuxt.com/).
+
+## 2015 - 2018
+
+Powered by [Wordpress](https://wordpress.org/).
+
+## 2015-04-05
+
+Registered the domain `paultibbetts.uk`.
+
+## 2014 - 2015
+
+Powered by [WordPress](https://wordpress.org/) and I rebranded to `selfstarter.pt`…
+
+Shared the following quote by Jarod Kintz:
+
+> Just because I liked something at one point in time doesn't mean I'll always like it, or that I have to go on liking it at all points in time as an unthinking act of loyalty to who I am as a person, based solely on who I was as a person. To be loyal to myself is to allow myself to grow and change, and challenge who I am and what I think.
+
+## 2013 - 2014
+
+Powered by [Ghost](https://ghost.org/).
+
+> It will never be finished and it will never be perfect but that's the point.
+> Each bug fixed is a problem solved, each experiment done is knowledge gained and each post written is documentation for the next time I have that problem.
+
+## 2012 - 2013
+
+Powered by [Jekyll](https://jekyllrb.com/).
+
+> I'm going to be the first web-developer on Mars
+
+Really, I had just read a book about marketing.
+
+## 2012-08-17
+
+Registered the domain `paultibbetts.co.uk`.
