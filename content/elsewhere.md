@@ -6,6 +6,7 @@ type = "page"
 
 - [Bluesky](https://bsky.app/profile/paultibbetts.uk)
 - [GitHub](https://github.com/paultibbetts)
+- [IndieWeb.org](https://indieweb.org/User:Paultibbetts.uk)
 - [LinkedIn](https://www.linkedin.com/in/paultibbetts)
 - [Mastodon](https://indieweb.social/@paultibbetts)
 - [Micro.blog](https://micro.blog/paultibbetts)
