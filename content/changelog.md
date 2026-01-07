@@ -7,7 +7,7 @@ Some things never change. My website does.
 
 ## 2026-01-06
 
-- [b806c25](https://github.com/paultibbetts/paultibbetts.uk/commit/b806c258309ad00ef195f2ea65035142dce90317): added the ability to set custom page titles
+- [b806c25](https://github.com/paultibbetts/paultibbetts.uk/commit/b806c258309ad00ef195f2ea65035142dce90317): fixed page titles and added the ability to set custom ones
 
 Noticed my page titles were all the same when I found [my site on Marginalia Search](https://marginalia-search.com/site/paultibbetts.uk). Oops.
 
@@ -34,7 +34,7 @@ Noticed my page titles were all the same when I found [my site on Marginalia Sea
 
 ## 2025-05-20
 
-- [e5e1d75](https://github.com/paultibbetts/paultibbetts.uk/commit/e5e1d7547f4b533db7e4ad80ca6d882bb278507f): launched the Hugo iteration of my site 🚀
+- [e5e1d75](https://github.com/paultibbetts/paultibbetts.uk/commit/e5e1d7547f4b533db7e4ad80ca6d882bb278507f): launched the [Hugo](https://gohugo.io/) iteration 🚀
 
 <hr>
 
@@ -60,7 +60,7 @@ Registered the domain `paultibbetts.uk`.
 
 ## 2014-2015
 
-Powered by [WordPress](https://wordpress.org/) and I rebranded to `selfstarter.pt`…
+Powered by [WordPress](https://wordpress.org/) and I rebranded as `selfstarter.pt`…
 
 Shared the following quote by Jarod Kintz:
 
@@ -79,7 +79,7 @@ Powered by [Jekyll](https://jekyllrb.com/).
 
 > I'm going to be the first web-developer on Mars
 
-Really, I had just read a book about marketing.
+I had just read a book about marketing.
 
 ## 2012-08-17
 
