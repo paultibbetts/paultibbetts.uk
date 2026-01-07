@@ -42,15 +42,15 @@ Noticed my page titles were all the same when I found [my site on Marginalia Sea
 
 Powered by [îles](https://iles.pages.dev/).
 
-## 2020 - 2022
+## 2020-2022
 
 Powered by [Gridsome](https://gridsome.org/).
 
-## 2018 - 2020
+## 2018-2020
 
 Powered by [Nuxt](https://nuxt.com/).
 
-## 2015 - 2018
+## 2015-2018
 
 Powered by [Wordpress](https://wordpress.org/).
 
@@ -58,7 +58,7 @@ Powered by [Wordpress](https://wordpress.org/).
 
 Registered the domain `paultibbetts.uk`.
 
-## 2014 - 2015
+## 2014-2015
 
 Powered by [WordPress](https://wordpress.org/) and I rebranded to `selfstarter.pt`…
 
@@ -66,14 +66,14 @@ Shared the following quote by Jarod Kintz:
 
 > Just because I liked something at one point in time doesn't mean I'll always like it, or that I have to go on liking it at all points in time as an unthinking act of loyalty to who I am as a person, based solely on who I was as a person. To be loyal to myself is to allow myself to grow and change, and challenge who I am and what I think.
 
-## 2013 - 2014
+## 2013-2014
 
 Powered by [Ghost](https://ghost.org/).
 
 > It will never be finished and it will never be perfect but that's the point.
 > Each bug fixed is a problem solved, each experiment done is knowledge gained and each post written is documentation for the next time I have that problem.
 
-## 2012 - 2013
+## 2012-2013
 
 Powered by [Jekyll](https://jekyllrb.com/).
 
