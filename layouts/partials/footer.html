@@ -2,7 +2,7 @@
   <div class="mt-4 text-sm lowercase" id="footer">
     <div>
       <h2 class="mb-2 lowercase">Footer</h2>
-      <div class="mb-2">
+      <div class="mb-2 {{ if .IsHome }}hidden{{ end }}">
         {{ partial "h-card.html" . }}
       </div>
       {{- if not .IsHome -}}
