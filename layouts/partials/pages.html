@@ -9,8 +9,10 @@
     {{- $pages = $pages | append . -}}
   {{- end -}}
 {{- end -}}
-{{- range sort $pages "Title" }}
-  <p class="mb-1 lowercase">
-    <a href="{{ .RelPermalink }}">/{{ .Title }}</a>
-  </p>
-{{ end -}}
+<ul class="list-none">
+  {{- range sort $pages "Title" }}
+    <li class="mb-2 lowercase">
+      <a href="{{ .RelPermalink }}">/{{ .Title }}</a>
+    </li>
+  {{ end -}}
+</ul>
