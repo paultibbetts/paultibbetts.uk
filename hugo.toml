@@ -1,54 +1,139 @@
-baseURL = 'https://paultibbetts.uk/'
-languageCode = 'en-gb'
-title = 'Paul Tibbetts'
-description = "Blog"
+# ==========================
+# Site Identity
+# ==========================
 
+# Canonical site URL used for absolute URLS (RSS, sitemaps, etc.)
+baseURL = 'https://paultibbetts.uk/'
+
+# Content language.
+languageCode = 'en-gb'
+
+# Site title (used in templates, <title>, RSS <title>, etc.)
+title = 'Paul Tibbetts'
+
+# Controls whether Hugo Title-Cases list page titles (sections, taxonomies)
+# Set to false so I can keep the titles as I write them.
 capitalizeListTitles = false
+
+# ==========================
+# Caching
+# ==========================
 
 [caches]
   [caches.images]
+    # Stores Hugo's processed image cache under the build cache directory.
+    # :cacheDir is an internal Hugo placeholder.
     dir = ':cacheDir/images'
 
+# ==========================
+# Params (themes, templates)
+# ==========================
+
 [params]
+  # "Site iamges" list used by the built-in Open Graph partial.
 	images = [ '/apple-touch-icon.png' ]
 	[params.author]
+    # Author name used by some templates.
 	  name = 'Paul Tibbetts'
 
+# ==========================
+# Permalinks
+# ==========================
+
 [permalinks]
+  # Sets URl patterns for the articles section.
   articles = '/:year/:month/:day/:title/'
 
+# ==========================
+# Taxonomies
+# =========================
+
 [taxonomies]
+  # Defines taxonomy singular -> plural
+  # This sets only tags, overridng the default tags + categories
 	tags = 'tags'
 
+# ==========================
+# Output kinds (what gets generated)
+# ==========================
+
 [outputs]
+  # Home (AKA the index at /) outputs both HTML and RSS.
+  # This is the site feed for everything (/feed.xml)
   home = ['html', 'rss']
+
+  # Section pages (e.g. /articles) output both HTML and RSS>
   section = ['html', 'rss']
+
+  # Taxonomy list pages (e.g. /tags) output only HTML.
+  # The default setting of both HTML and RSS meant I had an RSS feed for the tags themselves.
   taxonomy = ['html']
+
+  # Taxonomy term pages (e.g. /tags/hugo) output both HTML and RSS.
+  # This makes an RSS feed for every tag.
   term = ['html', 'rss']
 
+# ==========================
+# RSS feed customisation
+# ==========================
+
 [outputFormats.RSS]
-mediatype = "application/rss+xml"
-baseName = "feed"
+  # Explicit media type for RSS.
+  mediatype = "application/rss+xml"
+
+  # The name of the file. This overwrites the default "index.xml" to "feed.xml".
+  # - /feed.xml
+  # - /tags/hugo/feed.xml
+  baseName = "feed"
+
+# ==========================
+# Build pipeline
+# =========================
 
 [build]
   [build.buildStats]
+    # Enables build stats for Tailwind to use to prune unused CSS.
     enable = true
+
   [[build.cachebusters]]
+    # Cache busting rule: when this file changes, bump the cache for CSS.
+    # This is pointed at a mounted location (see mounting below) to keep the file out of the live-reload watcher.
     source = 'assets/notwatching/hugo_stats\.json'
     target = 'css'
+
   [[build.cachebusters]]
+    # Bust the cache when the Tailwind or PostCSS config changes.
     source = '(postcss|tailwind)\.config\.js'
     target = 'css'
+
+# ==========================
+# Hugo Modules + mounts
+# ==========================
+
 [module]
   [[module.mounts]]
+    # Mount the local /assets into Hugo's virtual filesystem at /assets.
     source = 'assets'
     target = 'assets'
+
+  # Mount hugo_stats.json into /assets/notwatching, and stop watching it.
+  # The above cache buster setting will trigger updates when it needs to.
+  # This stops an infinite loop of file change -> trigger rebuild.
   [[module.mounts]]
     disableWatch = true
     source = 'hugo_stats.json'
     target = 'assets/notwatching/hugo_stats.json'
 
+# ==========================
+# Markdown rendering
+# ==========================
+
 [markup.goldmark.renderer]
+      # If true, hard line breaks in Markdown become <br>.
       hardWraps = false
+      # Allows "unsafe" markdown to allow raw HTML passthrough.
+      # This lets me write HTML in markdown.
+      # It's only me writing content and I don't load in markdown from anywhere else.
       unsafe = true
+      # Output XHTML-compatible tags if true. False is HTML5-style markup.
       xhtml = false
