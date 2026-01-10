@@ -52,7 +52,7 @@ Powered by [Nuxt](https://nuxt.com/).
 
 ## 2015-2018
 
-Powered by [Wordpress](https://wordpress.org/).
+Powered by [WordPress](https://wordpress.org/).
 
 ## 2015-04-05
 
