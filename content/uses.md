@@ -58,9 +58,9 @@ Accurate as of {{<gitinfo>}}.
 - 📰 [NetNewsWire](https://netnewswire.com/) as an RSS client
 - 🕵️‍♂️ **Signal** for secure messaging
 - ☎️ **Discord** for insecure messaging
-- ⚡ [Raycast](https://www.raycast.com/) as a launcher
+- ⚡ [Raycast](https://www.raycast.com/)
 - 📝 **Logseq** for notes
-- 📝 **Obsidian** for writing
+- 🖊️ **Obsidian** for writing
 - 🔐 [1Password](https://1password.com/) for password management
 - 🎶 **Apple Music** for playlists and songs
 - 💿 [Mixcloud](https://www.mixcloud.com/paultibbetts/favorites/) for mixes and following DJs
