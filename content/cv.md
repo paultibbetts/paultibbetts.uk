@@ -91,7 +91,7 @@ type = "resume"
   current = true
 
   summary = [
-    "Full-time independent engineering work focused on building and operating production-style systems."
+    "Full-time independent engineering work."
   ]
 
   highlights = [
