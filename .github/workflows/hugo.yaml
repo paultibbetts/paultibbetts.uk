@@ -129,7 +129,7 @@ jobs:
           DEPLOY_PORT: ${{ secrets.DEPLOY_PORT }}
           DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
           DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
-          LOCAL_BUILD_PATH: ./public
+          LOCAL_BUILD_DIR: ./public
           SSH_KEY_PATH: ~/.ssh/id_ed25519
           SSH_KNOWN_HOSTS_PATH: ~/.ssh/known_hosts
           KEEP_RELEASES: "3"
