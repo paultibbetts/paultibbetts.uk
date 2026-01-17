@@ -85,7 +85,7 @@ jobs:
         with:
           name: hugo-public
           path: ./public
-          retention_days: 7
+          retention-days: 7
 
   deploy_pages:
     environment:
