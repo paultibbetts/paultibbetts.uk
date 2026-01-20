@@ -6,7 +6,7 @@ tags = ['Ansible', 'Terraform']
 
 Terraform and Ansible are complementary tools with which you can do Infrastructure as Code. You would use [Terraform](https://www.terraform.io/) to request machines from providers and then [Ansible](https://docs.ansible.com/ansible/latest/index.html) to configure them.
 
-Using both of them together with a dynamic inventory to link them has been technically possible for years but never obvious enough for me to work out.
+Using both of them together, with a dynamic inventory to link them, has been technically possible for years but never obvious enough for me to work out.
 
 Until I found the Terraform provider.
 
@@ -35,11 +35,11 @@ resource "proxmox_vm_qemu" "gitea" {
 	...
 }
 
-resource "ansible_host" "gitea-0" {
+resource "ansible_host" "gitea" {
   name   = proxmox_vm_qemu.gitea.ssh_host
   groups = ["gitea"]
   variables = {
-    ansible_user = "ubuntu"
+    ansible_user = "ansible"
   }
 }
 ```
@@ -60,7 +60,7 @@ collections:
     version: 1.1.0
 ```
 
-and then install the collection using `ansible-galaxy install -r requirements.yaml`,
+and then install the collection using `ansible-galaxy collection install -r requirements.yaml`,
 
 then create an `inventory.yaml` with the following content:
 
@@ -88,21 +88,8 @@ which should return something like the following:
 ```sh
 @all:
   |--@ungrouped:
-  |--@apps:
-  |  |--192.168.1.10
-  |--@database:
-  |  |--192.168.1.201
-  |  |--192.168.1.202
-  |--@mysql:
-  |  |--192.168.1.201
-  |--@postgres:
-  |  |--192.168.1.202
-  |--@pihole:
-  |  |--192.168.1.2
   |--@gitea:
   |  |--192.168.1.211
-  |--@ingress:
-  |  |--192.168.1.9
 ```
 
 ## 🎉
