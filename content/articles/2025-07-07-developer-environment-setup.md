@@ -40,6 +40,6 @@ So the site is a seedbed in my digital garden. It's a place for me to share my n
 
 ## Seedling <span aria-hidden="true">🌱</span>
 
-If you're curious you can [check it out](https://paultibbetts.github.io/dev/). 
+If you're curious you can [check it out](https://dev.paultibbetts.uk/).
 
 It's just a seedling right now, but who knows, maybe I can grow it into something fruitful.
