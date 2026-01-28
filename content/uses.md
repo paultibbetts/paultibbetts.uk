@@ -6,7 +6,7 @@ type = "page"
 
 This is the tech I use. 
 
-I have separate pages for my [developer environment](https://paultibbetts.github.io/dev) and [wildcamping gear](https://pinthewild.micro.blog/uses).
+I have separate pages for my [developer environment](https://dev.paultibbetts.uk) and [wildcamping gear](https://pinthewild.micro.blog/uses).
 
 See [uses.tech](https://uses.tech/) for more `/uses` pages.
 
@@ -78,7 +78,7 @@ Accurate as of {{<gitinfo>}}.
 - 🐹 **Go** for backend and tooling
 - 🐍 **Python** for scripts and experiments
 
-See [paultibbetts/dev](https://paultibbetts.github.io/dev) for more.
+See [paultibbetts/dev](https://dev.paultibbetts.uk) for more.
 
 ## Desk
 
