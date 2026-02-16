@@ -7,7 +7,6 @@
             >{{ .Title }}</a
           >
         </h2>
-
         {{ if .Summary }}
           <div class="p-summary text-white mb-4 font-sans prose prose-invert">{{ .Summary }}</div>
         {{ end }}
@@ -22,23 +21,28 @@
         {{- end -}}
       </div>
     {{ end -}}
-    <a
-      href="{{ .RelPermalink }}"
-      class="dt-published"
-      style="border: none; color: inherit; text-align: right; display: block;"
-      >{{ .Date.Format "2006-01-02 15:04:05" }}</a
-    >
-    {{- with .GetTerms "tags" }}
-      <ul class="mb-2" style="display: block; text-align: right;">
-        {{- range . }}
-          <li class="p-category mb-2" style="display: inline">
-            <a href="{{ .RelPermalink }}" rel="category tag" style="border: none; color: inherit"
-              >#{{ .Title }}</a
-            >
-          </li>
-        {{- end }}
-      </ul>
-    {{- end }}
-
+    <div class="text-sm">
+      <a
+        href="{{ .RelPermalink }}"
+        class="dt-published"
+        style="border: none; color: inherit; text-align: right; display: block;"
+        >{{ .Date.Format "2006-01-02 15:04:05" }}</a
+      >
+      {{- with .GetTerms "tags" }}
+        <ul class="mb-2" style="display: block; text-align: right;">
+          {{- range . }}
+            <li class="p-category mb-2" style="display: inline">
+              <a
+                class="prepended-icon hashtag"
+                href="{{ .RelPermalink }}"
+                rel="category tag"
+                style="border: none; color: inherit; display: inline-block; margin-left: 1rem;"
+                >{{ .Title }}</a
+              >
+            </li>
+          {{- end }}
+        </ul>
+      {{- end }}
+    </div>
   </div>
 </li>
