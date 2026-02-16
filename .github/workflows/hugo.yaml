@@ -100,7 +100,8 @@ jobs:
 
   deploy:
     environment:
-      name: production
+      name: pi
+      url: https://paultibbetts.uk
     runs-on: ubuntu-latest
     needs: build
     steps:
