@@ -1,6 +1,6 @@
 {{ define "main" }}
   <div class="mb-20">
-    <article class="h-entry">
+    <article class="h-entry {{ .Section }}">
       <header class="mb-8">
         {{- $rawParts := split .RelPermalink "/" -}}
         {{- $parts := slice -}}
@@ -9,9 +9,11 @@
             {{- $parts = $parts | append . -}}
           {{- end -}}
         {{- end }}
-        <h1 class="p-name mb-4 text-3xl text-orange {{ if .Params.hide_title }}hidden{{ end }}">
-          {{ .Title }}
-        </h1>
+        {{ if .Title }}
+          <h1 class="p-name mb-4 text-3xl text-orange {{ if .Params.hide_title }}hidden{{ end }}">
+            {{ .Title }}
+          </h1>
+        {{ end }}
         <div class="mb-4">
           <time
             class="dt-published"

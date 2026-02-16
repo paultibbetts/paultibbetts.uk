@@ -257,6 +257,10 @@ footer a {
   content: "✏️";
 }
 
+.notes .prose p:first-child {
+  @apply font-mono;
+}
+
 .prepended-icon.hashtag:before {
   content: "#";
   left: -0.8em;

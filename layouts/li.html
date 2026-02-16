@@ -13,7 +13,7 @@
       </div>
     {{- else }}
       <div class="mb-4">
-        <div class="p-summary text-white mb-4">{{ .Summary }}</div>
+        <div class="p-summary prose prose-invert font-sans text-white mb-4">{{ .Summary }}</div>
         {{- if .Truncated -}}
           <div class="mb-4">
             <a href="{{ .RelPermalink }}">read more</a>
