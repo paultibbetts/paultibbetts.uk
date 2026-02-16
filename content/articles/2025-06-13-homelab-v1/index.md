@@ -6,6 +6,8 @@ tags = ['homelab']
 
 My Homelab has hit its first milestone 🚀
 
+<!--more-->
+
 ## Cloud
 
 The biggest problem with my homelab was that I kept breaking it. 

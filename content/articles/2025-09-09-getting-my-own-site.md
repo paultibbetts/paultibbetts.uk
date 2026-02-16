@@ -10,6 +10,8 @@ This is easier said than done, and there are lots of different ways of doing it.
 
 This is what I did.
 
+<!--more-->
+
 ## As a web developer
 
 There are three paths to getting your own site.
