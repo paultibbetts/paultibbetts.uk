@@ -9,39 +9,73 @@
             {{- $parts = $parts | append . -}}
           {{- end -}}
         {{- end }}
-        <h1 class="p-name mb-2 text-3xl text-orange {{ if .Params.hide_title }}hidden{{ end }}">
+        <h1 class="p-name mb-4 text-3xl text-orange {{ if .Params.hide_title }}hidden{{ end }}">
           {{ .Title }}
         </h1>
-        {{ with .Date -}}
-          <p class="mb-2">
-            <time
-              class="dt-published"
-              datetime="{{ . }}"
-              itemprop="dateCreated pubdate datePublished"
-            >
-              {{ .| time.Format ":date_medium" }}
-            </time>
-          </p>
-        {{- end }}
+        <div class="mb-4">
+          <time
+            class="dt-published"
+            datetime="{{ .Date }}"
+            itemprop="dateCreated pubdate datePublished"
+            style="border: none; color: rgba(156, 163, 175, 1);"
+          >
+            {{ .Date| time.Format ":date_medium" }}
+          </time>
+        </div>
+
+        {{ if .ContentWithoutSummary }}
+          <div class="p-summary mb-2 prose prose-invert text-light font-sans">{{ .Summary }}</div>
+        {{ else }}
+          <div
+            class="e-content prose prose-invert text-light font-sans prose-a:no-underline prose-a:border-b-2 prose-a:border-orange prose-a:hover:border-red mb-16"
+          >
+            {{ .Content }}
+          </div>
+        {{ end }}
       </header>
-      <div
-        class="e-content prose prose-invert text-light font-sans prose prose-a:no-underline prose-a:border-b-2 prose-a:border-orange prose-a:hover:border-red mb-16"
-      >
-        {{ .Content }}
-      </div>
+      {{ if .ContentWithoutSummary }}
+        <div
+          class="e-content prose prose-invert text-light font-sans prose-a:no-underline prose-a:border-b-2 prose-a:border-orange prose-a:hover:border-red mb-16"
+        >
+          {{ .ContentWithoutSummary }}
+        </div>
+      {{ end }}
       <footer>
         <div class="mb-4">
+          {{ if .Date -}}
+            <p class="mb-2">
+              <a href="{{ .RelPermalink }}">
+                <time
+                  class="dt-published"
+                  datetime="{{ . }}"
+                  itemprop="dateCreated pubdate datePublished"
+                  style="border: none; color: rgba(156, 163, 175, 1); display: block; text-align: right;"
+                >
+                  {{ .Date.Format "15:04:05" }}
+                </time>
+              </a>
+            </p>
+          {{- end }}
           {{- with .GetTerms "tags" }}
-            <p class="mb-2">tagged with:</p>
-            <ul>
+            <ul class="w-full mb-2" style="display: flex; justify-content: flex-end;">
               {{- range . }}
-                <li class="p-category mb-2">
-                  <a href="{{ .RelPermalink }}" rel="category tag">#{{ .Title }}</a>
+                <li
+                  class="p-category"
+                  style="display: flex; gap: 0.75rem; justify-content: flex-end;"
+                >
+                  <a
+                    href="{{ .RelPermalink }}"
+                    rel="category tag"
+                    class="prepended-icon hashtag"
+                    style="border: none; color: inherit; display: inline-block; margin-left: 1.5rem;"
+                    >{{ .Title }}</a
+                  >
                 </li>
               {{- end }}
             </ul>
           {{- end }}
         </div>
+
         <div class="hidden">
           <p>
             written by

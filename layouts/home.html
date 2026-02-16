@@ -12,18 +12,18 @@
   </div>
   <div class="h-feed hfeed mb-6" id="recent">
     <div>
-      <h2 class="p-name mb-2 lowercase">Recent</h2>
+      <h2 class="p-name mb-4 lowercase">Recent:</h2>
       <a href="#recent" class="u-url u-uid hidden">Recent</a>
 
       <ul class="mb-6">
-        {{ $posts := first 5 (where .Site.RegularPages "Section" "articles") }}
-        {{ range $posts }}
+        {{ $posts := first 3 (where .Site.RegularPages "Section" "in" (slice "articles" "notes")) }}
+        {{ range $posts.ByDate.Reverse }}
           {{ .Render "li" }}
         {{ end }}
       </ul>
       <div class="mb-2">
         <p class="text-white">
-          View all <a class="u-url" href="/articles/">articles</a> or
+          View all <a class="u-url" href="/articles/">articles</a>, <a href="/notes/">notes</a> or
           <a href="/tags/">tags</a>
         </p>
       </div>
@@ -31,7 +31,7 @@
   </div>
   <div class="mb-6" id="pages">
     <div>
-      <h2 class="mb-2 lowercase">Pages</h2>
+      <h2 class="mb-2 lowercase">Pages:</h2>
       <div class="mb-2">
         {{ partial "pages.html" }}
       </div>

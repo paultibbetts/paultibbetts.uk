@@ -2,7 +2,7 @@
   <div class="h-feed hfeed mb-20">
     <h1 class="p-name mb-8 text-3xl text-light">{{ .Title }}</h1>
     {{ with .Content }}
-      <div class="p-summary mb-4">{{ . }}</div>
+      <div class="p-summary mb-8">{{ . }}</div>
     {{ end }}
     {{ $pages := .Data.Pages -}}
     {{- $paginator := .Paginate $pages -}}

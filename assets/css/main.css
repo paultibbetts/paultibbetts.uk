@@ -240,3 +240,28 @@ footer a {
   left: .25rem;
   top: 0;
 }
+
+@media (min-width: theme('screens.md')) {
+  .prepended-icon {
+    position: relative;
+  }
+
+  .prepended-icon:before {
+    position: absolute;
+    left: -1.5em;
+    top: 0;
+  }
+}
+
+.prepended-icon.notes:before {
+  content: "✏️";
+}
+
+.prepended-icon.hashtag:before {
+  content: "#";
+  left: -0.8em;
+}
+
+.prepended-icon.articles:before {
+  content: "📝";
+}
