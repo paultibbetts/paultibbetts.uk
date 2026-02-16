@@ -241,31 +241,34 @@ footer a {
   top: 0;
 }
 
-@media (min-width: theme('screens.md')) {
-  .prepended-icon {
-    position: relative;
+.prepended-icon {
+  position: relative;
+
+  &.notes::before {
+    content: "✏️";
   }
 
-  .prepended-icon:before {
-    position: absolute;
-    left: -1.5em;
-    top: 0;
+  &.articles::before {
+    content: "📝";
   }
-}
 
-.prepended-icon.notes:before {
-  content: "✏️";
+  &.hashtag::before {
+    content: "#";
+  }
+
+  @media (min-width: theme('screens.md')) {
+    &::before {
+      position: absolute;
+      left: -1.5em;
+      top: 0;
+    }
+
+    &.hashtag::before {
+      left: -0.8em;
+    }
+  }
 }
 
 .notes .prose p:first-child {
   @apply font-mono;
-}
-
-.prepended-icon.hashtag:before {
-  content: "#";
-  left: -0.8em;
-}
-
-.prepended-icon.articles:before {
-  content: "📝";
 }
