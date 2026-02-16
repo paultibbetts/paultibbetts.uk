@@ -1,7 +1,7 @@
 {{ define "main" }}
   <div class="mb-20">
     <article class="h-entry {{ .Section }}">
-      <header class="mb-8">
+      <header class="mb-8 prepended-icon {{ .Section | urlize }}">
         {{- $rawParts := split .RelPermalink "/" -}}
         {{- $parts := slice -}}
         {{- range $rawParts -}}
