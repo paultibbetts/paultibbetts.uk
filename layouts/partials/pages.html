@@ -18,7 +18,7 @@
 <ul class="list-none">
   {{- range sort $pages "Title" }}
     <li class="mb-2 lowercase">
-      <a href="{{ .RelPermalink }}">/{{ .Title }}</a>
+      <a href="{{ .RelPermalink }}" style="text-wrap: nowrap">/{{ .Title }}</a>
     </li>
   {{ end -}}
 </ul>
