@@ -3,15 +3,18 @@
     <h2 class="mb-2">Follow</h2>
     <div class="mb-2">
       <p class="mb-1">
-        {{ if not $.IsHome }}
+        {{ $isFeedPage := eq $.Section "feed" }}
+        {{ if and (not $.IsHome) (not $isFeedPage) }}
           {{ $title := $.Title | urlize }}
           {{- printf `
             <a href=%q>/%s/feed.rss</a>` .RelPermalink $title | safeHTML
           -}}
         {{ else }}
-          {{- printf `
-            <a href=%q>/feed.rss</a>` .RelPermalink | safeHTML
-          -}}
+          {{ with $.Site.Home.OutputFormats.Get "rss" }}
+            {{- printf `
+              <a href=%q>/feed.rss</a>` .RelPermalink | safeHTML
+            -}}
+          {{ end }}
         {{ end }}
       </p>
     </div>
