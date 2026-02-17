@@ -1,7 +1,7 @@
 {{ define "main" }}
   <div class="mb-20">
     <article class="h-entry {{ .Section }}">
-      <header class="mb-8 prepended-icon {{ .Section | urlize }}">
+      <header class="mb-8">
         {{- $rawParts := split .RelPermalink "/" -}}
         {{- $parts := slice -}}
         {{- range $rawParts -}}
@@ -47,31 +47,31 @@
       <footer>
         <div class="mb-4 text-sm">
           {{ if .Date -}}
-            <p class="mb-2">
-              <a href="{{ .RelPermalink }}">
+            <p class="mb-2 flex justify-end">
+              <a
+                href="{{ .RelPermalink }}"
+                style="border-bottom-width: 1px; border-bottom-color: transparent"
+              >
                 <time
                   class="dt-published"
                   datetime="{{ . }}"
                   itemprop="dateCreated pubdate datePublished"
-                  style="border: none; color: rgba(156, 163, 175, 1); display: block; text-align: right;"
+                  style="border: none; color: rgba(156, 163, 175, 1);"
                 >
-                  {{ .Date.Format "15:04:05" }}
+                  {{ .Date.Format "3:04pm" }}
                 </time>
               </a>
             </p>
           {{- end }}
           {{- with .GetTerms "tags" }}
-            <ul class="w-full mb-2" style="display: flex; justify-content: flex-end;">
+            <ul class="mb-2 flex justify-end" style="gap: 1.5em;">
               {{- range . }}
-                <li
-                  class="p-category"
-                  style="display: flex; gap: 0.75rem; justify-content: flex-end;"
-                >
+                <li class="p-category">
                   <a
                     href="{{ .RelPermalink }}"
                     rel="category tag"
                     class="prepended-icon hashtag"
-                    style="border: none; color: inherit; display: inline-block; margin-left: 1.5rem;"
+                    style="border: none; color: inherit;"
                     >{{ .Title }}</a
                   >
                 </li>

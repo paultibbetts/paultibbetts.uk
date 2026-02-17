@@ -1,31 +1,6 @@
-{{- $allPosts := where .Site.RegularPages "Section" "in" (slice "articles" "notes" "bookmarks") -}}
-{{- $allPosts = $allPosts.ByDate.Reverse -}}
 {{- $scope := .Params.date_scope -}}
 {{- $isArchiveView := eq .Section "archive" -}}
-{{- $posts := slice -}}
-
-{{- if eq $scope "year" -}}
-  {{- $target := printf "%v" .Params.archive_year -}}
-  {{- range ($allPosts.GroupByDate "2006") -}}
-    {{- if eq .Key $target -}}
-      {{- $posts = .Pages.ByDate.Reverse -}}
-    {{- end -}}
-  {{- end -}}
-{{- else if eq $scope "month" -}}
-  {{- $target := printf "%v-%v" .Params.archive_year .Params.archive_month -}}
-  {{- range ($allPosts.GroupByDate "2006-01") -}}
-    {{- if eq .Key $target -}}
-      {{- $posts = .Pages.ByDate.Reverse -}}
-    {{- end -}}
-  {{- end -}}
-{{- else if eq $scope "day" -}}
-  {{- $target := printf "%v-%v-%v" .Params.archive_year .Params.archive_month .Params.archive_day -}}
-  {{- range ($allPosts.GroupByDate "2006-01-02") -}}
-    {{- if eq .Key $target -}}
-      {{- $posts = .Pages.ByDate.Reverse -}}
-    {{- end -}}
-  {{- end -}}
-{{- end -}}
+{{- $posts := partial "archive/posts-for-scope.html" . -}}
 
 {{- if eq (len $posts) 0 -}}
   <p>No posts found for this date archive.</p>

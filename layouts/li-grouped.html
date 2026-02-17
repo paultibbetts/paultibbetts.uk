@@ -26,21 +26,20 @@
       </div>
     {{ end -}}
     <div class="text-sm">
-      <a
-        href="{{ .RelPermalink }}"
-        class="dt-published"
-        style="border: none; color: inherit; text-align: right; display: block;"
-        >{{ .Date.Format "3:04pm" }}</a
-      >
+      <div class="mb-2 flex justify-end">
+        <a href="{{ .RelPermalink }}" class="dt-published" style="border: none; color: inherit;"
+          >{{ .Date.Format "3:04pm" }}</a
+        >
+      </div>
       {{- with .GetTerms "tags" }}
-        <ul class="mb-2" style="display: block; text-align: right;">
+        <ul class="mb-2 flex justify-end" style="gap: 1.5em;">
           {{- range . }}
-            <li class="p-category mb-2" style="display: inline">
+            <li class="p-category mb-2">
               <a
                 class="prepended-icon hashtag"
                 href="{{ .RelPermalink }}"
                 rel="category tag"
-                style="border: none; color: inherit; display: inline-block; margin-left: 1em;"
+                style="border: none; color: inherit;"
                 >{{ .Title }}</a
               >
             </li>
