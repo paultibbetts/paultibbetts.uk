@@ -13,10 +13,16 @@
       </div>
     {{- else }}
       <div class="mb-4">
-        <div class="p-summary prose prose-invert font-sans text-white mb-4">{{ .Summary }}</div>
         {{- if .Truncated -}}
+          <div class="p-summary prose prose-invert font-sans text-white mb-4">{{ .Summary }}</div>
           <div class="mb-4">
             <a href="{{ .RelPermalink }}">read more</a>
+          </div>
+        {{- else -}}
+          <div
+            class="e-content prose prose-invert text-light font-sans prose-a:no-underline prose-a:border-b-2 prose-a:border-orange prose-a:hover:border-red mb-16"
+          >
+            {{ .Content }}
           </div>
         {{- end -}}
       </div>
