@@ -1,13 +1,14 @@
-{{ with .OutputFormats.Get "rss" -}}
+{{- $currentRSS := .OutputFormats.Get "rss" -}}
+{{- $isArchivePage := or (eq .Section "archive") (eq .Type "archive") -}}
+{{- if or $currentRSS $isArchivePage .IsHome -}}
   <div class="lowercase mt-8 text-sm mb-4">
     <h2 class="mb-2">Follow</h2>
     <div class="mb-2">
       <p class="mb-1">
-        {{ $isFeedPage := eq $.Section "feed" }}
-        {{ if and (not $.IsHome) (not $isFeedPage) }}
+        {{ if and (not $.IsHome) (not $isArchivePage) $currentRSS }}
           {{ $title := $.Title | urlize }}
           {{- printf `
-            <a href=%q>/%s/feed.rss</a>` .RelPermalink $title | safeHTML
+            <a href=%q>/%s/feed.rss</a>` $currentRSS.RelPermalink $title | safeHTML
           -}}
         {{ else }}
           {{ with $.Site.Home.OutputFormats.Get "rss" }}
@@ -20,4 +21,4 @@
       </p>
     </div>
   </div>
-{{ end }}
+{{ end -}}

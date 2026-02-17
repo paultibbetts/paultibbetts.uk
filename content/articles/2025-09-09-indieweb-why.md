@@ -1,5 +1,6 @@
 +++
 date = '2025-09-09T15:50:00+01:00'
+archive = ['2025']
 title = 'IndieWeb: Why'
 tags = ['indieweb']
 +++

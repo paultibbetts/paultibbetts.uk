@@ -1,5 +1,6 @@
 +++
 date = '2025-09-10T12:00:00+01:00'
+archive = ['2025']
 title = 'Into the Fediverse 🖖'
 tags = ['IndieWeb', 'Fediverse','Bluesky', 'Mastodon', 'Micro.blog']
 +++

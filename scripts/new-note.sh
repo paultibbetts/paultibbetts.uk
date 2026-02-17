@@ -1,14 +1,58 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Usage:
+#   ./new-note.sh
+#   ./new-note.sh "my optional slug"
+
 if [[ $# -gt 1 ]]; then
-  echo "Usage: $0 [note-name]"
-  echo "Example: $0"
-  echo "Example: $0 2026-02-15-1030"
+  echo "Usage: $0 [optional-slug]"
   exit 1
 fi
 
-note_name="${1:-$(date +%Y-%m-%d-%H%M%S)}"
-note_name="${note_name%.md}"
+# Timestamp parts
+date_part="$(date +%Y-%m-%d)"
+time_part="$(date +%H%M%S)"
 
-hugo new --kind note "notes/${note_name}.md"
+# Optional slug
+slug="${1:-}"
+slug="${slug%.md}"
+
+# Slugify (basic, safe, predictable)
+if [[ -n "$slug" ]]; then
+  slug="$(echo "$slug" \
+    | tr '[:upper:]' '[:lower:]' \
+    | sed -E 's/[^a-z0-9]+/-/g' \
+    | sed -E 's/^-+|-+$//g')"
+fi
+
+# Base filename
+if [[ -n "$slug" ]]; then
+  base="${date_part}-${time_part}-${slug}"
+else
+  base="${date_part}-${time_part}"
+fi
+
+# Target path (flat file structure under content/notes)
+dir="content/notes"
+file="${dir}/${base}.md"
+
+mkdir -p "$dir"
+
+# Collision handling
+counter=2
+while [[ -f "$file" ]]; do
+  if [[ -n "$slug" ]]; then
+    file="${dir}/${date_part}-${time_part}-${counter}-${slug}.md"
+  else
+    file="${dir}/${date_part}-${time_part}-${counter}.md"
+  fi
+  ((counter++))
+done
+
+# Create note via Hugo (relative to content/)
+relative_path="${file#content/}"
+
+hugo new --kind note "$relative_path"
+
+echo "Created $relative_path"

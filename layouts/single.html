@@ -22,7 +22,7 @@
               itemprop="dateCreated pubdate datePublished"
               style="border: none; color: rgba(156, 163, 175, 1);"
             >
-              {{ .Date| time.Format ":date_medium" }}
+              {{ partial "date_with_ordinal_day.html" .Date }}
             </time>
           </div>
         {{ end }}

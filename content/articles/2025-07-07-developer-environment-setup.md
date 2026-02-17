@@ -1,5 +1,6 @@
 +++
 date = '2025-07-07T16:36:59+01:00'
+archive = ['2025']
 title = 'Developer Environment Setup'
 tags = ["dev-env", "Digital Garden"]
 +++

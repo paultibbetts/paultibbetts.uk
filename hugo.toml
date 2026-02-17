@@ -43,7 +43,7 @@ capitalizeListTitles = false
 [permalinks]
   # Sets URl patterns for the sections.
   articles = '/:year/:month/:day/:title/'
-  notes = '/:year/:month/:day/:15:04:05/'
+  notes = '/:year/:month/:day/:contentbasename/'
 
 # ==========================
 # Taxonomies
@@ -53,6 +53,7 @@ capitalizeListTitles = false
   # Defines taxonomy singular -> plural
   # This sets only tags, overridng the default tags + categories
 	tags = 'tags'
+  year = 'archive'
 
 # ==========================
 # Output kinds (what gets generated)

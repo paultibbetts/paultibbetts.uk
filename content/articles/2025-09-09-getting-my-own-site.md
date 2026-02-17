@@ -1,5 +1,6 @@
 +++
 date = '2025-09-09T20:00:00+01:00'
+archive = ['2025']
 title = 'Getting My Own Site'
 tags = ['indieweb', 'meta']
 +++

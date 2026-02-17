@@ -1,5 +1,6 @@
 +++
 date = '2025-12-30T15:10:00Z'
+archive = ['2025']
 draft = false
 title = 'Pangolin on a Pi'
 tags = ['Homelab', 'IPv6', 'Pangolin', 'Raspberry Pi']

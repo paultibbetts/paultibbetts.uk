@@ -1,5 +1,6 @@
 +++
 date = '2025-06-13T11:30:21+01:00'
+archive = ['2025']
 title = 'Using Terraform as the Inventory for Ansible'
 tags = ['Ansible', 'Terraform']
 +++

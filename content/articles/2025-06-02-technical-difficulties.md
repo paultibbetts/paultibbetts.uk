@@ -1,5 +1,6 @@
 +++
 date = '2025-06-02T14:30:00+01:00'
+archive = ['2025']
 title = 'Technical Difficulties'
 tags = ['meta']
 +++

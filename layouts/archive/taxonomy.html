@@ -1,0 +1,34 @@
+{{ define "main" }}
+  <div class="h-feed hfeed mb-20">
+    <h1 class="p-name mb-8 text-3xl text-light">{{ .Title }}</h1>
+    {{ with .Content }}
+      <div class="p-summary mb-8">{{ . }}</div>
+    {{ end }}
+    {{ with .Data.Terms.Alphabetical }}
+      <p class="mb-8 text-sm">
+        By year:
+        {{ range $index, $term := . }}
+          {{- if $index }},{{ end }}
+          <a href="{{ $term.Page.RelPermalink }}">{{ $term.Page.Title }}</a>
+        {{- end }}
+      </p>
+    {{ end }}
+    {{ $posts := where .Site.RegularPages "Section" "in" (slice "articles" "notes" "bookmarks") }}
+    {{ $paginator := .Paginate ($posts.ByDate.Reverse) }}
+    {{ $monthGroups := ($paginator.Pages.ByDate.Reverse).GroupByDate "January 2006" }}
+    {{ range $monthGroups }}
+      {{ $monthLabel := ((index .Pages 0).Date.Format "January 2006") }}
+      {{ $monthID := ($monthLabel | urlize) }}
+      <section id="{{ $monthID }}" class="mb-8">
+        <p
+          class="mb-16 text-light border-b-1 border-dashed"
+          style="border-color: rgba(156, 163, 175, 1);"
+        >
+          {{ $monthLabel }}
+        </p>
+        {{ partial "grouped-list-by-day.html" (dict "Pages" .Pages "ItemLayout" "li-grouped") }}
+      </section>
+    {{ end }}
+    {{ partial "pagination.html" (dict "page" . "format" "terse") }}
+  </div>
+{{ end }}

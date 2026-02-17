@@ -1,5 +1,6 @@
 +++
 date = '2025-12-31T16:00:00Z'
+archive = ['2025']
 draft = false
 title = 'Favourite Games of 2025'
 tags = ['gaming']

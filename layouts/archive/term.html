@@ -1,0 +1,39 @@
+{{ define "main" }}
+  <div class="h-feed hfeed mb-20">
+    <h1 class="p-name mb-8 text-3xl text-light">
+      <a href="/archive">Archive</a> of posts from
+      {{ .Title }}
+    </h1>
+    {{ with .Content }}
+      <div class="p-summary mb-8">{{ . }}</div>
+    {{ end }}
+    {{ $monthGroups := (.Pages.ByDate.Reverse).GroupByDate "January 2006" }}
+    {{ with $monthGroups }}
+      <nav class="mb-8 text-sm" aria-label="Months in {{ $.Title }}">
+        <p class="inline">By month:</p>
+        <ul class="list-none inline">
+          {{ range (collections.Reverse .) }}
+            {{ $monthLabel := ((index .Pages 0).Date.Format "January") }}
+            {{ $monthID := (lower $monthLabel) }}
+            <li class="mb-1 inline-block mr-2">
+              <a href="#{{ $monthID }}">{{ $monthLabel }}</a>
+            </li>
+          {{ end }}
+        </ul>
+      </nav>
+    {{ end }}
+    {{ range $monthGroups }}
+      {{ $monthLabel := ((index .Pages 0).Date.Format "January") }}
+      {{ $monthID := (lower $monthLabel) }}
+      <section id="{{ $monthID }}" class="mb-8">
+        <p
+          class="mb-16 text-light border-b-1 border-dashed"
+          style="border-color: rgba(156, 163, 175, 1);"
+        >
+          {{ $monthLabel }}
+        </p>
+        {{ partial "grouped-list-by-day.html" (dict "Pages" .Pages "ItemLayout" "li-grouped" "DayAnchorFormat" "month-day") }}
+      </section>
+    {{ end }}
+  </div>
+{{ end }}

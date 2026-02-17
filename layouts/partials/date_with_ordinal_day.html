@@ -1,0 +1,11 @@
+{{- $date := . -}}
+{{- $day := $date.Day -}}
+{{- $suffix := "th" -}}
+{{- if and (ne (mod $day 100) 11) (eq (mod $day 10) 1) -}}
+  {{- $suffix = "st" -}}
+{{- else if and (ne (mod $day 100) 12) (eq (mod $day 10) 2) -}}
+  {{- $suffix = "nd" -}}
+{{- else if and (ne (mod $day 100) 13) (eq (mod $day 10) 3) -}}
+  {{- $suffix = "rd" -}}
+{{- end -}}
+{{- return (printf "%s %d%s, %s" ($date.Format "Monday, January") $day $suffix ($date.Format "2006")) -}}

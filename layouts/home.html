@@ -7,7 +7,7 @@
     <p class="mb-2">Software engineer based in the UK.</p>
     <p class="mb-2">
       Learn more <a href="/about">about me</a>, view my <a href="/cv">CV</a>, or explore the
-      <a href="feed">feed</a>.
+      <a href="archive">archive</a>.
     </p>
   </div>
   <div class="mb-6" id="links">
@@ -58,12 +58,8 @@
       <h2 class="p-name mb-4 lowercase">Recent:</h2>
       <a href="#recent" class="u-url u-uid hidden">Recent</a>
 
-      <ul class="mb-6">
-        {{ $posts := first 3 (where .Site.RegularPages "Section" "in" (slice "articles" "notes")) }}
-        {{ range $posts.ByDate.Reverse }}
-          {{ .Render "li" }}
-        {{ end }}
-      </ul>
+      {{ $posts := first 3 (where .Site.RegularPages "Section" "in" (slice "articles" "notes")) }}
+      {{ partial "grouped-list-by-day.html" (dict "Pages" $posts "ItemLayout" "li-grouped") }}
     </div>
   </div>
   <div class="mb-6" id="pages">

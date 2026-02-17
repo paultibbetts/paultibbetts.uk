@@ -1,0 +1,21 @@
+{{- $pages := .Pages -}}
+{{- $itemLayout := .ItemLayout | default "li-grouped" -}}
+{{- $dayAnchorFormat := .DayAnchorFormat | default "month-day-year" -}}
+{{- $dayGroups := ($pages.ByDate.Reverse).GroupByDate "2006-01-02" -}}
+{{- range $dayGroups }}
+  {{- $date := (index .Pages 0).Date -}}
+  {{- $heading := partial "date_with_ordinal_day.html" $date -}}
+  {{- $monthID := (lower ($date.Format "January")) -}}
+  {{- $dayID := printf "%s-%d-%s" $monthID $date.Day ($date.Format "2006") -}}
+  {{- if eq $dayAnchorFormat "month-day" -}}
+    {{- $dayID = printf "%s-%d" $monthID $date.Day -}}
+  {{- end -}}
+  <section class="mb-8">
+    <p id="{{ $dayID }}" class="mb-4 text-sm">{{ $heading }}</p>
+    <ul class="mb-2">
+      {{- range .Pages }}
+        {{ .Render $itemLayout }}
+      {{- end }}
+    </ul>
+  </section>
+{{- end }}

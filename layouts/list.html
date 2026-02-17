@@ -6,11 +6,7 @@
     {{ end }}
     {{ $pages := .Data.Pages -}}
     {{- $paginator := .Paginate $pages -}}
-    <ul class="mb-2">
-      {{ range $paginator.Pages -}}
-        {{ .Render "li" }}
-      {{- end -}}
-    </ul>
+    {{ partial "grouped-list-by-day.html" (dict "Pages" $paginator.Pages "ItemLayout" "li-grouped") }}
     {{- partial "pagination.html" (dict "page" . "format" "terse" ) }}
   </div>
 {{- end -}}
