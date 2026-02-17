@@ -1,6 +1,6 @@
 {{- $scope := .Params.date_scope -}}
 {{- $allPosts := partial "archive/all-posts.html" . -}}
-{{- $posts := slice -}}
+{{- $posts := where .Site.RegularPages "Section" "__none__" -}}
 
 {{- if eq $scope "year" -}}
   {{- $target := printf "%v" .Params.archive_year -}}

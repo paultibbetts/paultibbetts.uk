@@ -2,9 +2,25 @@
 {{- $itemLayout := .ItemLayout | default "li-grouped" -}}
 {{- $dayAnchorFormat := .DayAnchorFormat | default "month-day-year" -}}
 {{- $linkDayToArchive := .LinkDayToArchive | default false -}}
-{{- $dayGroups := ($pages.ByDate.Reverse).GroupByDate "2006-01-02" -}}
-{{- range $dayGroups }}
-  {{- $date := (index .Pages 0).Date -}}
+{{- $sortOrder := .SortOrder | default "desc" -}}
+{{- $sortedPages := $pages.ByDate -}}
+{{- if eq $sortOrder "desc" -}}
+  {{- $sortedPages = $pages.ByDate.Reverse -}}
+{{- end -}}
+{{- $dayGroups := $sortedPages.GroupByDate "2006-01-02" -}}
+{{- $dayGroupByKey := dict -}}
+{{- $dayKeys := slice -}}
+{{- range $dayGroups -}}
+  {{- $dayGroupByKey = merge $dayGroupByKey (dict .Key .) -}}
+  {{- $dayKeys = $dayKeys | append (printf "%s" .Key) -}}
+{{- end -}}
+{{- $dayKeys = sort $dayKeys -}}
+{{- if eq $sortOrder "desc" -}}
+  {{- $dayKeys = collections.Reverse $dayKeys -}}
+{{- end -}}
+{{- range $dayKeys }}
+  {{- $group := index $dayGroupByKey . -}}
+  {{- $date := (index $group.Pages 0).Date -}}
   {{- $heading := partial "date_with_ordinal_day.html" $date -}}
   {{- $monthID := (lower ($date.Format "January")) -}}
   {{- $dayID := printf "%s-%d-%s" $monthID $date.Day ($date.Format "2006") -}}
@@ -21,7 +37,11 @@
       {{- end -}}
     </p>
     <ul class="mb-2">
-      {{- range .Pages }}
+      {{- $dayPages := $group.Pages.ByDate -}}
+      {{- if eq $sortOrder "desc" -}}
+        {{- $dayPages = $group.Pages.ByDate.Reverse -}}
+      {{- end -}}
+      {{- range $dayPages }}
         {{ .Render $itemLayout }}
       {{- end }}
     </ul>

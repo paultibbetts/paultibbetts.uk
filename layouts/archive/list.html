@@ -14,24 +14,37 @@
         <div class="p-summary mb-8">{{ . }}</div>
       {{ end }}
       {{ $posts := partial "archive/all-posts.html" . }}
-      {{ $paginator := .Paginate $posts }}
-      {{ $yearGroups := ($paginator.Pages.ByDate.Reverse).GroupByDate "2006" }}
-      {{ with $yearGroups }}
+      {{ $paginator := .Paginate ($posts.ByDate) }}
+      {{ $yearGroups := ($paginator.Pages.ByDate).GroupByDate "2006" }}
+      {{ $allYearGroups := ($posts.ByDate).GroupByDate "2006" }}
+      {{ $allYearKeys := slice }}
+      {{ range $allYearGroups }}
+        {{ $allYearKeys = $allYearKeys | append (printf "%s" .Key) }}
+      {{ end }}
+      {{ $allYearKeys = sort $allYearKeys }}
+      {{ $yearGroupByKey := dict }}
+      {{ $yearKeys := slice }}
+      {{ range $yearGroups }}
+        {{ $yearGroupByKey = merge $yearGroupByKey (dict .Key .) }}
+        {{ $yearKeys = $yearKeys | append (printf "%s" .Key) }}
+      {{ end }}
+      {{ $yearKeys = sort $yearKeys }}
+      {{ with $allYearKeys }}
         <nav class="mb-8 text-sm" aria-label="Years">
           <p class="inline">By year:</p>
           <ul class="list-none inline">
-            {{ range (collections.Reverse .) }}
-              {{ $yearLabel := ((index .Pages 0).Date.Format "2006") }}
-              {{ $yearURL := (printf "/archive/%s/" $yearLabel) | relURL }}
+            {{ range $allYearKeys }}
+              {{ $yearURL := (printf "/archive/%s/" .) | relURL }}
               <li class="mb-1 inline-block mr-2">
-                <a href="{{ $yearURL }}">{{ $yearLabel }}</a>
+                <a href="{{ $yearURL }}">{{ . }}</a>
               </li>
             {{ end }}
           </ul>
         </nav>
       {{ end }}
-      {{ range $yearGroups }}
-        {{ $yearLabel := ((index .Pages 0).Date.Format "2006") }}
+      {{ range $yearKeys }}
+        {{ $yearGroup := index $yearGroupByKey . }}
+        {{ $yearLabel := ((index $yearGroup.Pages 0).Date.Format "2006") }}
         {{ $yearURL := (printf "/archive/%s/" $yearLabel) | relURL }}
         <section id="{{ $yearLabel }}" class="mb-8">
           <p
@@ -40,10 +53,18 @@
           >
             <a href="{{ $yearURL }}" style="border: none; color: inherit;">{{ $yearLabel }}</a>
           </p>
-          {{ $monthGroups := (.Pages.ByDate.Reverse).GroupByDate "January" }}
+          {{ $monthGroups := ($yearGroup.Pages.ByDate).GroupByDate "2006-01" }}
+          {{ $monthGroupByKey := dict }}
+          {{ $monthKeys := slice }}
           {{ range $monthGroups }}
-            {{ $monthLabel := ((index .Pages 0).Date.Format "January") }}
-            {{ $monthNum := ((index .Pages 0).Date.Format "01") }}
+            {{ $monthGroupByKey = merge $monthGroupByKey (dict .Key .) }}
+            {{ $monthKeys = $monthKeys | append (printf "%s" .Key) }}
+          {{ end }}
+          {{ $monthKeys = sort $monthKeys }}
+          {{ range $monthKeys }}
+            {{ $monthGroup := index $monthGroupByKey . }}
+            {{ $monthLabel := ((index $monthGroup.Pages 0).Date.Format "January") }}
+            {{ $monthNum := ((index $monthGroup.Pages 0).Date.Format "01") }}
             {{ $monthURL := (printf "/archive/%s/%s/" $yearLabel $monthNum) | relURL }}
             <section class="mb-8">
               <p
@@ -54,7 +75,7 @@
                   >{{ $monthLabel }}</a
                 >
               </p>
-              {{ partial "grouped-list-by-day.html" (dict "Pages" .Pages "ItemLayout" "li-grouped" "LinkDayToArchive" true) }}
+              {{ partial "grouped-list-by-day.html" (dict "Pages" $monthGroup.Pages "ItemLayout" "li-grouped" "LinkDayToArchive" true "SortOrder" "asc") }}
             </section>
           {{ end }}
         </section>
