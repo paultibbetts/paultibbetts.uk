@@ -53,7 +53,6 @@ capitalizeListTitles = false
   # Defines taxonomy singular -> plural
   # This sets only tags, overridng the default tags + categories
 	tags = 'tags'
-  year = 'archive'
 
 # ==========================
 # Output kinds (what gets generated)

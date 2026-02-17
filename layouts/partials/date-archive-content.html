@@ -1,0 +1,81 @@
+{{- $allPosts := where .Site.RegularPages "Section" "in" (slice "articles" "notes" "bookmarks") -}}
+{{- $allPosts = $allPosts.ByDate.Reverse -}}
+{{- $scope := .Params.date_scope -}}
+{{- $isArchiveView := eq .Section "archive" -}}
+{{- $posts := slice -}}
+
+{{- if eq $scope "year" -}}
+  {{- $target := printf "%v" .Params.archive_year -}}
+  {{- range ($allPosts.GroupByDate "2006") -}}
+    {{- if eq .Key $target -}}
+      {{- $posts = .Pages.ByDate.Reverse -}}
+    {{- end -}}
+  {{- end -}}
+{{- else if eq $scope "month" -}}
+  {{- $target := printf "%v-%v" .Params.archive_year .Params.archive_month -}}
+  {{- range ($allPosts.GroupByDate "2006-01") -}}
+    {{- if eq .Key $target -}}
+      {{- $posts = .Pages.ByDate.Reverse -}}
+    {{- end -}}
+  {{- end -}}
+{{- else if eq $scope "day" -}}
+  {{- $target := printf "%v-%v-%v" .Params.archive_year .Params.archive_month .Params.archive_day -}}
+  {{- range ($allPosts.GroupByDate "2006-01-02") -}}
+    {{- if eq .Key $target -}}
+      {{- $posts = .Pages.ByDate.Reverse -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if eq (len $posts) 0 -}}
+  <p>No posts found for this date archive.</p>
+{{- else if eq $scope "year" -}}
+  {{- $monthGroups := ($posts.ByDate.Reverse).GroupByDate "January 2006" -}}
+  {{- with $monthGroups -}}
+    <nav class="mb-8 text-sm" aria-label="Months in {{ $.Title }}">
+      <p class="inline">By month:</p>
+      <ul class="list-none inline">
+        {{- range (collections.Reverse .) -}}
+          {{- $monthLabel := ((index .Pages 0).Date.Format "January") -}}
+          {{- $monthNum := ((index .Pages 0).Date.Format "01") -}}
+          {{- $monthID := (lower $monthLabel) -}}
+          {{- $monthURL := (printf "/archive/%v/%s/" $.Params.archive_year $monthNum) | relURL -}}
+          <li class="mb-1 inline-block mr-2">
+            {{- if $isArchiveView -}}
+              <a href="{{ $monthURL }}">{{ $monthLabel }}</a>
+            {{- else -}}
+              <a href="#{{ $monthID }}">{{ $monthLabel }}</a>
+            {{- end -}}
+          </li>
+        {{- end -}}
+      </ul>
+    </nav>
+  {{- end -}}
+  {{- range $monthGroups -}}
+    {{- $monthLabel := ((index .Pages 0).Date.Format "January") -}}
+    {{- $monthNum := ((index .Pages 0).Date.Format "01") -}}
+    {{- $monthID := (lower $monthLabel) -}}
+    {{- $monthURL := (printf "/archive/%v/%s/" $.Params.archive_year $monthNum) | relURL -}}
+    <section id="{{ $monthID }}" class="mb-8">
+      <p
+        class="mb-16 text-light border-b-1 border-dashed"
+        style="border-color: rgba(156, 163, 175, 1);"
+      >
+        {{- if $isArchiveView -}}
+          <a href="{{ $monthURL }}" style="border: none; color: inherit;">{{ $monthLabel }}</a>
+        {{- else -}}
+          {{ $monthLabel }}
+        {{- end -}}
+      </p>
+      {{ partial "grouped-list-by-day.html" (dict "Pages" .Pages "ItemLayout" "li-grouped" "DayAnchorFormat" "month-day" "LinkDayToArchive" $isArchiveView) }}
+    </section>
+  {{- end -}}
+{{- else if eq $scope "month" -}}
+  {{ partial "grouped-list-by-day.html" (dict "Pages" $posts "ItemLayout" "li-grouped" "DayAnchorFormat" "month-day" "LinkDayToArchive" $isArchiveView) }}
+{{- else -}}
+  <ul class="mb-2">
+    {{- range $posts -}}
+      {{ .Render "li-grouped" }}
+    {{- end -}}
+  </ul>
+{{- end -}}

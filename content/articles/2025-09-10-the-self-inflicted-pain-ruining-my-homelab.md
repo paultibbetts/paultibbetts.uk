@@ -1,6 +1,5 @@
 +++
 date = '2025-09-10T15:30:00+01:00'
-archive = ['2025']
 title = 'The Self-Inflicted Pain Ruining My Homelab'
 tags = ['homelab', 'networking', 'DHCP', 'Pi-hole']
 +++

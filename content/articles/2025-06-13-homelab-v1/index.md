@@ -1,6 +1,5 @@
 +++
 date = '2025-06-13T16:00:00+01:00'
-archive = ['2025']
 title = 'Homelab V1'
 tags = ['homelab']
 +++

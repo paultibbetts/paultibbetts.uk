@@ -1,0 +1,82 @@
+{{ define "main" }}
+  {{ if .Params.date_scope }}
+    <div class="h-feed hfeed mb-20">
+      {{ if eq .Params.date_scope "day" }}
+        {{ $archiveDate := time.AsTime (printf "%v-%v-%v" .Params.archive_year .Params.archive_month .Params.archive_day) }}
+        <h1 class="p-name mb-8 text-3xl text-light">
+          <a href="/archive">Archive</a>
+          {{ partial "date_with_ordinal_day.html" $archiveDate }}
+        </h1>
+      {{ else if eq .Params.date_scope "month" }}
+        {{ $archiveMonth := time.AsTime (printf "%v-%v-01" .Params.archive_year .Params.archive_month) }}
+        <h1 class="p-name mb-8 text-3xl text-light">
+          <a href="/archive">Archive</a>
+          {{ $archiveMonth.Format "January 2006" }}
+        </h1>
+      {{ else if eq .Params.date_scope "year" }}
+        <h1 class="p-name mb-8 text-3xl text-light">
+          <a href="/archive">Archive</a>
+          {{ .Params.archive_year }}
+        </h1>
+      {{ else }}
+        <h1 class="p-name mb-8 text-3xl text-light">{{ .Title }}</h1>
+      {{ end }}
+      {{ with .Content }}
+        <div class="p-summary mb-8">{{ . }}</div>
+      {{ end }}
+      {{ partial "date-archive-content.html" . }}
+    </div>
+  {{ else }}
+    <div class="h-feed hfeed mb-20">
+      <h1 class="p-name mb-8 text-3xl text-light">{{ .Title }}</h1>
+      {{ with .Content }}
+        <div class="p-summary mb-8">{{ . }}</div>
+      {{ end }}
+      {{ $posts := where .Site.RegularPages "Section" "in" (slice "articles" "notes" "bookmarks") }}
+      {{ $paginator := .Paginate ($posts.ByDate.Reverse) }}
+      {{ $yearGroups := ($paginator.Pages.ByDate.Reverse).GroupByDate "2006" }}
+      {{ with $yearGroups }}
+        <nav class="mb-8 text-sm" aria-label="Years">
+          <p class="inline">By year:</p>
+          <ul class="list-none inline">
+            {{ range (collections.Reverse .) }}
+              {{ $yearLabel := ((index .Pages 0).Date.Format "2006") }}
+              {{ $yearURL := (printf "/archive/%s/" $yearLabel) | relURL }}
+              <li class="mb-1 inline-block mr-2">
+                <a href="{{ $yearURL }}">{{ $yearLabel }}</a>
+              </li>
+            {{ end }}
+          </ul>
+        </nav>
+      {{ end }}
+      {{ range $yearGroups }}
+        {{ $yearLabel := ((index .Pages 0).Date.Format "2006") }}
+        {{ $yearURL := (printf "/archive/%s/" $yearLabel) | relURL }}
+        <section id="{{ $yearLabel }}" class="mb-8">
+          <p
+            class="mb-16 text-light text-orange text-xl"
+            style="border-color: rgba(156, 163, 175, 1);"
+          >
+            <a href="{{ $yearURL }}" style="border: none; color: inherit;">{{ $yearLabel }}</a>
+          </p>
+          {{ $monthGroups := (.Pages.ByDate.Reverse).GroupByDate "January" }}
+          {{ range $monthGroups }}
+            {{ $monthLabel := ((index .Pages 0).Date.Format "January") }}
+            {{ $monthNum := ((index .Pages 0).Date.Format "01") }}
+            {{ $monthURL := (printf "/archive/%s/%s/" $yearLabel $monthNum) | relURL }}
+            <section class="mb-8">
+              <p
+                class="mb-16 text-light border-b-1 border-dashed"
+                style="border-color: rgba(156, 163, 175, 1);"
+              >
+                <a href="{{ $monthURL }}" style="border: none; color: inherit;">{{ $monthLabel }}</a>
+              </p>
+              {{ partial "grouped-list-by-day.html" (dict "Pages" .Pages "ItemLayout" "li-grouped" "LinkDayToArchive" true) }}
+            </section>
+          {{ end }}
+        </section>
+      {{ end }}
+      {{ partial "pagination.html" (dict "page" . "format" "terse") }}
+    </div>
+  {{ end }}
+{{ end }}

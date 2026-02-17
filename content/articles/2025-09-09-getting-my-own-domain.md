@@ -1,6 +1,5 @@
 +++
 date = '2025-09-09T15:53:46+01:00'
-archive = ['2025']
 title = 'Getting My Own Domain'
 tags = ['indieweb', 'meta']
 +++

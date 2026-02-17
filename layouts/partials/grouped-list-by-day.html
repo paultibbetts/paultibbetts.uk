@@ -1,6 +1,7 @@
 {{- $pages := .Pages -}}
 {{- $itemLayout := .ItemLayout | default "li-grouped" -}}
 {{- $dayAnchorFormat := .DayAnchorFormat | default "month-day-year" -}}
+{{- $linkDayToArchive := .LinkDayToArchive | default false -}}
 {{- $dayGroups := ($pages.ByDate.Reverse).GroupByDate "2006-01-02" -}}
 {{- range $dayGroups }}
   {{- $date := (index .Pages 0).Date -}}
@@ -10,8 +11,15 @@
   {{- if eq $dayAnchorFormat "month-day" -}}
     {{- $dayID = printf "%s-%d" $monthID $date.Day -}}
   {{- end -}}
+  {{- $dayURL := (printf "/archive/%s/" ($date.Format "2006/01/02")) | relURL -}}
   <section class="mb-8">
-    <p id="{{ $dayID }}" class="mb-4 text-sm">{{ $heading }}</p>
+    <p id="{{ $dayID }}" class="mb-4 text-sm">
+      {{- if $linkDayToArchive -}}
+        <a href="{{ $dayURL }}" style="border: none; color: inherit;">{{ $heading }}</a>
+      {{- else -}}
+        {{ $heading }}
+      {{- end -}}
+    </p>
     <ul class="mb-2">
       {{- range .Pages }}
         {{ .Render $itemLayout }}

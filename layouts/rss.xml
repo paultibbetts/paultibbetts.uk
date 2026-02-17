@@ -21,7 +21,25 @@
 {{- $pctx := . }}
 {{- if .IsHome }}{{ $pctx = .Site }}{{ end }}
 {{- $pages := slice }}
-{{- if $.IsHome }}
+{{- if .Params.date_scope }}
+{{- $allPosts := (where (where .Site.RegularPages ".Section" "in" (slice "articles" "notes" "bookmarks")) "Kind" "page") }}
+{{- if eq .Params.date_scope "year" }}
+{{- $target := printf "%v" .Params.archive_year }}
+{{- range ($allPosts.GroupByDate "2006") }}
+{{- if eq .Key $target }}{{- $pages = .Pages.ByDate.Reverse }}{{- end }}
+{{- end }}
+{{- else if eq .Params.date_scope "month" }}
+{{- $target := printf "%v-%v" .Params.archive_year .Params.archive_month }}
+{{- range ($allPosts.GroupByDate "2006-01") }}
+{{- if eq .Key $target }}{{- $pages = .Pages.ByDate.Reverse }}{{- end }}
+{{- end }}
+{{- else if eq .Params.date_scope "day" }}
+{{- $target := printf "%v-%v-%v" .Params.archive_year .Params.archive_month .Params.archive_day }}
+{{- range ($allPosts.GroupByDate "2006-01-02") }}
+{{- if eq .Key $target }}{{- $pages = .Pages.ByDate.Reverse }}{{- end }}
+{{- end }}
+{{- end }}
+{{- else if $.IsHome }}
 {{- $pages = (where (where $pctx.RegularPages ".Section" "in" (slice "articles" "notes")) "Kind" "page") }}
 {{- else if $.IsSection }}
 {{- $pages = (where $pctx.RegularPages "Kind" "page") }}
