@@ -50,13 +50,30 @@
 {{- if ge $limit 1 }}
 {{- $pages = $pages | first $limit }}
 {{- end }}
+{{- $feedDescription := "" -}}
+{{- if .Params.Description -}}
+  {{- $feedDescription = .Params.Description -}}
+{{- else if eq .Params.date_scope "year" -}}
+  {{- $feedDescription = printf "Posts by %s published in %v" $authorName .Params.archive_year -}}
+{{- else if eq .Params.date_scope "month" -}}
+  {{- $archiveMonth := time.AsTime (printf "%v-%v-01" .Params.archive_year .Params.archive_month) -}}
+  {{- $feedDescription = printf "Posts by %s published in %s" $authorName ($archiveMonth.Format "January 2006") -}}
+{{- else if eq .Params.date_scope "day" -}}
+  {{- $archiveDay := time.AsTime (printf "%v-%v-%v" .Params.archive_year .Params.archive_month .Params.archive_day) -}}
+  {{- $feedDescription = printf "Posts by %s published on %s" $authorName ($archiveDay.Format "Monday, January 2, 2006") -}}
+{{- else -}}
+  {{- $feedDescription = printf "Recent posts by %s" $authorName -}}
+  {{- if and .Title (ne .Title $authorName) -}}
+    {{- $feedDescription = printf "%s on %s" $feedDescription .Title -}}
+  {{- end -}}
+{{- end -}}
 {{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
 {{- printf "<?xml-stylesheet type=\"text/xsl\" href=\"/pretty-feed-v3.xsl\"?>" | safeHTML }}
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>{{ .Site.Title }}</title>
     <link>{{ .Permalink }}</link>
-    <description>{{ with .Params.Description }}{{ . }}{{ else }}Recent posts by {{ $authorName }}{{ if ne .Title $authorName }}{{ with .Title }} on {{ . }}{{ end }}{{ end }}{{ end }}</description>
+    <description>{{ $feedDescription }}</description>
     <generator>Hugo</generator>
     <language>{{ .Site.Language.LanguageCode }}</language>{{ with $authorEmail }}
     <managingEditor>{{.}}{{ with $authorName }} ({{ . }}){{ end }}</managingEditor>{{ end }}{{ with $authorEmail }}

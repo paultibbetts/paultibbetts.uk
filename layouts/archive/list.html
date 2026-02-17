@@ -3,15 +3,20 @@
     <div class="h-feed hfeed mb-20">
       {{ if eq .Params.date_scope "day" }}
         {{ $archiveDate := time.AsTime (printf "%v-%v-%v" .Params.archive_year .Params.archive_month .Params.archive_day) }}
+        {{ $archiveMonth := time.AsTime (printf "%v-%v-01" .Params.archive_year .Params.archive_month) }}
         <h1 class="p-name mb-8 text-3xl text-light">
           <a href="/archive">Archive</a>
-          {{ partial "date_with_ordinal_day.html" $archiveDate }}
+          <a href="/archive/{{ .Params.archive_year }}">{{ .Params.archive_year }}</a>/<a
+            href="/archive/{{ .Params.archive_year }}/{{ .Params.archive_month }}"
+            >{{ $archiveMonth.Format "January" }}</a
+          >/{{ .Params.archive_day }}
         </h1>
       {{ else if eq .Params.date_scope "month" }}
         {{ $archiveMonth := time.AsTime (printf "%v-%v-01" .Params.archive_year .Params.archive_month) }}
         <h1 class="p-name mb-8 text-3xl text-light">
           <a href="/archive">Archive</a>
-          {{ $archiveMonth.Format "January 2006" }}
+          <a href="/archive/{{ .Params.archive_year }}">{{ .Params.archive_year }}</a
+          >/{{ $archiveMonth.Format "January" }}
         </h1>
       {{ else if eq .Params.date_scope "year" }}
         <h1 class="p-name mb-8 text-3xl text-light">
@@ -54,7 +59,7 @@
         {{ $yearURL := (printf "/archive/%s/" $yearLabel) | relURL }}
         <section id="{{ $yearLabel }}" class="mb-8">
           <p
-            class="mb-16 text-light text-orange text-xl"
+            class="mb-8 text-light text-orange text-xl"
             style="border-color: rgba(156, 163, 175, 1);"
           >
             <a href="{{ $yearURL }}" style="border: none; color: inherit;">{{ $yearLabel }}</a>
@@ -69,7 +74,9 @@
                 class="mb-16 text-light border-b-1 border-dashed"
                 style="border-color: rgba(156, 163, 175, 1);"
               >
-                <a href="{{ $monthURL }}" style="border: none; color: inherit;">{{ $monthLabel }}</a>
+                <a href="{{ $monthURL }}" style="border: none; color: inherit;"
+                  >{{ $monthLabel }}</a
+                >
               </p>
               {{ partial "grouped-list-by-day.html" (dict "Pages" .Pages "ItemLayout" "li-grouped" "LinkDayToArchive" true) }}
             </section>
