@@ -20,11 +20,28 @@ if [[ ${#roots[@]} -eq 0 ]]; then
 fi
 
 tmp_dates="$(mktemp)"
+trap 'rm -f "$tmp_dates"' EXIT
 
-find "${roots[@]}" -type f -name '*.md' | while read -r file; do
+extract_date() {
+  local file="$1"
   # Expect TOML front matter date lines like:
   # date = '2026-02-17T12:29:51Z'
-  date_str="$(sed -n '1,40p' "$file" | rg -o "^date\\s*=\\s*['\"]([0-9]{4})-([0-9]{2})-([0-9]{2})" -r '$1-$2-$3' | head -1 || true)"
+  awk '
+    NR > 80 { exit }
+    {
+      if (match($0, /^[[:space:]]*date[[:space:]]*=[[:space:]]*["\047][0-9]{4}-[0-9]{2}-[0-9]{2}/)) {
+        s = substr($0, RSTART, RLENGTH)
+        if (match(s, /[0-9]{4}-[0-9]{2}-[0-9]{2}/)) {
+          print substr(s, RSTART, RLENGTH)
+          exit
+        }
+      }
+    }
+  ' "$file"
+}
+
+find "${roots[@]}" -type f -name '*.md' -print0 | while IFS= read -r -d '' file; do
+  date_str="$(extract_date "$file")"
   if [[ -n "$date_str" ]]; then
     echo "$date_str"
   fi
@@ -72,7 +89,5 @@ archive_day = '${day}'
 DEOF
   fi
 done < "$tmp_dates"
-
-rm -f "$tmp_dates"
 
 echo "Date archive index pages generated."

@@ -7,7 +7,10 @@ repo_root="$(cd "${script_dir}/.." && pwd)"
 cd "${repo_root}"
 
 # Keep date archive indexes in sync before building.
-"${script_dir}/generate-date-archives.sh"
+if ! "${script_dir}/generate-date-archives.sh"; then
+  echo "Error: date archive generation failed." >&2
+  exit 1
+fi
 
 # Accept CI-provided values for base URL and cache location.
 hugo_base_url="${HUGO_BASEURL:-}"

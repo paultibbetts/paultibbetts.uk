@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
 
 if [ -z "$1" ]; then
   echo "Error: No title provided."
@@ -15,4 +16,4 @@ FILE="content/articles/${DATE}-${SLUG}.md"
 hugo new --kind article "$FILE"
 
 # Keep /archive/YYYY/, /archive/YYYY/MM/, /archive/YYYY/MM/DD/ archives in sync.
-"$(dirname "$0")/generate-date-archives.sh" >/dev/null 2>&1 || true
+"$(dirname "$0")/generate-date-archives.sh" >/dev/null
