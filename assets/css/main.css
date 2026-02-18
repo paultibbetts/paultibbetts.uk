@@ -256,7 +256,7 @@ footer a {
     content: "#";
   }
 
-  @media (min-width: theme('screens.md')) {
+  @media (min-width: theme('screens.lg')) {
     &::before {
       position: absolute;
       left: -1.5em;

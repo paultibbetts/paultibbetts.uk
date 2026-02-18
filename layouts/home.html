@@ -1,72 +1,85 @@
 {{ define "main" }}
-  <div class="my-6">
-    {{ partial "hello.html" . }}
-  </div>
-  <div class="mb-6 text-white">
-    <p class="mb-2">I'm Paul 👋</p>
-    <p class="mb-2">Software engineer based in the UK.</p>
-    <p class="mb-2">
-      Learn more <a href="/about">about me</a>, view my <a href="/cv">CV</a>, or check out the
-      <a href="feed">feed</a>.
-    </p>
-  </div>
-  <div class="mb-6" id="links">
-    <div class="lowercase">
-      <h2 class="mb-2 hidden">Elsewhere:</h2>
-      <ul class="list-none flex gap-2">
-        <li class="mb-2 inline">
-          <a href="https://bsky.app/profile/paultibbetts.uk"
-            ><img
-              src="/icons/bluesky.svg"
-              class="inline"
-              style="height:1rem; width:1rem; filter: invert(1);"
-            /><span class="hidden">Bluesky</span></a
-          >
-        </li>
-        <li class="mb-2 inline">
-          <a rel="me" href="https://github.com/paultibbetts"
-            ><img
-              src="/icons/github.svg"
-              class="inline"
-              style="height: 1rem; width: 1rem; filter: invert(1);"
-            /><span class="hidden">Github</span></a
-          >
-        </li>
-        <li class="mb-2 inline">
-          <a rel="me" href="https://indieweb.social/@paultibbetts"
-            ><img
-              src="/icons/mastodon.svg"
-              class="inline"
-              style="height: 1rem; width: 1rem;filter: invert(1);"
-            /><span class="hidden">Mastodon</span></a
-          >
-        </li>
-        <li class="mb-2 inline">
-          <a rel="me" href="https://micro.blog/paultibbetts"
-            ><img
-              src="/icons/micro.blog.svg"
-              class="inline"
-              style="height: 1rem; width: 1rem; filter: invert(1);"
-            /><span class="hidden">Micro.blog</span></a
-          >
-        </li>
-      </ul>
+  <div>
+    <div class="my-6">
+      {{ partial "hello.html" . }}
     </div>
-  </div>
-  <div class="h-feed hfeed mb-6" id="recent">
-    <div>
-      <h2 class="p-name mb-4 lowercase">Recent:</h2>
-      <a href="#recent" class="u-url u-uid hidden">Recent</a>
-
-      {{ $posts := first 3 (partial "all-posts.html" .) }}
-      {{ partial "grouped-list-by-day.html" (dict "Pages" $posts) }}
+    <div class="my-6 md:flex md:gap-8 lg:-ml-24">
+      <div class="md:flex justify-center items-center mb-4 md:mb-0 md:px-4 lg:px-0">
+        <img
+          src="icon.png"
+          class="rounded-full xl:rounded"
+          style="max-width: 4rem; max-height: 4rem;"
+          title="photo of Paul Tibbetts"
+        />
+      </div>
+      <div class="mb text-white md:flex md:gap-8">
+        <div>
+          <p class="mb-2">I'm Paul 👋</p>
+          <p class="mb-2">Software engineer based in the UK.</p>
+          <p class="mb-2">
+            Learn more <a href="/about">about me</a>, view my <a href="/cv">CV</a>, or check out the
+            <a href="feed">feed</a>.
+          </p>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="mb-6" id="pages">
-    <div>
-      <h2 class="mb-2 lowercase">Pages:</h2>
-      <div class="mb-2">
-        {{ partial "pages.html" }}
+    <div class="mb-6" id="links">
+      <div class="lowercase">
+        <h2 class="mb-2 hidden">Elsewhere:</h2>
+        <ul class="list-none flex gap-2">
+          <li class="mb-2 inline">
+            <a href="https://bsky.app/profile/paultibbetts.uk"
+              ><img
+                src="/icons/bluesky.svg"
+                class="inline"
+                style="height:1rem; width:1rem; filter: invert(1);"
+              /><span class="hidden">Bluesky</span></a
+            >
+          </li>
+          <li class="mb-2 inline">
+            <a rel="me" href="https://github.com/paultibbetts"
+              ><img
+                src="/icons/github.svg"
+                class="inline"
+                style="height: 1rem; width: 1rem; filter: invert(1);"
+              /><span class="hidden">Github</span></a
+            >
+          </li>
+          <li class="mb-2 inline">
+            <a rel="me" href="https://indieweb.social/@paultibbetts"
+              ><img
+                src="/icons/mastodon.svg"
+                class="inline"
+                style="height: 1rem; width: 1rem;filter: invert(1);"
+              /><span class="hidden">Mastodon</span></a
+            >
+          </li>
+          <li class="mb-2 inline">
+            <a rel="me" href="https://micro.blog/paultibbetts"
+              ><img
+                src="/icons/micro.blog.svg"
+                class="inline"
+                style="height: 1rem; width: 1rem; filter: invert(1);"
+              /><span class="hidden">Micro.blog</span></a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="h-feed hfeed mb-6" id="recent">
+      <div>
+        <h2 class="p-name mb-4 lowercase">Recent:</h2>
+        <a href="#recent" class="u-url u-uid hidden">Recent</a>
+        {{ $posts := first 3 (partial "all-posts.html" .) }}
+        {{ partial "grouped-list-by-day.html" (dict "Pages" $posts) }}
+      </div>
+    </div>
+    <div class="mb-6" id="pages">
+      <div>
+        <h2 class="mb-2 lowercase">Pages:</h2>
+        <div class="mb-2">
+          {{ partial "pages.html" }}
+        </div>
       </div>
     </div>
   </div>
