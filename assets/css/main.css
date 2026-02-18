@@ -240,3 +240,35 @@ footer a {
   left: .25rem;
   top: 0;
 }
+
+.prepended-icon {
+  position: relative;
+
+  &.notes::before {
+    content: "✏️";
+  }
+
+  &.articles::before {
+    content: "📝";
+  }
+
+  &.hashtag::before {
+    content: "#";
+  }
+
+  @media (min-width: theme('screens.md')) {
+    &::before {
+      position: absolute;
+      left: -1.5em;
+      top: 0;
+    }
+
+    &.hashtag::before {
+      left: -0.8em;
+    }
+  }
+}
+
+.notes .prose p:first-child {
+  @apply font-mono;
+}

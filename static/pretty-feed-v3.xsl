@@ -128,6 +128,18 @@ This file is in BETA. Please test and contribute to the discussion:
               <small class="text-gray">
                 Published: <xsl:value-of select="pubDate" />
               </small>
+              <xsl:if test="normalize-space(description) != ''">
+                <div class="item-description">
+                  <xsl:choose>
+                    <xsl:when test="description/*">
+                      <xsl:copy-of select="description/node()" />
+                    </xsl:when>
+                    <xsl:otherwise>
+                      <xsl:value-of select="description" />
+                    </xsl:otherwise>
+                  </xsl:choose>
+                </div>
+              </xsl:if>
             </div>
           </xsl:for-each>
         </div>

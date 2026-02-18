@@ -10,6 +10,8 @@ Using both of them together, with a dynamic inventory to link them, has been tec
 
 Until I found the Terraform provider.
 
+<!--more-->
+
 ## Ansible provider for Terraform
 
 By using the [Ansible provider](https://registry.terraform.io/providers/ansible/ansible/latest) you can teach Terraform what an Ansible inventory entry would look like next to the rest of its code. 

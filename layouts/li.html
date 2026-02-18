@@ -1,6 +1,54 @@
-<li class="h-entry mb-2">
-  <p>
-    <span class="dt-published">{{ .Date.Format "2006-01-02" }}</span>
-    <a class="p-name u-url" href="{{ .RelPermalink }}">{{ .Title }}</a>
-  </p>
+<li class="h-entry mb-8">
+  <div class="prepended-icon {{ .Section | urlize }}">
+    {{- if .Title }}
+      <div class="mb-4">
+        <h2 class="mb-4 text-lg text-orange">
+          <a class="p-name u-url" style="color:inherit; border-bottom: 0" href="{{ .RelPermalink }}"
+            >{{ .Title }}</a
+          >
+        </h2>
+        {{ if .Summary }}
+          <div class="p-summary text-white mb-4 font-sans prose prose-invert">{{ .Summary }}</div>
+        {{ end }}
+      </div>
+    {{- else }}
+      <div class="mb-4">
+        {{- if .Truncated -}}
+          <div class="p-summary prose prose-invert font-sans text-white mb-4">{{ .Summary }}</div>
+          <div class="mb-4">
+            <a href="{{ .RelPermalink }}">read more</a>
+          </div>
+        {{- else -}}
+          <div
+            class="e-content prose prose-invert text-light font-sans prose-a:no-underline prose-a:border-b-2 prose-a:border-orange prose-a:hover:border-red mb-16"
+          >
+            {{ .Content }}
+          </div>
+        {{- end -}}
+      </div>
+    {{ end -}}
+    <div class="text-sm">
+      <a
+        href="{{ .RelPermalink }}"
+        class="dt-published"
+        style="border: none; color: inherit; text-align: right; display: block;"
+        >{{ .Date.Format "2006-01-02 15:04:05" }}</a
+      >
+      {{- with .GetTerms "tags" }}
+        <ul class="mb-2" style="display: block; text-align: right;">
+          {{- range . }}
+            <li class="p-category mb-2" style="display: inline">
+              <a
+                class="prepended-icon hashtag"
+                href="{{ .RelPermalink }}"
+                rel="category tag"
+                style="border: none; color: inherit; display: inline-block; margin-left: 1em;"
+                >{{ .Title }}</a
+              >
+            </li>
+          {{- end }}
+        </ul>
+      {{- end }}
+    </div>
+  </div>
 </li>

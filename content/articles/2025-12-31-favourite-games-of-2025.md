@@ -7,6 +7,8 @@ tags = ['gaming']
 
 Last year I wrote [my own take on the Steam Awards](https://micro.paultibbetts.uk/2025/01/03/pc-games-i-liked-in.html), and in 2025 I played less games, so instead of pretending otherwise, this is a list of my favourites from this year.
 
+<!--more-->
+
 ## Dispatch
 
 > Single-player story-driven narrative.

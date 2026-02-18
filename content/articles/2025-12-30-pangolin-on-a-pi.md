@@ -9,6 +9,8 @@ This post is not a step-by-step guide. It's a record of what I tried and what I 
 
 **TLDR**: if you want to run Pangolin hassle-free, use a VPS with local SSD storage on an IPv4 network.
 
+<!--more-->
+
 ## Pangolin
 
 [Pangolin](https://digpangolin.com/) is a "secure access platform" for safely exposing internal services. I'm using it to let friends and family reach a few apps in my homelab without giving them the keys to everything.

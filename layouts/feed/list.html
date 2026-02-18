@@ -4,13 +4,13 @@
     {{ with .Content }}
       <div class="p-summary mb-8">{{ . }}</div>
     {{ end }}
-    {{ $pages := .Data.Pages -}}
-    {{- $paginator := .Paginate $pages -}}
+    {{ $posts := where .Site.RegularPages "Section" "in" (slice "articles" "notes") }}
+    {{ $paginator := .Paginate ($posts.ByDate.Reverse) }}
     <ul class="mb-2">
-      {{ range $paginator.Pages -}}
+      {{ range $paginator.Pages }}
         {{ .Render "li" }}
-      {{- end -}}
+      {{ end }}
     </ul>
-    {{- partial "pagination.html" (dict "page" . "format" "terse" ) }}
+    {{ partial "pagination.html" (dict "page" . "format" "terse") }}
   </div>
-{{- end -}}
+{{ end }}
