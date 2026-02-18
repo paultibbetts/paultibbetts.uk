@@ -1,0 +1,48 @@
+<li class="h-entry mb-8">
+  <div class="prepended-icon {{ .Section | urlize }}">
+    {{- if .Title }}
+      <div class="mb-4">
+        <h2 class="mb-4 text-lg text-orange">
+          <a class="p-name u-url color-steel" href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </h2>
+        {{ if .Summary }}
+          <div class="p-summary text-white mb-4 font-sans prose prose-invert">{{ .Summary }}</div>
+        {{ end }}
+      </div>
+    {{- else }}
+      <div class="mb-4">
+        {{- if .Truncated -}}
+          <div class="p-summary prose prose-invert font-sans text-white mb-4">{{ .Summary }}</div>
+          <div class="mb-4">
+            <a href="{{ .RelPermalink }}">read more</a>
+          </div>
+        {{- else -}}
+          <div class="e-content prose prose-invert text-light font-sans mb-16">
+            {{ .Content }}
+          </div>
+        {{- end -}}
+      </div>
+    {{ end -}}
+    <footer class="text-sm">
+      <div class="mb-2 flex justify-end">
+        <a href="{{ .RelPermalink }}" class="dt-published color-steel"
+          >{{ .Date.Format "3:04pm" }}</a
+        >
+      </div>
+      {{- with .GetTerms "tags" }}
+        <ul class="mb-2 flex justify-end gap-8">
+          {{- range . }}
+            <li class="p-category mb-2">
+              <a
+                class="prepended-icon hashtag color-steel"
+                href="{{ .RelPermalink }}"
+                rel="category tag"
+                >{{ .Title }}</a
+              >
+            </li>
+          {{- end }}
+        </ul>
+      {{- end }}
+    </footer>
+  </div>
+</li>

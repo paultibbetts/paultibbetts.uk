@@ -1,0 +1,5 @@
+{{- $group := .Group -}}
+{{- $first := index $group.Pages 0 -}}
+{{- $label := $first.Date.Format "2006" -}}
+{{- $url := (printf "/archive/%s/" $label) | relURL -}}
+{{- return (dict "label" $label "url" $url) -}}

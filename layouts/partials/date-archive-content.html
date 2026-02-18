@@ -1,0 +1,19 @@
+{{- $scope := .Params.date_scope -}}
+{{- $posts := partial "archive/posts-for-scope.html" . -}}
+
+{{- if eq (len $posts) 0 -}}
+  <p>No posts found for this date archive.</p>
+{{- else if eq $scope "year" -}}
+  {{- $monthGroups := ($posts.ByDate.Reverse).GroupByDate "January 2006" -}}
+  {{- $monthJumpItems := partial "archive/jump-items.html" (dict "Groups" $monthGroups "Kind" "month" "Year" $.Params.archive_year) -}}
+  {{ partial "archive/jump-nav.html" (dict "AriaLabel" (printf "Months in %s" $.Title) "IntroLabel" "By month:" "Items" $monthJumpItems) }}
+  {{ partial "archive/month-sections.html" (dict "MonthGroups" $monthGroups "Year" $.Params.archive_year) }}
+{{- else if eq $scope "month" -}}
+  {{ partial "grouped-list-by-day.html" (dict "Pages" $posts "LinkDayToArchive" true) }}
+{{- else -}}
+  <ul class="mb-2">
+    {{- range ($posts.ByDate) -}}
+      {{ .Render "li-grouped" }}
+    {{- end -}}
+  </ul>
+{{- end -}}

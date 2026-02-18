@@ -4,13 +4,9 @@
     {{ with .Content }}
       <div class="p-summary mb-8">{{ . }}</div>
     {{ end }}
-    {{ $posts := where .Site.RegularPages "Section" "in" (slice "articles" "notes") }}
-    {{ $paginator := .Paginate ($posts.ByDate.Reverse) }}
-    <ul class="mb-2">
-      {{ range $paginator.Pages }}
-        {{ .Render "li" }}
-      {{ end }}
-    </ul>
-    {{ partial "pagination.html" (dict "page" . "format" "terse") }}
+    {{ $posts := partial "all-posts.html" . }}
+    {{ $paginator := .Paginate $posts }}
+    {{ partial "grouped-list-by-day.html" (dict "Pages" $paginator.Pages) }}
+    {{ partial "pagination.html" (dict "page" . "format" "terse" ) }}
   </div>
 {{ end }}

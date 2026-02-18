@@ -12,13 +12,8 @@
         {{ . }}
       </div>
     {{ end -}}
-
-    {{- range .Pages }}
-      <ul class="mb-2">
-        {{ .Render "li" }}
-      </ul>
-    {{ end -}}
-
+    {{- $paginator := .Paginate (.Pages.ByDate.Reverse) -}}
+    {{ partial "grouped-list-by-day.html" (dict "Pages" $paginator.Pages) }}
     {{ partial "pagination.html" (dict "page" . "format" "terse" ) }}
   </div>
 {{ end }}

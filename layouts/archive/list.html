@@ -1,0 +1,38 @@
+{{ define "main" }}
+  {{ if .Params.date_scope }}
+    <div class="h-feed hfeed mb-20">
+      {{ partial "archive/date-scope-heading.html" . }}
+      {{ with .Content }}
+        <div class="p-summary mb-8">{{ . }}</div>
+      {{ end }}
+      {{ partial "date-archive-content.html" . }}
+    </div>
+  {{ else }}
+    <div class="h-feed hfeed mb-20">
+      <h1 class="p-name mb-8 text-3xl text-light">{{ .Title }}</h1>
+      {{ with .Content }}
+        <div class="p-summary mb-8">{{ . }}</div>
+      {{ end }}
+      {{ $posts := partial "all-posts.html" . }}
+      {{ $paginator := .Paginate $posts }}
+      {{ $yearGroups := ($paginator.Pages.ByDate.Reverse).GroupByDate "2006" }}
+      {{ $yearJumpItems := partial "archive/jump-items.html" (dict "Groups" $yearGroups "Kind" "year") }}
+      {{ partial "archive/jump-nav.html" (dict "AriaLabel" "Years" "IntroLabel" "By year:" "Items" $yearJumpItems) }}
+      {{ range $yearGroups }}
+        {{ $yearMeta := partial "archive/year-meta.html" (dict "Group" .) }}
+        {{ $yearLabel := index $yearMeta "label" }}
+        {{ $yearURL := index $yearMeta "url" }}
+        <section id="{{ $yearLabel }}" class="mb-8">
+          <p class="mb-8 text-orange text-xl" style="border-color: rgba(156, 163, 175, 1);">
+            <a href="{{ $yearURL }}" class="no-underline" style="color: inherit;"
+              >{{ $yearLabel }}</a
+            >
+          </p>
+          {{ $monthGroups := (.Pages.ByDate.Reverse).GroupByDate "January" }}
+          {{ partial "archive/month-sections.html" (dict "MonthGroups" $monthGroups "Year" $yearLabel) }}
+        </section>
+      {{ end }}
+      {{ partial "pagination.html" (dict "page" . "format" "terse") }}
+    </div>
+  {{ end }}
+{{ end }}
