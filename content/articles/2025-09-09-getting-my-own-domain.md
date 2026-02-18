@@ -7,7 +7,7 @@ tags = ['indieweb', 'meta']
 The first step to [getting on the IndieWeb](https://indieweb.org/Getting_Started) is to have your own domain. 
 
 
-This is an easy step for me because I've already got one, so I thought I'd explain how I got it.
+I've already got one, so I thought I'd explain how I got it.
 
 
 <!--more-->

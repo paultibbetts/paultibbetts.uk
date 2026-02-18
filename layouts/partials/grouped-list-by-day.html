@@ -1,0 +1,24 @@
+{{- $pages := .Pages -}}
+{{- $linkDayToArchive := .LinkDayToArchive | default false -}}
+{{- $dayGroups := ($pages.ByDate.Reverse).GroupByDate "2006-01-02" -}}
+{{- range $dayGroups }}
+  {{- $date := (index .Pages 0).Date -}}
+  {{- $heading := partial "date_with_ordinal_day.html" $date -}}
+  {{- $monthID := (lower ($date.Format "January")) -}}
+  {{- $dayID := printf "%s-%d-%s" $monthID $date.Day ($date.Format "2006") -}}
+  {{- $dayURL := (printf "/archive/%s/" ($date.Format "2006/01/02")) | relURL -}}
+  <section class="mb-8">
+    <p id="{{ $dayID }}" class="mb-4 text-sm">
+      {{- if $linkDayToArchive -}}
+        <a href="{{ $dayURL }}" class="no-underline" style="color: inherit;">{{ $heading }}</a>
+      {{- else -}}
+        {{ $heading }}
+      {{- end -}}
+    </p>
+    <ul class="mb-2">
+      {{- range (.Pages.ByDate) }}
+        {{ .Render "li-grouped" }}
+      {{- end }}
+    </ul>
+  </section>
+{{- end }}

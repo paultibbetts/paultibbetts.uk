@@ -1,0 +1,17 @@
+{{- $items := slice -}}
+{{- $kind := .Kind -}}
+
+{{- if eq $kind "year" -}}
+  {{- range .Groups -}}
+    {{- $meta := partial "archive/year-meta.html" (dict "Group" .) -}}
+    {{- $items = $items | append (dict "label" (index $meta "label") "url" (index $meta "url")) -}}
+  {{- end -}}
+{{- else if eq $kind "month" -}}
+  {{- $year := printf "%v" .Year -}}
+  {{- range .Groups -}}
+    {{- $meta := partial "archive/month-meta.html" (dict "Group" . "Year" $year) -}}
+    {{- $items = $items | append (dict "label" (index $meta "label") "url" (index $meta "url")) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return $items -}}

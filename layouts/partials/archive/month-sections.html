@@ -1,0 +1,15 @@
+{{- $monthGroups := .MonthGroups -}}
+{{- $year := printf "%v" .Year -}}
+
+{{- range $monthGroups -}}
+  {{- $monthMeta := partial "archive/month-meta.html" (dict "Group" . "Year" $year) -}}
+  {{- $monthLabel := index $monthMeta "label" -}}
+  {{- $monthURL := index $monthMeta "url" -}}
+  {{- $monthID := (lower $monthLabel) -}}
+  <section id="{{ $monthID }}" class="mb-8">
+    <p class="mb-16 text-light border-b-1 border-dashed">
+      <a href="{{ $monthURL }}" class="no-underline" style="color: inherit;">{{ $monthLabel }}</a>
+    </p>
+    {{ partial "grouped-list-by-day.html" (dict "Pages" .Pages "LinkDayToArchive" true) }}
+  </section>
+{{- end -}}

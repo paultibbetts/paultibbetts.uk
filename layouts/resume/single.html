@@ -5,7 +5,7 @@
   <div class="h-resume mb-16">
     <div id="bio">
       <h1 class="text-light text-3xl font-bold mb-4">
-        <a class="p-contact h-card border-none" href="{{ $r.website }}">
+        <a class="p-contact h-card no-underline" href="{{ $r.website }}">
           {{ .Site.Params.author.name | default .Site.Title }}
         </a>
         -
@@ -22,7 +22,7 @@
         {{ with $r.email }}
           <p class="text-light">
             <a
-              class="u-email border-none text-inherit"
+              class="u-email no-underline text-inherit"
               style="font-weight:normal;"
               href="mailto:{{ . }}"
               >{{ . }}</a
@@ -33,7 +33,7 @@
         {{ range $i, $p := $r.profile }}
           <p class="text-light">
             <a
-              class="border-none text-inherit print-link"
+              class="no-underline text-inherit print-link"
               style="font-weight:normal;"
               href="{{ $p.url }}"
               {{ with $p.rel }}rel="{{ . }}"{{ end }}
@@ -44,9 +44,7 @@
       </div>
     </div>
 
-    <div
-      class="prose prose-invert text-light font-sans prose-lg prose-a:no-underline prose-a:border-b-2 prose-a:border-orange prose-a:hover:border-red"
-    >
+    <div class="prose prose-invert text-light font-sans prose-lg">
       {{ with $r.summary }}
         <section id="summary">
           <h2>Summary</h2>

@@ -14,3 +14,5 @@ FILE="content/articles/${DATE}-${SLUG}.md"
 
 hugo new --kind article "$FILE"
 
+# Keep /archive/YYYY/, /archive/YYYY/MM/, /archive/YYYY/MM/DD/ archives in sync.
+"$(dirname "$0")/generate-date-archives.sh" >/dev/null 2>&1 || true

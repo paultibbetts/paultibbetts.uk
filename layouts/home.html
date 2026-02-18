@@ -6,16 +6,16 @@
     <p class="mb-2">I'm Paul 👋</p>
     <p class="mb-2">Software engineer based in the UK.</p>
     <p class="mb-2">
-      Learn more <a href="/about">about me</a>, view my <a href="/cv">CV</a>, or explore the
+      Learn more <a href="/about">about me</a>, view my <a href="/cv">CV</a>, or check out the
       <a href="feed">feed</a>.
     </p>
   </div>
   <div class="mb-6" id="links">
     <div class="lowercase">
       <h2 class="mb-2 hidden">Elsewhere:</h2>
-      <ul class="list-none">
+      <ul class="list-none flex gap-2">
         <li class="mb-2 inline">
-          <a href="https://bsky.app/profile/paultibbetts.uk" class="border-none"
+          <a href="https://bsky.app/profile/paultibbetts.uk"
             ><img
               src="/icons/bluesky.svg"
               class="inline"
@@ -24,7 +24,7 @@
           >
         </li>
         <li class="mb-2 inline">
-          <a rel="me" href="https://github.com/paultibbetts" class="border-none"
+          <a rel="me" href="https://github.com/paultibbetts"
             ><img
               src="/icons/github.svg"
               class="inline"
@@ -33,7 +33,7 @@
           >
         </li>
         <li class="mb-2 inline">
-          <a rel="me" href="https://indieweb.social/@paultibbetts" class="border-none"
+          <a rel="me" href="https://indieweb.social/@paultibbetts"
             ><img
               src="/icons/mastodon.svg"
               class="inline"
@@ -42,7 +42,7 @@
           >
         </li>
         <li class="mb-2 inline">
-          <a rel="me" href="https://micro.blog/paultibbetts" class="border-none"
+          <a rel="me" href="https://micro.blog/paultibbetts"
             ><img
               src="/icons/micro.blog.svg"
               class="inline"
@@ -58,12 +58,8 @@
       <h2 class="p-name mb-4 lowercase">Recent:</h2>
       <a href="#recent" class="u-url u-uid hidden">Recent</a>
 
-      <ul class="mb-6">
-        {{ $posts := first 3 (where .Site.RegularPages "Section" "in" (slice "articles" "notes")) }}
-        {{ range $posts.ByDate.Reverse }}
-          {{ .Render "li" }}
-        {{ end }}
-      </ul>
+      {{ $posts := first 3 (partial "all-posts.html" .) }}
+      {{ partial "grouped-list-by-day.html" (dict "Pages" $posts) }}
     </div>
   </div>
   <div class="mb-6" id="pages">

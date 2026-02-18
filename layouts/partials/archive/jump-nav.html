@@ -1,0 +1,13 @@
+{{- $items := .Items -}}
+{{- if gt (len $items) 0 -}}
+  <nav class="mb-8 text-sm" aria-label="{{ .AriaLabel }}">
+    <p class="inline mr-1">{{ .IntroLabel }}</p>
+    <ul class="list-none inline">
+      {{- range $items -}}
+        <li class="mb-1 inline-block mr-2">
+          <a href="{{ .url }}">{{ .label }}</a>
+        </li>
+      {{- end -}}
+    </ul>
+  </nav>
+{{- end -}}

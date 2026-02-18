@@ -1,0 +1,26 @@
+{{- $scope := .Params.date_scope -}}
+{{- $allPosts := partial "all-posts.html" . -}}
+{{- $posts := slice -}}
+{{- $target := "" -}}
+{{- $groupFormat := "" -}}
+
+{{- if eq $scope "year" -}}
+  {{- $target = printf "%v" .Params.archive_year -}}
+  {{- $groupFormat = "2006" -}}
+{{- else if eq $scope "month" -}}
+  {{- $target = printf "%v-%v" .Params.archive_year .Params.archive_month -}}
+  {{- $groupFormat = "2006-01" -}}
+{{- else if eq $scope "day" -}}
+  {{- $target = printf "%v-%v-%v" .Params.archive_year .Params.archive_month .Params.archive_day -}}
+  {{- $groupFormat = "2006-01-02" -}}
+{{- end -}}
+
+{{- if and (ne $target "") (ne $groupFormat "") -}}
+  {{- range ($allPosts.GroupByDate $groupFormat) -}}
+    {{- if eq .Key $target -}}
+      {{- $posts = .Pages.ByDate.Reverse -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return $posts -}}

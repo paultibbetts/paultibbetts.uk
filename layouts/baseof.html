@@ -27,7 +27,7 @@
         <link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML
       -}}
     {{ end }}
-    <link rel="alternate" type="text/mf2+html" href="/articles/" title="Articles feed" />
+    <link rel="alternate" type="text/mf2+html" href="/feed/" title="All posts" />
     {{ partial "opengraph.html" . }}
     {{ if hugo.IsProduction }}
       {{ with (templates.Defer (dict "key" "global")) }}

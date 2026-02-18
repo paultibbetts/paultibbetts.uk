@@ -4,6 +4,7 @@
 
 @theme {
   --color-night: rgba(24, 24, 24, 1);
+  --color-steel: rgba(156, 163, 175, 1);
 
   --color-darker: #282a36;
   --color-darker-50: #cdd0e4;
@@ -134,28 +135,41 @@ body {
   @apply p-2;
   margin: 0.5rem auto 0.5rem auto;
 
-  color: rgba(156, 163, 175, 1);
+  color: var(--color-steel);
   line-height: 1.6;
   transition: color .3s, background-color .3s
 }
 
 a {
-  @apply border-b-2;
-  @apply border-orange;
   @apply text-white;
 
+  @layer utilities {
+    text-decoration: underline solid var(--color-orange) 2px;
+  }
+
   @variant hover {
-    @apply border-red;
+    text-decoration-color: var(--color-red);
+
+    .prose & {
+      text-decoration: underline solid var(--color-red) 2px;
+    }
+  }
+
+  .prose & {
+    text-decoration: underline solid var(--color-orange) 2px;
   }
 }
 
 footer a {
-  @apply border-b-0;
   @apply text-light-200;
+  text-decoration: none;
 
   @variant hover {
-    @apply border-b-2;
-    @apply border-purple-200;
+    text-decoration: underline solid var(--color-purple) 2px;
+  }
+
+  .h-entry & {
+    @apply text-steel;
   }
 }
 
@@ -171,7 +185,8 @@ footer a {
 }
 
 .nav-thing {
-  @apply border-b-0;
+  color: var(--color-steel);
+  text-decoration: none;
   display: inline-block;
   padding: 1rem 0 1rem 1rem;
 }
@@ -193,22 +208,7 @@ footer a {
 }
 
 .pagination .page-item.active a {
-  @apply border-red;
-}
-
-.alert-box.red {
-  @apply block;
-  margin-bottom: 2.4rem;
-  padding: 1.2rem 1.7rem;
-  @apply border-red;
-  @apply bg-red-50;
-  @apply rounded;
-  border-left-width: .5rem;
-  font-weight: bold;
-}
-
-.alert-box.red a {
-  @apply text-black;
+  text-decoration-color: var(--color-red);
 }
 
 @layer utilities {
