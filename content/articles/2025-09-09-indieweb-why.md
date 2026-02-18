@@ -10,6 +10,8 @@ I've been a believer for over a decade.
 
 Here's why.
 
+<!--more-->
+
 ## I own my data
 
 I used to use the social networks. They'd make money from me being there, and that was my price of admission. Everybody did it. It was normal.

@@ -6,6 +6,8 @@ tags = ["dev-env", "Digital Garden"]
 
 I've pushed my developer environment setup scripts up to GitHub, and now they have their own little website to go with them.
 
+<!--more-->
+
 ## Dotfiles
 
 Dotfiles are the files on your system that are hidden by default, which is done by adding a `.` in front of the name, hence "dotfiles". 

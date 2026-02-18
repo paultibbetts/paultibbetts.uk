@@ -41,8 +41,9 @@ capitalizeListTitles = false
 # ==========================
 
 [permalinks]
-  # Sets URl patterns for the articles section.
+  # Sets URl patterns for the sections.
   articles = '/:year/:month/:day/:title/'
+  notes = '/:year/:month/:day/:15:04:05/'
 
 # ==========================
 # Taxonomies

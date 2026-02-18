@@ -7,49 +7,71 @@
     <p class="mb-2">Software engineer based in the UK.</p>
     <p class="mb-2">
       Learn more <a href="/about">about me</a>, view my <a href="/cv">CV</a>, or explore the
-      <a href="/articles">blog</a>.
+      <a href="feed">feed</a>.
     </p>
+  </div>
+  <div class="mb-6" id="links">
+    <div class="lowercase">
+      <h2 class="mb-2 hidden">Elsewhere:</h2>
+      <ul class="list-none">
+        <li class="mb-2 inline">
+          <a href="https://bsky.app/profile/paultibbetts.uk" class="border-none"
+            ><img
+              src="/icons/bluesky.svg"
+              class="inline"
+              style="height:1rem; width:1rem; filter: invert(1);"
+            /><span class="hidden">Bluesky</span></a
+          >
+        </li>
+        <li class="mb-2 inline">
+          <a rel="me" href="https://github.com/paultibbetts" class="border-none"
+            ><img
+              src="/icons/github.svg"
+              class="inline"
+              style="height: 1rem; width: 1rem; filter: invert(1);"
+            /><span class="hidden">Github</span></a
+          >
+        </li>
+        <li class="mb-2 inline">
+          <a rel="me" href="https://indieweb.social/@paultibbetts" class="border-none"
+            ><img
+              src="/icons/mastodon.svg"
+              class="inline"
+              style="height: 1rem; width: 1rem;filter: invert(1);"
+            /><span class="hidden">Mastodon</span></a
+          >
+        </li>
+        <li class="mb-2 inline">
+          <a rel="me" href="https://micro.blog/paultibbetts" class="border-none"
+            ><img
+              src="/icons/micro.blog.svg"
+              class="inline"
+              style="height: 1rem; width: 1rem; filter: invert(1);"
+            /><span class="hidden">Micro.blog</span></a
+          >
+        </li>
+      </ul>
+    </div>
   </div>
   <div class="h-feed hfeed mb-6" id="recent">
     <div>
-      <h2 class="p-name mb-2 lowercase">Recent</h2>
+      <h2 class="p-name mb-4 lowercase">Recent:</h2>
       <a href="#recent" class="u-url u-uid hidden">Recent</a>
 
       <ul class="mb-6">
-        {{ $posts := first 5 (where .Site.RegularPages "Section" "articles") }}
-        {{ range $posts }}
+        {{ $posts := first 3 (where .Site.RegularPages "Section" "in" (slice "articles" "notes")) }}
+        {{ range $posts.ByDate.Reverse }}
           {{ .Render "li" }}
         {{ end }}
       </ul>
-      <div class="mb-2">
-        <p class="text-white">
-          View all <a class="u-url" href="/articles/">articles</a> or
-          <a href="/tags/">tags</a>
-        </p>
-      </div>
     </div>
   </div>
   <div class="mb-6" id="pages">
     <div>
-      <h2 class="mb-2 lowercase">Pages</h2>
+      <h2 class="mb-2 lowercase">Pages:</h2>
       <div class="mb-2">
         {{ partial "pages.html" }}
       </div>
-    </div>
-  </div>
-  <div class="mb-6" id="links">
-    <div class="lowercase">
-      <h2 class="mb-2">Elsewhere</h2>
-      <ul class="list-none">
-        <li class="mb-2">
-          <a href="https://bsky.app/profile/paultibbetts.uk">Bluesky</a>
-        </li>
-        <li class="mb-2"><a rel="me" href="https://github.com/paultibbetts">Github</a></li>
-        <li class="mb-2">
-          <a rel="me" href="https://indieweb.social/@paultibbetts">Mastodon</a>
-        </li>
-        <li class="mb-2"><a rel="me" href="https://micro.blog/paultibbetts">Micro.blog</a></li>
-      </ul>
     </div>
   </div>
 {{ end }}
