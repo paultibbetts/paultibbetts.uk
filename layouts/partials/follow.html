@@ -1,12 +1,13 @@
 {{- $currentRSS := .OutputFormats.Get "rss" -}}
 {{- $isArchiveRoot := and (eq .Section "archive") (eq (replaceRE "/$" "" .RelPermalink) "/archive") -}}
 {{- $isFeedRoot := and (eq .Section "feed") (eq (replaceRE "/$" "" .RelPermalink) "/feed") -}}
-{{- if or $currentRSS $isArchiveRoot $isFeedRoot .IsHome -}}
+{{- $isPostSingle := and .IsPage (in (slice "articles" "notes" "bookmarks") .Section) -}}
+{{- if or $currentRSS $isArchiveRoot $isFeedRoot .IsHome $isPostSingle -}}
   <div class="lowercase mt-8 text-sm mb-4">
     <h2 class="mb-2">Follow</h2>
     <div class="mb-2">
       <p class="mb-1">
-        {{ if and (not $.IsHome) (not $isArchiveRoot) (not $isFeedRoot) $currentRSS }}
+        {{ if and (not $.IsHome) (not $isArchiveRoot) (not $isFeedRoot) (not $isPostSingle) $currentRSS }}
           {{ if eq $.Section "archive" }}
             {{ $displayPath := replace $currentRSS.RelPermalink "feed.xml" "feed.rss" }}
             {{- printf `
