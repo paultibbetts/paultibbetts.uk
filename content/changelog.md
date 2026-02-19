@@ -5,6 +5,12 @@ type = "page"
 
 Some things never change. My website does.
 
+## 2026-02-11
+
+- [5b1e95e](https://github.com/paultibbetts/infra.paultibbetts.uk/commit/5b1e95e651c0778b3538f91e23923543a0db940e): changed the hosting from GitHub Pages to a Raspberry Pi
+
+See [Moved My Website From GitHub Pages to a Raspberry Pi](/2026/02/19/moved-my-website-from-github-pages-to-a-raspberry-pi/) for more details.
+
 ## 2026-01-06
 
 - [b806c25](https://github.com/paultibbetts/paultibbetts.uk/commit/b806c258309ad00ef195f2ea65035142dce90317): fixed page titles and added the ability to set custom ones
