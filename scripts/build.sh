@@ -6,9 +6,9 @@ repo_root="$(cd "${script_dir}/.." && pwd)"
 
 cd "${repo_root}"
 
-# Keep date archive indexes in sync before building.
+# Generate published-content CSV for content adapters before building.
 if ! "${script_dir}/generate-date-archives.sh"; then
-  echo "Error: date archive generation failed." >&2
+  echo "Error: published-content CSV generation failed." >&2
   exit 1
 fi
 

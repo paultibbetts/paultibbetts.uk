@@ -2,5 +2,4 @@
 hugo_stats.json
 node_modules
 public/
-content/archive/*
-!content/archive/_index.md
+assets/data/published-content.csv
