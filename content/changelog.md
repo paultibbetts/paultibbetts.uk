@@ -5,6 +5,11 @@ type = "page"
 
 Some things never change. My website does.
 
+## 2026-02-18
+
+- [9b4f0ef](https://github.com/paultibbetts/paultibbetts.uk/commit/9b4f0ef8c083a658dd0702c846ed80d4f642451f): added [/notes](/notes) and [/feed](/feed) pages
+- [f7d2e99](https://github.com/paultibbetts/paultibbetts.uk/commit/f7d2e991d071d8a685157ee8b0c7278c6ef14518): added [/archive](/archive) page
+
 ## 2026-02-11
 
 - [5b1e95e](https://github.com/paultibbetts/infra.paultibbetts.uk/commit/5b1e95e651c0778b3538f91e23923543a0db940e): changed the hosting from GitHub Pages to a Raspberry Pi
