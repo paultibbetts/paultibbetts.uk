@@ -1,0 +1,72 @@
+{{- $allowedSections := slice "articles" "notes" -}}
+{{- with resources.Get "data/published-content.csv" -}}
+  {{- $rows := . | transform.Unmarshal (dict "delimiter" ",") -}}
+  {{- $years := dict -}}
+  {{- $months := dict -}}
+  {{- $days := dict -}}
+
+  {{- range $rows -}}
+    {{- if and (ge (len .) 10) (ne (index . 0) "path") -}}
+      {{- $kind := index . 8 -}}
+      {{- $section := index . 9 -}}
+      {{- if and (eq $kind "page") (in $allowedSections $section) -}}
+        {{- $date := index . 3 -}}
+        {{- if ge (len $date) 10 -}}
+          {{- $day := substr $date 0 10 -}}
+          {{- $year := substr $day 0 4 -}}
+          {{- $month := substr $day 0 7 -}}
+          {{- $years = merge $years (dict $year true) -}}
+          {{- $months = merge $months (dict $month true) -}}
+          {{- $days = merge $days (dict $day true) -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- range $year, $_ := $years -}}
+    {{- $.AddPage (dict
+      "kind" "section"
+      "type" "archive"
+      "path" $year
+      "title" $year
+      "params" (dict
+        "date_scope" "year"
+        "archive_year" $year
+      )
+    ) -}}
+  {{- end -}}
+
+  {{- range $month, $_ := $months -}}
+    {{- $year := substr $month 0 4 -}}
+    {{- $monthNum := substr $month 5 2 -}}
+    {{- $.AddPage (dict
+      "kind" "section"
+      "type" "archive"
+      "path" (printf "%s/%s" $year $monthNum)
+      "title" $month
+      "params" (dict
+        "date_scope" "month"
+        "archive_year" $year
+        "archive_month" $monthNum
+      )
+    ) -}}
+  {{- end -}}
+
+  {{- range $day, $_ := $days -}}
+    {{- $year := substr $day 0 4 -}}
+    {{- $monthNum := substr $day 5 2 -}}
+    {{- $dayNum := substr $day 8 2 -}}
+    {{- $.AddPage (dict
+      "kind" "section"
+      "type" "archive"
+      "path" (printf "%s/%s/%s" $year $monthNum $dayNum)
+      "title" $day
+      "params" (dict
+        "date_scope" "day"
+        "archive_year" $year
+        "archive_month" $monthNum
+        "archive_day" $dayNum
+      )
+    ) -}}
+  {{- end -}}
+{{- end -}}
