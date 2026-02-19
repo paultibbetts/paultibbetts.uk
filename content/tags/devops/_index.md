@@ -1,6 +1,6 @@
 +++
 title = 'devops'
-description = 'DevOops'
+description = 'Posts by Paul Tibbetts about DevOps'
 +++
 
 DevOops
