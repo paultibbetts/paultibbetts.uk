@@ -21,7 +21,22 @@
         {{- end -}}
       {{- end -}}
     </title>
-    <meta name="description" content="Blog" />
+    {{- $metaDescription := "" -}}
+    {{- with .Description -}}
+      {{- $metaDescription = . -}}
+    {{- else -}}
+      {{- with .Summary -}}
+        {{- $metaDescription = . | plainify -}}
+      {{- end -}}
+    {{- end -}}
+    {{- if not $metaDescription -}}
+      {{- with .Site.Params.description -}}
+        {{- $metaDescription = . -}}
+      {{- else -}}
+        {{- $metaDescription = "Blog" -}}
+      {{- end -}}
+    {{- end -}}
+    <meta name="description" content="{{ $metaDescription | plainify | htmlUnescape | replaceRE `\\s+` ` ` | truncate 160 }}" />
     {{- with .OutputFormats.Get "rss" -}}
       {{- printf `
         <link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML
