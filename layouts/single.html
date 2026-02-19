@@ -15,7 +15,7 @@
           </h1>
         {{ end }}
         {{ if .Date }}
-          <div class="mb-4">
+          <div class="mb-8">
             <time
               class="dt-published no-underline color-steel"
               datetime="{{ .Date }}"
@@ -27,7 +27,7 @@
         {{ end }}
 
         {{ if .ContentWithoutSummary }}
-          <div class="p-summary mb-2 prose prose-invert text-light font-sans">{{ .Summary }}</div>
+          <div class="p-summary mb-4 prose prose-invert text-light font-sans">{{ .Summary }}</div>
         {{ else }}
           <div class="e-content prose prose-invert text-light font-sans mb-16">
             {{ .Content }}
