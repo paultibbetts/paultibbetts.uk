@@ -43,7 +43,7 @@ capitalizeListTitles = false
 [permalinks]
   # Sets URl patterns for the sections.
   articles = '/:year/:month/:day/:title/'
-  notes = '/:year/:month/:day/:contentbasename/'
+  notes = '/:year/:month/:day/:slugorcontentbasename/'
 
 # ==========================
 # Taxonomies
