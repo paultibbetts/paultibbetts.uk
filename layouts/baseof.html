@@ -36,12 +36,16 @@
         {{- $metaDescription = "Blog" -}}
       {{- end -}}
     {{- end -}}
-    <meta name="description" content="{{ $metaDescription | plainify | htmlUnescape | replaceRE `\\s+` ` ` | truncate 160 }}" />
+    <meta
+      name="description"
+      content="{{ $metaDescription | plainify | htmlUnescape | replaceRE `\\s+` ` ` | truncate 160 }}"
+    />
     {{- with .OutputFormats.Get "rss" -}}
       {{- printf `
         <link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML
       -}}
     {{ end }}
+    <link rel="webmention" href="https://webmention.io/paultibbetts.uk/webmention" />
     <link rel="alternate" type="text/mf2+html" href="/feed/" title="All posts" />
     {{ partial "opengraph.html" . }}
     {{ if hugo.IsProduction }}
