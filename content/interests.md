@@ -2,6 +2,7 @@
 title = "Interests"
 page_title = "Paul Tibbetts' Interests"
 type = "page"
+show_in_pages_nav = true
 +++
 
 <ul class="emoji-list">

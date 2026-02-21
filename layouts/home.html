@@ -6,7 +6,7 @@
     <div class="my-6 md:flex md:gap-8 lg:-ml-24">
       <div class="md:flex justify-center items-center mb-4 md:mb-0 md:px-4 lg:px-0">
         <img
-          src="icon.png"
+          src="/icon.png"
           class="rounded-full xl:rounded"
           style="max-width: 4rem; max-height: 4rem;"
           title="photo of Paul Tibbetts"
@@ -17,8 +17,8 @@
           <p class="mb-2">I'm Paul 👋</p>
           <p class="mb-2">Software engineer based in the UK.</p>
           <p class="mb-2">
-            Learn more <a href="/about">about me</a>, view my <a href="/cv">CV</a>, or check out the
-            <a href="feed">feed</a>.
+            Learn more <a href="/about">about me</a>, view my <a href="/cv">CV</a>, or consume the
+            <a href="/feed">feed</a>.
           </p>
         </div>
       </div>
@@ -63,10 +63,43 @@
               /><span class="hidden">Micro.blog</span></a
             >
           </li>
+          <li>
+            <a href="feed.xml">
+              <img src="/icons/rss.svg" style="display: inline; height: 1rem; width: 1rem" />
+            </a>
+          </li>
         </ul>
       </div>
     </div>
-    <div class="h-feed hfeed mb-6" id="recent">
+    <div class="mb-4" id="pages">
+      <nav aria-labelledby="pages-nav-heading">
+        <h2 id="pages-nav-heading" class="mb-2 lowercase">Pages:</h2>
+        <div class="mb-2">
+          {{ partial "pages.html" . }}
+        </div>
+      </nav>
+    </div>
+
+    <div class="mb-4" id="posts">
+      <nav aria-labelledby="posts-nav-heading">
+        <h2 id="posts-nav-heading" class="mb-2 lowercase">Posts:</h2>
+        <div class="mb-2">
+          {{ partial "post-pages.html" . }}
+        </div>
+      </nav>
+    </div>
+    <hr class="mb-8" />
+
+    <div class="h-feed hfeed mb-20">
+      {{ with .Content }}
+        <div class="p-summary mb-8">{{ . }}</div>
+      {{ end }}
+      {{ $posts := partial "all-posts.html" . }}
+      {{ $paginator := .Paginate $posts }}
+      {{ partial "grouped-list-by-day.html" (dict "Pages" $paginator.Pages) }}
+      {{ partial "pagination.html" (dict "page" . "format" "terse" ) }}
+    </div>
+    <!--<div class="h-feed hfeed mb-6" id="recent">
       <div>
         <h2 class="p-name mb-4 lowercase">Recent:</h2>
         <a href="#recent" class="u-url u-uid hidden">Recent</a>
@@ -74,13 +107,5 @@
         {{ partial "grouped-list-by-day.html" (dict "Pages" $posts) }}
       </div>
     </div>
-    <div class="mb-6" id="pages">
-      <div>
-        <h2 class="mb-2 lowercase">Pages:</h2>
-        <div class="mb-2">
-          {{ partial "pages.html" }}
-        </div>
-      </div>
-    </div>
-  </div>
+--></div>
 {{ end }}

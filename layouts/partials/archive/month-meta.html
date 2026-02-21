@@ -3,5 +3,5 @@
 {{- $first := index $group.Pages 0 -}}
 {{- $label := $first.Date.Format "January" -}}
 {{- $num := $first.Date.Format "01" -}}
-{{- $url := (printf "/archive/%s/%s/" $year $num) | relURL -}}
+{{- $url := (printf "/%s/%s/" $year $num) | relURL -}}
 {{- return (dict "label" $label "num" $num "url" $url) -}}

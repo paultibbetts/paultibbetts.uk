@@ -6,7 +6,7 @@
   {{- $heading := partial "date_with_ordinal_day.html" $date -}}
   {{- $monthID := (lower ($date.Format "January")) -}}
   {{- $dayID := printf "%s-%d-%s" $monthID $date.Day ($date.Format "2006") -}}
-  {{- $dayURL := (printf "/archive/%s/" ($date.Format "2006/01/02")) | relURL -}}
+  {{- $dayURL := (printf "/%s/" ($date.Format "2006/01/02")) | relURL -}}
   <section class="mb-8">
     <p id="{{ $dayID }}" class="mb-4 text-sm">
       {{- if $linkDayToArchive -}}

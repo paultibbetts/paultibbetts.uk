@@ -2,6 +2,7 @@
 title = "About"
 page_title = "About Paul Tibbetts"
 type = "page"
+show_in_pages_nav = true
 +++
 
 My name's Paul. I grew up in Birmingham and now live in North Wales <span aria-hidden="true">🏴󠁧󠁢󠁷󠁬󠁳󠁿</span>.

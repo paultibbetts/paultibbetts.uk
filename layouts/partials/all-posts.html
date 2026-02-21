@@ -1,3 +1,4 @@
-{{- $posts := where .Site.RegularPages "Section" "in" (slice "articles" "notes") -}}
+{{- $postSections := site.Params.post_sections | default (slice "articles" "notes") -}}
+{{- $posts := where .Site.RegularPages "Section" "in" $postSections -}}
 {{- $posts = where $posts "Kind" "page" -}}
 {{- return ($posts.ByDate.Reverse) -}}

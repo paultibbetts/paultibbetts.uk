@@ -2,6 +2,7 @@
 title = "Uses"
 page_title = "Paul Tibbetts Uses"
 type = "page"
+show_in_pages_nav = true
 +++
 
 This is the tech I use. 

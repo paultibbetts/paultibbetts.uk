@@ -1,6 +1,7 @@
 +++
 title = "CV"
 type = "resume"
+show_in_pages_nav = true
 
 [resume]
   website = "https://paultibbetts.uk"
