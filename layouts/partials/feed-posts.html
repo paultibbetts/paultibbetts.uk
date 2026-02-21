@@ -1,0 +1,4 @@
+{{- $feedSections := site.Params.feed_post_sections | default (slice "articles" "notes") -}}
+{{- $posts := where .Site.RegularPages "Section" "in" $feedSections -}}
+{{- $posts = where $posts "Kind" "page" -}}
+{{- return ($posts.ByDate.Reverse) -}}

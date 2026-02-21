@@ -34,6 +34,8 @@ capitalizeListTitles = false
 	images = [ '/apple-touch-icon.png' ]
   # Sections treated as post streams (home/feed/year/archive views).
   post_sections = [ 'articles', 'notes' ]
+  # Sections used by the alternate /feed h-feed.
+  feed_post_sections = [ 'articles', 'notes' ]
 	[params.author]
     # Author name used by some templates.
 	  name = 'Paul Tibbetts'
