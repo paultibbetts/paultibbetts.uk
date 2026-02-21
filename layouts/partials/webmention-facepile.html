@@ -1,0 +1,56 @@
+{{- $mentions := .mentions | default (slice) -}}
+{{- $emoji := .emoji | default "💬" -}}
+{{- $class := .class | default "mt-1 flex w-full justify-end items-center gap-2 align-middle min-[400px]:mt-0 min-[400px]:w-auto min-[400px]:float-right min-[400px]:inline-flex min-[400px]:justify-start flex-wrap text-sm" -}}
+{{- $max := 8 -}}
+
+{{- $selected := slice -}}
+{{- $seenInitials := dict -}}
+{{- $seenSources := dict -}}
+
+{{- range $mentions -}}
+  {{- if lt (len $selected) $max -}}
+    {{- $post := (index . "post") | default dict -}}
+    {{- $author := (index $post "author") | default dict -}}
+    {{- $authorName := (index $author "name") | default "Someone" -}}
+    {{- $initial := upper (slicestr $authorName 0 1) -}}
+    {{- $source := (index . "source") | default ((index $post "url") | default $authorName) -}}
+    {{- if and (not (index $seenInitials $initial)) (not (index $seenSources $source)) -}}
+      {{- $selected = $selected | append . -}}
+      {{- $seenInitials = merge $seenInitials (dict $initial true) -}}
+      {{- $seenSources = merge $seenSources (dict $source true) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- range $mentions -}}
+  {{- if lt (len $selected) $max -}}
+    {{- $post := (index . "post") | default dict -}}
+    {{- $author := (index $post "author") | default dict -}}
+    {{- $authorName := (index $author "name") | default "Someone" -}}
+    {{- $source := (index . "source") | default ((index $post "url") | default $authorName) -}}
+    {{- if not (index $seenSources $source) -}}
+      {{- $selected = $selected | append . -}}
+      {{- $seenSources = merge $seenSources (dict $source true) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+
+<span class="{{ $class }}">
+  {{- range $idx, $mention := $selected -}}
+    {{- $post := (index $mention "post") | default dict -}}
+    {{- $author := (index $post "author") | default dict -}}
+    {{- $authorName := (index $author "name") | default "Someone" -}}
+    {{- $emojiClass := "inline" -}}
+    {{- if ne $idx 0 -}}
+      {{- $emojiClass = "hidden sm:inline" -}}
+    {{- end -}}
+    <span class="inline-flex items-center gap-1" title="{{ $authorName }}">
+      <span aria-hidden="true" class="{{ $emojiClass }}">{{ $emoji }}</span>
+      {{ partial "webmention-avatar.html" (dict "name" $authorName "sizeClass" "h-5 w-5 text-[10px]") }}
+    </span>
+  {{- end -}}
+  {{- if gt (len $mentions) (len $selected) -}}
+    <span class="text-xs color-steel">+{{ sub (len $mentions) (len $selected) }}</span>
+  {{- end -}}
+</span>

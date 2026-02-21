@@ -1,0 +1,62 @@
+{{- $post := (index . "post") | default dict -}}
+{{- $author := (index $post "author") | default dict -}}
+{{- $authorName := (index $author "name") | default "Someone" -}}
+{{- $defaultURL := (index $post "url") | default (index . "source") -}}
+{{- $authorURL := (index $author "url") | default $defaultURL -}}
+{{- $sourceURL := (index . "source") | default $defaultURL -}}
+{{- $property := (index $post "wm-property") | default (index . "wm-property") | default "mention-of" -}}
+{{- $propertyLabel := "mentioned this" -}}
+{{- if eq $property "in-reply-to" -}}
+  {{- $propertyLabel = "replied" -}}
+{{- else if eq $property "like-of" -}}
+  {{- $propertyLabel = "liked this" -}}
+{{- else if eq $property "repost-of" -}}
+  {{- $propertyLabel = "reposted this" -}}
+{{- else if eq $property "bookmark-of" -}}
+  {{- $propertyLabel = "bookmarked this" -}}
+{{- end -}}
+{{- $publishedRaw := (index $post "published") | default (index . "verified_date") -}}
+{{- $publishedLabel := $publishedRaw -}}
+{{- with $publishedRaw -}}
+  {{- $ts := time . -}}
+  {{- $publishedLabel = printf "%s at %s" (partial "date_with_ordinal_day.html" $ts) ($ts.Format "3:04pm") -}}
+{{- end -}}
+
+{{- $content := index $post "content" -}}
+{{- $contentText := "" -}}
+{{- if $content -}}
+  {{- if reflect.IsMap $content -}}
+    {{- $contentText = ((index $content "text") | default ((index $content "html") | plainify)) -}}
+  {{- else -}}
+    {{- $contentText = ($content | plainify) -}}
+  {{- end -}}
+{{- else -}}
+  {{- $contentText = ((index $post "name") | default "") -}}
+{{- end -}}
+
+
+<li class="mb-6">
+  <article class="rounded border border-steel px-4 py-3">
+    <header class="mb-2 flex items-center gap-3">
+      {{ partial "webmention-avatar.html" (dict "name" $authorName "sizeClass" "h-8 w-8 text-xs") }}
+      <p class="text-sm">
+        <a href="{{ $authorURL }}">{{ $authorName }}</a>
+        <span class="color-steel">{{ $propertyLabel }}</span>
+      </p>
+    </header>
+
+    {{- with $contentText -}}
+      <div class="mb-2 prose prose-invert text-light font-sans">{{ . | plainify }}</div>
+    {{- end -}}
+
+    {{- with $publishedRaw -}}
+      <footer>
+        <p class="text-xs color-steel">
+          <a href="{{ $sourceURL }}">
+            <abbr class="dt-published" title="{{ . }}">{{ $publishedLabel }}</abbr>
+          </a>
+        </p>
+      </footer>
+    {{- end -}}
+  </article>
+</li>

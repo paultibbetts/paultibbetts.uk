@@ -1,0 +1,41 @@
+{{- $name := .name | default "Someone" -}}
+{{- $sizeClass := .sizeClass | default "h-8 w-8 text-xs" -}}
+{{- $initial := upper (slicestr $name 0 1) -}}
+{{- $palette := dict
+  "A" "#dc2626"
+  "B" "#ea580c"
+  "C" "#d97706"
+  "D" "#ca8a04"
+  "E" "#65a30d"
+  "F" "#4d7c0f"
+  "G" "#16a34a"
+  "H" "#15803d"
+  "I" "#059669"
+  "J" "#047857"
+  "K" "#0d9488"
+  "L" "#0f766e"
+  "M" "#0891b2"
+  "N" "#0e7490"
+  "O" "#0284c7"
+  "P" "#0369a1"
+  "Q" "#2563eb"
+  "R" "#1d4ed8"
+  "S" "#4f46e5"
+  "T" "#4338ca"
+  "U" "#7c3aed"
+  "V" "#6d28d9"
+  "W" "#a21caf"
+  "X" "#c026d3"
+  "Y" "#db2777"
+  "Z" "#be185d"
+-}}
+{{- $avatarColor := index $palette $initial | default "#64748b" -}}
+
+<span
+  class="inline-flex {{ $sizeClass }} items-center justify-center rounded-full font-semibold"
+  style="background-color: {{ $avatarColor }}; color: #ffffff;"
+  aria-hidden="true"
+  title="{{ $name }}"
+>
+  {{ $initial }}
+</span>
