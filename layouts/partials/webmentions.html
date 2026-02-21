@@ -1,0 +1,137 @@
+{{- $all := slice -}}
+{{- with site.Data.webmentions -}}
+  {{- if reflect.IsMap . -}}
+    {{- with index . "children" -}}
+      {{- $all = . -}}
+    {{- end -}}
+  {{- else if reflect.IsSlice . -}}
+    {{- $all = . -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $targetPath := replaceRE "/$" "" .RelPermalink -}}
+{{- $mentions := slice -}}
+{{- range $all -}}
+  {{- $rawTarget := (index . "target") | default "" -}}
+  {{- $mentionTargetPath := $rawTarget | replaceRE "^https?://[^/]+" "" | replaceRE "/$" "" -}}
+  {{- if and $mentionTargetPath (not (hasPrefix $mentionTargetPath "/")) -}}
+    {{- $mentionTargetPath = printf "/%s" $mentionTargetPath -}}
+  {{- end -}}
+  {{- if eq $mentionTargetPath $targetPath -}}
+    {{- $mentions = $mentions | append . -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if gt (len $mentions) 0 -}}
+  {{- $replies := slice -}}
+  {{- $likes := slice -}}
+  {{- $reposts := slice -}}
+  {{- $bookmarks := slice -}}
+  {{- $mentionsOnly := slice -}}
+
+  {{- range $mentions -}}
+    {{- $post := (index . "post") | default dict -}}
+    {{- $prop := (index $post "wm-property") | default (index . "wm-property") | default "mention-of" -}}
+    {{- if eq $prop "in-reply-to" -}}
+      {{- $replies = $replies | append . -}}
+    {{- else if eq $prop "like-of" -}}
+      {{- $likes = $likes | append . -}}
+    {{- else if eq $prop "repost-of" -}}
+      {{- $reposts = $reposts | append . -}}
+    {{- else if eq $prop "bookmark-of" -}}
+      {{- $bookmarks = $bookmarks | append . -}}
+    {{- else -}}
+      {{- $mentionsOnly = $mentionsOnly | append . -}}
+    {{- end -}}
+  {{- end -}}
+
+
+  <section id="responses" class="mt-12">
+    <h2 class="mb-4">Responses</h2>
+
+    {{- if gt (len $replies) 0 -}}
+      <details class="p-comment h-entry mb-4" open>
+        <summary>
+          <h3 class="p-name inline">
+            {{ len $replies }}
+            {{ cond (eq (len $replies) 1) "Reply" "Replies" }}
+          </h3>
+          {{ partial "webmention-facepile.html" (dict "mentions" $replies "emoji" "↩️") }}
+        </summary>
+        <ul class="list-none py-2 clear-both">
+          {{- range $replies -}}
+            {{ partial "webmention.html" . }}
+          {{- end -}}
+        </ul>
+      </details>
+    {{- end -}}
+
+    {{- if gt (len $likes) 0 -}}
+      <details class="p-comment h-entry mb-4" {{ if le (len $likes) 8 }}open{{ end }}>
+        <summary>
+          <h3 class="p-name inline">
+            {{ len $likes }}
+            {{ cond (eq (len $likes) 1) "Like" "Likes" }}
+          </h3>
+          {{ partial "webmention-facepile.html" (dict "mentions" $likes "emoji" "❤️") }}
+        </summary>
+        <div class="py-2 clear-both">
+          {{- range $likes -}}
+            {{ partial "webmention-reaction.html" (dict "mention" . "action" "Liked by") }}
+          {{- end -}}
+        </div>
+      </details>
+    {{- end -}}
+
+    {{- if gt (len $reposts) 0 -}}
+      <details class="p-comment h-entry mb-4" {{ if le (len $reposts) 8 }}open{{ end }}>
+        <summary>
+          <h3 class="p-name inline">
+            {{ len $reposts }}
+            {{ cond (eq (len $reposts) 1) "Repost" "Reposts" }}
+          </h3>
+          {{ partial "webmention-facepile.html" (dict "mentions" $reposts "emoji" "🔁") }}
+        </summary>
+        <div class="py-2 clear-both">
+          {{- range $reposts -}}
+            {{ partial "webmention-reaction.html" (dict "mention" . "action" "Reposted by") }}
+          {{- end -}}
+        </div>
+      </details>
+    {{- end -}}
+
+    {{- if gt (len $bookmarks) 0 -}}
+      <details class="p-comment h-entry mb-4" {{ if le (len $bookmarks) 8 }}open{{ end }}>
+        <summary>
+          <h3 class="p-name inline">
+            {{ len $bookmarks }}
+            {{ cond (eq (len $bookmarks) 1) "Bookmark" "Bookmarks" }}
+          </h3>
+          {{ partial "webmention-facepile.html" (dict "mentions" $bookmarks "emoji" "🔖") }}
+        </summary>
+        <div class="py-2 clear-both">
+          {{- range $bookmarks -}}
+            {{ partial "webmention-reaction.html" (dict "mention" . "action" "Bookmarked by") }}
+          {{- end -}}
+        </div>
+      </details>
+    {{- end -}}
+
+    {{- if gt (len $mentionsOnly) 0 -}}
+      <details class="p-comment h-entry mb-4" {{ if le (len $mentionsOnly) 100 }}open{{ end }}>
+        <summary>
+          <h3 class="p-name inline">
+            {{ len $mentionsOnly }}
+            {{ cond (eq (len $mentionsOnly) 1) "Mention" "Mentions" }}
+          </h3>
+          {{ partial "webmention-facepile.html" (dict "mentions" $mentionsOnly "emoji" "💬") }}
+        </summary>
+        <div class="py-2 clear-both">
+          {{- range $mentionsOnly -}}
+            {{ partial "webmention-mention.html" . }}
+          {{- end -}}
+        </div>
+      </details>
+    {{- end -}}
+  </section>
+{{- end -}}

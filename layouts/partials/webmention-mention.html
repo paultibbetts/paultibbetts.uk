@@ -1,0 +1,51 @@
+{{- $mention := . -}}
+{{- $post := (index $mention "post") | default dict -}}
+{{- $author := (index $post "author") | default dict -}}
+{{- $authorName := (index $author "name") | default "Someone" -}}
+{{- $defaultURL := (index $post "url") | default (index $mention "source") -}}
+{{- $authorURL := (index $author "url") | default $defaultURL -}}
+{{- $sourceURL := (index $mention "source") | default $defaultURL -}}
+{{- $publishedRaw := (index $post "published") | default (index $mention "verified_date") -}}
+{{- $publishedLabel := $publishedRaw -}}
+{{- with $publishedRaw -}}
+  {{- $ts := time . -}}
+  {{- $publishedLabel = printf "%s at %s" (partial "date_with_ordinal_day.html" $ts) ($ts.Format "3:04pm") -}}
+{{- end -}}
+{{- $id := printf "comment%s" (slicestr (md5 $sourceURL) 0 8) -}}
+
+{{- $content := index $post "content" -}}
+{{- $excerpt := "" -}}
+{{- if $content -}}
+  {{- if reflect.IsMap $content -}}
+    {{- $excerpt = ((index $content "text") | default ((index $content "html") | plainify)) -}}
+  {{- else -}}
+    {{- $excerpt = ($content | plainify) -}}
+  {{- end -}}
+{{- else -}}
+  {{- $excerpt = ((index $post "name") | default "") -}}
+{{- end -}}
+{{- $excerpt = $excerpt | plainify | htmlUnescape | replaceRE `\\s+` ` ` -}}
+
+
+<div class="mb-3">
+  <p class="meta mb-1 text-right" id="{{ $id }}">
+    <a href="#{{ $id }}" rel="bookmark">#</a>
+    Mentioned by
+    <cite class="h-card p-author">
+      <a class="u-url p-name" href="{{ $authorURL }}">{{ $authorName }}</a>
+    </cite>
+    {{- with $publishedRaw -}}
+      on
+      <a href="{{ $sourceURL }}" style="color:inherit; text-decoration: none;">
+        <abbr class="dt-published" title="{{ . }}">{{ $publishedLabel }}</abbr>
+      </a>
+    {{- end -}}
+  </p>
+  {{- with $excerpt -}}
+    <blockquote class="mb-0 border-l-2 border-steel pl-3">
+      <div class="prose prose-invert max-w-none">
+        <p class="mb-0 text-light">{{ . }}</p>
+      </div>
+    </blockquote>
+  {{- end -}}
+</div>
