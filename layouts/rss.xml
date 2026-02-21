@@ -25,6 +25,8 @@
 {{- $pages = partial "archive/posts-for-scope.html" . }}
 {{- else if $.IsHome }}
 {{- $pages = partial "all-posts.html" . }}
+{{- else if and $.IsSection (eq .Section "feed") }}
+{{- $pages = partial "feed-posts.html" . }}
 {{- else if $.IsSection }}
 {{- $pages = (where $pctx.RegularPages "Kind" "page") }}
 {{- else }}
