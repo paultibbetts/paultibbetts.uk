@@ -3,7 +3,9 @@ title = "Changelog"
 type = "page"
 +++
 
-Some things never change. My website does.
+Some things never change.
+
+My website does.
 
 ## 2026-02-18
 
