@@ -67,7 +67,7 @@
     {{- end -}}
 
     {{- if gt (len $likes) 0 -}}
-      <details class="p-comment h-entry mb-4" {{ if le (len $likes) 8 }}open{{ end }}>
+      <details class="p-comment h-entry mb-4">
         <summary>
           <h3 class="p-name inline">
             {{ len $likes }}
@@ -84,7 +84,7 @@
     {{- end -}}
 
     {{- if gt (len $reposts) 0 -}}
-      <details class="p-comment h-entry mb-4" {{ if le (len $reposts) 8 }}open{{ end }}>
+      <details class="p-comment h-entry mb-4">
         <summary>
           <h3 class="p-name inline">
             {{ len $reposts }}
@@ -101,7 +101,7 @@
     {{- end -}}
 
     {{- if gt (len $bookmarks) 0 -}}
-      <details class="p-comment h-entry mb-4" {{ if le (len $bookmarks) 8 }}open{{ end }}>
+      <details class="p-comment h-entry mb-4">
         <summary>
           <h3 class="p-name inline">
             {{ len $bookmarks }}

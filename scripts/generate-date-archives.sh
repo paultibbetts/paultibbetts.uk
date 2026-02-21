@@ -3,7 +3,12 @@ set -euo pipefail
 
 # Generates CSV metadata for content adapters at:
 #   assets/data/published-content.csv
-# using Hugo's built-in published content list.
+#
+# This powers generated root date views:
+#   /YYYY/
+#   /YYYY/MM/
+#   /YYYY/MM/DD/
+# and the /archive selector page links.
 
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 repo_root="$(cd "${script_dir}/.." && pwd)"

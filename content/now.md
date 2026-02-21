@@ -2,6 +2,7 @@
 title = "Now"
 hide_title = true
 type = "page"
+show_in_pages_nav = true
 +++
 
 ## I'm on a break.

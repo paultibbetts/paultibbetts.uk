@@ -46,8 +46,8 @@
       {{- $emojiClass = "hidden sm:inline" -}}
     {{- end -}}
     <span class="inline-flex items-center gap-1" title="{{ $authorName }}">
-      <span aria-hidden="true" class="{{ $emojiClass }}">{{ $emoji }}</span>
       {{ partial "webmention-avatar.html" (dict "name" $authorName "sizeClass" "h-5 w-5 text-[10px]") }}
+      <span aria-hidden="true" class="{{ $emojiClass }}">{{ $emoji }}</span>
     </span>
   {{- end -}}
   {{- if gt (len $mentions) (len $selected) -}}

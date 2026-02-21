@@ -14,25 +14,66 @@
         <div class="p-summary mb-8">{{ . }}</div>
       {{ end }}
       {{ $posts := partial "all-posts.html" . }}
-      {{ $paginator := .Paginate $posts }}
-      {{ $yearGroups := ($paginator.Pages.ByDate.Reverse).GroupByDate "2006" }}
+      {{ $yearGroups := $posts.GroupByDate "2006" }}
       {{ $yearJumpItems := partial "archive/jump-items.html" (dict "Groups" $yearGroups "Kind" "year") }}
       {{ partial "archive/jump-nav.html" (dict "AriaLabel" "Years" "IntroLabel" "By year:" "Items" $yearJumpItems) }}
-      {{ range $yearGroups }}
-        {{ $yearMeta := partial "archive/year-meta.html" (dict "Group" .) }}
-        {{ $yearLabel := index $yearMeta "label" }}
-        {{ $yearURL := index $yearMeta "url" }}
-        <section id="{{ $yearLabel }}" class="mb-8">
-          <p class="mb-8 text-orange text-xl" style="border-color: rgba(156, 163, 175, 1);">
-            <a href="{{ $yearURL }}" class="no-underline" style="color: inherit;"
-              >{{ $yearLabel }}</a
-            >
-          </p>
-          {{ $monthGroups := (.Pages.ByDate.Reverse).GroupByDate "January" }}
-          {{ partial "archive/month-sections.html" (dict "MonthGroups" $monthGroups "Year" $yearLabel) }}
-        </section>
+
+      {{ $articles := where .Site.RegularPages "Section" "articles" }}
+      {{ $articles = where $articles "Kind" "page" }}
+      {{ $articles = $articles.ByDate.Reverse }}
+      {{ if gt (len $articles) 0 }}
+        <details class="p-comment h-entry mb-4">
+          <summary>
+            <h2 class="p-name inline">
+              {{ len $articles }}
+              {{ cond (eq (len $articles) 1) "Article" "Articles" }}
+            </h2>
+          </summary>
+          <div class="py-2 clear-both">
+            {{ range $articles }}
+              {{ $id := printf "article-%s" .File.UniqueID }}
+              <p class="meta mb-2 text-right" id="{{ $id }}">
+                <a href="#{{ $id }}" rel="bookmark">#</a>
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                <a href="{{ .RelPermalink }}" style="color: inherit; text-decoration: none;">
+                  <abbr class="dt-published" title="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+                    {{ .Date.Format "2006-01-02 15:04" }}
+                  </abbr>
+                </a>
+              </p>
+            {{ end }}
+          </div>
+        </details>
       {{ end }}
-      {{ partial "pagination.html" (dict "page" . "format" "terse") }}
+
+      {{ $notes := where .Site.RegularPages "Section" "notes" }}
+      {{ $notes = where $notes "Kind" "page" }}
+      {{ $notes = $notes.ByDate.Reverse }}
+      {{ if gt (len $notes) 0 }}
+        <details class="p-comment h-entry mb-4">
+          <summary>
+            <h2 class="p-name inline">
+              {{ len $notes }}
+              {{ cond (eq (len $notes) 1) "Note" "Notes" }}
+            </h2>
+          </summary>
+          <div class="py-2 clear-both">
+            {{ range $notes }}
+              {{ $id := printf "note-%s" .File.UniqueID }}
+              {{ $noteSlug := .Slug | default .File.ContentBaseName }}
+              <p class="meta mb-2 text-right" id="{{ $id }}">
+                <a href="#{{ $id }}" rel="bookmark">#</a>
+                <a href="{{ .RelPermalink }}">{{ $noteSlug }}</a>
+                <a href="{{ .RelPermalink }}" style="color: inherit; text-decoration: none;">
+                  <abbr class="dt-published" title="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+                    {{ .Date.Format "2006-01-02 15:04" }}
+                  </abbr>
+                </a>
+              </p>
+            {{ end }}
+          </div>
+        </details>
+      {{ end }}
     </div>
   {{ end }}
 {{ end }}

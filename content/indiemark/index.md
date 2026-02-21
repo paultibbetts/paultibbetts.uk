@@ -1,6 +1,7 @@
 +++
 title = "IndieMark"
 type = "page"
+show_in_pages_nav = false
 +++
 
 [IndieMark](https://indieweb.org/IndieMark) is an _in-progress_ developer guide that organises the [building blocks](https://indieweb.org/Category:building-blocks) that make up an IndieWeb site.

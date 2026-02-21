@@ -55,7 +55,7 @@ relative_path="${file#content/}"
 
 hugo new --kind note "$relative_path"
 
-# Keep /archive/YYYY/, /archive/YYYY/MM/, /archive/YYYY/MM/DD/ archives in sync.
+# Keep generated root date views (/YYYY/, /YYYY/MM/, /YYYY/MM/DD/) in sync.
 "$(dirname "$0")/generate-date-archives.sh" >/dev/null
 
 echo "Created $relative_path"

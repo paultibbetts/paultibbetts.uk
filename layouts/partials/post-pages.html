@@ -1,19 +1,20 @@
-{{- $pages := where site.Pages "Params.show_in_pages_nav" true -}}
-{{- $pages = where $pages "Kind" "in" (slice "page" "section" "taxonomy") -}}
+{{- $postNavPages := where site.Pages "Params.show_in_posts_nav" true -}}
+{{- $postNavPages = where $postNavPages "Kind" "in" (slice "page" "section" "taxonomy") -}}
 {{- $currentPath := replaceRE "/$" "" .RelPermalink -}}
 <ul class="list-none">
-  {{- range sort $pages "Title" }}
+  {{- range sort $postNavPages "Title" }}
+    {{- $label := replaceRE "/$" "" .RelPermalink -}}
     {{- $itemPath := replaceRE "/$" "" .RelPermalink -}}
     {{- $isCurrent := or (eq $itemPath $currentPath) (hasPrefix (printf "%s/" $currentPath) (printf "%s/" $itemPath)) -}}
-    <li class="lowercase inline-block mr-1 mb-1">
+    <li class="mb-2 lowercase inline-block mr-1 mb-1">
       <a
         href="{{ .RelPermalink }}"
         class="{{ if $isCurrent }}active{{ end }}"
         style="text-wrap: nowrap; {{ if $isCurrent }}
           text-decoration: underline solid var(--color-purple) 2px;
         {{ end }}"
-        >/{{ .Title }}</a
+        >{{ $label }}</a
       >
     </li>
-  {{ end -}}
+  {{- end -}}
 </ul>

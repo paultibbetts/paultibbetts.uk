@@ -1,4 +1,4 @@
-{{- $allowedSections := slice "articles" "notes" -}}
+{{- $allowedSections := site.Params.post_sections | default (slice "articles" "notes") -}}
 {{- with resources.Get "data/published-content.csv" -}}
   {{- $rows := . | transform.Unmarshal (dict "delimiter" ",") -}}
   {{- $years := dict -}}
@@ -18,6 +18,11 @@
           {{- $years = merge $years (dict $year true) -}}
           {{- $months = merge $months (dict $month true) -}}
           {{- $days = merge $days (dict $day true) -}}
+        {{- else if ge (len $date) 4 -}}
+          {{- $year := substr $date 0 4 -}}
+          {{- if findRE "^[0-9]{4}$" $year -}}
+            {{- $years = merge $years (dict $year true) -}}
+          {{- end -}}
         {{- end -}}
       {{- end -}}
     {{- end -}}

@@ -1,6 +1,7 @@
 +++
 title = "Changelog"
 type = "page"
+show_in_pages_nav = true
 +++
 
 Some things never change.
