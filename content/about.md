@@ -25,7 +25,7 @@ For a more formal summary of my experience you can read my [CV](/cv).
 
 is made with [Hugo](https://gohugo.io) and my own custom theme that uses [TailwindCSS](https://tailwindcss.com/).
 
-It's hosted on [GitHub Pages](https://pages.github.com/), I'll move it someday, with [Cloudflare](https://cloudflare.com) to manage the domain.
+It's hosted on [a Raspberry Pi](/2026/02/19/moved-my-website-from-github-pages-to-a-raspberry-pi/), and [Cloudflare](https://cloudflare.com) is used to manage the domain.
 
 ## Elsewhere
 
