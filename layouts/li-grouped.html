@@ -1,4 +1,4 @@
-<li class="h-entry mb-8">
+<li class="h-entry mb-4">
   <div class="prepended-icon {{ .Section | urlize }}">
     {{- if .Title }}
       <div class="mb-4">
@@ -17,7 +17,7 @@
             <a href="{{ .RelPermalink }}">read more</a>
           </div>
         {{- else -}}
-          <div class="e-content prose prose-invert text-light font-sans mb-16">
+          <div class="e-content prose prose-invert text-light font-sans mb-8">
             {{ .Content }}
           </div>
         {{- end -}}

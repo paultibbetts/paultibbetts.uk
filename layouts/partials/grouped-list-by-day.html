@@ -7,7 +7,7 @@
   {{- $monthID := (lower ($date.Format "January")) -}}
   {{- $dayID := printf "%s-%d-%s" $monthID $date.Day ($date.Format "2006") -}}
   {{- $dayURL := (printf "/%s/" ($date.Format "2006/01/02")) | relURL -}}
-  <section class="mb-8">
+  <section class="mb-4">
     <p id="{{ $dayID }}" class="mb-4 text-sm">
       {{- if $linkDayToArchive -}}
         <a href="{{ $dayURL }}" class="no-underline" style="color: inherit;">{{ $heading }}</a>
