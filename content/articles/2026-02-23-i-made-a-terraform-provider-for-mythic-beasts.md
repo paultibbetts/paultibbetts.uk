@@ -1,11 +1,11 @@
 +++
 date = '2026-02-23T16:32:17Z'
 draft = false
-title = 'I Made a Mythic Beasts Provider for Terraform'
-tags = ['Terraform', 'Mythic Beasts']
+title = 'I Made a Terraform Provider for Mythic Beasts'
+tags = ['Terraform', 'Mythic Beasts', 'code']
 +++
 
-[paultibbetts/terraform-provider-mythicbeats](https://github.com/paultibbetts/terraform-provider-mythicbeasts) is a Terraform provider for Mythic Beasts that lets you declare your Mythic Beasts infrastructure as code.
+[paultibbetts/terraform-provider-mythicbeasts](https://github.com/paultibbetts/terraform-provider-mythicbeasts) is a Terraform provider that lets you declare infrastructure from the company [Mythic Beasts](https://www.mythic-beasts.com/) as code.
 
 I use it to provision the infrastructure for my personal website.
 
@@ -26,7 +26,7 @@ Terraform is a tool I've been using for infrastructure for a while now, and I wa
 - their Pis are IPv6-only, so I'd need to also set up the proxy
 - - I wanted to declare the Pi and the Proxy Endpoints next to each other
 
-Plus, I'd never written a Terraform provider before, and I wanted to see how hard it was.
+Plus, I'd never written a Terraform provider before, and I wanted to see what it was like.
 
 ## What it does
 
@@ -108,7 +108,7 @@ where Terraform will use regex to find the value with "bookworm" in the ID.
 
 ### Attributes
 
-Using Terraform for your infrastructure not only lets you write it down as code, and get all the benefits that brings, but you can also use the attributes of one thing as the inputs for another.
+Using Terraform for your infrastructure not only lets you write it down as code, and get all the [benefits that brings](https://infra.paultibbetts.uk/decisions/why-iac/), but you can also use the attributes of one thing as the inputs for another.
 
 For example: the Pis from Mythic Beasts are on an IPv6-only network and need endpoints set up on the proxy to let users access them from IPv4-only networks.
 
@@ -146,7 +146,7 @@ resource "mythicbeasts_proxy_endpoint" "endpoint" {
 
 ## How to use it
 
-The provider is available on [the Terraform registry](https://registry.terraform.io/providers/paultibbetts/mythicbeasts/latest/docs).
+The provider is available on [the Terraform registry](https://registry.terraform.io/providers/paultibbetts/mythicbeasts/).
 
 ### Authentication
 
@@ -218,7 +218,8 @@ The whole setup, with Terraform to provision the Pi and then Ansible to configur
 
 ## What's next?
 
-The provider currently works with the VPS, Pi, and Proxy APIs, as these are what I currently use or have used in the past.
+The provider works with the VPS, Pi, and Proxy APIs, as these are what I currently use or have used in the past.
 
-Mythic Beasts also have an API for [DNS](https://www.mythic-beasts.com/support/api/dnsv2) which lets you manage the DNS records for domains.
-If I were to add this to the provider I could potentially change the management of my domain from Cloudflare over to Mythic Beasts.
+Mythic Beasts also have a [DNS API](https://www.mythic-beasts.com/support/api/dnsv2) which lets you manage the DNS records for domains.
+
+If I were to add this to the provider I could change the management of my domain from Cloudflare over to Mythic Beasts, which would improve my website's [sovereignty](/2026/02/19/moved-my-website-from-github-pages-to-a-raspberry-pi/).
