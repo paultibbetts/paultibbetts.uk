@@ -72,18 +72,18 @@
       </div>
     </div>
 
-    <div class="mb-4" id="pages">
+    <div class="mb-4 relative" id="pages">
       <nav aria-labelledby="pages-nav-heading">
-        <h2 id="pages-nav-heading" class="mb-2 lowercase">Pages:</h2>
+        <h2 id="pages-nav-heading" class="mb-2 text-orange lg:absolute -left-15 top-0">Pages</h2>
         <div class="mb-2">
           {{ partial "pages.html" . }}
         </div>
       </nav>
     </div>
 
-    <div class="mb-4" id="posts">
+    <div class="mb-4 relative" id="posts">
       <nav aria-labelledby="posts-nav-heading">
-        <h2 id="posts-nav-heading" class="mb-2 lowercase">Posts:</h2>
+        <h2 id="posts-nav-heading" class="mb-2 text-orange lg:absolute -left-15 top-0">Posts</h2>
         <div class="mb-2">
           {{ partial "post-pages.html" . }}
         </div>
@@ -98,8 +98,8 @@
     {{ $featured := first 1 (where (where $allPosts "Params.featured" true) "RelPermalink" "not in" $recentURLs) }}
 
     {{ if gt (len $featured) 0 }}
-      <div id="featured" class="mb-2">
-        <h2 class="mb-2 lowercase">Featured:</h2>
+      <div id="featured" class="mb-2 relative">
+        <h2 class="mb-2 text-orange lg:absolute -left-24 -top-1">Featured</h2>
         <div class="mb-2">
           {{ partial "grouped-list-by-day.html" (dict "Pages" $featured) }}
         </div>
@@ -107,8 +107,8 @@
     {{ end }}
 
 
-    <div id="recent" class="mb-2">
-      <h2 class="mb-2 lowercase">Recent:</h2>
+    <div id="recent" class="mb-2 relative">
+      <h2 class="mb-2 text-orange lg:absolute -left-20 -top-1">Recent</h2>
       <div class="h-feed hfeed mb-20">
         <h1 class="p-name hidden">{{ .Site.Title }}</h1>
         <a href="{{ .RelPermalink }}" class="u-url u-uid hidden">{{ .Site.Title }}</a>
