@@ -5,8 +5,16 @@
         <h2 class="mb-4 text-lg text-orange">
           <a class="p-name u-url color-steel" href="{{ .RelPermalink }}">{{ .Title }}</a>
         </h2>
-        {{ if .Summary }}
-          <div class="p-summary text-white mb-4 font-sans prose prose-invert">{{ .Summary }}</div>
+        {{ with .Summary }}
+          {{ $more := printf ` <a class="inline" href="%s#more">…</a>` $.RelPermalink }}
+          {{ $summary := replaceRE `</p>\s*$` (printf `%s</p>` $more) . }}
+          <div class="p-summary text-white mb-4 font-sans prose prose-invert">
+            {{ if eq $summary . }}
+              {{ . | safeHTML }}{{ $more | safeHTML }}
+            {{ else }}
+              {{ $summary | safeHTML }}
+            {{ end }}
+          </div>
         {{ end }}
       </div>
     {{- else }}

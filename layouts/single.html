@@ -29,13 +29,13 @@
         {{ if .ContentWithoutSummary }}
           <div class="p-summary mb-4 prose prose-invert text-light font-sans">{{ .Summary }}</div>
         {{ else }}
-          <div class="e-content prose prose-invert text-light font-sans mb-16">
+          <div id="more" class="e-content prose prose-invert text-light font-sans mb-16">
             {{ .Content }}
           </div>
         {{ end }}
       </header>
       {{ if .ContentWithoutSummary }}
-        <div class="e-content prose prose-invert text-light font-sans mb-16">
+        <div id="more" class="e-content prose prose-invert text-light font-sans mb-16">
           {{ .ContentWithoutSummary }}
         </div>
       {{ end }}
