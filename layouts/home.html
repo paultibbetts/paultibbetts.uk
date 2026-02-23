@@ -99,7 +99,7 @@
 
     {{ if gt (len $featured) 0 }}
       <div id="featured" class="mb-2 relative">
-        <h2 class="mb-2 text-orange lg:absolute -left-24 -top-1">Featured</h2>
+        <h2 class="mb-2 text-orange lg:absolute -left-22 -top-1">Featured</h2>
         <div class="mb-2">
           {{ partial "grouped-list-by-day.html" (dict "Pages" $featured) }}
         </div>
@@ -108,7 +108,7 @@
 
 
     <div id="recent" class="mb-2 relative">
-      <h2 class="mb-2 text-orange lg:absolute -left-20 -top-1">Recent</h2>
+      <h2 class="mb-2 text-orange lg:absolute -left-18 -top-1">Recent</h2>
       <div class="h-feed hfeed mb-20">
         <h1 class="p-name hidden">{{ .Site.Title }}</h1>
         <a href="{{ .RelPermalink }}" class="u-url u-uid hidden">{{ .Site.Title }}</a>
