@@ -44,11 +44,7 @@
           {{ if .Date -}}
             <p class="mb-2 flex justify-end">
               <a href="{{ .RelPermalink }}" class="color-steel">
-                <time
-                  class="dt-published"
-                  datetime="{{ . }}"
-                  itemprop="dateCreated pubdate datePublished"
-                >
+                <time datetime="{{ . }}" itemprop="dateCreated pubdate datePublished">
                   {{ .Date.Format "3:04pm" }}
                 </time>
               </a>
