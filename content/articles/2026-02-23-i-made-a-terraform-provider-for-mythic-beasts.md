@@ -82,7 +82,7 @@ data "mythicbeasts_pi_operating_systems" "four" {
 
 where you would inspect the data to choose the right value to use.
 
-Alternatively you could use Terraform to find the right value for you, for example to use "Debian Bookworm":
+Alternatively you could use Terraform to find the right value for you, for example to use "Bookworm" for "Arm64":
 
 ```hcl
 data "mythicbeasts_pi_operating_systems" "four" {
@@ -90,10 +90,11 @@ data "mythicbeasts_pi_operating_systems" "four" {
 }
 
 locals {
-  bookworm = one([
-    for id, _ in data.mythicbeasts_pi_operating_systems.four :
-    id
-    if can(regex("bookworm", id))
+  bookworm_arm64 = one([
+    for image in data.mythicbeasts_pi_operating_systems.four.images :
+    image.id
+    if strcontains(image.id, "bookworm") &&
+    strcontains(image.id, "arm64")
   ])
 }
 
@@ -104,7 +105,7 @@ resource "mythicbeasts_pi" "bookworm" {
 }
 ```
 
-where Terraform will use regex to find the value with "bookworm" in the ID.
+where Terraform will use regex to find the value with both "bookworm" and "arm64" in the ID.
 
 ### Attributes
 
