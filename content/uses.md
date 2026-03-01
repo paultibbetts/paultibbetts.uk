@@ -79,7 +79,7 @@ Accurate as of {{<gitinfo>}}.
 - 🐹 **Go** for backend and tooling
 - 🐍 **Python** for scripts and experiments
 
-See [paultibbetts/dev](https://dev.paultibbetts.uk) for more.
+See [dev.paultibbetts.uk](https://dev.paultibbetts.uk) for more.
 
 ## Desk
 
