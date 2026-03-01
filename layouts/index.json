@@ -3,35 +3,94 @@
 {{- if ge $limit 1 -}}
   {{- $pages = first $limit $pages -}}
 {{- end -}}
-{
-  "version": "https://jsonfeed.org/version/1",
-  "title": {{ .Site.Title | jsonify }},
-  "home_page_url": {{ .Site.BaseURL | jsonify }},
-  {{- with .OutputFormats.Get "JSON" }}
-    "feed_url": {{ .Permalink | jsonify }},
-  {{- end }}
-  {{- if or .Site.Params.author.name .Site.BaseURL }}
-    "author": {
-      {{- if .Site.Params.author.name }}
-        "name": {{ .Site.Params.author.name | jsonify }}{{ if .Site.BaseURL }},{{ end }}
-      {{- end }}
-      {{- if .Site.BaseURL }}
-        "url": {{ .Site.BaseURL | jsonify }}
-      {{- end }}
-    },
-  {{- end }}
-  "items": [
-    {{- range $index, $element := $pages }}
-      {{- if $index }},{{ end }}
-      {
-        "id": {{ $element.Permalink | jsonify }},
-        "url": {{ $element.Permalink | jsonify }},
-        {{- with $element.Title }}
-          "title": {{ . | jsonify }},
-        {{- end }}
-        "content_html": {{ $element.Content | jsonify }},
-        "date_published": {{ $element.Date.Format "2006-01-02T15:04:05-0700" | jsonify }}
-      }
-    {{- end }}
-  ]
-}
+
+{{- $homeURL := .Site.Home.Permalink -}}
+{{- $feedURL := .Permalink -}}
+{{- with .OutputFormats.Get "JSON" -}}
+  {{- $feedURL = .Permalink -}}
+{{- end -}}
+
+{{- $authorName := "" -}}
+{{- with .Site.Params.author -}}
+  {{- if reflect.IsMap . -}}
+    {{- with .name -}}
+      {{- $authorName = . -}}
+    {{- end -}}
+  {{- else -}}
+    {{- $authorName = . -}}
+  {{- end -}}
+{{- end -}}
+{{- $authorURL := .Site.Home.Permalink -}}
+{{- $authorAvatar := "/icon.png" | absURL -}}
+
+{{- $author := dict -}}
+{{- with $authorName -}}
+  {{- $author = merge $author (dict "name" .) -}}
+{{- end -}}
+{{- with $authorURL -}}
+  {{- $author = merge $author (dict "url" .) -}}
+{{- end -}}
+{{- with $authorAvatar -}}
+  {{- $author = merge $author (dict "avatar" .) -}}
+{{- end -}}
+{{- $authors := slice -}}
+{{- if gt (len $author) 0 -}}
+  {{- $authors = $authors | append $author -}}
+{{- end -}}
+
+{{- $description := .Site.Params.description | default (printf "Articles and notes by %s" .Site.Title) -}}
+{{- $userComment := "JSON Feed for articles and notes." -}}
+{{- $icon := "/web-app-manifest-512x512.png" | absURL -}}
+{{- $favicon := "/favicon-96x96.png" | absURL -}}
+{{- $language := .Site.Language.LanguageCode | default .Site.Language.Lang -}}
+{{- $expired := false -}}
+{{- if isset .Site.Params "jsonfeed_expired" -}}
+  {{- $expired = .Site.Params.jsonfeed_expired -}}
+{{- end -}}
+
+{{- $items := slice -}}
+{{- range $pages -}}
+  {{- $item := dict
+    "id" .Permalink
+    "url" .Permalink
+    "content_html" .Content
+    "date_published" (.Date.Format "2006-01-02T15:04:05-07:00")
+  -}}
+  {{- with .Title -}}
+    {{- $item = merge $item (dict "title" .) -}}
+  {{- end -}}
+  {{- $items = $items | append $item -}}
+{{- end -}}
+
+{{- $feed := dict
+  "version" "https://jsonfeed.org/version/1.1"
+  "title" .Site.Title
+  "home_page_url" $homeURL
+  "feed_url" $feedURL
+  "description" $description
+  "user_comment" $userComment
+  "icon" $icon
+  "favicon" $favicon
+  "language" $language
+  "expired" $expired
+  "items" $items
+-}}
+
+{{- if gt (len $authors) 0 -}}
+  {{- $feed = merge $feed (dict "authors" $authors) -}}
+  {{- $feed = merge $feed (dict "author" (index $authors 0)) -}}
+{{- end -}}
+
+{{- with .Site.Params.jsonfeed_hubs -}}
+  {{- $hubs := slice -}}
+  {{- range . -}}
+    {{- if and .type .url -}}
+      {{- $hubs = $hubs | append (dict "type" .type "url" .url) -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if gt (len $hubs) 0 -}}
+    {{- $feed = merge $feed (dict "hubs" $hubs) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $feed | jsonify (dict "indent" "  ") -}}
