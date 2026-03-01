@@ -1,13 +1,21 @@
-{{- $pages := partial "feed-posts.html" . -}}
-{{- $limit := .Site.Config.Services.RSS.Limit -}}
-{{- if ge $limit 1 -}}
-  {{- $pages = first $limit $pages -}}
-{{- end -}}
+{{- $allPages := partial "feed-posts.html" . -}}
+{{- $pageSize := .Site.Params.jsonfeed_page_size | default 20 -}}
+{{- $paginator := .Paginate $allPages $pageSize -}}
+{{- $pages := $paginator.Pages -}}
 
 {{- $homeURL := .Site.Home.Permalink -}}
 {{- $feedURL := .Permalink -}}
-{{- with .OutputFormats.Get "JSON" -}}
+{{- with .Site.Home.OutputFormats.Get "JSON" -}}
   {{- $feedURL = .Permalink -}}
+{{- else -}}
+  {{- with .OutputFormats.Get "JSON" -}}
+    {{- $feedURL = .Permalink -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $nextURL := "" -}}
+{{- with $paginator.Next -}}
+  {{- $nextURL = .URL | absURL -}}
 {{- end -}}
 
 {{- $authorName := "" -}}
@@ -150,6 +158,9 @@
 {{- if gt (len $authors) 0 -}}
   {{- $feed = merge $feed (dict "authors" $authors) -}}
   {{- $feed = merge $feed (dict "author" (index $authors 0)) -}}
+{{- end -}}
+{{- with $nextURL -}}
+  {{- $feed = merge $feed (dict "next_url" .) -}}
 {{- end -}}
 
 {{- with .Site.Params.jsonfeed_hubs -}}
