@@ -70,6 +70,32 @@
     {{- $bannerImage = .Params.bannerImage -}}
   {{- end -}}
 
+  {{- $attachments := slice -}}
+  {{- with .Params.attachments -}}
+    {{- if reflect.IsSlice . -}}
+      {{- range . -}}
+        {{- $attachmentURL := index . "url" -}}
+        {{- $attachmentMimeType := index . "mime_type" -}}
+        {{- if and $attachmentURL $attachmentMimeType -}}
+          {{- $attachment := dict
+            "url" ((printf "%v" $attachmentURL) | absURL)
+            "mime_type" (printf "%v" $attachmentMimeType)
+          -}}
+          {{- with index . "title" -}}
+            {{- $attachment = merge $attachment (dict "title" (printf "%v" .)) -}}
+          {{- end -}}
+          {{- if isset . "size_in_bytes" -}}
+            {{- $attachment = merge $attachment (dict "size_in_bytes" (index . "size_in_bytes")) -}}
+          {{- end -}}
+          {{- if isset . "duration_in_seconds" -}}
+            {{- $attachment = merge $attachment (dict "duration_in_seconds" (index . "duration_in_seconds")) -}}
+          {{- end -}}
+          {{- $attachments = $attachments | append $attachment -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
   {{- $item := dict
     "id" .Permalink
     "url" .Permalink
@@ -100,6 +126,9 @@
     {{- if gt (len .) 0 -}}
       {{- $item = merge $item (dict "tags" .) -}}
     {{- end -}}
+  {{- end -}}
+  {{- if gt (len $attachments) 0 -}}
+    {{- $item = merge $item (dict "attachments" $attachments) -}}
   {{- end -}}
   {{- $items = $items | append $item -}}
 {{- end -}}
