@@ -269,6 +269,6 @@ footer a {
   }
 }
 
-.notes .prose p:first-child {
+.h-entry.notes:not(:has(.p-name)) .prose p:first-child {
   @apply font-mono;
 }
