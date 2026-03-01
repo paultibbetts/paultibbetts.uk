@@ -45,6 +45,11 @@
         <link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML
       -}}
     {{ end }}
+    {{- with .Site.Home.OutputFormats.Get "json" -}}
+      {{- printf `
+        <link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink "JSON Feed" | safeHTML
+      -}}
+    {{ end }}
     <link rel="webmention" href="https://webmention.io/paultibbetts.uk/webmention" />
     {{- if .IsHome -}}
       <link rel="alternate" type="text/mf2+html" href="/feed/" title="Articles and notes" />

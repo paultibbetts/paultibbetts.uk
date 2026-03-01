@@ -36,6 +36,8 @@ capitalizeListTitles = false
   post_sections = [ 'articles', 'notes' ]
   # Sections used by the alternate /feed h-feed.
   feed_post_sections = [ 'articles', 'notes' ]
+  # Number of items per JSON Feed page. next_url is added when more pages exist.
+  jsonfeed_page_size = 20
 	[params.author]
     # Author name used by some templates.
 	  name = 'Paul Tibbetts'
@@ -78,6 +80,9 @@ capitalizeListTitles = false
   # This makes an RSS feed for every tag.
   term = ['html', 'rss']
 
+[mediaTypes."application/feed+json"]
+  suffixes = ['json']
+
 # ==========================
 # RSS feed customisation
 # ==========================
@@ -93,6 +98,7 @@ capitalizeListTitles = false
 
 [outputFormats.JSON]
   # Emit JSON Feed at /feed.json instead of /index.json.
+  mediatype = "application/feed+json"
   baseName = "feed"
 
 # ==========================
