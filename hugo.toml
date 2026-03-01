@@ -65,7 +65,7 @@ capitalizeListTitles = false
 [outputs]
   # Home (AKA the index at /) outputs both HTML and RSS.
   # This is the site feed for everything (/feed.xml)
-  home = ['html', 'rss']
+  home = ['html', 'rss', 'json']
 
   # Section pages (e.g. /articles) output both HTML and RSS>
   section = ['html', 'rss']
@@ -89,6 +89,10 @@ capitalizeListTitles = false
   # The name of the file. This overwrites the default "index.xml" to "feed.xml".
   # - /feed.xml
   # - /tags/hugo/feed.xml
+  baseName = "feed"
+
+[outputFormats.JSON]
+  # Emit JSON Feed at /feed.json instead of /index.json.
   baseName = "feed"
 
 # ==========================

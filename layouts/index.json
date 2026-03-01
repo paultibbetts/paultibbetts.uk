@@ -1,0 +1,37 @@
+{{- $pages := partial "feed-posts.html" . -}}
+{{- $limit := .Site.Config.Services.RSS.Limit -}}
+{{- if ge $limit 1 -}}
+  {{- $pages = first $limit $pages -}}
+{{- end -}}
+{
+  "version": "https://jsonfeed.org/version/1",
+  "title": {{ .Site.Title | jsonify }},
+  "home_page_url": {{ .Site.BaseURL | jsonify }},
+  {{- with .OutputFormats.Get "JSON" }}
+    "feed_url": {{ .Permalink | jsonify }},
+  {{- end }}
+  {{- if or .Site.Params.author.name .Site.BaseURL }}
+    "author": {
+      {{- if .Site.Params.author.name }}
+        "name": {{ .Site.Params.author.name | jsonify }}{{ if .Site.BaseURL }},{{ end }}
+      {{- end }}
+      {{- if .Site.BaseURL }}
+        "url": {{ .Site.BaseURL | jsonify }}
+      {{- end }}
+    },
+  {{- end }}
+  "items": [
+    {{- range $index, $element := $pages }}
+      {{- if $index }},{{ end }}
+      {
+        "id": {{ $element.Permalink | jsonify }},
+        "url": {{ $element.Permalink | jsonify }},
+        {{- with $element.Title }}
+          "title": {{ . | jsonify }},
+        {{- end }}
+        "content_html": {{ $element.Content | jsonify }},
+        "date_published": {{ $element.Date.Format "2006-01-02T15:04:05-0700" | jsonify }}
+      }
+    {{- end }}
+  ]
+}
