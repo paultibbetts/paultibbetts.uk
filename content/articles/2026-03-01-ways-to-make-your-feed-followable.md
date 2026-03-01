@@ -2,7 +2,7 @@
 date = '2026-03-01T11:36:03Z'
 draft = false
 title = 'Ways to make your feed followable'
-tags = ['indieweb']
+tags = ['indieweb', 'RSS']
 +++
 
 You've got 3 posts on your site and you want people to be notified about new ones.
