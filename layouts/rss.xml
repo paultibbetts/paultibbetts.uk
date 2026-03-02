@@ -70,13 +70,21 @@
     {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
     {{- end }}
     {{- range $pages }}
+    {{- $itemTitle := .Title -}}
+    {{- if not $itemTitle -}}
+      {{- $itemTitle = .Date.Format "2006-01-02 15:04:05" -}}
+    {{- end -}}
+    {{- $itemDescription := .Summary | plainify | htmlUnescape | replaceRE `\s+` ` ` | strings.TrimSpace -}}
+    {{- if not $itemDescription -}}
+      {{- $itemDescription = .Plain | plainify | htmlUnescape | replaceRE `\s+` ` ` | strings.TrimSpace | truncate 280 -}}
+    {{- end -}}
     <item>
-      <title>{{ .Title }}</title>
+      <title>{{ $itemTitle }}</title>
       <link>{{ .Permalink }}</link>
       <pubDate>{{ .PublishDate.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
       {{- with $authorEmail }}<author>{{ . }}{{ with $authorName }} ({{ . }}){{ end }}</author>{{ end }}
       <guid>{{ .Permalink }}</guid>
-      <description>{{- .Summary | htmlUnescape | safeHTML -}}</description>
+      <description>{{- $itemDescription | htmlEscape -}}</description>
     </item>
     {{- end }}
   </channel>
