@@ -1,0 +1,13 @@
+{{- $dest := .Destination -}}
+{{- $href := $dest -}}
+{{- if not (strings.HasPrefix $dest "#") -}}
+  {{- $parsed := urls.Parse $dest -}}
+  {{- if and (not $parsed.Scheme) (not (strings.HasPrefix $dest "//")) -}}
+    {{- if strings.HasPrefix $dest "/" -}}
+      {{- $href = $dest | absURL -}}
+    {{- else -}}
+      {{- $href = printf "%s%s" .Page.Permalink $dest -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+<a href="{{ $href }}"{{ with .Title }} title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>

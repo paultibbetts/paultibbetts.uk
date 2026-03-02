@@ -92,6 +92,14 @@ capitalizeListTitles = false
   baseName = "feed"
 
 # ==========================
+# Minification
+# ==========================
+
+[minify]
+  # Keep RSS/Atom payloads (e.g. content:encoded CDATA) stable for feed parsers/validators.
+  disableXML = true
+
+# ==========================
 # Build pipeline
 # =========================
 

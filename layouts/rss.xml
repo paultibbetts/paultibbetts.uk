@@ -55,7 +55,12 @@
 {{- end -}}
 {{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
 {{- printf "<?xml-stylesheet type=\"text/xsl\" href=\"/pretty-feed-v3.xsl\"?>" | safeHTML }}
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss
+  version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:source="https://source.scripting.com/"
+>
   <channel>
     <title>{{ .Site.Title }}</title>
     <link>{{ .Permalink }}</link>
@@ -74,10 +79,13 @@
     {{- if not $itemTitle -}}
       {{- $itemTitle = .Date.Format "2006-01-02 15:04:05" -}}
     {{- end -}}
-    {{- $itemDescription := .Summary | plainify | htmlUnescape | replaceRE `\s+` ` ` | strings.TrimSpace -}}
+    {{- $itemDescription := .Summary | plainify | htmlUnescape | strings.TrimSpace -}}
     {{- if not $itemDescription -}}
-      {{- $itemDescription = .Plain | plainify | htmlUnescape | replaceRE `\s+` ` ` | strings.TrimSpace | truncate 280 -}}
+      {{- $itemDescription = .Plain | plainify | htmlUnescape | strings.TrimSpace | truncate 280 -}}
     {{- end -}}
+    {{- $itemContentHTML := .Content | strings.TrimSpace -}}
+    {{- $itemContentCDATA := printf "<![CDATA[%s]]>" (replace $itemContentHTML "]]>" "]]]]><![CDATA[>") -}}
+    {{- $itemMarkdown := .RawContent | htmlEscape -}}
     <item>
       <title>{{ $itemTitle }}</title>
       <link>{{ .Permalink }}</link>
@@ -85,6 +93,10 @@
       {{- with $authorEmail }}<author>{{ . }}{{ with $authorName }} ({{ . }}){{ end }}</author>{{ end }}
       <guid>{{ .Permalink }}</guid>
       <description>{{- $itemDescription | htmlEscape -}}</description>
+      <content:encoded>{{- $itemContentCDATA | safeHTML -}}</content:encoded>
+      {{- with $itemMarkdown -}}
+        <source:markdown>{{- . | safeHTML -}}</source:markdown>
+      {{- end -}}
     </item>
     {{- end }}
   </channel>
