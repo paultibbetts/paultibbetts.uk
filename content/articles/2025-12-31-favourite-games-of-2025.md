@@ -13,7 +13,7 @@ Last year I wrote [my own take on the Steam Awards](https://micro.paultibbetts.u
 
 > Single-player story-driven narrative.
 
-<a href="https://store.steampowered.com/app/2592160/Dispatch/"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2592160/header.jpg" title="Dispatch hero image" style="width:100%"></a>
+[![Dispatch hero image](https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2592160/header.jpg "Dispatch hero image")](https://store.steampowered.com/app/2592160/Dispatch/)
 
 Dispatch might be _the_ funniest game I've ever played. It's extremely well written, absurdly well voice acted and expertly made by the team that used to be Telltale Games.
 
@@ -29,7 +29,7 @@ It's rated [Platinum](https://www.protondb.com/app/2592160) on ProtonDB, so it p
 
 > Third-person PvPvE extraction-shooter.
 
-<a href="https://store.steampowered.com/app/1808500/ARC_Raiders/"><img src="https://steamcdn-a.akamaihd.net/steam/apps/1808500/header.jpg" title="Arc Raiders hero image" style="width:100%"></a>
+[![Arc Raiders hero image](https://steamcdn-a.akamaihd.net/steam/apps/1808500/header.jpg "Arc Raiders hero image")](https://store.steampowered.com/app/1808500/ARC_Raiders/)
 
 I wasn't expecting to like Arc Raiders as much as I did. It makes the sweaty extraction-shooter genre more accessible, even if it is still pretty sweaty. 
 
@@ -49,7 +49,7 @@ It's also rated [Platinum](https://www.protondb.com/app/1808500) on ProtonDB.
 
 > PvP FPS explosion-simulator.
 
-<a href="https://store.steampowered.com/app/2807960/Battlefield_6/"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2807960/c12d12ce3c7d217398d3fcad77427bfc9d57c570/header.jpg" title="Battlefield 6 hero image" style="width:100%"></a>
+[![Battlefield 6 hero image](https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2807960/c12d12ce3c7d217398d3fcad77427bfc9d57c570/header.jpg "Battlefield 6 hero image")](https://store.steampowered.com/app/2807960/Battlefield_6/)
 
 Battlefield is back!
 
@@ -69,7 +69,7 @@ Its only letdown is that it needs [Secure boot](https://www.ea.com/games/battlef
 
 > First-person single-player/co-op story-driven parkour-action-zombie-killing.
 
-<a href="https://store.steampowered.com/app/3008130/Dying_Light_The_Beast/"><img src="https://steamcdn-a.akamaihd.net/steam/apps/3008130/header.jpg" title="Dying Light: The Beast hero image" style="width:100%"></a>
+[![Dying Light: The Beast hero image](https://steamcdn-a.akamaihd.net/steam/apps/3008130/header.jpg "Dying Light: The Beast hero image")](https://store.steampowered.com/app/3008130/Dying_Light_The_Beast/)
 
 The Beast is the best of the Dying Light series. Techland have improved on every part of the experience. And best of all, since I bought the deluxe edition of the second game, I got it for free!
 
@@ -83,7 +83,7 @@ Another [Platinum](https://www.protondb.com/app/3008130) rating on ProtonDB.
 
 > Mission-based co-op PvE for up to 4 players.
 
-<a href="https://store.steampowered.com/app/1757300/Jump_Space/"><img src="https://images.igdb.com/igdb/image/upload/t_1080p/ar3ysa.webp" title="Jump Ship hero image" style="width:100%"></a>
+[![Jump Ship hero image](https://images.igdb.com/igdb/image/upload/t_1080p/ar3ysa.webp "Jump Ship hero image")](https://store.steampowered.com/app/1757300/Jump_Space/)
 
 (Previously known as Jump Ship)
 
@@ -97,7 +97,7 @@ Yet another [Platinum](https://www.protondb.com/app/1757300) rating on ProtonDB.
 
 > Single-player city-builder.
 
-<a href="https://store.steampowered.com/app/3274580/Anno_117_Pax_Romana/"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3274580/88dbcce1c7630e2d4334fa25e835968e57e0ebfe/header.jpg?t=1764100083" title="Anno 117: Pax Romana hero image" style="width:100%"></a>
+[![Anno 117: Pax Romana hero image](https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3274580/88dbcce1c7630e2d4334fa25e835968e57e0ebfe/header.jpg?t=1764100083 "Anno 117: Pax Romana hero image")](https://store.steampowered.com/app/3274580/Anno_117_Pax_Romana/)
 
 Anno 117 is apparently very similar to Anno 1800 but in a different setting with different people, which is exactly what I wanted.
 
@@ -113,7 +113,7 @@ It gets only a [Gold](https://www.protondb.com/app/3274580) rating on ProtonDB, 
 
 > Co-op friendslop.
 
-<a href="https://store.steampowered.com/app/3949040/RV_There_Yet/"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3949040/cae24b4ed7f4531be51f0d63f785b7d253f92dc3/header.jpg?t=1766020280" title="RV There Yet? hero image" style="width: 100%"></a>
+[![RV There Yet? hero image](https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3949040/cae24b4ed7f4531be51f0d63f785b7d253f92dc3/header.jpg?t=1766020280 "RV There Yet? hero image")](https://store.steampowered.com/app/3949040/RV_There_Yet/)
 
 Friendslop is a new word for me. It's meant to define the low-stakes co-op games that are sold at low prices so that everyone in the group can afford to play them.
 
@@ -133,7 +133,7 @@ These weren't released this year; they made the list anyway.
 
 > Single-player narrative-exploration-art.
 
-<a href="https://store.steampowered.com/app/303210/The_Beginners_Guide/"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/303210/header.jpg?t=1765833998" title="The Beginner's Guide hero image" style="width:100%"></a>
+[![The Beginner's Guide hero image](https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/303210/header.jpg?t=1765833998 "The Beginner's Guide hero image")](https://store.steampowered.com/app/303210/The_Beginners_Guide/)
 
 The Beginner's Guide took me a decade to play, and I'm glad I finally did. It came out in 2015 and I got it this year as a Christmas present (thank you!). I played and finished it that same day.
 
@@ -149,7 +149,7 @@ It gets a [Platinum](https://www.protondb.com/app/303210) rating on ProtonDB and
 
 > Single-player platformer
 
-<a href="https://store.steampowered.com/app/874040/Ministry_of_Broadcast/"><img src="https://images.igdb.com/igdb/image/upload/t_1080p/ardda.webp" title="Ministry of Broadcast hero image" style="width:100%"></a>
+[![Ministry of Broadcast hero image](https://images.igdb.com/igdb/image/upload/t_1080p/ardda.webp "Ministry of Broadcast hero image")](https://store.steampowered.com/app/874040/Ministry_of_Broadcast/)
 
 Another Christmas present I'm really enjoying. It's perfectly suited for the Steam Deck, so it also works well with a controller, and is the only game on this list where I get to lean back in my chair instead of forward.
 
@@ -163,7 +163,7 @@ It's inspired by George Orwell's 1984, which might be why I'm liking it so much.
 
 > Single-player / online co-op party-based RPG
 
-<a href="https://store.steampowered.com/app/1086940/Baldurs_Gate_3/"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1086940/48a2fcbda8565bb45025e98fd8ebde8a7203f6a0/header.jpg?t=1765505948" title="Baldur's Gate 3 hero image" style="width:100%"></a>
+[![Baldur's Gate 3 hero image](https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1086940/48a2fcbda8565bb45025e98fd8ebde8a7203f6a0/header.jpg?t=1765505948 "Baldur's Gate 3 hero image")](https://store.steampowered.com/app/1086940/Baldurs_Gate_3/)
 
 I am still playing Baldur's Gate 3. I am still in Act 1. I know.
 
