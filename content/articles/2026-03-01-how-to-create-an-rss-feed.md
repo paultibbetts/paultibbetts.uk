@@ -295,36 +295,23 @@ The note doesn't have a `<title>`, which influenced the URL used for its `<guid>
 		<item>
 			<title>How to create an RSS Feed</title>
 			<link>https://paultibbetts.uk/2026/03/01/how-to-create-an-rss-feed/</link>
-			<pubDate>Sun, 01 Mar 2026 12:41:46 +0000</pubDate>
+			<pubDate>Sun, 01 Mar 2026 16:33:46 +0000</pubDate>
 			<guid>https://paultibbetts.uk/2026/03/01/how-to-create-an-rss-feed/</guid>
-			<description>
-				<p>In my last post I recommended starting with RSS to make your site followable.</p>
-				<p>This is how to do that.</p>
-			</description>
+			<description>In my last post I recommended starting with RSS to make your site followable. This is how to do that.</description>
 		</item>
 		<item>
 			<title>Ways to make your feed followable</title>
 			<link>https://paultibbetts.uk/2026/03/01/ways-to-make-your-feed-followable/</link>
 			<pubDate>Sun, 01 Mar 2026 11:36:03 +0000</pubDate>
 			<guid>https://paultibbetts.uk/2026/03/01/ways-to-make-your-feed-followable/</guid>
-			<description>
-				<p>You've got 3 posts on your site and you want people to be notified about new ones.</p>
-				<p>Here's all the ways I can think of doing that.</p>
-			</description>
-		</item>
+			<description>You’ve got 3 posts on your site and you want people to be notified about new ones. Here’s all the ways I can think of doing that.</description>
+			</item>
 		<item>
-			<title></title>
+			<title>2026-02-15 14:54:58</title>
 			<link>https://paultibbetts.uk/2026/02/15/2026-02-15-145458/</link>
 			<pubDate>Sun, 15 Feb 2026 14:54:58 +0000</pubDate>
 			<guid>https://paultibbetts.uk/2026/02/15/2026-02-15-145458/</guid>
-			<description>
-				<p>Launched: 
-					<a href="https://infra.paultibbetts.uk/">infra.paultibbetts.uk</a>
-				</p>
-				<p>A documentation site for the infrastructure that runs 
-					<code>paultibbetts.uk</code>.
-				</p>
-			</description>
+			<description>Launched: infra.paultibbetts.uk A documentation site for the infrastructure that runs paultibbetts.uk.</description>
 		</item>
 	</channel>
 </rss>
