@@ -184,6 +184,10 @@ footer a {
   }
 }
 
+.prose img {
+  @apply block w-full h-auto;
+}
+
 .nav-thing {
   color: var(--color-steel);
   text-decoration: none;

@@ -8,7 +8,7 @@ show_in_pages_nav = false
 
 I currently get **<span class="text-orange">1.2</span>** points.
 
-<img src="./image.png">
+![IndieMark diagram](./image.png)
 
 ## Level 0
 
@@ -77,4 +77,3 @@ Apparently I can do this with [Hugo's Related Content](https://gohugo.io/content
 ### Have a UI for searching ❌
 
 Not yet.
-
