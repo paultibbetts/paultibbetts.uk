@@ -8,6 +8,13 @@ Some things never change.
 
 My website does.
 
+## 2026-03-02
+
+- [`9d652c6`](https://github.com/paultibbetts/paultibbetts.uk/commit/9d652c6776fd8a364d020829fdc95991d2fe630c): added `content:encoded` and `source:markdown` to RSS feeds
+
+These are used by some feed readers to show the full contents of the post.
+
+
 ## 2026-02-18
 
 - [`9b4f0ef`](https://github.com/paultibbetts/paultibbetts.uk/commit/9b4f0ef8c083a658dd0702c846ed80d4f642451f): added [/notes](/notes) and [/feed](/feed) pages
