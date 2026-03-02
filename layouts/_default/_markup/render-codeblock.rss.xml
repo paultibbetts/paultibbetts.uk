@@ -1,2 +1,0 @@
-{{- $lang := .Type | default "text" -}}
-<pre><code{{ with $lang }} class="language-{{ . }}"{{ end }}>{{ .Inner | htmlEscape | safeHTML }}</code></pre>
