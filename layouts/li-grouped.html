@@ -6,13 +6,17 @@
           <a class="p-name u-url color-steel" href="{{ .RelPermalink }}">{{ .Title }}</a>
         </h2>
         {{ with .Summary }}
-          {{ $more := printf ` <a class="inline" href="%s#more">…</a>` $.RelPermalink }}
-          {{ $summary := replaceRE `</p>\s*$` (printf `%s</p>` $more) . }}
           <div class="p-summary text-white mb-4 font-sans prose prose-invert">
-            {{ if eq $summary . }}
-              {{ . | safeHTML }}{{ $more | safeHTML }}
+            {{ if $.Truncated }}
+              {{ $more := printf ` <a class="inline" href="%s#more">…</a>` $.RelPermalink }}
+              {{ $summary := replaceRE `</p>\s*$` (printf `%s</p>` $more) . }}
+              {{ if eq $summary . }}
+                {{ . | safeHTML }}{{ $more | safeHTML }}
+              {{ else }}
+                {{ $summary | safeHTML }}
+              {{ end }}
             {{ else }}
-              {{ $summary | safeHTML }}
+              {{ . | safeHTML }}
             {{ end }}
           </div>
         {{ end }}
