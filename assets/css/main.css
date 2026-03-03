@@ -162,7 +162,7 @@ a {
 
 footer a {
   @apply text-light-200;
-  text-decoration: none;
+  text-decoration-color: var(--color-steel);
 
   @variant hover {
     text-decoration: underline solid var(--color-purple) 2px;
