@@ -234,23 +234,19 @@ footer a {
   position: relative;
 
   &.notes::before {
-    content: "note ✏️";
-    left: -5em;
+    content: "✏️";
   }
 
   &.articles::before {
-    content: "article 📝";
-    left: -7em;
+    content: "📝";
   }
 
   &.bookmarks::before {
-    content: "bookmark 🔗";
-    left: -7em;
+    content: "🔗";
   }
 
   &.likes::before {
-    content: "like 👍";
-    left: -5em;
+    content: "❤️";
   }
 
   &.hashtag::before {

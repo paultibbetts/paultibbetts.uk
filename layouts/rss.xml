@@ -27,6 +27,8 @@
 {{- $pages = partial "all-posts.html" . }}
 {{- else if and $.IsSection (eq .Section "feed") }}
 {{- $pages = partial "feed-posts.html" . }}
+{{- else if and $.IsSection (eq .Section "links") }}
+{{- $pages = partial "links-posts.html" . }}
 {{- else if $.IsSection }}
 {{- $pages = (where $pctx.RegularPages "Kind" "page") }}
 {{- else }}

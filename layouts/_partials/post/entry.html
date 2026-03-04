@@ -11,7 +11,7 @@
       {{ $p.Date.Format "2006-01-02 15:04" }}
     </time>
   </a>
-  <div class="{{ if eq $mode "list" }}prepended-icon{{ end }} {{ $p.Section | urlize }}">
+  <div class="prepended-icon {{ $p.Section | urlize }}">
     {{ partial (printf "post/body/%s.html" $kind) (dict "page" $p "mode" $mode) }}
     {{ partial "post/meta.html" (dict "page" $p "mode" $mode) }}
     {{- if eq $mode "single" }}

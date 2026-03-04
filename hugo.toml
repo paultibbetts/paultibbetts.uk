@@ -37,6 +37,8 @@ capitalizeListTitles = false
   post_sections = [ 'articles', 'bookmarks', 'likes', 'notes' ]
   # Sections used by the alternate /feed h-feed.
   feed_post_sections = [ 'articles', 'bookmarks', 'likes', 'notes' ]
+  # Sections used by /links.
+  links_post_sections = [ 'bookmarks', 'likes' ]
 	[params.author]
     # Author name used by some templates.
 	  name = 'Paul Tibbetts'
