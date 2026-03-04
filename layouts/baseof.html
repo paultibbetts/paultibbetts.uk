@@ -54,13 +54,13 @@
       <link rel="alternate" type="text/mf2+html" href="/feed/" title="Posts feed" />
     {{- end -}}
     {{ partial "opengraph.html" . }}
-    {{ if hugo.IsProduction }}
-      {{ with (templates.Defer (dict "key" "global")) }}
-        {{ partial "css.html" . }}
-      {{ end }}
-    {{ else }}
-      {{ partial "css.html" . }}
-    {{ end }}
+    {{- if hugo.IsProduction -}}
+      {{- with (templates.Defer (dict "key" "global")) -}}
+        {{- partial "css.html" . -}}
+      {{- end -}}
+    {{- else -}}
+      {{- partial "css.html" . -}}
+    {{- end -}}
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="fediverse:creator" content="@paultibbetts@indieweb.social" />
   </head>
