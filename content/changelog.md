@@ -12,6 +12,7 @@ My website does.
 
 - [`9993b6f`](https://github.com/paultibbetts/paultibbetts.uk/commit/9993b6fdae626b4b782e338e375c2263a794d934): added `/bookmarks` page
 - [`7c34d1d`](https://github.com/paultibbetts/paultibbetts.uk/commit/7c34d1d4aee7f61526bdc52741473a66cda44f6a): added `/likes` page
+- [`e6a3355`](https://github.com/paultibbetts/paultibbetts.uk/commit/e6a3355bec533ddfedf9a7d463ef52a2f4d425f0): added `/links`page
 
 ## 2026-03-02
 
