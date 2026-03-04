@@ -5,20 +5,33 @@
 {{- end -}}
 {{- $likeLabel := $p.Title | default $likeOf -}}
 
-
-<p class="mb-4 text-lg">
-  <a class="u-like-of h-cite color-steel" href="{{ $likeOf }}">{{ $likeLabel }}</a>
-</p>
-
-{{- if $p.Content }}
-  {{- $mode := .mode | default "list" -}}
-  {{- if and (eq $mode "list") $p.Truncated }}
-    <div class="p-summary text-white mb-4 font-sans prose prose-invert">
-      {{ $p.Summary }}
-    </div>
-  {{- else }}
+{{- $mode := .mode | default "list" -}}
+{{- if eq $mode "single" }}
+  <div class="mb-4">
+    <p class="p-name text-lg">
+      liked
+      <a class="u-like-of h-cite color-steel" href="{{ $likeOf }}">{{ $likeLabel }}</a>
+    </p>
+  </div>
+  {{- if $p.Content }}
     <div class="e-content prose prose-invert text-light font-sans mb-8">
       {{ $p.Content }}
     </div>
   {{- end }}
-{{- end }}
+{{- else -}}
+  <p class="p-name mb-4 text-lg">
+    liked
+    <a class="u-like-of h-cite color-steel" href="{{ $likeOf }}">{{ $likeLabel }}</a>
+  </p>
+  {{- if $p.Content }}
+    {{- if $p.Truncated }}
+      <div class="p-summary text-white mb-4 font-sans prose prose-invert">
+        {{ $p.Summary }}
+      </div>
+    {{- else }}
+      <div class="e-content prose prose-invert text-light font-sans mb-8">
+        {{ $p.Content }}
+      </div>
+    {{- end }}
+  {{- end }}
+{{- end -}}
