@@ -99,6 +99,11 @@
       <pubDate>{{ .PublishDate.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
       {{- with $authorEmail }}<author>{{ . }}{{ with $authorName }} ({{ . }}){{ end }}</author>{{ end }}
       <guid>{{ .Permalink }}</guid>
+      {{- with .GetTerms "tags" -}}
+        {{- range . -}}
+          <category>{{ .Title }}</category>
+        {{- end -}}
+      {{- end -}}
       <description>{{- $itemDescription | htmlEscape -}}</description>
       <content:encoded>{{- $itemContentCDATA | safeHTML -}}</content:encoded>
       {{- with $itemMarkdown -}}
