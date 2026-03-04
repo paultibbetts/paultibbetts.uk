@@ -8,6 +8,10 @@ Some things never change.
 
 My website does.
 
+## 2026-03-04
+
+- [`9993b6f`](https://github.com/paultibbetts/paultibbetts.uk/commit/9993b6fdae626b4b782e338e375c2263a794d934): added `/bookmarks` page
+
 ## 2026-03-02
 
 - [`9d652c6`](https://github.com/paultibbetts/paultibbetts.uk/commit/9d652c6776fd8a364d020829fdc95991d2fe630c): added `content:encoded` and `source:markdown` to RSS feeds
