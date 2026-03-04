@@ -23,19 +23,19 @@ At a minimum an RSS feed contains:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">  
-  <channel>  
-    <title>Example Blog</title>  
-    <link>https://example.com/</link>  
-    <description>Updates from my blog.</description>  
-  
-    <item>  
-      <title>Hello World</title>  
-      <link>https://example.com/hello-world</link>  
-      <description>My first post.</description>  
+<rss version="2.0">
+  <channel>
+    <title>Example Blog</title>
+    <link>https://example.com/</link>
+    <description>Updates from my blog.</description>
+
+    <item>
+      <title>Hello World</title>
+      <link>https://example.com/hello-world</link>
+      <description>My first post.</description>
     </item>
 
-  </channel>  
+  </channel>
 </rss>
 ```
 
@@ -56,9 +56,9 @@ It's strongly recommended to include this line so the file is read correctly.
 This is the start of the `<rss>` element. The `version="2.0"` tells consumers that the feed conforms to the RSS 2.0 specification, the most widely supported version.
 
 ```xml
-<channel>  
-  <title>Example Blog</title>  
-  <link>https://example.com/</link>  
+<channel>
+  <title>Example Blog</title>
+  <link>https://example.com/</link>
   <description>Updates from my blog.</description>
 ```
 
@@ -69,10 +69,10 @@ These details should match what's displayed on your site and will show up for us
 The `<link>` should point to the URL of the `<channel>`, which is the site itself.
 
 ```xml
-<item>  
-  <title>Hello World</title>  
-  <link>https://example.com/hello-world</link>  
-  <description>My first post.</description>  
+<item>
+  <title>Hello World</title>
+  <link>https://example.com/hello-world</link>
+  <description>My first post.</description>
 </item>
 ```
 
@@ -125,7 +125,7 @@ You could use the `<description>` for the summary of your post or for the whole 
 There's no upper limit on the amount of `<item>`s you can include in a feed, but there are some practical things to consider:
 
 - RSS does not do pagination
--  - everything is listed in one file
+- - everything is listed in one file
 - if the file gets really big then it takes longer to download
 - - aim to keep it under 500KB
 - maybe only show your latest posts if you have lots of them
@@ -148,7 +148,7 @@ A `guid`, for "Globally Unique IDentifier", gives each item in the feed a stable
 This is usually the permalink of the post. If so, `isPermaLink` defaults to true and can be omitted, however it it's not the permalink, like a database ID, or the exact datetime the post was published, you would change `isPermaLink` to `false`.
 
 Note that the `L` in `PermaLink` is also capitalised.
- 
+
 ```xml
 <item>
   ...
@@ -159,7 +159,7 @@ Note that the `L` in `PermaLink` is also capitalised.
 The `<pubDate>` is used to show when an item in the feed was published. It can help feed readers understand the order of your posts and should be added.
 
 ```xml
-<rss version="2.0"  
+<rss version="2.0"
 xmlns:atom="http://www.w3.org/2005/Atom">
 ```
 
@@ -170,9 +170,9 @@ This tells whatever is reading the feed that anything defined with `atom:` comes
 This isn't useful by itself, but it is used when you also add:
 
 ```xml
-<atom:link  
-href="https://example.com/index.xml"  
-rel="self"  
+<atom:link
+href="https://example.com/index.xml"
+rel="self"
 type="application/rss+xml" />
 ```
 
@@ -182,7 +182,7 @@ which defines the URL of the feed and helps feed readers know the canonical URL 
 <lastBuildDate>Sun, 1 Mar 2026 14:00:00 GMT</lastBuildDate>
 ```
 
-The `<lastBuildDate>` can be used by feed readers to know if the feed has changed. 
+The `<lastBuildDate>` can be used by feed readers to know if the feed has changed.
 
 Set it to the date of the most recent post.
 
@@ -229,8 +229,8 @@ The first option is to escape all of the HTML in the description:
 or the more common option is to wrap the HTML content in the description in a `CDATA` tag:
 
 ```xml
-<description><![CDATA[  
-<p>Hello, World!</p>  
+<description><![CDATA[
+<p>Hello, World!</p>
 ]]></description>
 ```
 

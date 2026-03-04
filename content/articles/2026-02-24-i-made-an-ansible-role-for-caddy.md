@@ -133,10 +133,10 @@ The role can be used to setup Caddy to host a personal website.
           - github.com/caddy-dns/cloudflare
         caddy_manage_systemd_env_file: true
         caddy_systemd_env:
-            CF_API_TOKEN: "{{ vault_cf_api_token }}"
+          CF_API_TOKEN: "{{ vault_cf_api_token }}"
 ```
 
-The `download` install method is used to install Caddy with the [Cloudflare plugin](https://github.com/caddy-dns/cloudflare), the Cloudflare API token is passed to Caddy from Ansible vault, and a template is provided for the Caddyfile, which could look like: 
+The `download` install method is used to install Caddy with the [Cloudflare plugin](https://github.com/caddy-dns/cloudflare), the Cloudflare API token is passed to Caddy from Ansible vault, and a template is provided for the Caddyfile, which could look like:
 
 ```Caddyfile
 (cf_tls) {
@@ -156,7 +156,7 @@ The `download` install method is used to install Caddy with the [Cloudflare plug
 {% endfor %}
 ```
 
-This sets up Caddy to use Cloudflare to do DNS-01 challenges with Lets Encrypt to get a TLS certificate for each `site in web_sites`. 
+This sets up Caddy to use Cloudflare to do DNS-01 challenges with Lets Encrypt to get a TLS certificate for each `site in web_sites`.
 
 #### Example: Homelab
 
@@ -174,7 +174,7 @@ The role can also be used to setup Caddy in a private network, like a homelab.
           - github.com/caddy-dns/cloudflare
         caddy_manage_systemd_env_file: true
         caddy_systemd_env:
-            CF_API_TOKEN: "{{ vault_cf_api_token }}"
+          CF_API_TOKEN: "{{ vault_cf_api_token }}"
 ```
 
 ```Caddyfile

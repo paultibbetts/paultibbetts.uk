@@ -24,7 +24,7 @@ You're looking at it!
 
 ### Identity ✅
 
-You're reading this on my primary domain. 
+You're reading this on my primary domain.
 
 ### Authentication ✅
 

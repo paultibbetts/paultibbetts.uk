@@ -4,6 +4,6 @@ export default {
     "./layouts/**/*.{html,xml}",
     "./content/**/*.{md,html}",
     "./assets/**/*.{js,ts}",
-    "./themes/**/layouts/**/*.{html,xml}",
-  ],
-};
+    "./themes/**/layouts/**/*.{html,xml}"
+  ]
+}

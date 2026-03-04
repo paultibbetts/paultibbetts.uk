@@ -54,7 +54,10 @@
                     href="{{ .RelPermalink }}"
                     style="color: inherit; text-decoration: none; text-wrap: nowrap;"
                   >
-                    <abbr class="dt-published" title="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+                    <abbr
+                      class="dt-published"
+                      title="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}"
+                    >
                       {{ .Date.Format "2006-01-02 15:04" }}
                     </abbr>
                   </a>

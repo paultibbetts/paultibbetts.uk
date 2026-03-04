@@ -10,7 +10,7 @@ I've pushed my developer environment setup scripts up to GitHub, and now they ha
 
 ## Dotfiles
 
-Dotfiles are the files on your system that are hidden by default, which is done by adding a `.` in front of the name, hence "dotfiles". 
+Dotfiles are the files on your system that are hidden by default, which is done by adding a `.` in front of the name, hence "dotfiles".
 
 They're used for settings and preferences and between them they configure your system just the way you like it. They are arguably the most important part of a developer setup.
 
