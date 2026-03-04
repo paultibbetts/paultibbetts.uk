@@ -14,7 +14,7 @@ Until I found the Terraform provider.
 
 ## Ansible provider for Terraform
 
-By using the [Ansible provider](https://registry.terraform.io/providers/ansible/ansible/latest) you can teach Terraform what an Ansible inventory entry would look like next to the rest of its code. 
+By using the [Ansible provider](https://registry.terraform.io/providers/ansible/ansible/latest) you can teach Terraform what an Ansible inventory entry would look like next to the rest of its code.
 
 You start by defining the provider:
 
@@ -96,7 +96,7 @@ which should return something like the following:
 
 ## 🎉
 
-What's good about this is now you can be hands-off with IP addresses. 
+What's good about this is now you can be hands-off with IP addresses.
 
 Terraform can request a new machine, wait for it to receive an IP address and then make it available for Ansible to use, without you needing to do anything.
 
@@ -108,6 +108,6 @@ This means Ansible is always running against the current infrastructure, which h
 
 ## In Conclusion
 
-Using Terraform and Ansible together can cover all aspects of Infrastructure as Code. 
+Using Terraform and Ansible together can cover all aspects of Infrastructure as Code.
 
 The Ansible provider lets you keep all your resource code together in Terraform and then makes it available to Ansible, which uses a plugin to let it use the state file as its inventory.

@@ -17,7 +17,7 @@ This is why I built it, what it does, and how to use it.
 
 I prefer writing down my infrastructure as code. It's something I've been doing for years now, and I don't think I could go back to doing things manually, no matter how small or simple the setup.
 
-I'd decided to use a Pi from Mythic Beasts to host my site and saw that they had APIs available, but no Terraform provider. 
+I'd decided to use a Pi from Mythic Beasts to host my site and saw that they had APIs available, but no Terraform provider.
 
 Terraform is a tool I've been using for infrastructure for a while now, and I wanted to use it with Mythic Beasts because:
 

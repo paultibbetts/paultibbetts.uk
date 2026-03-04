@@ -24,7 +24,7 @@ I already do this for my [microblog](https://micro.paultibbetts.uk/) because it 
 
 ### CMS
 
-An alternative path is to use an existing content management system and add on IndieWeb features with plugins. 
+An alternative path is to use an existing content management system and add on IndieWeb features with plugins.
 
 I've done this in the past with [WordPress](https://wordpress.org/) but I moved on from the WordPress world a while ago.
 

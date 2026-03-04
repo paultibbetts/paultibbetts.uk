@@ -4,7 +4,7 @@ title = 'Technical Difficulties'
 tags = ['meta']
 +++
 
-I don't like starting sentences with I. 
+I don't like starting sentences with I.
 
 <!--more-->
 
@@ -12,7 +12,7 @@ There were also a few real technical difficulties starting a blog, which were mo
 
 No, the biggest problem came instead from me, not getting past the awkward part and making it a regular habit.
 
-I made a slight effort earlier this year publishing a ["plan"](https://micro.paultibbetts.uk/2025/01/02/the-plan.html) on Micro.blog but apparently it wasn't the right time and I didn't follow it up. 
+I made a slight effort earlier this year publishing a ["plan"](https://micro.paultibbetts.uk/2025/01/02/the-plan.html) on Micro.blog but apparently it wasn't the right time and I didn't follow it up.
 
 I was already aware of it, and making an effort to fix it, but I was burnt out.
 

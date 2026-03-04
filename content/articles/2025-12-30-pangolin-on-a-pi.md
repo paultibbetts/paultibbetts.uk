@@ -45,7 +45,7 @@ The Mythic Beasts Pis come with two obstacles to running Pangolin. The first is 
 
 ### NFS Storage
 
-Pangolin is actually more of a stack, with Pangolin as the control plane, Traefik doing reverse proxying, Gerbil running the tunnel and a thing called Badger to do the middleware that checks for authentication. The easiest way to run it all is with Docker Compose, and this is the first hurdle to running Pangolin on a Mythic Beasts Pi. 
+Pangolin is actually more of a stack, with Pangolin as the control plane, Traefik doing reverse proxying, Gerbil running the tunnel and a thing called Badger to do the middleware that checks for authentication. The easiest way to run it all is with Docker Compose, and this is the first hurdle to running Pangolin on a Mythic Beasts Pi.
 
 The Pis only have network storage available, and Docker doesn't like that because NFS doesn't provide the kind of guarantees Docker wants from a filesystem. Docker _can_ work with NFS, but only using the `vfs` storage driver. Unlike the default `overlay2` driver, which uses a layered filesystem, `vfs` doesn't share layers, so every image consumes more space than it should.
 
@@ -61,7 +61,7 @@ IPv6 is the future but support for it is still mixed, so Mythic Beasts have an I
 
 The other end of the tunnel, the one in your home network, is managed by a service called Newt. It needs to speak to Gerbil on the Pi, and I was not successful getting it to run with the default `pangolin.example.com` address I was using.
 
-Newt is configured by pointing it at Pangolin, which advertises the Gerbil endpoint it should connect to. Maybe it was Pangolin, or the proxy, or even something else; I could not get it to work. To make some progress I changed the `base_endpoint` in `config/config.yml`. First I tried the IPv6 address of the Pi, but that still didn't work, so I created an AAAA record for Gerbil and pointed it at the Pi. This would do the same thing as the CNAME I'd used for Pangolin, except that went through the proxy and maybe that was messing things up. This time, it worked. 
+Newt is configured by pointing it at Pangolin, which advertises the Gerbil endpoint it should connect to. Maybe it was Pangolin, or the proxy, or even something else; I could not get it to work. To make some progress I changed the `base_endpoint` in `config/config.yml`. First I tried the IPv6 address of the Pi, but that still didn't work, so I created an AAAA record for Gerbil and pointed it at the Pi. This would do the same thing as the CNAME I'd used for Pangolin, except that went through the proxy and maybe that was messing things up. This time, it worked.
 
 Mythic Beasts [state their proxy](https://www.mythic-beasts.com/support/topics/proxy):
 
@@ -77,7 +77,7 @@ This means I need at least IPv6 egress. That doesn't mean full IPv6 support ever
 
 ### ISP router
 
-I'm still using the router my ISP gave me, which has very basic IPv6 support. I'm with Vodafone and it's the standard "WiFi hub" they gave out several years ago. 
+I'm still using the router my ISP gave me, which has very basic IPv6 support. I'm with Vodafone and it's the standard "WiFi hub" they gave out several years ago.
 
 The right combination of buttons to press is under `Settings -> Local Network` and you want:
 
@@ -109,9 +109,9 @@ If I had a better router that let me turn on IPv6 and either disable RDNSS, or a
 
 ### Android
 
-Most of the mobile devices in this house run iOS, which lets you manually set the DNS server, and allows you to enter an IPv4 address, which is fine for Pi-hole. 
+Most of the mobile devices in this house run iOS, which lets you manually set the DNS server, and allows you to enter an IPv4 address, which is fine for Pi-hole.
 
-Android does it differently. It lets you set an IPv4 address, but if it sees RDNSS then it ignores your manual setting and uses that instead, which for me is the ISP router. So no ad-blocking or custom DNS records for Android devices. 
+Android does it differently. It lets you set an IPv4 address, but if it sees RDNSS then it ignores your manual setting and uses that instead, which for me is the ISP router. So no ad-blocking or custom DNS records for Android devices.
 
 This means if you're in the kitchen and want to check Mealie to see the recipe for tonight's meal you have to go out over the internet to come back and reach the server in the other room.
 
@@ -141,7 +141,7 @@ To be clear, the Pi itself is not to blame for any of this, it's more than capab
 
 The improvement would be to use a VPS, or even another Pi if I could find one, that uses fast local storage and is on an IPv4 network, or has a proxy available that also forwards Wireguard traffic.
 
-If I hadn't already committed to a 12 month contract for the Pi I would have already done this. If I can find an alternative use for it maybe I'll move before the contract runs out. 
+If I hadn't already committed to a 12 month contract for the Pi I would have already done this. If I can find an alternative use for it maybe I'll move before the contract runs out.
 
 Until then, I'm not doing this.
 
@@ -153,11 +153,11 @@ The same goes for installing Wireguard manually on the Pi and reverse proxying t
 
 ### Blue/Green deployments
 
-NFS means the Pi takes a while to run upgrades, so there's about an hour of downtime. 
+NFS means the Pi takes a while to run upgrades, so there's about an hour of downtime.
 
 I could get around this by spinning up a second Pi, installing the upgraded software, somehow sync the configs, and then switch the DNS to point to the upgraded Pi.
 
-This wouldn't solve any of the problems except the downtime, and it would cost me more money to do so. I'm not doing that. My friends and family will have to put up with the downtime. 
+This wouldn't solve any of the problems except the downtime, and it would cost me more money to do so. I'm not doing that. My friends and family will have to put up with the downtime.
 
 They could chip in to cover the costs, but that turns the whole thing into a business arrangement and I don't want to go down that road.
 
@@ -175,7 +175,7 @@ This may need to happen anyway, but I wasn't looking to do this right now, so fo
 
 I could technically go back to IPv4 only in my network if the proxy I use to connect to the Pi also forwarded Wireguard connections. Since the current one doesn't, the only options are to setup IPv6 in my home network or host my own proxy that can.
 
-I picked the Pi because it was the cheapest UK-based hosting I could find, and this doubles the cost, so it isn't really an option. 
+I picked the Pi because it was the cheapest UK-based hosting I could find, and this doubles the cost, so it isn't really an option.
 
 Also I don't want to host a tunnel for my tunnel. That's too many tunnels.
 

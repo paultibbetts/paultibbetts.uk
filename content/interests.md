@@ -9,7 +9,7 @@ show_in_pages_nav = true
 - ☕️ coffee
 - 🍳 cooking
 - 🚲 <a href="https://micro.paultibbetts.uk/categories/cycling/">cycling</a>
-- ⛰  <a href="https://pinthewild.micro.blog">hiking</a>
+- ⛰ <a href="https://pinthewild.micro.blog">hiking</a>
 - 🖥️ <a href="/tags/homelab">homelab</a>
 - 🌐 <a href="/tags/indieweb">indieweb</a>
 - 🧘‍♂️ meditating

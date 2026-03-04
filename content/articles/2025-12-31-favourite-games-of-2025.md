@@ -31,9 +31,9 @@ It's rated [Platinum](https://www.protondb.com/app/2592160) on ProtonDB, so it p
 
 [![Arc Raiders hero image](https://steamcdn-a.akamaihd.net/steam/apps/1808500/header.jpg "Arc Raiders hero image")](https://store.steampowered.com/app/1808500/ARC_Raiders/)
 
-I wasn't expecting to like Arc Raiders as much as I did. It makes the sweaty extraction-shooter genre more accessible, even if it is still pretty sweaty. 
+I wasn't expecting to like Arc Raiders as much as I did. It makes the sweaty extraction-shooter genre more accessible, even if it is still pretty sweaty.
 
-Escape from Tarkov was a bit too much for me; Arc Raiders has a much better balance. It's not for everyone, but it's that well done you might enjoy it even if you don't like similar games. 
+Escape from Tarkov was a bit too much for me; Arc Raiders has a much better balance. It's not for everyone, but it's that well done you might enjoy it even if you don't like similar games.
 
 Whilst you can get shot by other players, it's the Arc that are the real threat, and this mix of danger, plus the proximity voice chat, make it unlike any other game out right now.
 
@@ -57,7 +57,7 @@ I've played BF games ever since the first one, set all the way back in World War
 
 And it was quite the comeback. Two of my friends bought new computers just to play it, and its launch weekend was the most active my little Discord server's ever been.
 
-It's moved away from the slower, more tactical feel of its earlier entries though. If that older style is what you're after, games like [Squad](https://www.joinsquad.com/) and [Hell Let Loose](https://www.hellletloose.com/) now occupy that space. 
+It's moved away from the slower, more tactical feel of its earlier entries though. If that older style is what you're after, games like [Squad](https://www.joinsquad.com/) and [Hell Let Loose](https://www.hellletloose.com/) now occupy that space.
 
 With 6, Battlefield has settled into being a faster, more accessible squad-based shooter - and judged on those terms it's an excellent game. No wonder it was [the best selling FPS of the year](https://bsky.app/profile/matpiscatella.bsky.social/post/3ma6t4pndwc2w).
 
@@ -167,9 +167,9 @@ It's inspired by George Orwell's 1984, which might be why I'm liking it so much.
 
 I am still playing Baldur's Gate 3. I am still in Act 1. I know.
 
-This is such a good game that I can't just turn it on mindlessly for 20 minutes. I need to settle in for an afternoon and play for a few hours at a time - to get into the right mind-frame and settle into being a powerful sorcerer. 
+This is such a good game that I can't just turn it on mindlessly for 20 minutes. I need to settle in for an afternoon and play for a few hours at a time - to get into the right mind-frame and settle into being a powerful sorcerer.
 
-Or whatever I am, I don't know, I've never played D&D before. My character keeps wanting to kill things, and I am happy to oblige. 
+Or whatever I am, I don't know, I've never played D&D before. My character keeps wanting to kill things, and I am happy to oblige.
 
 I am sorry bard, I don't know what came over me.
 

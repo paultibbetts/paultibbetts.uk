@@ -5,7 +5,7 @@ type = "page"
 show_in_pages_nav = true
 +++
 
-This is the tech I use. 
+This is the tech I use.
 
 I have separate pages for my [developer environment](https://dev.paultibbetts.uk) and [wildcamping gear](https://pinthewild.micro.blog/uses).
 

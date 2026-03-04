@@ -15,13 +15,13 @@ Here's all the ways I can think of doing that.
 
 Some sites let you send out your posts as emails.
 
-Don't do it. It can be tempting, because it's easy, but emails are for emails. 
+Don't do it. It can be tempting, because it's easy, but emails are for emails.
 
 There are better options for your feed.
 
 ## RSS
 
-RSS stands for "Really Simple Syndication". 
+RSS stands for "Really Simple Syndication".
 
 It's a standard format for publishing a feed so apps can subscribe to your updates.
 
@@ -57,7 +57,7 @@ Because of this I'd say RSS is the best starting point for letting users subscri
 
 RSS isn't the only way to create an XML feed. Atom is another standard which is more formally specified.
 
-In the early 2000's, after Atom's launch, there was a time called the "RSS vs Atom wars". There was no real winner. Atom was decided to be technically better, but by then RSS had already become dominant. 
+In the early 2000's, after Atom's launch, there was a time called the "RSS vs Atom wars". There was no real winner. Atom was decided to be technically better, but by then RSS had already become dominant.
 
 These days you can add a few Atom elements to your RSS feed, like a `rel=self` link, to get the best of both worlds.
 
@@ -110,7 +110,7 @@ For more information on posting out to social media the IndieWeb.org wiki has a 
 
 ## ActivityPub
 
-Another option is to use the ActivityPub protocol for your content. 
+Another option is to use the ActivityPub protocol for your content.
 
 ActivityPub is what powers Fediverse apps like Mastodon and making your content available through it makes your site part of the Fediverse itself. Readers can then subscribe using whatever Fediverse app they want.
 
@@ -123,4 +123,3 @@ The best option could even be to do all of the above, to give your readers freed
 If you want the most compatible way to let others follow your posts: start with RSS.
 
 Then add alternatives after.
-
