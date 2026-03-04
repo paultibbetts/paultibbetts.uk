@@ -248,6 +248,11 @@ footer a {
     left: -7em;
   }
 
+  &.likes::before {
+    content: "like 👍";
+    left: -5em;
+  }
+
   &.hashtag::before {
     content: "#";
   }
