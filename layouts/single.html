@@ -1,6 +1,10 @@
 {{ define "main" }}
   <div class="mb-20">
-    {{ partial "post/entry.html" (dict "page" . "mode" "single") }}
-    {{ partial "webmentions.html" . }}
+    {{- if partial "post/is-post.html" . }}
+      {{ partial "post/entry.html" (dict "page" . "mode" "single") }}
+      {{ partial "webmentions.html" . }}
+    {{- else }}
+      {{ partial "page.html" . }}
+    {{- end }}
   </div>
 {{ end }}

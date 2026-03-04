@@ -1,0 +1,2 @@
+{{- $postSections := site.Params.post_sections | default (slice) -}}
+{{- return (in $postSections .Section) -}}
