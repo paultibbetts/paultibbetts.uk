@@ -1,4 +1,7 @@
-{{- $feedSections := site.Params.feed_post_sections | default (slice "articles" "notes") -}}
+{{- $feedSections := site.Params.feed_post_sections -}}
+{{- if not $feedSections -}}
+  {{- errorf "site.Params.feed_post_sections must be set to the sections included in /feed." -}}
+{{- end -}}
 {{- $posts := where .Site.RegularPages "Section" "in" $feedSections -}}
 {{- $posts = where $posts "Kind" "page" -}}
 {{- return ($posts.ByDate.Reverse) -}}

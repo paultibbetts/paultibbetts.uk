@@ -1,0 +1,30 @@
+{{- $p := .page -}}
+{{- $mode := .mode | default "list" -}}
+{{- $kind := partial "post/kind.html" $p -}}
+{{- $knownKinds := slice "article" "note" "bookmark" -}}
+{{- if not (in $knownKinds $kind) -}}
+  {{- $kind = "note" -}}
+{{- end -}}
+<article class="h-entry {{ $p.Section | urlize }}">
+  <a class="u-url u-uid hidden" href="{{ $p.Permalink }}">
+    <time class="dt-published" datetime="{{ $p.Date.Format "2006-01-02T15:04:05Z07:00" }}">
+      {{ $p.Date.Format "2006-01-02 15:04" }}
+    </time>
+  </a>
+  <div class="{{ if eq $mode "list" }}prepended-icon{{ end }} {{ $p.Section | urlize }}">
+    {{ partial (printf "post/body/%s.html" $kind) (dict "page" $p "mode" $mode) }}
+    {{ partial "post/meta.html" (dict "page" $p "mode" $mode) }}
+    {{- if eq $mode "single" }}
+      <div class="hidden">
+        <p>
+          written by
+          {{ partial "post/author.html" . }}
+        </p>
+        <p>
+          canonical url:
+          <a class="u-url" href="{{ $p.Permalink }}">{{ $p.Permalink }}</a>
+        </p>
+      </div>
+    {{- end }}
+  </div>
+</article>
