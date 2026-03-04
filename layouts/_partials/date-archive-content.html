@@ -13,7 +13,7 @@
 {{- else -}}
   <ul class="mb-2">
     {{- range ($posts.ByDate) -}}
-      {{ .Render "li-grouped" }}
+      {{ .Render "li" }}
     {{- end -}}
   </ul>
 {{- end -}}

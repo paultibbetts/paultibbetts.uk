@@ -1,4 +1,7 @@
-{{- $allowedSections := site.Params.post_sections | default (slice "articles" "notes") -}}
+{{- $allowedSections := site.Params.post_sections -}}
+{{- if not $allowedSections -}}
+  {{- errorf "site.Params.post_sections must be set to generate date archive pages." -}}
+{{- end -}}
 {{- with resources.Get "data/published-content.csv" -}}
   {{- $rows := . | transform.Unmarshal (dict "delimiter" ",") -}}
   {{- $years := dict -}}

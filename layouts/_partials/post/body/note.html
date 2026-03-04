@@ -1,0 +1,41 @@
+{{- $p := .page -}}
+{{- $mode := .mode | default "list" -}}
+
+{{- if and $p.Title (eq $mode "single") }}
+  <h1 class="p-name mb-4 text-3xl text-orange">
+    {{ $p.Title }}
+  </h1>
+{{- else if and $p.Title (eq $mode "list") }}
+  <h2 class="mb-4 text-lg text-orange">
+    <a class="p-name u-url color-steel" href="{{ $p.RelPermalink }}">{{ $p.Title }}</a>
+  </h2>
+{{- end }}
+
+{{- if eq $mode "single" }}
+  {{- if $p.ContentWithoutSummary }}
+    <div class="p-summary mb-4 prose prose-invert text-light font-sans">{{ $p.Summary }}</div>
+    <div id="more" class="e-content prose prose-invert text-light font-sans mb-8">
+      {{ $p.ContentWithoutSummary }}
+    </div>
+  {{- else }}
+    <div class="e-content prose prose-invert text-light font-sans mb-8">
+      {{ $p.Content }}
+    </div>
+  {{- end }}
+{{- else }}
+  {{- if and $p.Truncated $p.Summary }}
+    <div class="p-summary text-white mb-4 font-sans prose prose-invert">
+      {{ $more := printf ` <a class="inline" href="%s#more">…</a>` $p.RelPermalink }}
+      {{ $summary := replaceRE `</p>\s*$` (printf `%s</p>` $more) $p.Summary }}
+      {{ if eq $summary $p.Summary }}
+        {{ $p.Summary | safeHTML }}{{ $more | safeHTML }}
+      {{ else }}
+        {{ $summary | safeHTML }}
+      {{ end }}
+    </div>
+  {{- else }}
+    <div class="e-content prose prose-invert text-light font-sans mb-8">
+      {{ $p.Content }}
+    </div>
+  {{- end }}
+{{- end }}

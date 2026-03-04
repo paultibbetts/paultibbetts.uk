@@ -232,11 +232,18 @@ footer a {
   position: relative;
 
   &.notes::before {
-    content: "✏️";
+    content: "note ✏️";
+    left: -5em;
   }
 
   &.articles::before {
-    content: "📝";
+    content: "article 📝";
+    left: -7em;
+  }
+
+  &.bookmarks::before {
+    content: "bookmark 🔗";
+    left: -7em;
   }
 
   &.hashtag::before {

@@ -1,0 +1,7 @@
+{{- $map := dict
+  "articles" "article"
+  "notes" "note"
+  "bookmarks" "bookmark"
+-}}
+{{- $raw := .Section | default .Type -}}
+{{- return (index $map $raw | default $raw) -}}

@@ -1,4 +1,7 @@
-{{- $postSections := site.Params.post_sections | default (slice "articles" "notes") -}}
+{{- $postSections := site.Params.post_sections -}}
+{{- if not $postSections -}}
+  {{- errorf "site.Params.post_sections must be set to the sections included in post streams." -}}
+{{- end -}}
 {{- $posts := where .Site.RegularPages "Section" "in" $postSections -}}
 {{- $posts = where $posts "Kind" "page" -}}
 {{- return ($posts.ByDate.Reverse) -}}
