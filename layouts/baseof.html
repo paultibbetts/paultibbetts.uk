@@ -47,11 +47,11 @@
     {{ end }}
     <link rel="webmention" href="https://webmention.io/paultibbetts.uk/webmention" />
     {{- if .IsHome -}}
-      <link rel="alternate" type="text/mf2+html" href="/feed/" title="Articles and notes" />
+      <link rel="alternate" type="text/mf2+html" href="/feed/" title="Posts feed" />
     {{- else if eq .Section "feed" -}}
       <link rel="alternate" type="text/mf2+html" href="/" title="All posts" />
     {{- else -}}
-      <link rel="alternate" type="text/mf2+html" href="/feed/" title="Articles and notes" />
+      <link rel="alternate" type="text/mf2+html" href="/feed/" title="Posts feed" />
     {{- end -}}
     {{ partial "opengraph.html" . }}
     {{ if hugo.IsProduction }}

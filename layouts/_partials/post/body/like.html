@@ -1,0 +1,24 @@
+{{- $p := .page -}}
+{{- $likeOf := or (index $p.Params "like_of") (or (index $p.Params "likeOf") (index $p.Params "likeof")) -}}
+{{- if not $likeOf -}}
+  {{- errorf "like post %q is missing like_of" $p.File.Path -}}
+{{- end -}}
+{{- $likeLabel := $p.Title | default $likeOf -}}
+
+
+<p class="mb-4 text-lg">
+  <a class="u-like-of h-cite color-steel" href="{{ $likeOf }}">{{ $likeLabel }}</a>
+</p>
+
+{{- if $p.Content }}
+  {{- $mode := .mode | default "list" -}}
+  {{- if and (eq $mode "list") $p.Truncated }}
+    <div class="p-summary text-white mb-4 font-sans prose prose-invert">
+      {{ $p.Summary }}
+    </div>
+  {{- else }}
+    <div class="e-content prose prose-invert text-light font-sans mb-8">
+      {{ $p.Content }}
+    </div>
+  {{- end }}
+{{- end }}

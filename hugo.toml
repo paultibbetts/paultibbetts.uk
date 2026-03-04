@@ -34,9 +34,9 @@ capitalizeListTitles = false
   # "Site images" list used by the built-in Open Graph partial.
 	images = [ '/apple-touch-icon.png' ]
   # Sections treated as post streams (home/feed/year/archive views).
-  post_sections = [ 'articles', 'bookmarks', 'notes' ]
+  post_sections = [ 'articles', 'bookmarks', 'likes', 'notes' ]
   # Sections used by the alternate /feed h-feed.
-  feed_post_sections = [ 'articles', 'bookmarks', 'notes' ]
+  feed_post_sections = [ 'articles', 'bookmarks', 'likes', 'notes' ]
 	[params.author]
     # Author name used by some templates.
 	  name = 'Paul Tibbetts'
@@ -49,6 +49,7 @@ capitalizeListTitles = false
   # Sets URl patterns for the sections.
   articles = '/:year/:month/:day/:title/'
   bookmarks = '/:year/:month/:day/:slugorcontentbasename/'
+  likes = '/:year/:month/:day/:slugorcontentbasename/'
   notes = '/:year/:month/:day/:slugorcontentbasename/'
 
 # ==========================

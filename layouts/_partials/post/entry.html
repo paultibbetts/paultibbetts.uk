@@ -1,7 +1,7 @@
 {{- $p := .page -}}
 {{- $mode := .mode | default "list" -}}
 {{- $kind := partial "post/kind.html" $p -}}
-{{- $knownKinds := slice "article" "note" "bookmark" -}}
+{{- $knownKinds := slice "article" "note" "bookmark" "like" -}}
 {{- if not (in $knownKinds $kind) -}}
   {{- $kind = "note" -}}
 {{- end -}}
