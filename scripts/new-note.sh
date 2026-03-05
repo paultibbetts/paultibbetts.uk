@@ -3,10 +3,10 @@ set -euo pipefail
 
 # Usage:
 #   ./new-note.sh
-#   ./new-note.sh "my optional slug"
+#   ./new-note.sh "My Optional Title"
 
 if [[ $# -gt 1 ]]; then
-  echo "Usage: $0 [optional-slug]"
+  echo "Usage: $0 [optional-title]"
   exit 1
 fi
 
@@ -14,9 +14,12 @@ fi
 date_part="$(date +%Y-%m-%d)"
 time_part="$(date +%H%M%S)"
 
-# Optional slug
-slug="${1:-}"
-slug="${slug%.md}"
+# Optional title
+title="${1:-}"
+title="${title%.md}"
+
+# Optional slug, derived from title
+slug="$title"
 
 # Slugify (basic, safe, predictable)
 if [[ -n "$slug" ]]; then
@@ -54,6 +57,35 @@ done
 relative_path="${file#content/}"
 
 hugo new --kind note "$relative_path"
+
+toml_escape() {
+  printf '%s' "$1" | sed -e 's/\\/\\\\/g' -e 's/"/\\"/g'
+}
+
+set_toml_string() {
+  local target_file="$1"
+  local key="$2"
+  local value="$3"
+  local escaped_value=""
+  local tmp_file=""
+
+  escaped_value="$(toml_escape "$value")"
+  tmp_file="$(mktemp)"
+
+  awk -v key="$key" -v value="$escaped_value" '
+    $0 ~ "^" key " = " {
+      print key " = \"" value "\""
+      next
+    }
+    { print }
+  ' "$target_file" >"$tmp_file"
+
+  mv "$tmp_file" "$target_file"
+}
+
+if [[ -n "$title" ]]; then
+  set_toml_string "$file" "title" "$title"
+fi
 
 # Keep generated root date views (/YYYY/, /YYYY/MM/, /YYYY/MM/DD/) in sync.
 "$(dirname "$0")/generate-date-archives.sh" >/dev/null
