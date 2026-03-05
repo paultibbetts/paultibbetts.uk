@@ -1,0 +1,124 @@
+{{- $p := .page -}}
+{{- $replyTo := or (index $p.Params "in_reply_to") (or (index $p.Params "inReplyTo") (index $p.Params "inreplyto")) -}}
+{{- if not $replyTo -}}
+  {{- errorf "reply post %q is missing in_reply_to" $p.File.Path -}}
+{{- end -}}
+{{- $references := index $p.Params "references" -}}
+{{- $reference := dict -}}
+{{- $referenceName := "" -}}
+{{- $referenceAuthorName := "" -}}
+{{- $referenceAuthorURL := "" -}}
+{{- $referenceAuthorPhoto := "" -}}
+{{- $referenceContentText := "" -}}
+{{- with $references -}}
+  {{- with (index . $replyTo) -}}
+    {{- $reference = . -}}
+  {{- end -}}
+{{- end -}}
+{{- with (index $reference "name") -}}
+  {{- $referenceName = . -}}
+{{- end -}}
+{{- with (index $reference "author") -}}
+  {{- with (index . "name") -}}
+    {{- $referenceAuthorName = . -}}
+  {{- end -}}
+  {{- with (index . "url") -}}
+    {{- $referenceAuthorURL = . -}}
+  {{- end -}}
+  {{- with (index . "photo") -}}
+    {{- $referenceAuthorPhoto = . -}}
+  {{- end -}}
+{{- end -}}
+{{- with (index $reference "content") -}}
+  {{- if reflect.IsMap . -}}
+    {{- with (index . "text") -}}
+      {{- $referenceContentText = . -}}
+    {{- end -}}
+  {{- else -}}
+    {{- $referenceContentText = printf "%v" . -}}
+  {{- end -}}
+{{- end -}}
+{{- $parsedReplyURL := urls.Parse $replyTo -}}
+{{- $replyDomain := $replyTo -}}
+{{- with $parsedReplyURL.Host -}}
+  {{- $replyDomain = . -}}
+{{- end -}}
+{{- $replyLabel := $referenceName | default $p.Title | default $replyTo -}}
+{{- $hasReferencePreview := and $referenceAuthorName $referenceContentText -}}
+{{- $mode := .mode | default "list" -}}
+
+
+<div class="mb-4">
+  <p class="p-name text-lg">
+    replied to
+    <a class="u-in-reply-to h-cite color-steel" href="{{ $replyTo }}">{{ $replyLabel }}</a>
+    {{- if ne $replyDomain $replyLabel }}
+      on <span class="color-steel">{{ $replyDomain }}</span>
+    {{- end -}}
+    {{- with $referenceAuthorName }}
+      by
+      {{ if $referenceAuthorURL -}}
+        <a class="h-card p-author color-steel" href="{{ $referenceAuthorURL }}">{{ . }}</a>
+      {{- else -}}
+        <span class="color-steel">{{ . }}</span>
+      {{- end -}}
+    {{- end -}}
+  </p>
+</div>
+
+{{- if $hasReferencePreview -}}
+  {{- $previewAuthorURL := $referenceAuthorURL | default $replyTo -}}
+  {{- $previewPost := dict
+    "author" (dict
+    "name" $referenceAuthorName
+    "url" $previewAuthorURL
+    "photo" $referenceAuthorPhoto
+    )
+    "url" $replyTo
+    "name" $referenceName
+    "content" (dict "text" ($referenceContentText | truncate 280))
+    "published" (index $reference "published")
+    "wm-property" "in-reply-to"
+  -}}
+  {{- $previewMention := dict
+    "source" $replyTo
+    "post" $previewPost
+    "wm-property" "in-reply-to"
+    "property_label" ""
+    "show_post_name" true
+  -}}
+  <ul class="list-none py-2 clear-both">
+    {{ partial "webmention.html" $previewMention }}
+  </ul>
+{{- end -}}
+
+{{- if eq $mode "single" }}
+  {{- if $p.ContentWithoutSummary }}
+    <div class="p-summary mb-4 prose prose-invert text-light font-sans">{{ $p.Summary }}</div>
+    <div id="more" class="e-content prose prose-invert text-light font-sans mb-8">
+      {{ $p.ContentWithoutSummary }}
+    </div>
+  {{- else if $p.Content }}
+    <div class="e-content prose prose-invert text-light font-sans mb-8">
+      {{ $p.Content }}
+    </div>
+  {{- end }}
+{{- else -}}
+  {{- if $p.Content }}
+    {{- if and $p.Truncated $p.Summary }}
+      <div class="p-summary text-white mb-4 font-sans prose prose-invert">
+        {{ $more := printf ` <a class="inline" href="%s#more">…</a>` $p.RelPermalink }}
+        {{ $summary := replaceRE `</p>\s*$` (printf `%s</p>` $more) $p.Summary }}
+        {{ if eq $summary $p.Summary }}
+          {{ $p.Summary | safeHTML }}{{ $more | safeHTML }}
+        {{ else }}
+          {{ $summary | safeHTML }}
+        {{ end }}
+      </div>
+    {{- else }}
+      <div class="e-content prose prose-invert text-light font-sans mb-8">
+        {{ $p.Content }}
+      </div>
+    {{- end }}
+  {{- end }}
+{{- end -}}

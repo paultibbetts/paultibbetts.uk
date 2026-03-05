@@ -3,6 +3,7 @@
   "notes" "note"
   "bookmarks" "bookmark"
   "likes" "like"
+  "replies" "reply"
 -}}
 {{- $raw := .Section | default .Type -}}
 {{- return (index $map $raw | default $raw) -}}
