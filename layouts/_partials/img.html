@@ -1,0 +1,46 @@
+{{- /* layouts/partials/img.html
+  Usage:
+  {{ partial "img.html" (dict
+  "Page" .         (required)
+  "Src"  "img-1.jpg"  (required, page-bundle resource)
+  "Alt"  "Description" (optional)
+  "Class" "rounded-xl" (optional)
+  "Width" 1200 (optional, default 1200)
+  )
+}}
+*/ -}}
+{{- $p := .Page -}}
+{{- $src := .Src -}}
+{{- $alt := default "" .Alt -}}
+{{- $class := default "" .Class -}}
+{{- $w := default 1200 .Width -}}
+
+{{- $img := $p.Resources.GetMatch $src -}}
+{{- if not $img -}}
+  {{- errorf "img.html: could not find resource %q in %q" $src $p.File.Path -}}
+{{- end -}}
+
+{{- /* Generate variants */ -}}
+{{- $jpeg := $img.Resize (printf "%dx jpg q85" $w) -}}
+{{- $webp := $img.Resize (printf "%dx webp q80" $w) -}}
+{{- /* Optional AVIF (uncomment if your Hugo build supports it)
+  {{- $avif := $img.Resize (printf "%dx avif q50" $w)
+-}}
+*/ -}}
+
+<picture>
+  {{- /* Optional AVIF
+    <source srcset="{{ $avif.RelPermalink
+  }}"
+  type="image/avif"> */ -}}
+  <source srcset="{{ $webp.RelPermalink }}" type="image/webp" />
+  <img
+    src="{{ $jpeg.RelPermalink }}"
+    width="{{ $jpeg.Width }}"
+    height="{{ $jpeg.Height }}"
+    alt="{{ $alt }}"
+    loading="lazy"
+    decoding="async"
+    class="{{ $class }}"
+  />
+</picture>

@@ -48,7 +48,7 @@ The Old Quarter, the historic core, dates back over 2,000 years. It was founded 
 
 The development of other parts of the city, like Barri Gòtic and El Born, happened during the medieval period and were built right on top of what came before.
 
-<img src="old_wall.jpeg" class="rounded-lg">
+{{< img src="old_wall.jpeg" alt="Barcelona foundations" class="rounded-lg" >}}
 
 It's chaotic, and organic.
 
@@ -68,7 +68,7 @@ Barcelona also has free museum visits on Sundays. Generally museums allow free e
 
 Adding to this, where Roman walls have been discovered, the city has worked to conserve them and allow the public free access to see them. These are covered areas, away from the blistering sun, dedicated to preserving and displaying the history of the city itself.
 
-<img src="old_walls.jpeg" class="rounded-lg">
+{{< img src="old_walls.jpeg" alt="Barcelona Roman walls" class="rounded-lg" >}}
 
 ### Galleries
 
@@ -76,30 +76,18 @@ Barcelona is also a giant street art gallery.
 
 The residents communicate with posters, stickers and slogans:
 
-<img src="street_art.jpeg" class="rounded-lg">
+{{< img src="street_art.jpeg" alt="Barcelona foundations" class="rounded-lg" >}}
 
 and to deter graffiti many property owners commission work for their shutters:
 
-<!-- wide landscape -->  
-<img  
-src="painted_door.jpeg"  
-class="col-span-2 w-full h-auto rounded-lg"  
-/>  
+{{< img src="painted_door.jpeg" alt="Barcelona painted door" class="col-span-2 w-full h-auto rounded-lg" >}}
   
 <div class="not-prose relative left-1/2 right-1/2 -mx-[50vw] w-screen px-4">  
 <div class="grid grid-cols-2 gap-4 max-w-6xl mx-auto">  
+  
+{{< img src="painted_door_bird.jpeg" alt="Barcelona painted door with a bird" class="w-full h-auto rounded-lg" >}}
 
-  
-<!-- two portraits -->  
-<img  
-src="painted_door_bird.jpeg"  
-class="w-full h-auto rounded-lg"  
-/>  
-  
-<img  
-src="painted_door_woman.jpeg"  
-class="w-full h-auto rounded-lg"  
-/>  
+{{< img src="painted_door_woman.jpeg" alt="Barcelona painted door with a woman" class="w-full h-auto rounded-lg" >}}
   
 </div>  
 </div>
