@@ -1,7 +1,7 @@
 +++
 date = '2026-03-05T12:45:22Z'
 draft = false
-title = "IndieWeb Carnival March 2026: Museum Memories | James' Coffee Blog"
+title = "IndieWeb Carnival March 2026: Museum memories"
 in_reply_to = "https://jamesg.blog/2026/03/01/indieweb-carnival-museum-memories"
 tags = ['IndieWeb Carnival']
 summary = "My entry for IndieWeb Carnival March 2026: Museum memories, where I reminisce about 6 weeks living in a museum, and link the art of curation to recent changes on my site."
@@ -22,7 +22,7 @@ text = "Museums and galleries are places we can go to learn about the past, thin
 html = "<p>Museums and galleries are places we can go to learn about the past, think about the present, and consider the future. Museums are places we can connect: with times, people, and place.</p>"
 +++
 
-This is my entry for this month's IndieWeb Carnival: <a href="u-in-reply-to" href="https://jamesg.blog/2026/03/01/indieweb-carnival-museum-memories/">Museum memories</a>
+This is my entry for this month's IndieWeb Carnival: <a href="u-in-reply-to" href="https://jamesg.blog/2026/03/01/indieweb-carnival-museum-memories/">Museum memories</a>.
 
 I have not been to many museums or galleries. 
 
@@ -44,7 +44,7 @@ My favourite museums though were all in Barcelona, and there must be something t
 
 I first went for a week as a holiday, staying in a hotel in Eixample, a giant extension to the city that was started in the 1860s. 
 
-The Old Quarter, the historic core, dates back over 2,000 years. It was founded by the Romans as Barcino and some of the walls are still standing. 
+The Old Quarter, the historic core, dates back over 2,000 years. It was founded by the Romans as Barcino and some of their walls are still standing.
 
 The development of other parts of the city, like Barri Gòtic and El Born, happened during the medieval period and were built right on top of what came before.
 
@@ -64,11 +64,15 @@ The octagonal blocks give better visibility at intersections and makes turning e
 
 I mention all of this because the city itself is a giant museum. You can step back in time, in design, and urban planning, and wander through the narrow cobbled streets of the Old Quarter, then walk ten minutes to Eixample to see an extension, started two hundred years ago, that's still celebrated for how modern it is.
 
-Barcelona also has free museum visits on Sundays. Generally museums allow free entry from 3pm onwards and on the first one of each month it's free all day, whilst some have a free day once per year. 
+{{< img src="museum.jpeg" alt="Museum" class="w-full h-auto rounded-lg" >}}
 
-Adding to this, where Roman walls have been discovered, the city has worked to conserve them and allow the public free access to see them. These are covered areas, away from the blistering sun, dedicated to preserving and displaying the history of the city itself.
+Barcelona also has free museum visits on Sundays. Generally museums allow free entry from 3pm onwards and on the first one of each month it's free all day.
+
+Adding to this, where Roman walls have been discovered, the city has worked to conserve them and allow the public free access to see them. These are covered areas, away from the sun, dedicated to preserving and displaying the history of the city itself.
 
 {{< img src="old_walls.jpeg" alt="Barcelona Roman walls" class="rounded-lg" >}}
+
+I don't have a favourite museum in Barcelona. Barcelona is my favourite museum.
 
 ### Galleries
 
