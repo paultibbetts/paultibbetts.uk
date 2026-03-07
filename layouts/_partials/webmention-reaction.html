@@ -3,6 +3,7 @@
 {{- $post := (index $mention "post") | default dict -}}
 {{- $author := (index $post "author") | default dict -}}
 {{- $authorName := (index $author "name") | default "Someone" -}}
+{{- $authorPhoto := (index $author "photo") | default "" -}}
 {{- $defaultURL := (index $post "url") | default (index $mention "source") -}}
 {{- $authorURL := (index $author "url") | default $defaultURL -}}
 {{- $sourceURL := (index $mention "source") | default $defaultURL -}}
@@ -18,6 +19,7 @@
 <p class="meta mb-2 text-right" id="{{ $id }}">
   <a href="#{{ $id }}" rel="bookmark">#</a>
   {{ $action }}
+  {{ partial "webmention-avatar.html" (dict "name" $authorName "photo" $authorPhoto "sizeClass" "h-5 w-5 text-[10px]") }}
   <cite class="h-card p-author">
     <a class="u-url p-name" href="{{ $authorURL }}">{{ $authorName }}</a>
   </cite>
