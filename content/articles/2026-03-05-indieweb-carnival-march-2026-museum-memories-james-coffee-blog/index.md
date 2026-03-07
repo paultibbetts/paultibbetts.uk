@@ -24,9 +24,9 @@ html = "<p>Museums and galleries are places we can go to learn about the past, t
 
 This is my entry for this month's IndieWeb Carnival: <a href="u-in-reply-to" href="https://jamesg.blog/2026/03/01/indieweb-carnival-museum-memories/">Museum memories</a>.
 
-I have not been to many museums or galleries. 
+I have not been to many museums or galleries. I am not a cultured person.
 
-I am not a cultured person.
+I have been to Barcelona.
 
 <!--more-->
 
@@ -66,7 +66,7 @@ I mention all of this because the city itself is a giant museum. You can step ba
 
 {{< img src="museum.jpeg" alt="Museum" class="w-full h-auto rounded-lg" >}}
 
-Barcelona also has free museum visits on Sundays. Generally museums allow free entry from 3pm onwards and on the first one of each month it's free all day.
+Barcelona also has free museum visits on Sundays, where museums allow free entry from 3pm onwards and on the first one of each month it's free all day.
 
 I made a second trip in 201? for a month, and ended up staying six weeks. I made the most of the museums whilst I was there. i went to these museums
 
@@ -122,8 +122,6 @@ To deter graffiti many property owners commission work for their shutters:
 
 which is respected and left defaced. 
 
-The streets become a gallery.
+The streets become a gallery, and guides offer tours of their own curated favourites.
 
-
-
-Even if I don't get all of it.
+I went on one of those tours, where we were told about a piece that had an entire sentence written in feminine Spanish (?), and it was at that point I realised I was the only male on the tour, my guide and the rest of the tour were all girls, who all seemed quite shocked I'd asked about the significance of the use of only feminine words. In my defence, I come from a fairly gender-neutral language
