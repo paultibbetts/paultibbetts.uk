@@ -89,7 +89,10 @@
   <p class="p-name text-lg inline-flex items-center gap-2 flex-wrap">
     {{- if and $isPostLike (ne $referenceAuthorName "") -}}
       <span>replied to</span>
-      <a class="h-card p-author color-steel inline-flex items-center gap-2" href="{{ $contextAuthorURL }}">
+      <a
+        class="h-card p-author color-steel inline-flex items-center gap-2"
+        href="{{ $contextAuthorURL }}"
+      >
         {{- if $referenceAuthorPhoto -}}
           <img
             src="{{ $referenceAuthorPhoto }}"

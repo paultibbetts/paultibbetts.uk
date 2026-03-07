@@ -39,6 +39,8 @@ capitalizeListTitles = false
   feed_post_sections = [ 'articles', 'bookmarks', 'likes', 'notes', 'replies' ]
   # Sections used by /links.
   links_post_sections = [ 'bookmarks', 'likes' ]
+  # Sections used by /writing.
+  writing_post_sections = [ 'articles', 'notes' ]
 	[params.author]
     # Author name used by some templates.
 	  name = 'Paul Tibbetts'
