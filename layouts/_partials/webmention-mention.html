@@ -5,6 +5,7 @@
 {{- $defaultURL := (index $post "url") | default (index $mention "source") -}}
 {{- $authorURL := (index $author "url") | default $defaultURL -}}
 {{- $sourceURL := (index $mention "source") | default $defaultURL -}}
+{{- $imageURL := partial "webmention-image-url.html" $mention -}}
 {{- $publishedRaw := (index $post "published") | default (index $mention "verified_date") -}}
 {{- $publishedLabel := $publishedRaw -}}
 {{- with $publishedRaw -}}
@@ -41,6 +42,9 @@
       </a>
     {{- end -}}
   </p>
+  {{- with $imageURL -}}
+    {{ partial "webmention-image.html" (dict "image_url" . "source_url" $sourceURL "alt" (printf "Image from %s" $authorName)) }}
+  {{- end -}}
   {{- with $excerpt -}}
     <blockquote class="mb-0 border-l-2 border-steel pl-3">
       <div class="prose prose-invert max-w-none">
