@@ -1,7 +1,6 @@
 +++
 title = 'Likes'
 description = 'Liked by Paul Tibbetts'
-show_in_pages_nav = false
 show_in_posts_nav = true
 +++
 

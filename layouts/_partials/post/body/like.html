@@ -4,6 +4,17 @@
   {{- errorf "like post %q is missing like_of" $p.File.Path -}}
 {{- end -}}
 {{- $likeLabel := $p.Title | default $likeOf -}}
+{{- $embed := partial "post/embed.html" (dict "url" $likeOf) -}}
+{{- $embedEmoji := "" -}}
+{{- $embedHTML := "" -}}
+{{- with $embed -}}
+  {{- with (index . "emoji") -}}
+    {{- $embedEmoji = . -}}
+  {{- end -}}
+  {{- with (index . "html") -}}
+    {{- $embedHTML = . -}}
+  {{- end -}}
+{{- end -}}
 
 {{- $mode := .mode | default "list" -}}
 {{- if eq $mode "single" }}
@@ -11,8 +22,14 @@
     <p class="p-name text-lg">
       liked
       <a class="u-like-of h-cite color-steel" href="{{ $likeOf }}">{{ $likeLabel }}</a>
+      {{- with $embedEmoji }}
+        {{ . }}
+      {{- end }}
     </p>
   </div>
+  {{- with $embedHTML }}
+    {{ . }}
+  {{- end }}
   {{- if $p.Content }}
     <div class="e-content prose prose-invert text-light font-sans mb-8">
       {{ $p.Content }}
@@ -22,7 +39,13 @@
   <p class="p-name mb-4 text-lg">
     liked
     <a class="u-like-of h-cite color-steel" href="{{ $likeOf }}">{{ $likeLabel }}</a>
+    {{- with $embedEmoji }}
+      {{ . }}
+    {{- end }}
   </p>
+  {{- with $embedHTML }}
+    {{ . }}
+  {{- end }}
   {{- if $p.Content }}
     {{- if $p.Truncated }}
       <div class="p-summary text-white mb-4 font-sans prose prose-invert">

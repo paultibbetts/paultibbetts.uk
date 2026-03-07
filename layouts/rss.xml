@@ -29,6 +29,8 @@
 {{- $pages = partial "feed-posts.html" . }}
 {{- else if and $.IsSection (eq .Section "links") }}
 {{- $pages = partial "links-posts.html" . }}
+{{- else if and $.IsSection (eq .Section "writing") }}
+{{- $pages = partial "writing-posts.html" . }}
 {{- else if $.IsSection }}
 {{- $pages = (where $pctx.RegularPages "Kind" "page") }}
 {{- else }}
@@ -86,9 +88,15 @@
       {{- $itemDescription = .Plain | plainify | htmlUnescape | strings.TrimSpace | truncate 280 -}}
     {{- end -}}
     {{- $itemLink := .Permalink -}}
-    {{- if eq (partial "post/kind.html" .) "bookmark" -}}
+    {{- $itemKind := partial "post/kind.html" . -}}
+    {{- if eq $itemKind "bookmark" -}}
       {{- $bookmarkOf := or (index .Params "bookmark_of") (or (index .Params "bookmarkOf") (index .Params "bookmarkof")) -}}
       {{- with $bookmarkOf -}}
+        {{- $itemLink = . -}}
+      {{- end -}}
+    {{- else if eq $itemKind "like" -}}
+      {{- $likeOf := or (index .Params "like_of") (or (index .Params "likeOf") (index .Params "likeof")) -}}
+      {{- with $likeOf -}}
         {{- $itemLink = . -}}
       {{- end -}}
     {{- end -}}

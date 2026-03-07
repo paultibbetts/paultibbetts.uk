@@ -5,15 +5,21 @@
 {{- end -}}
 {{- $references := index $p.Params "references" -}}
 {{- $reference := dict -}}
+{{- $referenceType := "" -}}
 {{- $referenceName := "" -}}
 {{- $referenceAuthorName := "" -}}
 {{- $referenceAuthorURL := "" -}}
 {{- $referenceAuthorPhoto := "" -}}
 {{- $referenceContentText := "" -}}
+{{- $referenceSummary := "" -}}
+{{- $manualContextText := or (index $p.Params "reply_context_text") (index $p.Params "replyContextText") -}}
 {{- with $references -}}
   {{- with (index . $replyTo) -}}
     {{- $reference = . -}}
   {{- end -}}
+{{- end -}}
+{{- with (index $reference "type") -}}
+  {{- $referenceType = printf "%v" . -}}
 {{- end -}}
 {{- with (index $reference "name") -}}
   {{- $referenceName = . -}}
@@ -26,7 +32,13 @@
     {{- $referenceAuthorURL = . -}}
   {{- end -}}
   {{- with (index . "photo") -}}
-    {{- $referenceAuthorPhoto = . -}}
+    {{- if reflect.IsSlice . -}}
+      {{- with (index . 0) -}}
+        {{- $referenceAuthorPhoto = printf "%v" . -}}
+      {{- end -}}
+    {{- else -}}
+      {{- $referenceAuthorPhoto = printf "%v" . -}}
+    {{- end -}}
   {{- end -}}
 {{- end -}}
 {{- with (index $reference "content") -}}
@@ -38,58 +50,87 @@
     {{- $referenceContentText = printf "%v" . -}}
   {{- end -}}
 {{- end -}}
+{{- with (index $reference "summary") -}}
+  {{- $referenceSummary = printf "%v" . -}}
+{{- else -}}
+  {{- with (index $reference "description") -}}
+    {{- $referenceSummary = printf "%v" . -}}
+  {{- end -}}
+{{- end -}}
 {{- $parsedReplyURL := urls.Parse $replyTo -}}
 {{- $replyDomain := $replyTo -}}
 {{- with $parsedReplyURL.Host -}}
   {{- $replyDomain = . -}}
 {{- end -}}
-{{- $replyLabel := $referenceName | default $p.Title | default $replyTo -}}
-{{- $hasReferencePreview := and $referenceAuthorName $referenceContentText -}}
+{{- $replyLabel := $referenceName | default $p.Title | default $replyDomain -}}
+{{- $contextText := $manualContextText | default $referenceSummary | default $referenceContentText -}}
+{{- $contextText = $contextText | plainify | htmlUnescape | replaceRE `\s+` ` ` -}}
+{{- $replyScheme := $parsedReplyURL.Scheme | default "https" -}}
+{{- $siteRootURL := printf "%s://%s/" $replyScheme $replyDomain -}}
+{{- $contextAuthorName := $referenceAuthorName | default $replyDomain -}}
+{{- $contextAuthorURL := $referenceAuthorURL | default $siteRootURL -}}
+{{- $publishedRaw := (index $reference "published") | default "" -}}
+{{- $publishedLabel := $publishedRaw -}}
+{{- with $publishedRaw -}}
+  {{- $ts := time . -}}
+  {{- $publishedLabel = printf "%s at %s" (partial "date_with_ordinal_day.html" $ts) ($ts.Format "3:04pm") -}}
+{{- end -}}
+{{- $isPostLike := or (eq $referenceType "entry") (or (ne $publishedRaw "") (or (ne $referenceContentText "") (ne $referenceSummary ""))) -}}
+{{- $hasReferencePreview := and (ne $contextText "") (ne $contextAuthorName "") -}}
+{{- $contextTitle := $referenceName | default $replyLabel -}}
+{{- $contextDisplayText := $contextText -}}
+{{- if and (eq $manualContextText "") (ne $contextText "") -}}
+  {{- $contextDisplayText = $contextText | truncate 280 -}}
+{{- end -}}
 {{- $mode := .mode | default "list" -}}
 
 
 <div class="mb-4">
-  <p class="p-name text-lg">
-    replied to
-    <a class="u-in-reply-to h-cite color-steel" href="{{ $replyTo }}">{{ $replyLabel }}</a>
-    {{- if ne $replyDomain $replyLabel }}
-      on <span class="color-steel">{{ $replyDomain }}</span>
-    {{- end -}}
-    {{- with $referenceAuthorName }}
-      by
-      {{ if $referenceAuthorURL -}}
-        <a class="h-card p-author color-steel" href="{{ $referenceAuthorURL }}">{{ . }}</a>
-      {{- else -}}
-        <span class="color-steel">{{ . }}</span>
-      {{- end -}}
+  <p class="p-name text-lg inline-flex items-center gap-2 flex-wrap">
+    {{- if and $isPostLike (ne $referenceAuthorName "") -}}
+      <span>replied to</span>
+      <a
+        class="h-card p-author color-steel inline-flex items-center gap-2"
+        href="{{ $contextAuthorURL }}"
+      >
+        {{- if $referenceAuthorPhoto -}}
+          <img
+            src="{{ $referenceAuthorPhoto }}"
+            alt="{{ $contextAuthorName }}"
+            class="h-5 w-5 rounded-full inline-block"
+            style="object-fit: cover;"
+            loading="lazy"
+            decoding="async"
+          />
+        {{- else -}}
+          {{ partial "webmention-avatar.html" (dict "name" $contextAuthorName "sizeClass" "h-5 w-5 text-[10px]") }}
+        {{- end -}}
+        <span>{{ $contextAuthorName }}</span>
+      </a>
+      <a class="u-in-reply-to h-cite hidden" href="{{ $replyTo }}">{{ $replyTo }}</a>
+    {{- else -}}
+      <span>replied to</span>
+      <a class="u-in-reply-to h-cite color-steel" href="{{ $replyTo }}">{{ $replyLabel }}</a>
     {{- end -}}
   </p>
 </div>
 
 {{- if $hasReferencePreview -}}
-  {{- $previewAuthorURL := $referenceAuthorURL | default $replyTo -}}
-  {{- $previewPost := dict
-    "author" (dict
-    "name" $referenceAuthorName
-    "url" $previewAuthorURL
-    "photo" $referenceAuthorPhoto
-    )
-    "url" $replyTo
-    "name" $referenceName
-    "content" (dict "text" ($referenceContentText | truncate 280))
-    "published" (index $reference "published")
-    "wm-property" "in-reply-to"
-  -}}
-  {{- $previewMention := dict
-    "source" $replyTo
-    "post" $previewPost
-    "wm-property" "in-reply-to"
-    "property_label" ""
-    "show_post_name" true
-  -}}
-  <ul class="list-none py-2 clear-both">
-    {{ partial "webmention.html" $previewMention }}
-  </ul>
+  <div class="mb-3">
+    <p class="meta mb-1 text-right">
+      <a href="{{ $replyTo }}">{{ $contextTitle }}</a>
+      {{- with $publishedRaw -}}
+        <a href="{{ $replyTo }}" style="color: inherit; text-decoration: none;">
+          <abbr class="dt-published" title="{{ . }}">{{ $publishedLabel }}</abbr>
+        </a>
+      {{- end -}}
+    </p>
+    <blockquote class="mb-0 border-l-2 border-steel pl-3">
+      <div class="prose prose-invert max-w-none">
+        <p class="mb-0 text-light">{{ $contextDisplayText }}</p>
+      </div>
+    </blockquote>
+  </div>
 {{- end -}}
 
 {{- if eq $mode "single" }}

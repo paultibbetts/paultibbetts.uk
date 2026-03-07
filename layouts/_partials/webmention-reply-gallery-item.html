@@ -1,0 +1,62 @@
+{{- $mention := . -}}
+{{- $post := (index $mention "post") | default dict -}}
+{{- $author := (index $post "author") | default dict -}}
+{{- $authorName := (index $author "name") | default "Someone" -}}
+{{- $authorPhoto := (index $author "photo") | default "" -}}
+{{- $defaultURL := (index $post "url") | default (index $mention "source") -}}
+{{- $authorURL := (index $author "url") | default $defaultURL -}}
+{{- $sourceURL := (index $mention "source") | default $defaultURL -}}
+{{- $imageURL := partial "webmention-image-url.html" $mention -}}
+{{- $publishedRaw := (index $post "published") | default (index $mention "verified_date") -}}
+{{- $publishedLabel := $publishedRaw -}}
+{{- with $publishedRaw -}}
+  {{- $ts := time . -}}
+  {{- $publishedLabel = printf "%s at %s" (partial "date_with_ordinal_day.html" $ts) ($ts.Format "3:04pm") -}}
+{{- end -}}
+
+{{- $content := index $post "content" -}}
+{{- $caption := "" -}}
+{{- if $content -}}
+  {{- if reflect.IsMap $content -}}
+    {{- $caption = ((index $content "text") | default ((index $content "html") | plainify)) -}}
+  {{- else -}}
+    {{- $caption = ($content | plainify) -}}
+  {{- end -}}
+{{- else -}}
+  {{- $caption = ((index $post "name") | default "") -}}
+{{- end -}}
+{{- $caption = $caption | plainify | htmlUnescape | replaceRE `\\s+` ` ` | strings.TrimSpace -}}
+
+{{- if $imageURL -}}
+  <article class="rounded border border-steel overflow-hidden">
+    <a href="{{ $sourceURL }}">
+      <img
+        src="{{ $imageURL }}"
+        alt="Image from {{ $authorName }}"
+        class="w-full aspect-[4/3] object-cover"
+        loading="lazy"
+        decoding="async"
+        referrerpolicy="no-referrer"
+      />
+    </a>
+    <div class="px-3 py-2">
+      <p class="mb-1 text-sm flex items-center gap-2">
+        {{ partial "webmention-avatar.html" (dict "name" $authorName "photo" $authorPhoto "sizeClass" "h-5 w-5 text-[10px]") }}
+        <a href="{{ $authorURL }}">{{ $authorName }}</a>
+        <span class="color-steel">replied</span>
+      </p>
+      {{- with $caption -}}
+        <p class="text-xs text-white mb-1">{{ . }}</p>
+      {{- end -}}
+      {{- with $publishedRaw -}}
+        <footer>
+          <p class="text-xs color-steel">
+            <a href="{{ $sourceURL }}">
+              <abbr class="dt-published" title="{{ . }}">{{ $publishedLabel }}</abbr>
+            </a>
+          </p>
+        </footer>
+      {{- end -}}
+    </div>
+  </article>
+{{- end -}}

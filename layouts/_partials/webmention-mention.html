@@ -2,9 +2,11 @@
 {{- $post := (index $mention "post") | default dict -}}
 {{- $author := (index $post "author") | default dict -}}
 {{- $authorName := (index $author "name") | default "Someone" -}}
+{{- $authorPhoto := (index $author "photo") | default "" -}}
 {{- $defaultURL := (index $post "url") | default (index $mention "source") -}}
 {{- $authorURL := (index $author "url") | default $defaultURL -}}
 {{- $sourceURL := (index $mention "source") | default $defaultURL -}}
+{{- $imageURL := partial "webmention-image-url.html" $mention -}}
 {{- $publishedRaw := (index $post "published") | default (index $mention "verified_date") -}}
 {{- $publishedLabel := $publishedRaw -}}
 {{- with $publishedRaw -}}
@@ -31,6 +33,7 @@
   <p class="meta mb-1 text-right" id="{{ $id }}">
     <a href="#{{ $id }}" rel="bookmark">#</a>
     Mentioned by
+    {{ partial "webmention-avatar.html" (dict "name" $authorName "photo" $authorPhoto "sizeClass" "h-5 w-5 text-[10px]") }}
     <cite class="h-card p-author">
       <a class="u-url p-name" href="{{ $authorURL }}">{{ $authorName }}</a>
     </cite>
@@ -41,6 +44,9 @@
       </a>
     {{- end -}}
   </p>
+  {{- with $imageURL -}}
+    {{ partial "webmention-image.html" (dict "image_url" . "source_url" $sourceURL "alt" (printf "Image from %s" $authorName)) }}
+  {{- end -}}
   {{- with $excerpt -}}
     <blockquote class="mb-0 border-l-2 border-steel pl-3">
       <div class="prose prose-invert max-w-none">

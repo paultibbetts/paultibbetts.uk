@@ -1,5 +1,17 @@
 {{- $name := .name | default "Someone" -}}
 {{- $sizeClass := .sizeClass | default "h-8 w-8 text-xs" -}}
+{{- $photo := "" -}}
+{{- with .photo -}}
+  {{- if reflect.IsSlice . -}}
+    {{- with (index . 0) -}}
+      {{- $photo = printf "%v" . -}}
+    {{- end -}}
+  {{- else -}}
+    {{- $photo = printf "%v" . -}}
+  {{- end -}}
+{{- end -}}
+{{- $photo = strings.TrimSpace $photo -}}
+{{- $hasPhoto := and $photo (or (hasPrefix $photo "https://") (or (hasPrefix $photo "http://") (hasPrefix $photo "/"))) -}}
 {{- $initial := upper (slicestr $name 0 1) -}}
 {{- $palette := dict
   "A" "#dc2626"
@@ -31,12 +43,23 @@
 -}}
 {{- $avatarColor := index $palette $initial | default "#64748b" -}}
 
-
-<span
-  class="inline-flex {{ $sizeClass }} items-center justify-center rounded-full font-semibold"
-  style="background-color: {{ $avatarColor }}; color: #ffffff;"
-  aria-hidden="true"
-  title="{{ $name }}"
->
-  {{ $initial }}
-</span>
+{{- if $hasPhoto -}}
+  <img
+    class="{{ $sizeClass }} rounded-full object-cover inline-block"
+    src="{{ $photo }}"
+    alt="{{ $name }}"
+    title="{{ $name }}"
+    loading="lazy"
+    decoding="async"
+    referrerpolicy="no-referrer"
+  />
+{{- else -}}
+  <span
+    class="inline-flex {{ $sizeClass }} items-center justify-center rounded-full font-semibold"
+    style="background-color: {{ $avatarColor }}; color: #ffffff;"
+    aria-hidden="true"
+    title="{{ $name }}"
+  >
+    {{ $initial }}
+  </span>
+{{- end -}}

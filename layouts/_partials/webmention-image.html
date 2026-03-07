@@ -1,0 +1,17 @@
+{{- $imageURL := .image_url | default "" -}}
+{{- $sourceURL := .source_url | default "" -}}
+{{- $alt := .alt | default "Image from webmention" -}}
+{{- if and $imageURL $sourceURL -}}
+  <div class="mb-3">
+    <a href="{{ $sourceURL }}">
+      <img
+        src="{{ $imageURL }}"
+        alt="{{ $alt }}"
+        class="w-full rounded border border-steel"
+        loading="lazy"
+        decoding="async"
+        referrerpolicy="no-referrer"
+      />
+    </a>
+  </div>
+{{- end -}}
