@@ -1,0 +1,30 @@
+{{- $page := . -}}
+{{- if reflect.IsMap . -}}
+  {{- with .page -}}
+    {{- $page = . -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $postSections := site.Params.post_sections -}}
+{{- $postKinds := where site.Pages "Kind" "section" -}}
+{{- $postKinds = where $postKinds "Section" "in" $postSections -}}
+{{- $currentPath := replaceRE "/$" "" $page.RelPermalink -}}
+
+{{- if gt (len $postKinds) 0 -}}
+  <ul class="list-none">
+    {{- range sort $postKinds "Title" }}
+      {{- $itemPath := replaceRE "/$" "" .RelPermalink -}}
+      {{- $isCurrent := or (eq $itemPath $currentPath) (hasPrefix (printf "%s/" $currentPath) (printf "%s/" $itemPath)) -}}
+      <li class="mb-2 lowercase inline-block mr-1 mb-1">
+        <a
+          href="{{ .RelPermalink }}"
+          class="{{ if $isCurrent }}active{{ end }}"
+          style="text-wrap: nowrap; {{ if $isCurrent }}
+            text-decoration: underline solid var(--color-purple) 2px;
+          {{ end }}"
+          >/{{ .Title }}</a
+        >
+      </li>
+    {{- end -}}
+  </ul>
+{{- end -}}

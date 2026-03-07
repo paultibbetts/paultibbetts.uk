@@ -2,7 +2,6 @@
 title = 'Feed'
 description = 'Posts by Paul Tibbetts'
 label = "content"
-show_in_pages_nav = false
 show_in_posts_nav = true
 +++
 

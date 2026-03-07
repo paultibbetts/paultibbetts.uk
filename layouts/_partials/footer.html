@@ -10,7 +10,10 @@
           {{ partial "pages.html" . }}
         </nav>
         <nav class="mb-2" aria-label="Posts">
-          {{ partial "post-pages.html" . }}
+          {{ partial "post-pages.html" (dict "page" . "include_post_kinds" false) }}
+        </nav>
+        <nav class="mb-2" aria-label="Post kinds">
+          {{ partial "post-kinds.html" (dict "page" .) }}
         </nav>
       {{- end }}
       <div class="mb-4">
