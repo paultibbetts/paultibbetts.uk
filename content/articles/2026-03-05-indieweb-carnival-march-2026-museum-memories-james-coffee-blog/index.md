@@ -3,7 +3,7 @@ date = '2026-03-05T12:45:22Z'
 draft = false
 title = "IndieWeb Carnival March 2026: Museum memories"
 in_reply_to = "https://jamesg.blog/2026/03/01/indieweb-carnival-museum-memories"
-tags = ['IndieWeb Carnival']
+tags = ['IndieWeb Carnival',]
 summary = "My entry for IndieWeb Carnival March 2026: Museum memories, where I reminisce about 6 weeks living in a museum, and link the art of curation to recent changes on my site."
 
 [references."https://jamesg.blog/2026/03/01/indieweb-carnival-museum-memories"]
@@ -68,7 +68,27 @@ I mention all of this because the city itself is a giant museum. You can step ba
 
 Barcelona also has free museum visits on Sundays. Generally museums allow free entry from 3pm onwards and on the first one of each month it's free all day.
 
-Adding to this, where Roman walls have been discovered, the city has worked to conserve them and allow the public free access to see them. These are covered areas, away from the sun, dedicated to preserving and displaying the history of the city itself.
+I made a second trip in 201? for a month, and ended up staying six weeks. I made the most of the museums whilst I was there. i went to these museums
+
+and to the fort on the hill
+
+<div class="not-prose relative left-1/2 right-1/2 -mx-[50vw] w-screen px-4">  
+<div class="grid grid-cols-2 gap-4 max-w-6xl mx-auto">  
+  
+{{< img src="fort_garden.jpeg" alt="" class="w-full h-auto rounded-lg" >}}
+
+{{< img src="fort_entrance.jpeg" alt="" class="w-full h-auto rounded-lg" >}}
+  
+</div>  
+</div>
+
+it's been the site of many battles and had scars to prove it.
+
+It was interesting to see how it was being used. 
+  
+{{< img src="fort_inside.jpeg" alt="" class="w-full h-auto rounded-lg" >}}
+
+Adding to all of this, where Roman walls have been discovered, the city has worked to conserve them and allow the public free access to see them. These are covered areas, away from the sun, dedicated to preserving and displaying the history of the city itself.
 
 {{< img src="old_walls.jpeg" alt="Barcelona Roman walls" class="rounded-lg" >}}
 
@@ -76,13 +96,17 @@ I don't have a favourite museum in Barcelona. Barcelona is my favourite museum.
 
 ### Galleries
 
-Barcelona is also a giant street art gallery.
+It's also a giant street art gallery.
 
 The residents communicate with posters, stickers and slogans:
 
 {{< img src="street_art.jpeg" alt="Barcelona foundations" class="rounded-lg" >}}
 
-and to deter graffiti many property owners commission work for their shutters:
+and they don't hold back:
+
+{{< img src="orange_man_bad.jpeg" alt="Barcelona foundations" class="rounded-lg" >}}
+
+To deter graffiti many property owners commission work for their shutters:
 
 {{< img src="painted_door.jpeg" alt="Barcelona painted door" class="col-span-2 w-full h-auto rounded-lg" >}}
   
@@ -96,4 +120,10 @@ and to deter graffiti many property owners commission work for their shutters:
 </div>  
 </div>
 
-which is respected and left defaced, turning the city streets into a gallery.
+which is respected and left defaced. 
+
+The streets become a gallery.
+
+
+
+Even if I don't get all of it.
