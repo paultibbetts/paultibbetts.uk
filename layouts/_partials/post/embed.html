@@ -1,0 +1,22 @@
+{{- $url := .url | default "" -}}
+{{- $embed := "" -}}
+{{- $emoji := "" -}}
+{{- if $url -}}
+  {{- $lowerURL := lower $url -}}
+
+  {{- if gt (len (findRE `^https?://(www\.)?mixcloud\.com/[^/]+/[^/]+/?([?#].*)?$` $lowerURL)) 0 -}}
+    {{- $embed = partial "post/embed/mixcloud.html" (dict "url" $url) -}}
+    {{- $emoji = "🎶" -}}
+  {{- else -}}
+    {{- $ytPattern := `(?i)^.*(?:youtu\.be/|youtube\.com/(?:watch\?.*?v=|embed/|shorts/))([A-Za-z0-9_-]{11}).*$` -}}
+    {{- if gt (len (findRE $ytPattern $url)) 0 -}}
+      {{- $videoID := replaceRE $ytPattern "$1" $url -}}
+      {{- $embed = partial "post/embed/youtube.html" (dict "video_id" $videoID "url" $url) -}}
+      {{- $emoji = "🎥" -}}
+    {{- end -}}
+  {{- end -}}
+
+{{- end -}}
+{{- if $embed -}}
+  {{- return (dict "html" $embed "emoji" $emoji) -}}
+{{- end -}}
