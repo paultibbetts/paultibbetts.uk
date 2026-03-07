@@ -249,6 +249,10 @@ footer a {
     content: "❤️";
   }
 
+  &.replies::before {
+    content: "↩️";
+  }
+
   &.hashtag::before {
     content: "#";
   }
