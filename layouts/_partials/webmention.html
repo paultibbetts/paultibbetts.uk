@@ -7,16 +7,24 @@
 {{- $sourceURL := (index . "source") | default $defaultURL -}}
 {{- $imageURL := partial "webmention-image-url.html" . -}}
 {{- $property := (index $post "wm-property") | default (index . "wm-property") | default "mention-of" -}}
-{{- $propertyLabel := "mentioned this" -}}
-{{- if eq $property "in-reply-to" -}}
-  {{- $propertyLabel = "replied" -}}
-{{- else if eq $property "like-of" -}}
-  {{- $propertyLabel = "liked this" -}}
-{{- else if eq $property "repost-of" -}}
-  {{- $propertyLabel = "reposted this" -}}
-{{- else if eq $property "bookmark-of" -}}
-  {{- $propertyLabel = "bookmarked this" -}}
+{{- $hasPropertyLabelOverride := isset . "property_label" -}}
+{{- $propertyLabel := "" -}}
+{{- if $hasPropertyLabelOverride -}}
+  {{- $propertyLabel = index . "property_label" -}}
+{{- else -}}
+  {{- $propertyLabel = "mentioned this" -}}
+  {{- if eq $property "in-reply-to" -}}
+    {{- $propertyLabel = "replied" -}}
+  {{- else if eq $property "like-of" -}}
+    {{- $propertyLabel = "liked this" -}}
+  {{- else if eq $property "repost-of" -}}
+    {{- $propertyLabel = "reposted this" -}}
+  {{- else if eq $property "bookmark-of" -}}
+    {{- $propertyLabel = "bookmarked this" -}}
+  {{- end -}}
 {{- end -}}
+{{- $postName := (index $post "name") | default "" -}}
+{{- $showPostName := (index . "show_post_name") | default false -}}
 {{- $publishedRaw := (index $post "published") | default (index . "verified_date") -}}
 {{- $publishedLabel := $publishedRaw -}}
 {{- with $publishedRaw -}}
@@ -43,9 +51,17 @@
       {{ partial "webmention-avatar.html" (dict "name" $authorName "photo" $authorPhoto "sizeClass" "h-8 w-8 text-xs") }}
       <p class="text-sm">
         <a href="{{ $authorURL }}">{{ $authorName }}</a>
-        <span class="color-steel">{{ $propertyLabel }}</span>
+        {{- with $propertyLabel }}
+          <span class="color-steel">{{ . }}</span>
+        {{- end -}}
       </p>
     </header>
+
+    {{- if and $showPostName $postName -}}
+      <p class="mb-2">
+        <a class="color-steel" href="{{ $sourceURL }}">{{ $postName }}</a>
+      </p>
+    {{- end -}}
 
     {{- with $contentText -}}
       <div class="mb-2 prose prose-invert text-light font-sans">{{ . | plainify }}</div>
