@@ -50,6 +50,16 @@
     <h2 class="mb-4">Responses</h2>
 
     {{- if gt (len $replies) 0 -}}
+      {{- $replyImageMentions := slice -}}
+      {{- $replyTextMentions := slice -}}
+      {{- range $replies -}}
+        {{- $imageURL := partial "webmention-image-url.html" . -}}
+        {{- if $imageURL -}}
+          {{- $replyImageMentions = $replyImageMentions | append . -}}
+        {{- else -}}
+          {{- $replyTextMentions = $replyTextMentions | append . -}}
+        {{- end -}}
+      {{- end -}}
       <details class="p-comment h-entry mb-4" open>
         <summary>
           <h3 class="p-name inline">
@@ -58,11 +68,20 @@
           </h3>
           {{ partial "webmention-facepile.html" (dict "mentions" $replies "emoji" "↩️") }}
         </summary>
-        <ul class="list-none py-2 clear-both">
-          {{- range $replies -}}
-            {{ partial "webmention.html" . }}
-          {{- end -}}
-        </ul>
+        {{- if gt (len $replyImageMentions) 0 -}}
+          <div class="py-2 clear-both grid grid-cols-1 gap-3 min-[700px]:grid-cols-2">
+            {{- range $replyImageMentions -}}
+              {{ partial "webmention-reply-gallery-item.html" . }}
+            {{- end -}}
+          </div>
+        {{- end -}}
+        {{- if gt (len $replyTextMentions) 0 -}}
+          <ul class="list-none py-2 clear-both">
+            {{- range $replyTextMentions -}}
+              {{ partial "webmention.html" . }}
+            {{- end -}}
+          </ul>
+        {{- end -}}
       </details>
     {{- end -}}
 

@@ -1,0 +1,59 @@
+{{- $mention := . -}}
+{{- $post := (index $mention "post") | default dict -}}
+{{- $content := (index $post "content") | default dict -}}
+{{- $imageURL := "" -}}
+
+{{- $pickURL := "" -}}
+
+{{- with (index $post "photo") -}}
+  {{- if reflect.IsSlice . -}}
+    {{- with (index . 0) -}}
+      {{- $pickURL = printf "%v" . -}}
+    {{- end -}}
+  {{- else -}}
+    {{- $pickURL = printf "%v" . -}}
+  {{- end -}}
+{{- end -}}
+{{- if and (eq $imageURL "") $pickURL -}}
+  {{- $imageURL = $pickURL -}}
+{{- end -}}
+
+{{- if and (eq $imageURL "") (index $post "image") -}}
+  {{- $imageURL = printf "%v" (index $post "image") -}}
+{{- end -}}
+{{- if and (eq $imageURL "") (index $post "featured") -}}
+  {{- $imageURL = printf "%v" (index $post "featured") -}}
+{{- end -}}
+
+{{- if and (eq $imageURL "") (reflect.IsMap $content) -}}
+  {{- with (index $content "photo") -}}
+    {{- if reflect.IsSlice . -}}
+      {{- with (index . 0) -}}
+        {{- $imageURL = printf "%v" . -}}
+      {{- end -}}
+    {{- else -}}
+      {{- $imageURL = printf "%v" . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if and (eq $imageURL "") (reflect.IsMap $content) (index $content "image") -}}
+  {{- $imageURL = printf "%v" (index $content "image") -}}
+{{- end -}}
+
+{{- if and (eq $imageURL "") (reflect.IsMap $content) (index $content "html") -}}
+  {{- $html := printf "%v" (index $content "html") -}}
+  {{- $match := findRE `(?is)<img[^>]+src=['"][^'"]+['"]` $html 1 -}}
+  {{- if gt (len $match) 0 -}}
+    {{- $imageURL = replaceRE `(?is).*src=['"]([^'"]+)['"].*` "$1" (index $match 0) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $imageURL = $imageURL | strings.TrimSpace | htmlUnescape -}}
+{{- if hasPrefix $imageURL "//" -}}
+  {{- $imageURL = printf "https:%s" $imageURL -}}
+{{- end -}}
+
+{{- if and $imageURL (or (hasPrefix $imageURL "https://") (hasPrefix $imageURL "http://")) -}}
+  {{- return $imageURL -}}
+{{- end -}}

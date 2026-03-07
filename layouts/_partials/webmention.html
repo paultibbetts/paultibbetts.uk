@@ -1,9 +1,11 @@
 {{- $post := (index . "post") | default dict -}}
 {{- $author := (index $post "author") | default dict -}}
 {{- $authorName := (index $author "name") | default "Someone" -}}
+{{- $authorPhoto := (index $author "photo") | default "" -}}
 {{- $defaultURL := (index $post "url") | default (index . "source") -}}
 {{- $authorURL := (index $author "url") | default $defaultURL -}}
 {{- $sourceURL := (index . "source") | default $defaultURL -}}
+{{- $imageURL := partial "webmention-image-url.html" . -}}
 {{- $property := (index $post "wm-property") | default (index . "wm-property") | default "mention-of" -}}
 {{- $propertyLabel := "mentioned this" -}}
 {{- if eq $property "in-reply-to" -}}
@@ -38,7 +40,7 @@
 <li class="mb-6">
   <article class="rounded border border-steel px-4 py-3">
     <header class="mb-2 flex items-center gap-3">
-      {{ partial "webmention-avatar.html" (dict "name" $authorName "sizeClass" "h-8 w-8 text-xs") }}
+      {{ partial "webmention-avatar.html" (dict "name" $authorName "photo" $authorPhoto "sizeClass" "h-8 w-8 text-xs") }}
       <p class="text-sm">
         <a href="{{ $authorURL }}">{{ $authorName }}</a>
         <span class="color-steel">{{ $propertyLabel }}</span>
@@ -47,6 +49,10 @@
 
     {{- with $contentText -}}
       <div class="mb-2 prose prose-invert text-light font-sans">{{ . | plainify }}</div>
+    {{- end -}}
+
+    {{- with $imageURL -}}
+      {{ partial "webmention-image.html" (dict "image_url" . "source_url" $sourceURL "alt" (printf "Image from %s" $authorName)) }}
     {{- end -}}
 
     {{- with $publishedRaw -}}
