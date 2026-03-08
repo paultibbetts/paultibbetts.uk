@@ -1,15 +1,15 @@
-<div class="lowercase">
+<div>
   {{ $sorted := sort site.Taxonomies.tags ".Count" "desc" }}
 
 
-  <p class="mb-1">feeds</p>
+  <h3 class="mb-2">Feeds</h3>
   <ul class="mb-3">
     <li><a href="/feed.xml">All posts</a></li>
     <li><a href="/writing/feed.xml">Writing (articles + notes)</a></li>
     <li><a href="/links/feed.xml">Links (bookmarks + likes)</a></li>
   </ul>
 
-  <p class="mb-1">posts</p>
+  <h3 class="mb-2">Post kinds</h3>
   <ul class="mb-3">
     <li><a href="/articles/feed.xml">Articles</a></li>
     <li><a href="/bookmarks/feed.xml">Bookmarks</a></li>
@@ -18,7 +18,7 @@
     <li><a href="/replies/feed.xml">Replies</a></li>
   </ul>
 
-  <p class="mb-1">Tags</p>
+  <h3 class="mb-1">Tags</h3>
   <ul>
     {{ range first 3 $sorted }}
       <li>
@@ -28,4 +28,5 @@
       </li>
     {{ end }}
   </ul>
+  <p>See <a href="/tags">/tags</a> for more.</p>
 </div>
