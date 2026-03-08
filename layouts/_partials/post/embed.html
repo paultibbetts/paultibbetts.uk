@@ -1,11 +1,12 @@
 {{- $url := .url | default "" -}}
+{{- $mode := .mode | default "list" -}}
 {{- $embed := "" -}}
 {{- $emoji := "" -}}
 {{- if $url -}}
   {{- $lowerURL := lower $url -}}
 
   {{- if gt (len (findRE `^https?://(www\.)?mixcloud\.com/[^/]+/[^/]+/?([?#].*)?$` $lowerURL)) 0 -}}
-    {{- $embed = partial "post/embed/mixcloud.html" (dict "url" $url) -}}
+    {{- $embed = partial "post/embed/mixcloud.html" (dict "url" $url "mode" $mode) -}}
     {{- $emoji = "🎶" -}}
   {{- else -}}
     {{- $ytPattern := `(?i)^.*(?:youtu\.be/|youtube\.com/(?:watch\?.*?v=|embed/|shorts/))([A-Za-z0-9_-]{11}).*$` -}}
