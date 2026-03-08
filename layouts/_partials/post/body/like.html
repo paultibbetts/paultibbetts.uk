@@ -4,7 +4,8 @@
   {{- errorf "like post %q is missing like_of" $p.File.Path -}}
 {{- end -}}
 {{- $likeLabel := $p.Title | default $likeOf -}}
-{{- $embed := partial "post/embed.html" (dict "url" $likeOf) -}}
+{{- $mode := .mode | default "list" -}}
+{{- $embed := partial "post/embed.html" (dict "url" $likeOf "mode" $mode) -}}
 {{- $embedEmoji := "" -}}
 {{- $embedHTML := "" -}}
 {{- with $embed -}}
@@ -15,8 +16,6 @@
     {{- $embedHTML = . -}}
   {{- end -}}
 {{- end -}}
-
-{{- $mode := .mode | default "list" -}}
 {{- if eq $mode "single" }}
   <div class="mb-4">
     <p class="p-name text-lg">
