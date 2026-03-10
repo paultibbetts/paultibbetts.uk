@@ -1,12 +1,14 @@
 {
   "scripts": {
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "optimise-image": "node scripts/optimise-image.mjs"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.6",
     "@tailwindcss/typography": "^0.5.16",
     "prettier": "^3.7.4",
     "prettier-plugin-go-template": "^0.0.15",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4.1.6"
   }
 }

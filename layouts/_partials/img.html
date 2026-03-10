@@ -20,11 +20,17 @@
   {{- errorf "img.html: could not find resource %q in %q" $src $p.File.Path -}}
 {{- end -}}
 
-{{- /* Generate variants */ -}}
-{{- $jpeg := $img.Resize (printf "%dx jpg q85" $w) -}}
-{{- $webp := $img.Resize (printf "%dx webp q80" $w) -}}
+{{- /* The committed source image is the fallback asset.
+      Hugo only generates alternate delivery formats from it. */ -}}
+{{- $renderWidth := $img.Width -}}
+{{- $renderHeight := $img.Height -}}
+{{- if gt $img.Width $w -}}
+  {{- $renderWidth = $w -}}
+  {{- $renderHeight = div (mul $img.Height $w) $img.Width -}}
+{{- end -}}
+{{- $webp := cond (ne $img.MediaType.SubType "webp") ($img.Resize (printf "%dx webp q80" $renderWidth)) nil -}}
 {{- /* Optional AVIF (uncomment if your Hugo build supports it)
-  {{- $avif := $img.Resize (printf "%dx avif q50" $w)
+  {{- $avif := $img.Resize (printf "%dx avif q50" $renderWidth)
 -}}
 */ -}}
 
@@ -33,11 +39,13 @@
     <source srcset="{{ $avif.RelPermalink
   }}"
   type="image/avif"> */ -}}
-  <source srcset="{{ $webp.RelPermalink }}" type="image/webp" />
+  {{- with $webp -}}
+    <source srcset="{{ .RelPermalink }}" type="image/webp" />
+  {{- end -}}
   <img
-    src="{{ $jpeg.RelPermalink }}"
-    width="{{ $jpeg.Width }}"
-    height="{{ $jpeg.Height }}"
+    src="{{ $img.RelPermalink }}"
+    width="{{ $renderWidth }}"
+    height="{{ $renderHeight }}"
     alt="{{ $alt }}"
     loading="lazy"
     decoding="async"
