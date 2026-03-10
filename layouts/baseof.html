@@ -40,6 +40,9 @@
       name="description"
       content="{{ $metaDescription | plainify | htmlUnescape | replaceRE `\\s+` ` ` | truncate 160 }}"
     />
+    {{- if .Params.date_scope -}}
+      <meta name="robots" content="noindex" />
+    {{- end -}}
     {{- with .OutputFormats.Get "rss" -}}
       {{- printf `
         <link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML
