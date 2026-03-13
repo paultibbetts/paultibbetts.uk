@@ -273,3 +273,63 @@ footer a {
 .h-entry.notes:not(:has(.p-name)) .prose p:first-child {
   @apply font-mono;
 }
+
+#webmentions {
+  @apply text-sm;
+  line-height: 1.5;
+}
+
+#webmentions h2 {
+  @apply mt-6 mb-3 text-lg;
+}
+
+#webmentions ul {
+  @apply list-none p-0 m-0;
+}
+
+#webmentions .reacts {
+  @apply flex flex-wrap gap-2 mb-4;
+}
+
+#webmentions .comments {
+  @apply flex flex-col gap-3;
+  max-height: 28rem;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+#webmentions .comments li {
+  @apply rounded border border-dark-700 bg-dark-900/40 p-3;
+  white-space: normal;
+  text-indent: 0;
+  overflow: visible;
+}
+
+#webmentions a.reaction {
+  @apply inline-flex items-center text-light no-underline rounded border border-dark-700 bg-dark-900/40 px-2 py-1;
+  letter-spacing: normal;
+  text-shadow: none;
+}
+
+#webmentions a.reaction img {
+  width: 1.3rem;
+  height: 1.3rem;
+  margin-right: 0.4rem;
+  border-radius: 9999px;
+}
+
+#webmentions img.missing {
+  @apply bg-dark-700 border border-dark-500;
+}
+
+#webmentions .source {
+  @apply text-light;
+}
+
+#webmentions .comments li .text {
+  @apply text-light-200 italic;
+}
+
+#webmentions .comments li .name {
+  @apply text-light;
+}
