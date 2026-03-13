@@ -2,6 +2,7 @@
   <div class="mb-20">
     {{- if partial "post/is-post.html" . }}
       {{ partial "post/entry.html" (dict "page" . "mode" "single") }}
+      {{ partial "webmention-js.html" . }}
       {{ partial "webmentions.html" . }}
     {{- else }}
       {{ partial "page.html" . }}
