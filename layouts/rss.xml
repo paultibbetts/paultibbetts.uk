@@ -87,6 +87,56 @@
     {{- $itemTitle := .Title -}}
     {{- if eq $itemKind "note" -}}
       {{- $itemTitle = .Plain | plainify | htmlUnescape | replaceRE `\s+` ` ` | strings.TrimSpace | truncate 80 -}}
+    {{- else if eq $itemKind "like" -}}
+      {{- $likeOf := or (index .Params "like_of") (or (index .Params "likeOf") (index .Params "likeof")) -}}
+      {{- if $itemTitle -}}
+        {{- $itemTitle = printf "Liked: %s" $itemTitle -}}
+      {{- else if $likeOf -}}
+        {{- $likeOfLabel := $likeOf | replaceRE `^https?://` `` | replaceRE `/$` `` -}}
+        {{- with (urls.Parse $likeOf) -}}
+          {{- with .Host -}}
+            {{- $likeOfLabel = printf "%s%s" . (.Path | replaceRE `/$` ``) -}}
+          {{- end -}}
+        {{- end -}}
+        {{- $itemTitle = printf "Liked: %s" $likeOfLabel -}}
+      {{- end -}}
+    {{- else if eq $itemKind "bookmark" -}}
+      {{- $bookmarkOf := or (index .Params "bookmark_of") (or (index .Params "bookmarkOf") (index .Params "bookmarkof")) -}}
+      {{- if $itemTitle -}}
+        {{- $itemTitle = printf "Bookmarked: %s" $itemTitle -}}
+      {{- else if $bookmarkOf -}}
+        {{- $bookmarkOfLabel := $bookmarkOf | replaceRE `^https?://` `` | replaceRE `/$` `` -}}
+        {{- with (urls.Parse $bookmarkOf) -}}
+          {{- with .Host -}}
+            {{- $bookmarkOfLabel = printf "%s%s" . (.Path | replaceRE `/$` ``) -}}
+          {{- end -}}
+        {{- end -}}
+        {{- $itemTitle = printf "Bookmarked: %s" $bookmarkOfLabel -}}
+      {{- end -}}
+    {{- else if eq $itemKind "reply" -}}
+      {{- $replyTo := or (index .Params "in_reply_to") (or (index .Params "inReplyTo") (index .Params "inreplyto")) -}}
+      {{- $replyTargetTitle := "" -}}
+      {{- with (index .Params "references") -}}
+        {{- with (index . $replyTo) -}}
+          {{- with (index . "name") -}}
+            {{- $replyTargetTitle = printf "%v" . -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+      {{- if not $replyTargetTitle -}}
+        {{- $replyTargetTitle = $itemTitle -}}
+      {{- end -}}
+      {{- if $replyTargetTitle -}}
+        {{- $itemTitle = printf "Replied to: %s" $replyTargetTitle -}}
+      {{- else if $replyTo -}}
+        {{- $replyDomain := $replyTo -}}
+        {{- with (urls.Parse $replyTo) -}}
+          {{- with .Host -}}
+            {{- $replyDomain = . -}}
+          {{- end -}}
+        {{- end -}}
+        {{- $itemTitle = printf "Replied to: %s" $replyDomain -}}
+      {{- end -}}
     {{- end -}}
     {{- if not $itemTitle -}}
       {{- $itemTitle = .Date.Format "2006-01-02 15:04:05" -}}
