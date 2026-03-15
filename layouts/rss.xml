@@ -79,16 +79,19 @@
     {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
     {{- end }}
     {{- range $pages }}
-    {{- $itemTitle := .Title -}}
-    {{- if not $itemTitle -}}
-      {{- $itemTitle = .Date.Format "2006-01-02 15:04:05" -}}
-    {{- end -}}
+    {{- $itemKind := partial "post/kind.html" . -}}
     {{- $itemDescription := .Summary | plainify | htmlUnescape | strings.TrimSpace -}}
     {{- if not $itemDescription -}}
       {{- $itemDescription = .Plain | plainify | htmlUnescape | strings.TrimSpace | truncate 280 -}}
     {{- end -}}
+    {{- $itemTitle := .Title -}}
+    {{- if eq $itemKind "note" -}}
+      {{- $itemTitle = .Plain | plainify | htmlUnescape | replaceRE `\s+` ` ` | strings.TrimSpace | truncate 80 -}}
+    {{- end -}}
+    {{- if not $itemTitle -}}
+      {{- $itemTitle = .Date.Format "2006-01-02 15:04:05" -}}
+    {{- end -}}
     {{- $itemLink := .Permalink -}}
-    {{- $itemKind := partial "post/kind.html" . -}}
     {{- if eq $itemKind "bookmark" -}}
       {{- $bookmarkOf := or (index .Params "bookmark_of") (or (index .Params "bookmarkOf") (index .Params "bookmarkof")) -}}
       {{- with $bookmarkOf -}}
