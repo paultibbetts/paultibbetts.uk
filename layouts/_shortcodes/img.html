@@ -1,0 +1,26 @@
+{{- /* layouts/shortcodes/img.html
+  Usage in markdown:
+  {{< img src="img-1.jpg" alt="..." class="..." width="1200"
+>}}
+*/ -}}
+{{- $src := .Get "src" -}}
+{{- if not $src -}}
+  {{- errorf "img shortcode: missing src (page %q)" .Page.File.Path -}}
+{{- end -}}
+
+{{- $alt := .Get "alt" -}}
+{{- $class := .Get "class" -}}
+{{- $width := .Get "width" | default "" -}}
+{{- $height := .Get "height" | default "" -}}
+{{- $figcaption := .Get "figcaption" | default "" -}}
+
+{{- partial "img.html" (dict
+  "Page" .Page
+  "Src" $src
+  "Alt" $alt
+  "Class" $class
+  "Width" $width
+  "Height" $height
+  "Figcaption" $figcaption
+  )
+-}}
