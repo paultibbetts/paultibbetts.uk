@@ -1,19 +1,18 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-if [ -z "$1" ]; then
+if [[ $# -lt 1 ]]; then
   echo "Error: No title provided."
   echo "Usage: $0 \"Your Article Title\""
   exit 1
 fi
 
-TITLE="$1"
-SLUG=$(echo "$TITLE" | tr '[:upper:]' '[:lower:]' | tr ' ' '-' | tr -cd '[:alnum:]-')
-DATE=$(date +%Y-%m-%d)
+title="$1"
+slug="$(echo "$title" | tr '[:upper:]' '[:lower:]' | tr ' ' '-' | tr -cd '[:alnum:]-')"
+date_part="$(date +%Y-%m-%d)"
 
-FILE="content/articles/${DATE}-${SLUG}.md"
+file="content/articles/${date_part}-${slug}.md"
 
-hugo new --kind article "$FILE"
+hugo new --kind article "$file"
 
-# Keep generated root date views (/YYYY/, /YYYY/MM/, /YYYY/MM/DD/) in sync.
 "$(dirname "$0")/generate-date-archives.sh" >/dev/null

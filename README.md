@@ -18,7 +18,10 @@ Copy `.env.example` to `.env` and set:
 - `MEDIA_REMOTE_ROOT`
 - `MEDIA_PUBLIC_ROOT`
 
-For day-to-day use there are two wrapper commands in `bin/`:
+For day-to-day use there are wrapper commands in `bin/`:
 
-- `./bin/media-dry-run <post-path>`
-- `./bin/media-publish <post-path>`
+- `./bin/media/dry-run <post-path>`
+- `./bin/media/publish <post-path>`
+- `./bin/new/article "Title"`
+- `./bin/new/note ["Optional title"]`
+- `./bin/new/reply ...`
