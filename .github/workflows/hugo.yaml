@@ -49,12 +49,11 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
-      - name: Cache Restore
+      - name: Cache restore
         id: cache-restore
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
-          path: |
-            ${{ runner.temp }}/hugo_cache
+          path: ${{ runner.temp }}/hugo_cache
           key: hugo-${{ github.run_id }}
           restore-keys: hugo-
       - name: Configure Git
@@ -64,12 +63,11 @@ jobs:
           HUGO_BASEURL: "${{ steps.pages.outputs.base_url }}/"
           HUGO_CACHEDIR: "${{ runner.temp }}/hugo_cache"
         run: ./scripts/build.sh
-      - name: Cache Save
+      - name: Cache save
         id: cache-save
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v5
         with:
-          path: |
-            ${{ runner.temp }}/hugo_cache
+          path: ${{ runner.temp }}/hugo_cache
           key: ${{ steps.cache-restore.outputs.cache-primary-key }}
       - name: Upload pages artifact
         uses: actions/upload-pages-artifact@v3

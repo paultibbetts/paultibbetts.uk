@@ -1,12 +1,26 @@
 {
   "scripts": {
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "media:dry-run": "node scripts/publish-post-media.mjs --dry-run",
+    "media:manifest": "node scripts/post-media-manifest.mjs",
+    "media:optimise": "node scripts/optimise-post-images.mjs",
+    "media:publish": "node scripts/publish-post-media.mjs",
+    "media:publish-and-clean": "node scripts/publish-post-media.mjs --remove-local",
+    "media:rewrite": "node scripts/rewrite-post-media-paths.mjs",
+    "media:upload": "node scripts/upload-post-media.mjs",
+    "optimise-image": "node scripts/optimise-image.mjs",
+    "optimise-post-images": "node scripts/optimise-post-images.mjs",
+    "post-media-manifest": "node scripts/post-media-manifest.mjs",
+    "publish-post-media": "node scripts/publish-post-media.mjs",
+    "rewrite-post-media-paths": "node scripts/rewrite-post-media-paths.mjs",
+    "upload-post-media": "node scripts/upload-post-media.mjs"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.6",
     "@tailwindcss/typography": "^0.5.16",
     "prettier": "^3.7.4",
     "prettier-plugin-go-template": "^0.0.15",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4.1.6"
   }
 }
