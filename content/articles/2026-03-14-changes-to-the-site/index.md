@@ -134,6 +134,10 @@ I could use [my Raspberry Pi](/2026/02/19/moved-my-website-from-github-pages-to-
 
 Instead I'm thinking of using a storage bucket, which could grow to any size, and then using a Content Delivery Network to serve the assets.
 
+### Edit
+
+I needed a temporary solution, so in [Added support for photos and videos](/2026/03/17/added-support-for-photos-and-videos/) I explain how I've set up my Raspberry Pi to host my media files until I get a storage bucket and CDN sorted out.
+
 ## Dynamic Image Resizing
 
 I might also use something like [imgproxy](https://imgproxy.net/) to dynamically resize images.
