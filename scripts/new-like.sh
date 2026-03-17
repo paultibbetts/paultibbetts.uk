@@ -1,11 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Usage:
-#   ./new-like.sh "https://example.com"
-#   ./new-like.sh "https://example.com" "Optional Title Override"
-#   ./new-like.sh "Optional Title" "https://example.com"
-
 if [[ $# -lt 1 || $# -gt 2 ]]; then
   echo "Usage:"
   echo "  $0 \"Liked URL\""
@@ -136,7 +131,6 @@ set_toml_string() {
 set_toml_string "$file" "title" "$title"
 set_toml_string "$file" "like_of" "$liked_url"
 
-# Keep generated root date views (/YYYY/, /YYYY/MM/, /YYYY/MM/DD/) in sync.
 "$(dirname "$0")/generate-date-archives.sh" >/dev/null
 
 echo "Created $relative_path"

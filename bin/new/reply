@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Usage:
+#   ./bin/new/reply "https://example.com"
+#   ./bin/new/reply "https://example.com" "Optional Title Override"
+#   ./bin/new/reply "Optional Title" "https://example.com"
+
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+repo_root="$(cd "$script_dir/../.." && pwd)"
+
+exec "$repo_root/scripts/new-reply.sh" "$@"

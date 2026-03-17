@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Usage:
+#   ./bin/new/like "https://example.com"
+#   ./bin/new/like "https://example.com" "Optional Title Override"
+#   ./bin/new/like "Optional Title" "https://example.com"
+
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+repo_root="$(cd "$script_dir/../.." && pwd)"
+
+exec "$repo_root/scripts/new-like.sh" "$@"
