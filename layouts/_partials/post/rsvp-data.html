@@ -1,0 +1,69 @@
+{{- $p := . -}}
+{{- $rsvp := index $p.Params "rsvp" -}}
+{{- if not $rsvp -}}
+  {{- errorf "rsvp post %q is missing [rsvp] front matter" $p.File.Path -}}
+{{- end -}}
+
+{{- $url := "" -}}
+{{- with index $rsvp "url" -}}
+  {{- $url = printf "%v" . -}}
+{{- end -}}
+{{- if not $url -}}
+  {{- errorf "rsvp post %q is missing rsvp.url" $p.File.Path -}}
+{{- end -}}
+
+{{- $name := $url -}}
+{{- with index $rsvp "name" -}}
+  {{- $name = printf "%v" . -}}
+{{- end -}}
+
+{{- $value := "yes" -}}
+{{- with index $rsvp "value" -}}
+  {{- $value = lower (printf "%v" .) -}}
+{{- end -}}
+
+{{- $allowedValues := slice "yes" "no" "maybe" "interested" -}}
+{{- if not (in $allowedValues $value) -}}
+  {{- errorf "rsvp post %q has invalid rsvp.value %q" $p.File.Path $value -}}
+{{- end -}}
+
+{{- $defaultLabels := dict
+  "yes" "I'm going to"
+  "no" "I can't make"
+  "maybe" "I might go to"
+  "interested" "I'm interested in"
+-}}
+{{- $label := index $defaultLabels $value -}}
+{{- with index $rsvp "label" -}}
+  {{- $label = printf "%v" . -}}
+{{- end -}}
+
+{{- $date := "" -}}
+{{- with index $rsvp "date" -}}
+  {{- $date = printf "%v" . -}}
+{{- end -}}
+
+{{- $dateLabel := "" -}}
+{{- $hasCustomDateLabel := false -}}
+{{- with index $rsvp "date_label" -}}
+  {{- $dateLabel = printf "%v" . -}}
+  {{- $hasCustomDateLabel = true -}}
+{{- end -}}
+{{- if and (eq $dateLabel "") $date -}}
+  {{- $dt := time.AsTime $date -}}
+  {{- if in $date "T" -}}
+    {{- $dateLabel = printf "%s at %s" (partial "date_with_ordinal_day.html" $dt) ($dt.Format "3:04pm") -}}
+  {{- else -}}
+    {{- $dateLabel = partial "date_with_ordinal_day.html" $dt -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return (dict
+  "date" $date
+  "dateLabel" $dateLabel
+  "hasCustomDateLabel" $hasCustomDateLabel
+  "label" $label
+  "name" $name
+  "url" $url
+  "value" $value
+) -}}

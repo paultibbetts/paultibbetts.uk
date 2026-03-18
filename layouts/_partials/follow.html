@@ -1,7 +1,7 @@
 {{- $currentRSS := .OutputFormats.Get "rss" -}}
 {{- $isArchiveRoot := and (eq .Section "archive") (eq (replaceRE "/$" "" .RelPermalink) "/archive") -}}
 {{- $isFeedRoot := and (eq .Section "feed") (eq (replaceRE "/$" "" .RelPermalink) "/feed") -}}
-{{- $isPostSingle := and .IsPage (in (slice "articles" "notes" "bookmarks" "likes") .Section) -}}
+{{- $isPostSingle := and .IsPage (in (slice "articles" "notes" "bookmarks" "likes" "rsvps") .Section) -}}
 {{- if or $currentRSS $isArchiveRoot $isFeedRoot .IsHome $isPostSingle -}}
   <div class="lowercase mt-8 text-sm mb-8">
     <h2 class="mb-2">Followable</h2>
