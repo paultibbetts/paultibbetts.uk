@@ -1,0 +1,66 @@
+{{- $p := .page -}}
+{{- $mode := .mode | default "list" -}}
+{{- $rsvp := partial "post/rsvp-data.html" $p -}}
+{{- $date := index $rsvp "date" -}}
+{{- $dateLabel := index $rsvp "dateLabel" -}}
+{{- $hasCustomDateLabel := index $rsvp "hasCustomDateLabel" -}}
+{{- $label := index $rsvp "label" -}}
+{{- $name := index $rsvp "name" -}}
+{{- $url := index $rsvp "url" -}}
+{{- $value := index $rsvp "value" -}}
+
+{{- if and $p.Title (eq $mode "single") }}
+  <h1 class="p-name mb-4 text-3xl text-orange">
+    {{ $p.Title }}
+  </h1>
+{{- else if and $p.Title (eq $mode "list") }}
+  <h2 class="mb-4 text-lg text-orange">
+    <a class="p-name u-url color-steel" href="{{ $p.RelPermalink }}">{{ $p.Title }}</a>
+  </h2>
+{{- end }}
+
+
+<div class="mb-4">
+  <p class="p-summary text-light">
+    <data class="p-rsvp" value="{{ $value }}">{{ $label }}</data>
+    <a class="u-in-reply-to" href="{{ $url }}">{{ $name }}</a>
+    {{- with $date }}
+      <span>
+        {{- if not $hasCustomDateLabel }}on{{ end }}
+        <time class="dt-start" datetime="{{ . }}">{{ $dateLabel }}</time>.
+      </span>
+    {{- end }}
+    {{- if and (not $date) $dateLabel }}
+      <span>{{ $dateLabel }}.</span>
+    {{- end }}
+  </p>
+</div>
+
+{{- if eq $mode "single" }}
+  {{- if $p.ContentWithoutSummary }}
+    <div class="mb-4 prose prose-invert text-light font-sans">{{ $p.Summary }}</div>
+    <div id="more" class="e-content prose prose-invert text-light font-sans mb-8">
+      {{ $p.ContentWithoutSummary }}
+    </div>
+  {{- else if $p.Content }}
+    <div class="e-content prose prose-invert text-light font-sans mb-8">
+      {{ $p.Content }}
+    </div>
+  {{- end }}
+{{- else }}
+  {{- if and $p.Truncated $p.Summary }}
+    <div class="text-white mb-4 font-sans prose prose-invert">
+      {{ $more := printf ` <a class="inline" href="%s#more">…</a>` $p.RelPermalink }}
+      {{ $summary := replaceRE `</p>\s*$` (printf `%s</p>` $more) $p.Summary }}
+      {{ if eq $summary $p.Summary }}
+        {{ $p.Summary | safeHTML }}{{ $more | safeHTML }}
+      {{ else }}
+        {{ $summary | safeHTML }}
+      {{ end }}
+    </div>
+  {{- else if $p.Content }}
+    <div class="e-content prose prose-invert text-light font-sans mb-8">
+      {{ $p.Content }}
+    </div>
+  {{- end }}
+{{- end }}

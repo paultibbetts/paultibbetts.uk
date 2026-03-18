@@ -290,6 +290,10 @@ footer a {
     content: "↩️";
   }
 
+  &.rsvps::before {
+    content: "🗓️";
+  }
+
   &.hashtag::before {
     content: "#";
   }

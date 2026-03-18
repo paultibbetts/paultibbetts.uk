@@ -137,6 +137,15 @@
         {{- end -}}
         {{- $itemTitle = printf "Replied to: %s" $replyDomain -}}
       {{- end -}}
+    {{- else if eq $itemKind "rsvp" -}}
+      {{- $rsvp := partial "post/rsvp-data.html" . -}}
+      {{- $rsvpName := index $rsvp "name" -}}
+      {{- $rsvpValue := index $rsvp "value" -}}
+      {{- if $rsvpName -}}
+        {{- $itemTitle = printf "RSVP (%s): %s" $rsvpValue $rsvpName -}}
+      {{- else -}}
+        {{- $itemTitle = printf "RSVP (%s)" $rsvpValue -}}
+      {{- end -}}
     {{- end -}}
     {{- if not $itemTitle -}}
       {{- $itemTitle = .Date.Format "2006-01-02 15:04:05" -}}
