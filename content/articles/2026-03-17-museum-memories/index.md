@@ -5,6 +5,7 @@ title = "Museum memories"
 in_reply_to = "https://jamesg.blog/2026/03/01/indieweb-carnival-museum-memories"
 tags = ['IndieWeb Carnival', 'Barcelona']
 summary = "My entry for IndieWeb Carnival March 2026: Museum memories, about visiting Barcelona in 2017."
+featured = true
 +++
 
 This is my entry for this month's IndieWeb Carnival: <a class="u-in-reply-to" href="https://jamesg.blog/2026/03/01/indieweb-carnival-museum-memories/">Museum memories</a>.
