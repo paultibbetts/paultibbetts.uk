@@ -1,7 +1,7 @@
 +++
 date = '2026-03-18T16:00:00Z'
 draft = false
-title = "HWC London March 18th 2026"
+title = ""
 tags = ['Homebrew Website Club']
 +++
 
@@ -415,6 +415,6 @@ So I present it here begrudgingly.
 
 ---
 
-I am using this note to test I can send an RSVP. 
+I am using this note to test I can send an [RSVP](https://indieweb.org/rsvp).
 
 If you see my name [on this list](https://events.indieweb.org/2026/03/homebrew-website-club-europe-london-0EMPkdPMzZKX#rsvps) then it worked.
