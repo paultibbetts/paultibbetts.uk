@@ -14,7 +14,8 @@
     "publish-post-media": "node scripts/publish-post-media.mjs",
     "rewrite-post-media-paths": "node scripts/rewrite-post-media-paths.mjs",
     "upload-post-media": "node scripts/upload-post-media.mjs",
-    "webmention:discover": "node scripts/webmention-discover.mjs"
+    "webmention:discover": "node scripts/webmention-discover.mjs",
+    "webmention:send": "node scripts/webmention-send.mjs"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.6",
