@@ -21,6 +21,10 @@ Documentation that explains how I use code to configure the infrastructure for m
 
 Documentation for my developer environment and the tools I use.
 
+### [ya-react-hn](https://ya-react-hn.vercel.app/news/1)
+
+Hacker News client built in React, with dark mode support and unread links highlighted differently to links you've already read.
+
 ## Code
 
 ### [terraform-provider-mythicbeasts](https://github.com/paultibbetts/terraform-provider-mythicbeasts)
