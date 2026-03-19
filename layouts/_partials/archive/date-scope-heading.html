@@ -1,14 +1,8 @@
 {{- if eq .Params.date_scope "day" -}}
-  {{- $archiveMonth := time.AsTime (printf "%v-%v-01" .Params.archive_year .Params.archive_month) -}}
   {{- $archiveDay := time.AsTime (printf "%v-%v-%v" .Params.archive_year .Params.archive_month .Params.archive_day) -}}
-  {{- $ordinalDay := partial "date_ordinal_day.html" $archiveDay -}}
   <h1 class="p-name mb-8 text-3xl text-light">
     <a href="/archive">Archive</a>
-    <a href="/{{ .Params.archive_year }}">{{ .Params.archive_year }}</a>
-    <a href="/{{ .Params.archive_year }}/{{ .Params.archive_month }}"
-      >{{ $archiveMonth.Format "January" }}</a
-    >
-    {{ $ordinalDay }}
+    {{ partial "date_with_ordinal_day.html" $archiveDay }}
   </h1>
 {{- else if eq .Params.date_scope "month" -}}
   {{- $archiveMonth := time.AsTime (printf "%v-%v-01" .Params.archive_year .Params.archive_month) -}}
