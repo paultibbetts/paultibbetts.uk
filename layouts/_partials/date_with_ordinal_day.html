@@ -1,3 +1,2 @@
 {{- $date := . -}}
-{{- $ordinalDay := partial "date_ordinal_day.html" $date -}}
-{{- return (printf "%s %s, %s" ($date.Format "Monday, January") $ordinalDay ($date.Format "2006")) -}}
+{{- return ($date.Format "Monday, 2 January 2006") -}}

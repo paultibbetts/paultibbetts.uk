@@ -50,7 +50,7 @@
   {{- $feedDescription = printf "Posts by %s published in %s" $authorName ($archiveMonth.Format "January 2006") -}}
 {{- else if eq .Params.date_scope "day" -}}
   {{- $archiveDay := time.AsTime (printf "%v-%v-%v" .Params.archive_year .Params.archive_month .Params.archive_day) -}}
-  {{- $feedDescription = printf "Posts by %s published on %s" $authorName ($archiveDay.Format "Monday, January 2, 2006") -}}
+  {{- $feedDescription = printf "Posts by %s published on %s" $authorName (partial "date_with_ordinal_day.html" $archiveDay) -}}
 {{- else -}}
   {{- $feedDescription = printf "Recent posts by %s" $authorName -}}
   {{- if and .Title (ne .Title $authorName) -}}
