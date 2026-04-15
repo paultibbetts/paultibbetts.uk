@@ -12,8 +12,7 @@
     "before 5am every weekday"
   ],
   "lockFileMaintenance": {
-    "enabled": true,
-    "schedule": ["before 5:00am on monday"]
+    "enabled": false
   },
   "packageRules": [
     {
