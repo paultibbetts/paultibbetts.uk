@@ -176,24 +176,37 @@ footer a {
   }
 }
 
-.prose h2 {
-  @apply font-mono;
-  @apply font-normal;
-  @apply text-2xl;
-  @apply text-orange;
+@layer utilities {
+  .prose {
 
-  @media print {
-    color: inherit;
+    h2 {
+      @apply font-mono;
+      @apply font-normal;
+      @apply text-2xl;
+      @apply text-orange;
+
+      @media print {
+        color: inherit;
+      }
+
+    }
+
+    img {
+      @apply block w-full h-auto;
+    }
+
+    video {
+      @apply block w-full h-auto rounded-lg;
+    }
+
+    & :where(blockquote p:first-of-type):not(:where([class~="not-prose"], [class~="not-prose"] *))::before,
+    & :where(blockquote p:last-of-type):not(:where([class~="not-prose"], [class~="not-prose"] *))::after {
+      content: none;
+    }
+
   }
 }
 
-.prose img {
-  @apply block w-full h-auto;
-}
-
-.prose video {
-  @apply block w-full h-auto rounded-lg;
-}
 
 .image-grid {
   display: grid;
