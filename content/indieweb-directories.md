@@ -40,9 +40,16 @@ See [a directory of indie web directory directories](/directory-of-indieweb-dire
 - [blogs.hn](https://blogs.hn)
 - [hnpwd.github.io](https://hnpwd.github.io/)
 
-## Aggregators
+## Webrings
+
+- [🕸💍 an IndieWeb webring](https://xn--sr8hvo.ws/directory)
+
+## Not directories
+
+### Aggregators
 
 - [blogosphere.app](https://blogosphere.app/)
+- [IndieNews](https://news.indieweb.org)
 - [minifeed.net](https://minifeed.net/)
 - [powrss.com](https://powrss.com/)
 
@@ -50,15 +57,11 @@ See [a directory of indie web directory directories](/directory-of-indieweb-dire
 
 - [bubbles.town](https://bubbles.town/)
 
-## Exploration
-
-- [susam.net/wander](https://susam.net/wander/)
-
-### Search
+## Search
 
 - [kagi.com/smallweb](https://kagi.com/smallweb/)
 - [marginalia-search.com](https://marginalia-search.com/explore)
 
-## Webrings
+## Exploration
 
-- [🕸💍 an IndieWeb webring](https://xn--sr8hvo.ws/directory)
+- [susam.net/wander](https://susam.net/wander/)
