@@ -8,11 +8,18 @@ Some things never change.
 
 My website does.
 
+## 2026-04-16
+
+- [`c22aaf1`](https://github.com/paultibbetts/paultibbetts.uk/commit/c22aaf16b04c822da7a1162a85753dd8651bf77a): added [/indieweb-directories](/indieweb-directories) page
+- [`9b6f1b4`](https://github.com/paultibbetts/paultibbetts.uk/commit/9b6f1b4cfc00e5a5207c4bd0cef44427a43d4266): added [/directory-of-indieweb-directories](/directory-of-indieweb-directories) page
+
+Trying to keep track of all the indie web directories I find.
+
 ## 2026-03-04
 
-- [`9993b6f`](https://github.com/paultibbetts/paultibbetts.uk/commit/9993b6fdae626b4b782e338e375c2263a794d934): added `/bookmarks` page
-- [`7c34d1d`](https://github.com/paultibbetts/paultibbetts.uk/commit/7c34d1d4aee7f61526bdc52741473a66cda44f6a): added `/likes` page
-- [`e6a3355`](https://github.com/paultibbetts/paultibbetts.uk/commit/e6a3355bec533ddfedf9a7d463ef52a2f4d425f0): added `/links`page
+- [`9993b6f`](https://github.com/paultibbetts/paultibbetts.uk/commit/9993b6fdae626b4b782e338e375c2263a794d934): added [/bookmarks](/bookmarks) page
+- [`7c34d1d`](https://github.com/paultibbetts/paultibbetts.uk/commit/7c34d1d4aee7f61526bdc52741473a66cda44f6a): added [/likes](/likes) page
+- [`e6a3355`](https://github.com/paultibbetts/paultibbetts.uk/commit/e6a3355bec533ddfedf9a7d463ef52a2f4d425f0): added [/links](/links) page
 
 ## 2026-03-02
 
