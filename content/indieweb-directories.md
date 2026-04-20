@@ -43,6 +43,7 @@ See [a directory of indie web directory directories](/directory-of-indieweb-dire
 ## Webrings
 
 - [🕸💍 an IndieWeb webring](https://xn--sr8hvo.ws/directory)
+- [Polyring.club](https://polyring.club/)
 
 ## Not directories
 
