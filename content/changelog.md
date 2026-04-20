@@ -15,6 +15,12 @@ My website does.
 
 Trying to keep track of all the indie web directories I find.
 
+## 2026-03-17
+
+- [`65a0528`](https://github.com/paultibbetts/paultibbetts.uk/commit/65a0528e75fa56cbe81600c05f93ceb67f1a79ac): added support for photos and videos
+
+See [the post](/2026/03/17/added-support-for-photos-and-videos/) for more details. It's a Temporary™ setup until I change to use a CDN.
+
 ## 2026-03-04
 
 - [`9993b6f`](https://github.com/paultibbetts/paultibbetts.uk/commit/9993b6fdae626b4b782e338e375c2263a794d934): added [/bookmarks](/bookmarks) page
