@@ -22,8 +22,10 @@ fi
 
 if [[ -n "$slug" ]]; then
   base="${date_part}-${time_part}-${slug}"
+  permalink_slug="$slug"
 else
   base="${date_part}-${time_part}"
+  permalink_slug="$time_part"
 fi
 
 dir="content/notes"
@@ -35,8 +37,10 @@ counter=2
 while [[ -f "$file" ]]; do
   if [[ -n "$slug" ]]; then
     file="${dir}/${date_part}-${time_part}-${counter}-${slug}.md"
+    permalink_slug="${slug}-${counter}"
   else
     file="${dir}/${date_part}-${time_part}-${counter}.md"
+    permalink_slug="${time_part}-${counter}"
   fi
   ((counter++))
 done
@@ -59,9 +63,15 @@ set_toml_string() {
   tmp_file="$(mktemp)"
 
   awk -v key="$key" -v value="$escaped_value" '
+    NR == 1 { delimiter = $0 }
     $0 ~ "^" key " = " {
       print key " = \"" value "\""
+      found = 1
       next
+    }
+    $0 == delimiter && NR > 1 && !found {
+      print key " = \"" value "\""
+      found = 1
     }
     { print }
   ' "$target_file" >"$tmp_file"
@@ -72,6 +82,8 @@ set_toml_string() {
 if [[ -n "$title" ]]; then
   set_toml_string "$file" "title" "$title"
 fi
+
+set_toml_string "$file" "slug" "$permalink_slug"
 
 "$(dirname "$0")/generate-date-archives.sh" >/dev/null
 
