@@ -1,7 +1,7 @@
 +++
 date = '2026-04-16T15:16:43+01:00'
 draft = false
-title = "indie web directories"
+title = ""
 tags = ['indieweb', 'Homebrew Website Club']
 +++
 
