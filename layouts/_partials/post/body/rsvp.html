@@ -23,7 +23,7 @@
 <div class="mb-4">
   <p class="p-summary text-light">
     <data class="p-rsvp" value="{{ $value }}">{{ $label }}</data>
-    <a class="u-in-reply-to" href="{{ $url }}">{{ $name }}</a>
+    <a class="{{ if ne $name "" }}p-name h-cite {{ end }}u-in-reply-to" href="{{ $url }}">{{ $name }}</a>
     {{- with $date }}
       <span>
         {{- if not $hasCustomDateLabel }}on{{ end }}
