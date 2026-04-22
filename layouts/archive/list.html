@@ -32,9 +32,9 @@
           {{ $sectionPage := $.Site.GetPage (printf "/%s" $section) }}
           {{ $sectionLabel := $section | title }}
           {{ with $sectionPage }}{{ $sectionLabel = .Title }}{{ end }}
-          <details class="p-comment h-entry mb-4">
+          <details class="mb-4">
             <summary>
-              <h2 class="p-name inline">{{ len $sectionPosts }} {{ $sectionLabel }}</h2>
+              <h2 class="inline">{{ len $sectionPosts }} {{ $sectionLabel }}</h2>
             </summary>
             <div class="py-2 clear-both">
               {{ range $sectionPosts }}
@@ -47,9 +47,15 @@
                 {{ if eq $itemLabel "" }}
                   {{ $itemLabel = .File.ContentBaseName }}
                 {{ end }}
-                <p class="meta mb-2 text-right" id="{{ $id }}">
+                <article class="h-entry meta mb-2 text-right" id="{{ $id }}">
                   <a href="#{{ $id }}" rel="bookmark">#</a>
-                  <a href="{{ .RelPermalink }}" style="text-wrap: wrap;">{{ $itemLabel }}</a>
+                  <a
+                    class="{{ if .Title }}p-name {{ end }}u-url u-uid"
+                    href="{{ .RelPermalink }}"
+                    style="text-wrap: wrap;"
+                  >
+                    {{ $itemLabel }}
+                  </a>
                   <a
                     href="{{ .RelPermalink }}"
                     style="color: inherit; text-decoration: none; text-wrap: nowrap;"
@@ -61,7 +67,7 @@
                       {{ .Date.Format "2006-01-02 15:04" }}
                     </abbr>
                   </a>
-                </p>
+                </article>
               {{ end }}
             </div>
           </details>
