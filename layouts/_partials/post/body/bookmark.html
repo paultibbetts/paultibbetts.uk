@@ -6,9 +6,9 @@
 {{- end -}}
 
 {{- if eq $mode "single" }}
-  <h1 class="p-name text-lg">
+  <h1 class="text-lg">
     bookmarked
-    <a class="u-bookmark-of h-cite color-steel" href="{{ $bookmarkOf }}">{{ $p.Title }}</a>
+    <a class="p-name u-bookmark-of h-cite color-steel" href="{{ $bookmarkOf }}">{{ $p.Title }}</a>
   </h1>
   {{- if $p.Content }}
     <div class="e-content prose prose-invert text-light font-sans mb-8">
@@ -16,9 +16,9 @@
     </div>
   {{- end }}
 {{- else }}
-  <h2 class="p-name mb-4 text-lg">
+  <h2 class="mb-4 text-lg">
     bookmarked
-    <a class="u-bookmark-of h-cite color-steel" href="{{ $bookmarkOf }}">{{ $p.Title }}</a>
+    <a class="p-name u-bookmark-of h-cite color-steel" href="{{ $bookmarkOf }}">{{ $p.Title }}</a>
   </h2>
   {{- if $p.Content }}
     {{- if $p.Truncated }}
