@@ -2,16 +2,15 @@
 set -euo pipefail
 
 if [[ $# -gt 1 ]]; then
-  echo "Usage: $0 [optional-title]"
+  echo "Usage: $0 [optional-slug]"
   exit 1
 fi
 
 date_part="$(date +%Y-%m-%d)"
 time_part="$(date +%H%M%S)"
 
-title="${1:-}"
-title="${title%.md}"
-slug="$title"
+slug="${1:-}"
+slug="${slug%.md}"
 
 if [[ -n "$slug" ]]; then
   slug="$(echo "$slug" \
@@ -79,9 +78,7 @@ set_toml_string() {
   mv "$tmp_file" "$target_file"
 }
 
-if [[ -n "$title" ]]; then
-  set_toml_string "$file" "title" "$title"
-fi
+set_toml_string "$file" "title" ""
 
 set_toml_string "$file" "slug" "$permalink_slug"
 
