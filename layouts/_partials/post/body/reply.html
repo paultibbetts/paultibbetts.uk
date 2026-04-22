@@ -62,7 +62,7 @@
 {{- with $parsedReplyURL.Host -}}
   {{- $replyDomain = . -}}
 {{- end -}}
-{{- $replyLabel := $referenceName | default $p.Title | default $replyDomain -}}
+{{- $replyLabel := $referenceName | default $replyDomain -}}
 {{- $contextText := $manualContextText | default $referenceSummary | default $referenceContentText -}}
 {{- $contextText = $contextText | plainify | htmlUnescape | replaceRE `\s+` ` ` -}}
 {{- $replyScheme := $parsedReplyURL.Scheme | default "https" -}}
@@ -86,7 +86,7 @@
 
 
 <div class="mb-4">
-  <p class="p-name text-lg inline-flex items-center gap-2 flex-wrap">
+  <p class="text-lg inline-flex items-center gap-2 flex-wrap">
     {{- if and $isPostLike (ne $referenceAuthorName "") -}}
       <span>replied to</span>
       <a
@@ -107,10 +107,19 @@
         {{- end -}}
         <span>{{ $contextAuthorName }}</span>
       </a>
-      <a class="u-in-reply-to h-cite hidden" href="{{ $replyTo }}">{{ $replyTo }}</a>
+      {{- if ne $referenceName "" -}}
+        <a class="p-name u-in-reply-to h-cite hidden" href="{{ $replyTo }}">{{ $referenceName }}</a>
+      {{- else -}}
+        <a class="u-in-reply-to hidden" href="{{ $replyTo }}">{{ $replyTo }}</a>
+      {{- end -}}
     {{- else -}}
       <span>replied to</span>
-      <a class="u-in-reply-to h-cite color-steel" href="{{ $replyTo }}">{{ $replyLabel }}</a>
+      <a
+        class="{{ if ne $referenceName "" }}p-name h-cite {{ end }}u-in-reply-to color-steel"
+        href="{{ $replyTo }}"
+      >
+        {{ $replyLabel }}
+      </a>
     {{- end -}}
   </p>
 </div>
