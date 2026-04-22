@@ -19,9 +19,9 @@
 {{- $mode := .mode | default "list" -}}
 {{- if eq $mode "single" }}
   <div class="mb-4">
-    <p class="p-name text-lg">
+    <p class="text-lg">
       liked
-      <a class="u-like-of h-cite color-steel" href="{{ $likeOf }}">{{ $likeLabel }}</a>
+      <a class="p-name u-like-of h-cite color-steel" href="{{ $likeOf }}">{{ $likeLabel }}</a>
       {{- with $embedEmoji }}
         {{ . }}
       {{- end }}
@@ -36,9 +36,9 @@
     </div>
   {{- end }}
 {{- else -}}
-  <p class="p-name mb-4 text-lg">
+  <p class="mb-4 text-lg">
     liked
-    <a class="u-like-of h-cite color-steel" href="{{ $likeOf }}">{{ $likeLabel }}</a>
+    <a class="p-name u-like-of h-cite color-steel" href="{{ $likeOf }}">{{ $likeLabel }}</a>
     {{- with $embedEmoji }}
       {{ . }}
     {{- end }}
