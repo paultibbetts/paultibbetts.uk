@@ -1,5 +1,5 @@
 {{- $all := slice -}}
-{{- with site.Data.webmentions -}}
+{{- with hugo.Data.webmentions -}}
   {{- if reflect.IsMap . -}}
     {{- with index . "children" -}}
       {{- $all = . -}}
