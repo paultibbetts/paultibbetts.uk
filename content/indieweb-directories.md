@@ -14,6 +14,7 @@ See [a directory of indie web directory directories](/directory-of-indieweb-dire
 ## Directories
 
 - [blogroll.org](https://blogroll.org/)
+- [blogsareback.com/explore](https://www.blogsareback.com/explore)
 - [gossipsweb.net](https://gossipsweb.net/)
 - [iii.social](https://iii.social/)
 - [indieblog.page](https://indieblog.page/)
