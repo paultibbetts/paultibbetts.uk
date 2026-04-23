@@ -53,7 +53,7 @@ See [a directory of indie web directory directories](/directory-of-indieweb-dire
 - [blogosphere.app](https://blogosphere.app/)
 - [IndieNews](https://news.indieweb.org)
 - [minifeed.net](https://minifeed.net/)
-- [powrss.com](https://powrss.com/)
+- [powRSS](https://powrss.com/)
 - [Nuchronic.uk](https://nuchronic.uk/)
 
 ### Frontpage
