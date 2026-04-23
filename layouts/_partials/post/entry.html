@@ -15,6 +15,7 @@
     {{ partial (printf "post/body/%s.html" $kind) (dict "page" $p "mode" $mode) }}
     {{ partial "post/meta.html" (dict "page" $p "mode" $mode) }}
     {{- if eq $mode "single" }}
+      {{ partial "webmentions.html" $p }}
       <div class="hidden">
         <p>
           written by

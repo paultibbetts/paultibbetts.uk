@@ -28,7 +28,7 @@
 {{- $caption = $caption | plainify | htmlUnescape | replaceRE `\\s+` ` ` | strings.TrimSpace -}}
 
 {{- if $imageURL -}}
-  <article class="rounded border border-steel overflow-hidden">
+  <article class="u-comment h-cite rounded border border-steel overflow-hidden">
     <a href="{{ $sourceURL }}">
       <img
         src="{{ $imageURL }}"
@@ -42,16 +42,18 @@
     <div class="px-3 py-2">
       <p class="mb-1 text-sm flex items-center gap-2">
         {{ partial "webmention-avatar.html" (dict "name" $authorName "photo" $authorPhoto "sizeClass" "h-5 w-5 text-[10px]") }}
-        <a href="{{ $authorURL }}">{{ $authorName }}</a>
+        <span class="p-author h-card">
+          <a class="u-url p-name" href="{{ $authorURL }}">{{ $authorName }}</a>
+        </span>
         <span class="color-steel">replied</span>
       </p>
       {{- with $caption -}}
-        <p class="text-xs text-white mb-1">{{ . }}</p>
+        <p class="p-content text-xs text-white mb-1">{{ . }}</p>
       {{- end -}}
       {{- with $publishedRaw -}}
         <footer>
           <p class="text-xs color-steel">
-            <a href="{{ $sourceURL }}">
+            <a class="u-url" href="{{ $sourceURL }}">
               <abbr class="dt-published" title="{{ . }}">{{ $publishedLabel }}</abbr>
             </a>
           </p>

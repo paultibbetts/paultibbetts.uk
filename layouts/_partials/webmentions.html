@@ -60,9 +60,9 @@
           {{- $replyTextMentions = $replyTextMentions | append . -}}
         {{- end -}}
       {{- end -}}
-      <details class="p-comment h-entry mb-4" open>
+      <details class="mb-4" open>
         <summary>
-          <h3 class="p-name inline">
+          <h3 class="inline">
             {{ len $replies }}
             {{ cond (eq (len $replies) 1) "Reply" "Replies" }}
           </h3>
@@ -86,9 +86,9 @@
     {{- end -}}
 
     {{- if gt (len $likes) 0 -}}
-      <details class="p-comment h-entry mb-4">
+      <details class="mb-4">
         <summary>
-          <h3 class="p-name inline">
+          <h3 class="inline">
             {{ len $likes }}
             {{ cond (eq (len $likes) 1) "Like" "Likes" }}
           </h3>
@@ -103,9 +103,9 @@
     {{- end -}}
 
     {{- if gt (len $reposts) 0 -}}
-      <details class="p-comment h-entry mb-4">
+      <details class="mb-4">
         <summary>
-          <h3 class="p-name inline">
+          <h3 class="inline">
             {{ len $reposts }}
             {{ cond (eq (len $reposts) 1) "Repost" "Reposts" }}
           </h3>
@@ -120,9 +120,9 @@
     {{- end -}}
 
     {{- if gt (len $bookmarks) 0 -}}
-      <details class="p-comment h-entry mb-4">
+      <details class="mb-4">
         <summary>
-          <h3 class="p-name inline">
+          <h3 class="inline">
             {{ len $bookmarks }}
             {{ cond (eq (len $bookmarks) 1) "Bookmark" "Bookmarks" }}
           </h3>
@@ -137,9 +137,9 @@
     {{- end -}}
 
     {{- if gt (len $mentionsOnly) 0 -}}
-      <details class="p-comment h-entry mb-4" {{ if le (len $mentionsOnly) 100 }}open{{ end }}>
+      <details class="mb-4" {{ if le (len $mentionsOnly) 100 }}open{{ end }}>
         <summary>
-          <h3 class="p-name inline">
+          <h3 class="inline">
             {{ len $mentionsOnly }}
             {{ cond (eq (len $mentionsOnly) 1) "Mention" "Mentions" }}
           </h3>
