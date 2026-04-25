@@ -51,7 +51,7 @@ capitalizeListTitles = false
 
 [permalinks]
   # Sets URl patterns for the sections.
-  articles = '/:year/:month/:day/:title/'
+  articles = '/:year/:month/:day/:slug/'
   bookmarks = '/:year/:month/:day/:slugorcontentbasename/'
   likes = '/:year/:month/:day/:slugorcontentbasename/'
   notes = '/:year/:month/:day/:slugorcontentbasename/'
