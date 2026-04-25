@@ -143,12 +143,7 @@
 {{- end -}}
 
 {{- if eq $mode "single" }}
-  {{- if $p.ContentWithoutSummary }}
-    <div class="p-summary mb-4 prose prose-invert text-light font-sans">{{ $p.Summary }}</div>
-    <div id="more" class="e-content prose prose-invert text-light font-sans mb-8">
-      {{ $p.ContentWithoutSummary }}
-    </div>
-  {{- else if $p.Content }}
+  {{- if $p.Content }}
     <div class="e-content prose prose-invert text-light font-sans mb-8">
       {{ $p.Content }}
     </div>
@@ -157,7 +152,7 @@
   {{- if $p.Content }}
     {{- if and $p.Truncated $p.Summary }}
       <div class="p-summary text-white mb-4 font-sans prose prose-invert">
-        {{ $more := printf ` <a class="inline" href="%s#more">…</a>` $p.RelPermalink }}
+        {{ $more := printf ` <a class="inline" href="%s">…</a>` $p.RelPermalink }}
         {{ $summary := replaceRE `</p>\s*$` (printf `%s</p>` $more) $p.Summary }}
         {{ if eq $summary $p.Summary }}
           {{ $p.Summary | safeHTML }}{{ $more | safeHTML }}
