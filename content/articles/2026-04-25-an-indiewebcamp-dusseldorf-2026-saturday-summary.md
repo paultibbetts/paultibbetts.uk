@@ -2,6 +2,7 @@
 date = '2026-04-25T20:58:04+01:00'
 draft = false
 title = 'An IndieWebCamp Düsseldorf 2026 Saturday Summary'
+slug = 'an-indiewebcamp-dusseldorf-2026-saturday-summary'
 tags = ['IndieWebCamp', 'IndieWeb']
 +++
 
