@@ -14,18 +14,9 @@
       </time>
     </div>
   {{ end }}
-  {{ if $p.ContentWithoutSummary }}
-    <div class="p-summary mb-6 prose prose-invert text-light font-sans max-w-none">
-      {{ $p.Summary }}
-    </div>
-    <div id="more" class="e-content prose prose-invert text-light font-sans max-w-none mb-16">
-      {{ $p.ContentWithoutSummary }}
-    </div>
-  {{ else }}
-    <div class="e-content prose prose-invert text-light font-sans max-w-none mb-16">
-      {{ $p.Content }}
-    </div>
-  {{ end }}
+  <div class="e-content prose prose-invert text-light font-sans max-w-none mb-16">
+    {{ $p.Content }}
+  </div>
 {{- else }}
   <h2 class="mb-4 text-lg text-orange">
     <a class="p-name u-url color-steel" href="{{ $p.RelPermalink }}">{{ $p.Title }}</a>
@@ -33,7 +24,7 @@
   {{ with $p.Summary }}
     <div class="p-summary text-white mb-4 font-sans prose prose-invert">
       {{ if $p.Truncated }}
-        {{ $more := printf ` <a class="inline" href="%s#more">…</a>` $p.RelPermalink }}
+        {{ $more := printf ` <a class="inline" href="%s">…</a>` $p.RelPermalink }}
         {{ $summary := replaceRE `</p>\s*$` (printf `%s</p>` $more) . }}
         {{ if eq $summary . }}
           {{ . | safeHTML }}{{ $more | safeHTML }}
