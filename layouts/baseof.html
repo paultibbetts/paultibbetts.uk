@@ -35,7 +35,7 @@
       {{- else -}}
         {{- $metaDescription = "Blog" -}}
       {{- end -}}
-    {{- end -}}
+    {{- end }}
     <meta
       name="description"
       content="{{ $metaDescription | plainify | htmlUnescape | replaceRE `\\s+` ` ` | truncate 160 }}"
