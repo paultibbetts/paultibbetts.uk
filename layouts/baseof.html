@@ -49,6 +49,9 @@
       -}}
     {{ end }}
     <link rel="webmention" href="https://webmention.io/paultibbetts.uk/webmention" />
+    <link rel="micropub" href="https://indiekit.paultibbetts.uk/micropub" />
+    <link rel="authorization_endpoint" href="https://indiekit.paultibbetts.uk/auth" />
+    <link rel="token_endpoint" href="https://indiekit.paultibbetts.uk/auth/token" />
     {{- if .IsHome -}}
       <link rel="alternate" type="text/mf2+html" href="/feed/" title="Posts feed" />
     {{- else if eq .Section "feed" -}}
