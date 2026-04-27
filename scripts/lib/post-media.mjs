@@ -31,9 +31,38 @@ function normalisePathPart(value) {
   return value.replace(/^\/+|\/+$/g, "")
 }
 
+function isAbsoluteUrl(value) {
+  return /^[a-z][a-z\d+.-]*:\/\//i.test(value)
+}
+
+function isProtocolRelativeUrl(value) {
+  return value.startsWith("//")
+}
+
 export function joinUrlPath(...parts) {
-  const filtered = parts.map(normalisePathPart).filter(Boolean)
-  return `/${filtered.join("/")}`
+  const values = parts.filter(Boolean)
+
+  if (values.length === 0) {
+    return "/"
+  }
+
+  const [base, ...rest] = values
+
+  if (isAbsoluteUrl(base)) {
+    const url = new URL(base)
+    const pathname = [url.pathname, ...rest].map(normalisePathPart).filter(Boolean).join("/")
+    url.pathname = pathname ? `/${pathname}` : "/"
+    return url.toString()
+  }
+
+  if (isProtocolRelativeUrl(base)) {
+    const url = new URL(`https:${base}`)
+    const pathname = [url.pathname, ...rest].map(normalisePathPart).filter(Boolean).join("/")
+    return `//${url.host}${pathname ? `/${pathname}` : "/"}`
+  }
+
+  const pathname = values.map(normalisePathPart).filter(Boolean).join("/")
+  return pathname ? `/${pathname}` : "/"
 }
 
 function parseFrontMatter(content) {
