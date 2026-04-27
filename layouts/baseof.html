@@ -52,6 +52,10 @@
     <link rel="micropub" href="https://indiekit.paultibbetts.uk/micropub" />
     <link rel="authorization_endpoint" href="https://indiekit.paultibbetts.uk/auth" />
     <link rel="token_endpoint" href="https://indiekit.paultibbetts.uk/auth/token" />
+    <link
+      rel="indieauth-metadata"
+      href="https://indiekit.paultibbetts.uk/.well-known/oauth-authorization-server"
+    />
     {{- if .IsHome -}}
       <link rel="alternate" type="text/mf2+html" href="/feed/" title="Posts feed" />
     {{- else if eq .Section "feed" -}}
