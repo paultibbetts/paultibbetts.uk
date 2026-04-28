@@ -84,6 +84,11 @@
     {{- if not $itemDescription -}}
       {{- $itemDescription = .Plain | plainify | htmlUnescape | strings.TrimSpace | truncate 280 -}}
     {{- end -}}
+    {{- if eq .Section "indieweb-directories" -}}
+      {{- with .Params.description -}}
+        {{- $itemDescription = . | plainify | htmlUnescape | strings.TrimSpace -}}
+      {{- end -}}
+    {{- end -}}
     {{- $itemTitle := .Title -}}
     {{- if eq $itemKind "note" -}}
       {{- $itemTitle = .Plain | plainify | htmlUnescape | replaceRE `\s+` ` ` | strings.TrimSpace | truncate 80 -}}
@@ -161,8 +166,29 @@
       {{- with $likeOf -}}
         {{- $itemLink = . -}}
       {{- end -}}
+    {{- else if eq .Section "indieweb-directories" -}}
+      {{- with .Params.link -}}
+        {{- $itemLink = . -}}
+      {{- end -}}
     {{- end -}}
     {{- $itemContentHTML := .Content | strings.TrimSpace -}}
+    {{- if and (eq .Section "indieweb-directories") (not $itemContentHTML) -}}
+      {{- $entryContentParts := slice -}}
+      {{- with .Params.description -}}
+        {{- $entryContentParts = $entryContentParts | append (printf "<p>%s</p>" (. | htmlEscape)) -}}
+      {{- end -}}
+      {{- with .Params.category -}}
+        {{- $entryContentParts = $entryContentParts | append (printf "<p>Category: %s</p>" (. | htmlEscape)) -}}
+      {{- end -}}
+      {{- if eq .Params.directory false -}}
+        {{- $entryContentParts = $entryContentParts | append "<p>This is not a directory.</p>" -}}
+      {{- end -}}
+      {{- with .Params.link -}}
+        {{- $escapedLink := . | htmlEscape -}}
+        {{- $entryContentParts = $entryContentParts | append (printf `<p><a href="%s">%s</a></p>` $escapedLink $escapedLink) -}}
+      {{- end -}}
+      {{- $itemContentHTML = delimit $entryContentParts "\n" -}}
+    {{- end -}}
     {{- $itemContentCDATA := printf "<![CDATA[%s]]>" (replace $itemContentHTML "]]>" "]]]]><![CDATA[>") -}}
     {{- $itemMarkdown := .RawContent | htmlEscape -}}
     <item>
