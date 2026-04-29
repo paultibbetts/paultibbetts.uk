@@ -5,8 +5,8 @@
 # Canonical site URL used for absolute URLS (RSS, sitemaps, etc.)
 baseURL = 'https://paultibbetts.uk/'
 
-# Content language.
-languageCode = 'en-gb'
+# Content locale.
+locale = 'en-gb'
 
 # Site title (used in templates, <title>, RSS <title>, etc.)
 title = 'Paul Tibbetts'
