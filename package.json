@@ -25,5 +25,8 @@
     "prettier-plugin-go-template": "^0.0.15",
     "sharp": "^0.34.5",
     "tailwindcss": "^4.1.6"
+  },
+  "volta": {
+    "node": "24.12.0"
   }
 }
