@@ -334,7 +334,7 @@ footer a {
 }
 
 #webmention-widget h2 {
-  @apply mt-6 mb-3 text-lg;
+  @apply mt-6 mb-4 text-lg text-steel font-mono;
 }
 
 #webmention-widget ul {
@@ -342,34 +342,47 @@ footer a {
 }
 
 #webmention-widget .reacts {
-  @apply flex flex-wrap gap-2 mb-4;
+  @apply clear-both flex flex-wrap gap-3 py-2 mb-6;
 }
 
 #webmention-widget .comments {
-  @apply flex flex-col gap-3;
-  max-height: 28rem;
-  overflow-y: auto;
-  padding-right: 0.5rem;
+  @apply clear-both flex flex-col gap-4 py-2;
 }
 
 #webmention-widget .comments li {
-  @apply rounded border border-dark-700 bg-dark-900/40 p-3;
+  @apply rounded border border-steel px-4 py-3;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 0.75rem;
+  row-gap: 0.35rem;
+  align-items: start;
   white-space: normal;
   text-indent: 0;
   overflow: visible;
 }
 
 #webmention-widget a.reaction {
-  @apply inline-flex items-center text-light no-underline rounded border border-dark-700 bg-dark-900/40 px-2 py-1;
+  @apply inline-flex items-center gap-1 text-light no-underline;
   letter-spacing: normal;
   text-shadow: none;
 }
 
+#webmention-widget .comments li>a.reaction {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: start;
+  padding: 0;
+}
+
+#webmention-widget .reacts a.reaction {
+  padding: 0;
+}
+
 #webmention-widget a.reaction img {
-  width: 1.3rem;
-  height: 1.3rem;
-  margin-right: 0.4rem;
-  border-radius: 9999px;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100%;
+  display: block;
 }
 
 #webmention-widget img.missing {
@@ -378,14 +391,23 @@ footer a {
 
 #webmention-widget .source {
   @apply text-light;
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
 }
 
 #webmention-widget .comments li .text {
-  @apply text-light-200 italic;
+  @apply text-light-200;
+  grid-column: 2;
+  grid-row: 2;
+  display: block;
 }
 
 #webmention-widget .comments li .name {
   @apply text-light;
+  grid-column: 2;
+  grid-row: 2;
+  display: block;
 }
 
 s,
