@@ -8,6 +8,8 @@ tags = ['IndieWebCamp',]
 
 Feeling inspired after day one of [IndieWebCamp Düsseldorf 2026](https://events.indieweb.org/2026/04/-indiewebcamp-d%C3%BCsseldorf-ewHCZehNA3gg).
 
+<!--more-->
+
 ## Sessions
 
 The first session of the day was **Running your own LLM to get out of big tech**. The word was inevitably going to come up, so it was good to hear an indie approach that lets you keep your privacy whilst using it.
