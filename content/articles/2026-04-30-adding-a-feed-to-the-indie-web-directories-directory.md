@@ -18,9 +18,7 @@ Since my site is built with Hugo, I:
 
 and Hugo made a feed for it.
 
-The only tweak it needed was in the RSS template, so that for this new section the `<item><link>` would point to the directory instead of my own site.
-
-Which for me looked a bit like:
+The only tweak it needed was in the RSS template, so that for this new section the `<item><link>` would point to the directory instead of my own site, which for me looked a bit like:
 
 ```go
 {{- $itemLink := .Permalink -}}
