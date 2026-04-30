@@ -43,7 +43,7 @@ jobs:
           submodules: recursive
           fetch-depth: 0
       - name: Setup Volta
-        uses: volta-cli/action@v4
+        uses: volta-cli/action@v5
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
       - name: Cache restore
