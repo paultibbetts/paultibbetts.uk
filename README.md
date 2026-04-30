@@ -23,5 +23,5 @@ For day-to-day use there are wrapper commands in `bin/`:
 - `./bin/media/dry-run <post-path>`
 - `./bin/media/publish <post-path>`
 - `./bin/new/article "Title"`
-- `./bin/new/note ["Optional title"]`
+- `./bin/new/note ["optional-slug"]`
 - `./bin/new/reply ...`
