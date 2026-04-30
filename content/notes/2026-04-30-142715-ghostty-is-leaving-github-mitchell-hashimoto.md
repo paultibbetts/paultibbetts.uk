@@ -1,9 +1,10 @@
 +++
 date = '2026-04-30T14:27:15+01:00'
-title = "Ghostty Is Leaving GitHub – Mitchell Hashimoto"
-bookmark_of = "https://mitchellh.com/writing/ghostty-leaving-github"
+title = ""
 tags = ['GitHub']
 +++
+
+[Ghostty Is Leaving GitHub – Mitchell Hashimoto](https://mitchellh.com/writing/ghostty-leaving-github)
 
 I too have been annoyed by GitHub's performance lately, and that's just from using it personally. 
 
