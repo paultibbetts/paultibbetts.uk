@@ -5,7 +5,6 @@ if [[ $# -lt 1 || $# -gt 2 ]]; then
   echo "Usage:"
   echo "  $0 \"In-reply-to URL\""
   echo "  $0 \"In-reply-to URL\" \"Optional Title Override\""
-  echo "  $0 \"Optional Title\" \"In-reply-to URL\""
   exit 1
 fi
 
@@ -45,35 +44,18 @@ fetch_title_from_url() {
   printf '%s' "$title"
 }
 
-title=""
-reply_to_url=""
+reply_to_url="$1"
+title="${2:-}"
 
-if [[ $# -eq 1 ]]; then
-  if ! is_url "$1"; then
-    echo "Error: single argument must be a URL."
-    exit 1
-  fi
-  reply_to_url="$1"
-else
-  if is_url "$1" && ! is_url "$2"; then
-    reply_to_url="$1"
-    title="$2"
-  elif ! is_url "$1" && is_url "$2"; then
-    title="$1"
-    reply_to_url="$2"
-  elif is_url "$1" && is_url "$2"; then
-    echo "Error: provide one URL and one optional title, not two URLs."
-    exit 1
-  else
-    echo "Error: one argument must be a URL."
-    exit 1
-  fi
+if ! is_url "$reply_to_url"; then
+  echo "Error: first argument must be a URL."
+  exit 1
 fi
 
 if [[ -z "$title" ]]; then
   if ! title="$(fetch_title_from_url "$reply_to_url")"; then
     echo "Error: Could not fetch <title> from $reply_to_url."
-    echo "Pass a title manually: $0 \"Your Title\" \"$reply_to_url\""
+    echo "Pass a title manually: $0 \"$reply_to_url\" \"Your Title\""
     exit 1
   fi
 fi

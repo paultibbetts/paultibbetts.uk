@@ -5,7 +5,6 @@ if [[ $# -lt 1 || $# -gt 2 ]]; then
   echo "Usage:"
   echo "  $0 \"Event URL\""
   echo "  $0 \"Event URL\" \"Optional Event Name Override\""
-  echo "  $0 \"Optional Event Name\" \"Event URL\""
   exit 1
 fi
 
@@ -45,35 +44,18 @@ fetch_title_from_url() {
   printf '%s' "$title"
 }
 
-event_name=""
-event_url=""
+event_url="$1"
+event_name="${2:-}"
 
-if [[ $# -eq 1 ]]; then
-  if ! is_url "$1"; then
-    echo "Error: single argument must be a URL."
-    exit 1
-  fi
-  event_url="$1"
-else
-  if is_url "$1" && ! is_url "$2"; then
-    event_url="$1"
-    event_name="$2"
-  elif ! is_url "$1" && is_url "$2"; then
-    event_name="$1"
-    event_url="$2"
-  elif is_url "$1" && is_url "$2"; then
-    echo "Error: provide one URL and one optional event name, not two URLs."
-    exit 1
-  else
-    echo "Error: one argument must be a URL."
-    exit 1
-  fi
+if ! is_url "$event_url"; then
+  echo "Error: first argument must be a URL."
+  exit 1
 fi
 
 if [[ -z "$event_name" ]]; then
   if ! event_name="$(fetch_title_from_url "$event_url")"; then
     echo "Error: Could not fetch <title> from $event_url."
-    echo "Pass an event name manually: $0 \"Event Name\" \"$event_url\""
+    echo "Pass an event name manually: $0 \"$event_url\" \"Event Name\""
     exit 1
   fi
 fi
