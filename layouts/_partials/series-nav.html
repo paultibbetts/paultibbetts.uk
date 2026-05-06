@@ -1,0 +1,75 @@
+{{- $currentTitle := .Page.Params.Title -}}
+{{- with .GetTerms "series" -}}
+  {{- with index . 0 -}}
+    {{- $seriesTitle := .Title -}}
+    {{- $indexInSeries := 1 -}}
+    {{- $pageReached := false -}}
+    {{- $next := false -}}
+    {{ $seriesPages := .Pages.ByDate }}
+    {{- range $index, $page := $seriesPages -}}
+      {{- if not $next -}}
+        {{- if $pageReached -}}
+          {{- $next = $page }}
+        {{- else if eq .Permalink $.Permalink -}}
+          {{- $pageReached = true -}}
+          {{- $indexInSeries = add $index 1 -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+    {{- $pageReached = false -}}
+    {{- $prev := false -}}
+    {{- range $seriesPages.Reverse -}}
+      {{- if not $prev -}}
+        {{- if $pageReached -}}
+          {{- $prev = . -}}
+        {{- else if eq .Permalink $.Permalink -}}
+          {{- $pageReached = true -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+    <nav aria-label="Posts in this series" class="border-l-2 border-orange px-4 mb-8">
+      <div class="mb-2">
+        <p><a href="{{ .RelPermalink }}">{{ .Title }}</a></p>
+      </div>
+      <div class="mb-3">
+        <details>
+          <summary>Part {{ $indexInSeries }} of {{ len .Pages }}</summary>
+          <ol class="list-decimal ml-8 py-2">
+            {{- range .Pages.ByDate }}
+              {{- $title := replaceRE (printf "^%s:\\s*" $seriesTitle) "" .Title }}
+              <li>
+                {{- if eq $currentTitle .Title }}
+                  {{ $title }}
+                {{- else }}
+                  <a href="{{ .RelPermalink }}">{{ $title }}</a>
+                {{- end }}
+              </li>
+            {{- end -}}
+          </ol>
+        </details>
+      </div>
+      {{- if (or $next $prev) -}}
+        <div class="">
+          {{- if $prev }}
+            {{- $title := replaceRE (printf "^%s:\\s*" $seriesTitle) "" $prev.Title }}
+            <div class="mb-2">
+              <span aria-hidden="true">Prev:</span>
+              <a rel="prev" aria-label="Previous article: {{ $title }}" href="{{ $prev.Permalink }}"
+                >{{ $title }}</a
+              >
+            </div>
+          {{- end -}}
+          {{- if $next }}
+            {{- $title := replaceRE (printf "^%s:\\s*" $seriesTitle) "" $next.Title }}
+            <div class="1 mb-2">
+              <span aria-hidden="true">Next:</span>
+              <a rel="next" aria-label="Next article: {{ $title }}" href="{{ $next.Permalink }}"
+                >{{ $title }}</a
+              >
+            </div>
+          {{- end }}
+        </div>
+      {{- end }}
+    </nav>
+  {{ end }}
+{{ end }}
