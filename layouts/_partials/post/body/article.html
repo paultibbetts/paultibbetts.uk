@@ -14,6 +14,9 @@
       </time>
     </div>
   {{ end }}
+  {{- if $p.Params.series -}}
+    {{- partial "series-nav.html" $p -}}
+  {{- end -}}
   <div class="e-content prose prose-invert text-light font-sans max-w-none mb-16">
     {{ $p.Content }}
   </div>
