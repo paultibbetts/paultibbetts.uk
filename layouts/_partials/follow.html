@@ -1,37 +1,26 @@
-{{- $currentRSS := .OutputFormats.Get "rss" -}}
-{{- $isArchiveRoot := and (eq .Section "archive") (eq (replaceRE "/$" "" .RelPermalink) "/archive") -}}
-{{- $isFeedRoot := and (eq .Section "feed") (eq (replaceRE "/$" "" .RelPermalink) "/feed") -}}
-{{- $isPostSingle := and .IsPage (in (slice "articles" "notes" "bookmarks" "likes" "rsvps") .Section) -}}
-{{- if or $currentRSS $isArchiveRoot $isFeedRoot .IsHome $isPostSingle -}}
+{{- $feedPage := . -}}
+{{- $path := replaceRE "/$" "" .RelPermalink -}}
+{{- $isArchiveRoot := eq $path "/archive" -}}
+{{- $isFeedRoot := eq $path "/feed" -}}
+{{- $feedPostSections := .Site.Params.feed_post_sections | default slice -}}
+{{- $isPostSingle := and .IsPage (in $feedPostSections .Section) -}}
+{{- if or .IsHome $isArchiveRoot $isFeedRoot -}}
+  {{- $feedPage = .Site.Home -}}
+{{- else if $isPostSingle -}}
+  {{- $feedPage = .Site.Home -}}
+  {{- with .GetTerms "series" -}}
+    {{- with index . 0 -}}
+      {{- $feedPage = . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- with $feedPage.OutputFormats.Get "rss" -}}
   <div class="lowercase mt-8 text-sm mb-8">
     <h2 class="mb-2">Followable</h2>
     <div class="mb-2">
-      <p class="mb-1">
-        {{ if and (not $.IsHome) (not $isArchiveRoot) (not $isFeedRoot) (not $isPostSingle) $currentRSS }}
-          {{ if eq $.Section "archive" }}
-            {{ $displayPath := replace $currentRSS.RelPermalink "feed.xml" "feed.rss" }}
-            {{- printf `
-              <a href=%q>%s</a>` $currentRSS.RelPermalink $displayPath | safeHTML
-            -}}
-          {{ else }}
-            {{ $title := $.Title | urlize }}
-            {{- printf `
-              <a href=%q>/%s/feed.rss</a>` $currentRSS.RelPermalink $title | safeHTML
-            -}}
-          {{ end }}
-        {{ else }}
-          {{ with $.Site.Home.OutputFormats.Get "rss" }}
-            {{- printf `
-              <a href=%q>/feed.rss</a>` .RelPermalink | safeHTML
-            -}}
-          {{ end }}
-        {{ end }}
-        <img
-          src="/icons/rss.svg"
-          alt="RSS feed"
-          style="display: inline; height: 1rem; width: 1rem"
-        />
-      </p>
+      {{- $label := replace .RelPermalink "feed.xml" "feed.rss" -}}
+      <a href="{{ .RelPermalink }}">{{ $label }}</a>
+      <img src="/icons/rss.svg" alt="RSS icon" style="display: inline; height: 1rem; width: 1rem" />
     </div>
   </div>
-{{ end -}}
+{{- end -}}

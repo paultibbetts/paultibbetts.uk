@@ -43,6 +43,8 @@
 {{- $feedDescription := "" -}}
 {{- if .Params.Description -}}
   {{- $feedDescription = .Params.Description -}}
+{{- else if and (eq .Kind "term") (eq .Data.Plural "series") -}}
+  {{- $feedDescription = printf "Posts in the %s series by %s" .Title $authorName -}}
 {{- else if eq .Params.date_scope "year" -}}
   {{- $feedDescription = printf "Posts by %s published in %v" $authorName .Params.archive_year -}}
 {{- else if eq .Params.date_scope "month" -}}

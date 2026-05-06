@@ -64,8 +64,8 @@ capitalizeListTitles = false
 
 [taxonomies]
   # Defines taxonomy singular -> plural
-  # This sets only tags, overridng the default tags + categories
-	tags = 'tags'
+  tags = 'tags'
+  series = 'series'
 
 # ==========================
 # Output kinds (what gets generated)
