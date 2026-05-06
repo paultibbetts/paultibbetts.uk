@@ -1,60 +1,60 @@
 {{ define "main" }}
-  {{ if .Params.date_scope }}
+  {{- if .Params.date_scope -}}
     <div class="h-feed hfeed mb-20">
-      {{ partial "archive/date-scope-heading.html" . }}
-      {{ with .Content }}
-        <div class="p-summary mb-8">{{ . }}</div>
-      {{ end }}
-      {{ partial "date-archive-content.html" . }}
+      {{- partial "archive/date-scope-heading.html" . -}}
+      {{- with .Content -}}
+        <div class="p-summary mb-8">{{- . -}}</div>
+      {{- end -}}
+      {{- partial "date-archive-content.html" . -}}
     </div>
-  {{ else }}
+  {{- else -}}
     <div class="h-feed hfeed mb-20">
       <h1 class="p-name mb-8 text-3xl text-orange">{{ .Title }}</h1>
       {{ with .Content }}
         <div class="p-summary mb-8">{{ . }}</div>
       {{ end }}
-      {{ $posts := partial "all-posts.html" . }}
-      {{ $yearGroups := $posts.GroupByDate "2006" }}
-      {{ $yearJumpItems := partial "archive/jump-items.html" (dict "Groups" $yearGroups "Kind" "year") }}
-      {{ partial "archive/jump-nav.html" (dict "AriaLabel" "Years" "IntroLabel" "By year:" "Items" $yearJumpItems) }}
+      {{- $posts := partial "all-posts.html" . -}}
+      {{- $yearGroups := $posts.GroupByDate "2006" -}}
+      {{- $yearJumpItems := partial "archive/jump-items.html" (dict "Groups" $yearGroups "Kind" "year") -}}
+      {{- partial "archive/jump-nav.html" (dict "AriaLabel" "Years" "IntroLabel" "By year:" "Items" $yearJumpItems) -}}
 
-      {{ $postSections := slice }}
-      {{ range $posts }}
-        {{ if not (in $postSections .Section) }}
-          {{ $postSections = $postSections | append .Section }}
-        {{ end }}
-      {{ end }}
+      {{- $postSections := slice -}}
+      {{- range $posts -}}
+        {{- if not (in $postSections .Section) -}}
+          {{- $postSections = $postSections | append .Section -}}
+        {{- end -}}
+      {{- end -}}
 
-      {{ range sort $postSections }}
-        {{ $section := . }}
-        {{ $sectionPosts := where $posts "Section" $section }}
-        {{ if gt (len $sectionPosts) 0 }}
-          {{ $sectionPage := $.Site.GetPage (printf "/%s" $section) }}
-          {{ $sectionLabel := $section | title }}
-          {{ with $sectionPage }}{{ $sectionLabel = .Title }}{{ end }}
+      {{- range sort $postSections -}}
+        {{- $section := . -}}
+        {{- $sectionPosts := where $posts "Section" $section -}}
+        {{- if gt (len $sectionPosts) 0 -}}
+          {{- $sectionPage := $.Site.GetPage (printf "/%s" $section) -}}
+          {{- $sectionLabel := $section | title -}}
+          {{- with $sectionPage -}}{{ $sectionLabel = .Title }}{{ end }}
           <details class="mb-4">
             <summary>
               <h2 class="inline">{{ len $sectionPosts }} {{ $sectionLabel }}</h2>
             </summary>
             <div class="py-2 clear-both">
-              {{ range $sectionPosts }}
-                {{ $id := printf "%s-%s" $section .File.UniqueID }}
-                {{ $kind := partial "post/kind.html" . }}
-                {{ $itemLabel := .Title }}
-                {{ if eq $kind "note" }}
-                  {{ $itemLabel = .Slug | default .File.ContentBaseName }}
-                {{ end }}
-                {{ if eq $itemLabel "" }}
-                  {{ $itemLabel = .File.ContentBaseName }}
-                {{ end }}
+              {{- range $sectionPosts -}}
+                {{- $id := printf "%s-%s" $section .File.UniqueID -}}
+                {{- $kind := partial "post/kind.html" . -}}
+                {{- $itemLabel := .Title -}}
+                {{- if eq $kind "note" -}}
+                  {{- $itemLabel = .Slug | default .File.ContentBaseName -}}
+                {{- end -}}
+                {{- if eq $itemLabel "" -}}
+                  {{- $itemLabel = .File.ContentBaseName -}}
+                {{- end -}}
                 <article class="h-entry meta mb-2 text-right" id="{{ $id }}">
                   <a href="#{{ $id }}" rel="bookmark">#</a>
                   <a
-                    class="{{ if .Title }}p-name {{ end }}u-url u-uid"
+                    class="{{ if .Title }}p-name{{ end }} u-url u-uid"
                     href="{{ .RelPermalink }}"
                     style="text-wrap: wrap;"
                   >
-                    {{ $itemLabel }}
+                    {{- $itemLabel -}}
                   </a>
                   <a
                     href="{{ .RelPermalink }}"
