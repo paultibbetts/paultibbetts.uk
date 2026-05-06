@@ -23,7 +23,7 @@ HomeOps, short for "Home Operations", is my attempt at labelling the stable part
 
 My HomeOps setup is used to host the apps and services a few people depend on, so I can't be breaking it every five minutes.
 
-Some people call this "HomeProd", short for "Home Production", which separates it from the "development" or "staging" environment you use for experiments. 
+Some people call this "HomeProd", short for "Home Production", which separates it from the "development" or "staging" environment you use for experiments.
 
 As such I treat it like a real production system: stable, reproducible, and intentionally boring to operate.
 
@@ -54,7 +54,7 @@ Everything is written down as code, so there's as little manual setup as possibl
 
 ### Terraform and Ansible, not Kubernetes
 
-When I started I wanted to compare Terraform and Ansible against Kubernetes for running a homelab. 
+When I started I wanted to compare Terraform and Ansible against Kubernetes for running a homelab.
 
 I thought I'd prove that Kubernetes was obviously the better choice, but two years later I've found the Terraform and Ansible setup works just fine, so that's what powers my HomeOps.
 
@@ -70,18 +70,16 @@ For now I can live with the downtime. So far nothing's broken, although one day 
 
 In this series I'll go over each part of the system in more detail, including the hardware, IaC, services that run on top, and how I let people access it from outside my home.
 
-The aim is not to present this as the correct way to run a homelab, but to explain the choices I made, how they fit together, and why I use the apps that I do. 
+The aim is not to present this as the correct way to run a homelab, but to explain the choices I made, how they fit together, and why I use the apps that I do.
 
-It will be split up so you can dive in and out at any point to read just the parts that interest you, with links to anything written earlier that provides necessary context. 
+It will be split up so you can dive in and out at any point to read just the parts that interest you, with links to anything written earlier that provides necessary context.
 
 It might be awkward in that the system builds up in layers, and things may only make sense for my particular setup, but I'll try my best to generalise each part so it's relevant on its own.
 
 ## Next
 
-Coming up first is the hardware I use. 
+Coming up first is the hardware I use.
 
-Check back soon for the link, or subscribe to the [feed for this series]() in your feed reader.
+Check back soon for the link, or subscribe to the [feed for this series](/series/homeops-tour/feed.xml) in your feed reader.
 
 Or jump straight into the code, which is now on [GitHub](https://github.com/paultibbetts/homeops).
-
-

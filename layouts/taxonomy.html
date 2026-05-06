@@ -4,10 +4,13 @@
     {{- with .Content -}}
       <div class="mb-4">{{ . }}</div>
     {{ end -}}
-    {{- range .Site.Taxonomies.tags }}
+    {{- range .Data.Terms.Alphabetical }}
       <ul class="mb-2 list-disc pl-4">
         <li>
-          <a href="{{ .Page.RelPermalink }}">#{{ .Page.Title }}</a> {{ .Count }}
+          <a href="{{ .Page.RelPermalink }}">
+            {{- if eq $.Data.Plural "tags" }}#{{- end -}}{{ .Page.Title }}</a
+          >
+          {{ .Count }}
         </li>
       </ul>
     {{- end }}
