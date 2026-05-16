@@ -115,7 +115,7 @@
     {{- else -}}
       <span>replied to</span>
       <a
-        class="{{ if ne $referenceName "" }}p-name h-cite {{ end }}u-in-reply-to color-steel"
+        class="{{ cond (ne $referenceName ``) `p-name h-cite ` `` }}u-in-reply-to color-steel"
         href="{{ $replyTo }}"
       >
         {{ $replyLabel }}
