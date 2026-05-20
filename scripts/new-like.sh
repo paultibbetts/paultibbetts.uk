@@ -73,12 +73,14 @@ fi
 date_part="$(date +%Y-%m-%d)"
 dir="content/likes"
 file="${dir}/${date_part}-${slug}.md"
+permalink_slug="$slug"
 
 mkdir -p "$dir"
 
 counter=2
 while [[ -f "$file" ]]; do
   file="${dir}/${date_part}-${slug}-${counter}.md"
+  permalink_slug="${slug}-${counter}"
   ((counter++))
 done
 
@@ -111,6 +113,7 @@ set_toml_string() {
 }
 
 set_toml_string "$file" "title" "$title"
+set_toml_string "$file" "slug" "$permalink_slug"
 set_toml_string "$file" "like_of" "$liked_url"
 
 "$(dirname "$0")/generate-date-archives.sh" >/dev/null

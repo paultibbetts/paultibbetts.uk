@@ -73,12 +73,14 @@ fi
 date_part="$(date +%Y-%m-%d)"
 dir="content/rsvps"
 file="${dir}/${date_part}-${slug}.md"
+permalink_slug="$slug"
 
 mkdir -p "$dir"
 
 counter=2
 while [[ -f "$file" ]]; do
   file="${dir}/${date_part}-${slug}-${counter}.md"
+  permalink_slug="${slug}-${counter}"
   ((counter++))
 done
 
@@ -110,6 +112,7 @@ set_toml_string() {
   mv "$tmp_file" "$target_file"
 }
 
+set_toml_string "$file" "slug" "$permalink_slug"
 set_toml_string "$file" "name" "$event_name"
 set_toml_string "$file" "url" "$event_url"
 
