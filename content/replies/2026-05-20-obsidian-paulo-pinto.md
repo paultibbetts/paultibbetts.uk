@@ -1,6 +1,7 @@
 +++
 date = '2026-05-20T22:01:06+01:00'
 title = ""
+slug = "obsidian-paulo-pinto"
 in_reply_to = "https://paulopinto.xyz/notes/2026/05/2026-05-09-obsidian/"
 tags = []
 +++
