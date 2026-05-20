@@ -178,7 +178,6 @@ footer a {
 
 @layer utilities {
   .prose {
-
     h2 {
       @apply font-mono;
       @apply font-normal;
@@ -188,7 +187,6 @@ footer a {
       @media print {
         color: inherit;
       }
-
     }
 
     img {
@@ -199,14 +197,18 @@ footer a {
       @apply block w-full h-auto rounded-lg;
     }
 
-    & :where(blockquote p:first-of-type):not(:where([class~="not-prose"], [class~="not-prose"] *))::before,
-    & :where(blockquote p:last-of-type):not(:where([class~="not-prose"], [class~="not-prose"] *))::after {
+    &
+      :where(blockquote p:first-of-type):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      )::before,
+    &
+      :where(blockquote p:last-of-type):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      )::after {
       content: none;
     }
-
   }
 }
-
 
 .image-grid {
   display: grid;
@@ -367,7 +369,7 @@ footer a {
   text-shadow: none;
 }
 
-#webmention-widget .comments li>a.reaction {
+#webmention-widget .comments li > a.reaction {
   grid-column: 1;
   grid-row: 1;
   align-self: start;
