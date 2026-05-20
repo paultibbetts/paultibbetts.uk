@@ -31,4 +31,3 @@ The last sessions of the day were **Organising data** and **Homepage design**. I
 I say they were the last sessions, but there was actually a secret session right at the end of the day on **How to unblock yourself and actually post more often**. There were lots of good ideas mentioned, like [Dan's Polaroids project](https://polaroids.danielpietzsch.com/) where he takes and publishes a Polaroid every day.
 
 The one that stuck with me is the idea that you can write a brief summary about something that happened and then hit publish without spending too much time on it.
-

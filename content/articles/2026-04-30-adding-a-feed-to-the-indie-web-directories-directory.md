@@ -28,6 +28,7 @@ The only tweak it needed was in the RSS template, so that for this new section t
 	{{- end -}}
 {{- end -}}
 ```
+
 ```xml
 <item>
   <title>{{ .Title }}</title>
@@ -41,4 +42,3 @@ It works less well for pages that are edited in place. You'd need to post what c
 Those updates can be harder to read, and while you could do it with Hugo, you'd have to write them manually. There's no built-in way of creating them.
 
 In my case it works, not because I've solved how to signal updates to a page, but because it turns out my page wasn't even a page in the first place.
-
