@@ -1,0 +1,20 @@
+<article class="h-entry">
+  {{ if not .Params.hide_title }}
+    <h1 class="p-name mb-4 text-3xl text-orange">
+      {{ .Title }}
+    </h1>
+  {{ end }}
+  {{ if .Date }}
+    <div class="mb-8">
+      <time
+        class="no-underline color-steel"
+        datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}"
+      >
+        {{ partial "date_with_ordinal_day.html" .Date }}
+      </time>
+    </div>
+  {{ end }}
+  <div class="prose prose-invert text-light font-sans">
+    {{ .Content }}
+  </div>
+</article>
