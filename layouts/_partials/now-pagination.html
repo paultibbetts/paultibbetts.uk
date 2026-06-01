@@ -1,0 +1,31 @@
+{{ $current := . }}
+{{ $section := .CurrentSection }}
+{{ $posts := $section.RegularPages.ByDate.Reverse }}
+
+{{ $position := 0 }}
+{{ range $i, $p := $posts }}
+  {{ if eq $p.RelPermalink $current.RelPermalink }}
+    {{ $position = add $i 1 }}
+  {{ end }}
+{{ end }}
+
+
+<nav class="" aria-label="Now pagination">
+  {{ with $posts.Prev $current }}
+    <div class="mb-2">
+      <a href="{{ .RelPermalink }}">Previously…</a>
+    </div>
+  {{ end }}
+
+  {{ if gt $position 1 }}
+    <div class="mb-2">
+      <span>{{ $position }} of {{ len $posts }}</span>
+    </div>
+  {{ end }}
+
+  {{ with $posts.Next $current }}
+    <div class="mb-2">
+      <a href="{{ .RelPermalink }}">What happened next?</a>
+    </div>
+  {{ end }}
+</nav>

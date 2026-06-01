@@ -1,8 +1,7 @@
 +++
-title = "Now"
+date = '2026-03-01T16:37:11+01:00'
+title = 'Professional Development'
 hide_title = true
-type = "page"
-show_in_pages_nav = true
 +++
 
 ## ~~I'm on a break.~~

@@ -54,6 +54,7 @@ capitalizeListTitles = false
   articles = '/:year/:month/:day/:slug/'
   bookmarks = '/:year/:month/:day/:slugorcontentbasename/'
   likes = '/:year/:month/:day/:slugorcontentbasename/'
+  now = '/:year/:month/:day/:slugorcontentbasename/'
   notes = '/:year/:month/:day/:slugorcontentbasename/'
   replies = '/:year/:month/:day/:slugorcontentbasename/'
   rsvps = '/:year/:month/:day/:slugorcontentbasename/'

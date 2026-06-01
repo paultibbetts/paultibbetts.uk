@@ -1,13 +1,24 @@
-{{- $pages := where site.Pages "Params.show_in_pages_nav" true -}}
+{{- $pages := union site.Pages site.Sections -}}
+{{- $pages = where $pages "Params.show_in_pages_nav" true -}}
+{{- with site.GetPage "section" "now" -}}
+  {{- $pages = union $pages (slice .) -}}
+{{- end -}}
 {{- $pages = where $pages "Kind" "in" (slice "page" "section" "taxonomy") -}}
 {{- $currentPath := replaceRE "/$" "" .RelPermalink -}}
+{{- $currentSection := .Section -}}
 <ul class="list-none">
   {{- range sort $pages "Title" }}
     {{- $itemPath := replaceRE "/$" "" .RelPermalink -}}
-    {{- $isCurrent := or (eq $itemPath $currentPath) (hasPrefix (printf "%s/" $currentPath) (printf "%s/" $itemPath)) -}}
+    {{- $title := .Title -}}
+    {{- if eq $itemPath "/now" -}}
+      {{- $title = "Now" -}}
+    {{- end -}}
+    {{- $isCurrentPath := or (eq $itemPath $currentPath) (hasPrefix (printf "%s/" $currentPath) (printf "%s/" $itemPath)) -}}
+    {{- $isCurrentSection := and (eq $currentSection "now") (eq $itemPath "/now") -}}
+    {{- $isCurrent := or $isCurrentPath $isCurrentSection -}}
     <li class="lowercase inline-block mr-1 mb-1">
-      <a href="{{ .RelPermalink }}" class="text-nowrap{{ if $isCurrent }}active{{ end }}"
-        >/{{ .Title }}</a
+      <a href="{{ .RelPermalink }}" class="text-nowrap{{ if $isCurrent }} active{{ end }}"
+        >/{{ $title }}</a
       >
     </li>
   {{- end -}}
