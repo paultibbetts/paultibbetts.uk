@@ -135,7 +135,7 @@
       {{- end -}}
     </p>
     <blockquote class="mb-0 border-l-2 border-border pl-3">
-      <div class="prose prose-invert max-w-none">
+      <div class="prose max-w-none">
         <p class="mb-0 text-foreground">{{ $contextDisplayText }}</p>
       </div>
     </blockquote>
@@ -144,14 +144,14 @@
 
 {{- if eq $mode "single" }}
   {{- if $p.Content }}
-    <div class="e-content prose prose-invert text-foreground font-sans mb-8">
+    <div class="e-content prose text-foreground font-sans mb-8">
       {{ $p.Content }}
     </div>
   {{- end }}
 {{- else -}}
   {{- if $p.Content }}
     {{- if and $p.Truncated $p.Summary }}
-      <div class="p-summary text-foreground mb-4 font-sans prose prose-invert">
+      <div class="p-summary text-foreground mb-4 font-sans prose">
         {{ $more := printf ` <a class="inline" href="%s">…</a>` $p.RelPermalink }}
         {{ $summary := replaceRE `</p>\s*$` (printf `%s</p>` $more) $p.Summary }}
         {{ if eq $summary $p.Summary }}
@@ -161,7 +161,7 @@
         {{ end }}
       </div>
     {{- else }}
-      <div class="e-content prose prose-invert text-foreground font-sans mb-8">
+      <div class="e-content prose text-foreground font-sans mb-8">
         {{ $p.Content }}
       </div>
     {{- end }}

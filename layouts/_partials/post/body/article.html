@@ -17,7 +17,7 @@
   {{- if $p.Params.series -}}
     {{- partial "series-nav.html" $p -}}
   {{- end -}}
-  <div class="e-content prose prose-invert text-foreground font-sans max-w-none mb-16">
+  <div class="e-content prose text-foreground font-sans max-w-none mb-16">
     {{ $p.Content }}
   </div>
 {{- else }}
@@ -25,7 +25,7 @@
     <a class="p-name u-url text-muted" href="{{ $p.RelPermalink }}">{{ $p.Title }}</a>
   </h2>
   {{ with $p.Summary }}
-    <div class="p-summary text-foreground mb-4 font-sans prose prose-invert">
+    <div class="p-summary text-foreground mb-4 font-sans prose">
       {{ if $p.Truncated }}
         {{ $more := printf ` <a class="inline" href="%s">…</a>` $p.RelPermalink }}
         {{ $summary := replaceRE `</p>\s*$` (printf `%s</p>` $more) . }}
