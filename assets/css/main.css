@@ -11,10 +11,9 @@
   --palette-ink: #181818;
   --palette-midnight: #282a36;
   --palette-ember: #ffb86c;
-  --palette-burnt-ember: #a75a08;
   --palette-purple: #bd93f9;
   --palette-red: #ff5555;
-  --palette-blue: #6272a4;
+  --palette-rose: #f51a6f;
 
   --color-background: var(--palette-ink);
   --color-foreground: var(--palette-paper);
@@ -38,7 +37,7 @@
       --color-muted: var(--palette-graphite);
       --color-border: var(--palette-slate);
       --color-surface: var(--palette-mist);
-      --color-accent: var(--palette-burnt-ember);
+      --color-accent: var(--palette-rose);
     }
   }
 
@@ -154,10 +153,6 @@ footer a {
   background-color: var(--palette-ember);
 }
 
-.design-swatch-burnt-ember {
-  background-color: var(--palette-burnt-ember);
-}
-
 .design-swatch-slate {
   background-color: var(--palette-slate);
 }
@@ -186,8 +181,8 @@ footer a {
   background-color: var(--palette-red);
 }
 
-.design-swatch-blue {
-  background-color: var(--palette-blue);
+.design-swatch-rose {
+  background-color: var(--palette-rose);
 }
 
 .theme-sample {
@@ -213,7 +208,7 @@ footer a {
   --color-muted: var(--palette-graphite);
   --color-border: var(--palette-slate);
   --color-surface: var(--palette-mist);
-  --color-accent: var(--palette-burnt-ember);
+  --color-accent: var(--palette-rose);
   --color-accent-hover: var(--palette-red);
 }
 
