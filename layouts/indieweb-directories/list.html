@@ -2,7 +2,7 @@
   {{- if .Title }}
     <h1 class="mb-4 text-3xl text-accent">{{ .Title }}</h1>
   {{- end }}
-  <div class="prose prose-invert text-foreground font-sans">
+  <div class="prose text-foreground font-sans">
     {{ .Content }}
 
     {{ $pages := .RegularPages.ByTitle }}

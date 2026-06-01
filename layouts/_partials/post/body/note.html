@@ -12,12 +12,12 @@
 {{- end }}
 
 {{- if eq $mode "single" }}
-  <div class="e-content prose prose-invert text-foreground font-sans mb-8">
+  <div class="e-content prose text-foreground font-sans mb-8">
     {{ $p.Content }}
   </div>
 {{- else }}
   {{- if and $p.Truncated $p.Summary }}
-    <div class="p-summary text-foreground mb-4 font-sans prose prose-invert">
+    <div class="p-summary text-foreground mb-4 font-sans prose">
       {{ $more := printf ` <a class="inline" href="%s">…</a>` $p.RelPermalink }}
       {{ $summary := replaceRE `</p>\s*$` (printf `%s</p>` $more) $p.Summary }}
       {{ if eq $summary $p.Summary }}
@@ -27,7 +27,7 @@
       {{ end }}
     </div>
   {{- else }}
-    <div class="e-content prose prose-invert text-foreground font-sans mb-8">
+    <div class="e-content prose text-foreground font-sans mb-8">
       {{ $p.Content }}
     </div>
   {{- end }}
