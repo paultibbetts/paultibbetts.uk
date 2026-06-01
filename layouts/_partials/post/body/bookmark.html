@@ -8,25 +8,25 @@
 {{- if eq $mode "single" }}
   <h1 class="text-lg">
     bookmarked
-    <a class="p-name u-bookmark-of h-cite color-steel" href="{{ $bookmarkOf }}">{{ $p.Title }}</a>
+    <a class="p-name u-bookmark-of h-cite text-muted" href="{{ $bookmarkOf }}">{{ $p.Title }}</a>
   </h1>
   {{- if $p.Content }}
-    <div class="e-content prose prose-invert text-light font-sans mb-8">
+    <div class="e-content prose prose-invert text-foreground font-sans mb-8">
       {{ $p.Content }}
     </div>
   {{- end }}
 {{- else }}
   <h2 class="mb-4 text-lg">
     bookmarked
-    <a class="p-name u-bookmark-of h-cite color-steel" href="{{ $bookmarkOf }}">{{ $p.Title }}</a>
+    <a class="p-name u-bookmark-of h-cite text-muted" href="{{ $bookmarkOf }}">{{ $p.Title }}</a>
   </h2>
   {{- if $p.Content }}
     {{- if $p.Truncated }}
-      <div class="p-summary text-white mb-4 font-sans prose prose-invert">
+      <div class="p-summary text-foreground mb-4 font-sans prose prose-invert">
         {{ $p.Summary }}
       </div>
     {{- else }}
-      <div class="e-content prose prose-invert text-light font-sans mb-8">
+      <div class="e-content prose prose-invert text-foreground font-sans mb-8">
         {{ $p.Content }}
       </div>
     {{- end }}
