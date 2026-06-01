@@ -12,7 +12,6 @@ Instead I have a camping chair, rice cooker, and my laptop.
 My homelab is switched off and in storage. I don't have access to:
 
 - IRC
-- IndieKit
 - movies
 - offline reading
 - RSS feeds

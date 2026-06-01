@@ -46,7 +46,7 @@
 
 
 <li class="mb-6">
-  <article class="u-comment h-cite rounded border border-steel px-4 py-3">
+  <article class="u-comment h-cite rounded border border-border px-4 py-3">
     <header class="mb-2 flex items-center gap-3">
       {{ partial "webmention-avatar.html" (dict "name" $authorName "photo" $authorPhoto "sizeClass" "h-8 w-8 text-xs") }}
       <p class="text-sm">
@@ -54,19 +54,21 @@
           <a class="u-url p-name" href="{{ $authorURL }}">{{ $authorName }}</a>
         </span>
         {{- with $propertyLabel }}
-          <span class="color-steel">{{ . }}</span>
+          <span class="text-muted">{{ . }}</span>
         {{- end -}}
       </p>
     </header>
 
     {{- if and $showPostName $postName -}}
       <p class="mb-2">
-        <a class="p-name u-url color-steel" href="{{ $sourceURL }}">{{ $postName }}</a>
+        <a class="p-name u-url text-muted" href="{{ $sourceURL }}">{{ $postName }}</a>
       </p>
     {{- end -}}
 
     {{- with $contentText -}}
-      <div class="p-content mb-2 prose prose-invert text-light font-sans">{{ . | plainify }}</div>
+      <div class="p-content mb-2 prose prose-invert text-foreground font-sans">
+        {{ . | plainify }}
+      </div>
     {{- end -}}
 
     {{- with $imageURL -}}
