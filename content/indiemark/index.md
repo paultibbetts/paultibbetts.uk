@@ -6,7 +6,7 @@ show_in_pages_nav = false
 
 [IndieMark](https://indieweb.org/IndieMark) is an _in-progress_ developer guide that organises the [building blocks](https://indieweb.org/Category:building-blocks) that make up an IndieWeb site.
 
-I currently get **<span class="text-orange">1.2</span>** points.
+I currently get **<span class="text-accent">1.2</span>** points.
 
 ![IndieMark diagram](./image.png)
 

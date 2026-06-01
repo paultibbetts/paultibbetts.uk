@@ -7,7 +7,7 @@
   {{- $monthURL := index $monthMeta "url" -}}
   {{- $monthID := (lower $monthLabel) -}}
   <section id="{{ $monthID }}" class="mb-8">
-    <p class="mb-16 text-light border-b-1 border-dashed">
+    <p class="mb-16 text-foreground border-b-1 border-dashed">
       <a href="{{ $monthURL }}" class="no-underline" style="color: inherit;">{{ $monthLabel }}</a>
     </p>
     {{ partial "grouped-list-by-day.html" (dict "Pages" .Pages "LinkDayToArchive" true) }}

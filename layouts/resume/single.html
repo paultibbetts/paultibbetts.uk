@@ -4,7 +4,7 @@
 
   <div class="h-resume mb-16">
     <div id="bio">
-      <h1 class="text-light text-3xl font-bold mb-4">
+      <h1 class="text-foreground text-3xl font-bold mb-4">
         <a class="p-contact h-card no-underline" href="{{ $r.website }}">
           {{ .Site.Params.author.name | default .Site.Title }}
         </a>
@@ -15,12 +15,12 @@
       </h1>
 
       <div class="flex flex-col md:flex-row print:flex-row gap-4">
-        <p class="text-light">
+        <p class="text-foreground">
           {{ with $r.region }}{{ . }}{{ end }}{{ if and $r.region $r.country }},{{ end }}
           {{ with $r.country }}{{ . }}{{ end }}
         </p>
         {{ with $r.email }}
-          <p class="text-light">
+          <p class="text-foreground">
             <a
               class="u-email no-underline text-inherit"
               style="font-weight:normal;"
@@ -31,7 +31,7 @@
         {{ end }}
 
         {{ range $i, $p := $r.profile }}
-          <p class="text-light">
+          <p class="text-foreground">
             <a
               class="no-underline text-inherit print-link"
               style="font-weight:normal;"
@@ -44,7 +44,7 @@
       </div>
     </div>
 
-    <div class="prose prose-invert text-light font-sans prose-lg">
+    <div class="prose prose-invert text-foreground font-sans prose-lg">
       {{ with $r.summary }}
         <section id="summary">
           <h2>Summary</h2>
