@@ -16,12 +16,7 @@
       {{- $itemPath := replaceRE "/$" "" .RelPermalink -}}
       {{- $isCurrent := or (eq $itemPath $currentPath) (hasPrefix (printf "%s/" $currentPath) (printf "%s/" $itemPath)) -}}
       <li class="mb-2 lowercase inline-block mr-1 mb-1">
-        <a
-          href="{{ .RelPermalink }}"
-          class="{{ if $isCurrent }}active{{ end }}"
-          style="text-wrap: nowrap; {{ if $isCurrent }}
-            text-decoration: underline solid var(--color-purple) 2px;
-          {{ end }}"
+        <a href="{{ .RelPermalink }}" class="text-nowrap{{ if $isCurrent }}active{{ end }}"
           >/{{ .Title }}</a
         >
       </li>

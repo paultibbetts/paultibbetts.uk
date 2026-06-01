@@ -21,7 +21,7 @@
   <div class="mb-4">
     <p class="text-lg">
       liked
-      <a class="p-name u-like-of h-cite color-steel" href="{{ $likeOf }}">{{ $likeLabel }}</a>
+      <a class="p-name u-like-of h-cite text-muted" href="{{ $likeOf }}">{{ $likeLabel }}</a>
       {{- with $embedEmoji }}
         {{ . }}
       {{- end }}
@@ -31,14 +31,14 @@
     {{ . }}
   {{- end }}
   {{- if $p.Content }}
-    <div class="e-content prose prose-invert text-light font-sans mb-8">
+    <div class="e-content prose prose-invert text-foreground font-sans mb-8">
       {{ $p.Content }}
     </div>
   {{- end }}
 {{- else -}}
   <p class="mb-4 text-lg">
     liked
-    <a class="p-name u-like-of h-cite color-steel" href="{{ $likeOf }}">{{ $likeLabel }}</a>
+    <a class="p-name u-like-of h-cite text-muted" href="{{ $likeOf }}">{{ $likeLabel }}</a>
     {{- with $embedEmoji }}
       {{ . }}
     {{- end }}
@@ -48,11 +48,11 @@
   {{- end }}
   {{- if $p.Content }}
     {{- if $p.Truncated }}
-      <div class="p-summary text-white mb-4 font-sans prose prose-invert">
+      <div class="p-summary text-foreground mb-4 font-sans prose prose-invert">
         {{ $p.Summary }}
       </div>
     {{- else }}
-      <div class="e-content prose prose-invert text-light font-sans mb-8">
+      <div class="e-content prose prose-invert text-foreground font-sans mb-8">
         {{ $p.Content }}
       </div>
     {{- end }}

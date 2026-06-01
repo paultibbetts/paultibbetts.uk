@@ -1,13 +1,13 @@
 {{- $p := .page -}}
 {{- $mode := .mode | default "list" -}}
 {{- if eq $mode "single" }}
-  <h1 class="p-name mb-4 text-3xl text-orange">
+  <h1 class="p-name mb-4 text-3xl text-accent">
     {{ $p.Title }}
   </h1>
   {{ if $p.Date }}
     <div class="mb-8">
       <time
-        class="no-underline color-steel"
+        class="no-underline text-muted"
         datetime="{{ $p.Date.Format "2006-01-02T15:04:05Z07:00" }}"
       >
         {{ partial "date_with_ordinal_day.html" $p.Date }}
@@ -17,15 +17,15 @@
   {{- if $p.Params.series -}}
     {{- partial "series-nav.html" $p -}}
   {{- end -}}
-  <div class="e-content prose prose-invert text-light font-sans max-w-none mb-16">
+  <div class="e-content prose prose-invert text-foreground font-sans max-w-none mb-16">
     {{ $p.Content }}
   </div>
 {{- else }}
-  <h2 class="mb-4 text-lg text-orange">
-    <a class="p-name u-url color-steel" href="{{ $p.RelPermalink }}">{{ $p.Title }}</a>
+  <h2 class="mb-4 text-lg text-accent">
+    <a class="p-name u-url text-muted" href="{{ $p.RelPermalink }}">{{ $p.Title }}</a>
   </h2>
   {{ with $p.Summary }}
-    <div class="p-summary text-white mb-4 font-sans prose prose-invert">
+    <div class="p-summary text-foreground mb-4 font-sans prose prose-invert">
       {{ if $p.Truncated }}
         {{ $more := printf ` <a class="inline" href="%s">…</a>` $p.RelPermalink }}
         {{ $summary := replaceRE `</p>\s*$` (printf `%s</p>` $more) . }}

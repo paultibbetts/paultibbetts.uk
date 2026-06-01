@@ -15,7 +15,7 @@
           title="photo of Paul Tibbetts"
         />
       </div>
-      <div class="mb text-white md:flex md:gap-8">
+      <div class="mb text-foreground md:flex md:gap-8">
         <div>
           <p class="mb-2">I'm Paul 👋</p>
           <p class="mb-2">Software engineer based in the UK.</p>
@@ -29,49 +29,53 @@
     <div class="mb-6" id="links">
       <div class="lowercase">
         <h2 class="mb-2 hidden">Elsewhere:</h2>
-        <ul class="list-none flex gap-2">
+        <ul class="list-none flex items-center gap-2">
           <li class="mb-2 inline">
-            <a rel="me atproto" href="https://bsky.app/profile/paultibbetts.uk"
-              ><img
-                src="/icons/bluesky.svg"
-                class="inline"
-                style="height:1rem; width:1rem; filter: invert(1);"
-                alt="Bluesky"
-            /></a>
+            <a
+              rel="me atproto"
+              href="https://bsky.app/profile/paultibbetts.uk"
+              class="social-link"
+              aria-label="Bluesky"
+            >
+              <span class="social-icon" style="--social-icon: url('/icons/bluesky.svg')"></span>
+            </a>
           </li>
           <li class="mb-2 inline">
-            <a rel="me" href="https://github.com/paultibbetts"
-              ><img
-                src="/icons/github.svg"
-                class="inline"
-                style="height: 1rem; width: 1rem; filter: invert(1);"
-                alt="GitHub"
-            /></a>
+            <a
+              rel="me"
+              href="https://github.com/paultibbetts"
+              class="social-link"
+              aria-label="GitHub"
+            >
+              <span class="social-icon" style="--social-icon: url('/icons/github.svg')"></span>
+            </a>
           </li>
           <li class="mb-2 inline">
-            <a rel="me" href="https://indieweb.social/@paultibbetts"
-              ><img
-                src="/icons/mastodon.svg"
-                class="inline"
-                style="height: 1rem; width: 1rem;filter: invert(1);"
-                alt="Mastodon"
-            /></a>
+            <a
+              rel="me"
+              href="https://indieweb.social/@paultibbetts"
+              class="social-link"
+              aria-label="Mastodon"
+            >
+              <span class="social-icon" style="--social-icon: url('/icons/mastodon.svg')"></span>
+            </a>
           </li>
           <li class="mb-2 inline">
-            <a rel="me" href="https://micro.blog/paultibbetts"
-              ><img
-                src="/icons/micro.blog.svg"
-                class="inline"
-                style="height: 1rem; width: 1rem; filter: invert(1);"
-                alt="Micro.blog"
-            /></a>
+            <a
+              rel="me"
+              href="https://micro.blog/paultibbetts"
+              class="social-link"
+              aria-label="Micro.blog"
+            >
+              <span class="social-icon" style="--social-icon: url('/icons/micro.blog.svg')"></span>
+            </a>
           </li>
-          <li>
+          <li class="mb-2 inline">
             <a href="feed.xml">
               <img
                 src="/icons/rss.svg"
                 alt="RSS feed"
-                style="display: inline; height: 1rem; width: 1rem"
+                style="display: block; height: 1rem; width: 1rem"
               />
             </a>
           </li>
@@ -81,7 +85,7 @@
 
     <div class="mb-4 relative" id="pages">
       <nav aria-labelledby="pages-nav-heading">
-        <h2 id="pages-nav-heading" class="mb-2 text-orange lg:absolute -left-15 top-0">Pages</h2>
+        <h2 id="pages-nav-heading" class="mb-2 text-accent lg:absolute -left-15 top-0">Pages</h2>
         <div class="mb-2">
           {{ partial "pages.html" . }}
         </div>
@@ -90,7 +94,7 @@
 
     <div class="mb-4 relative" id="posts">
       <nav aria-labelledby="posts-nav-heading">
-        <h2 id="posts-nav-heading" class="mb-2 text-orange lg:absolute -left-15 top-0">Posts</h2>
+        <h2 id="posts-nav-heading" class="mb-2 text-accent lg:absolute -left-15 top-0">Posts</h2>
         <div class="mb-2">
           {{ partial "post-pages.html" (dict "page" . "include_post_kinds" false) }}
         </div>
@@ -106,7 +110,7 @@
 
     {{ if gt (len $featured) 0 }}
       <div id="featured" class="mb-2 relative">
-        <h2 class="mb-2 text-orange lg:absolute -left-22 -top-1">Featured</h2>
+        <h2 class="mb-2 text-accent lg:absolute -left-22 -top-1">Featured</h2>
         <div class="mb-2">
           {{ partial "grouped-list-by-day.html" (dict "Pages" $featured) }}
         </div>
@@ -115,7 +119,7 @@
 
 
     <div id="recent" class="mb-2 relative">
-      <h2 class="mb-2 text-orange lg:absolute -left-18 -top-1">Recent</h2>
+      <h2 class="mb-2 text-accent lg:absolute -left-18 -top-1">Recent</h2>
       <div class="h-feed hfeed mb-20">
         <h1 class="p-name hidden">Recent posts</h1>
         <a href="{{ .RelPermalink }}" class="u-url u-uid hidden">{{ .Site.Title }}</a>

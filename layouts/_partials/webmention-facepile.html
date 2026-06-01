@@ -52,6 +52,6 @@
     </span>
   {{- end -}}
   {{- if gt (len $mentions) (len $selected) -}}
-    <span class="text-xs color-steel">+{{ sub (len $mentions) (len $selected) }}</span>
+    <span class="text-xs text-muted">+{{ sub (len $mentions) (len $selected) }}</span>
   {{- end -}}
 </span>

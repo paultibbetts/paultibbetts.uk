@@ -1,8 +1,8 @@
 {{ define "main" }}
   {{- if .Title }}
-    <h1 class="mb-4 text-3xl text-orange">{{ .Title }}</h1>
+    <h1 class="mb-4 text-3xl text-accent">{{ .Title }}</h1>
   {{- end }}
-  <div class="prose prose-invert text-light font-sans">
+  <div class="prose prose-invert text-foreground font-sans">
     {{ .Content }}
 
     {{ $pages := .RegularPages.ByTitle }}

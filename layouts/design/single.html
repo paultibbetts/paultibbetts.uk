@@ -1,0 +1,330 @@
+{{ define "main" }}
+  <article class="mb-20">
+    <header class="mb-8">
+      <h1 class="mb-4 text-3xl text-accent">{{ .Title }}</h1>
+      <p class="text-foreground">
+        A public reference for the colours, typography, components, and content patterns used across
+        this site.
+      </p>
+    </header>
+
+    <section class="mb-16">
+      <h2 class="mb-4 text-accent text-lg">Palette Tokens</h2>
+      {{- $paletteColors := slice
+        (dict "name" "paper" "value" "#f8f8f2")
+        (dict "name" "steel" "value" "#9ca3af")
+        (dict "name" "slate" "value" "#44475a")
+        (dict "name" "graphite" "value" "#5d6371")
+        (dict "name" "mist" "value" "#e4e5ee")
+        (dict "name" "ink" "value" "#181818")
+        (dict "name" "midnight" "value" "#282a36")
+        (dict "name" "ember" "value" "#ffb86c")
+        (dict "name" "burnt ember" "value" "#a75a08")
+        (dict "name" "purple" "value" "#bd93f9")
+        (dict "name" "red" "value" "#ff5555")
+        (dict "name" "blue" "value" "#6272a4")
+      -}}
+      <ul class="list-none grid min-[700px]:grid-cols-2 gap-3">
+        {{- range $paletteColors }}
+          {{- $class := .class | default (.name | urlize) -}}
+          <li class="border border-border rounded px-3 py-3">
+            <span class="design-swatch design-swatch-{{ $class }} border border-border"></span>
+            <span class="ml-2 text-foreground">{{ .name }}</span>
+            <code class="ml-2 text-muted">{{ .value }}</code>
+          </li>
+        {{- end }}
+      </ul>
+    </section>
+
+    <section class="mb-16">
+      <h2 class="mb-4 text-accent text-lg">Theme Modes</h2>
+      <div class="prose prose-invert text-foreground font-sans max-w-none mb-6">
+        <p>
+          The palette is shared between light and dark modes. Each mode assigns those colours to
+          page backgrounds, text, borders, surfaces, and accents.
+        </p>
+      </div>
+
+      <div class="grid min-[700px]:grid-cols-2 gap-4">
+        <div class="theme-sample theme-sample-light border border-border rounded px-4 py-3">
+          <h3 class="mb-3 text-accent">Light</h3>
+          <dl class="text-sm">
+            <dt class="text-muted">colour scheme</dt>
+            <dd class="mb-2 text-foreground"><code>light</code></dd>
+            <dt class="text-muted">background</dt>
+            <dd class="mb-2 text-foreground inline-flex items-center gap-2">
+              <span class="design-swatch design-swatch-background border border-border"></span>
+              <span>paper</span>
+            </dd>
+            <dt class="text-muted">body text</dt>
+            <dd class="mb-2 text-foreground inline-flex items-center gap-2">
+              <span class="design-swatch design-swatch-foreground border border-border"></span>
+              <span>ink</span>
+            </dd>
+            <dt class="text-muted">muted text</dt>
+            <dd class="mb-2 text-foreground inline-flex items-center gap-2">
+              <span class="design-swatch design-swatch-muted border border-border"></span>
+              <span>graphite</span>
+            </dd>
+            <dt class="text-muted">border</dt>
+            <dd class="mb-2 text-foreground inline-flex items-center gap-2">
+              <span class="design-swatch design-swatch-border border border-border"></span>
+              <span>slate</span>
+            </dd>
+            <dt class="text-muted">surface</dt>
+            <dd class="mb-2 text-foreground inline-flex items-center gap-2">
+              <span class="design-swatch design-swatch-surface border border-border"></span>
+              <span>mist</span>
+            </dd>
+            <dt class="text-muted">primary accent</dt>
+            <dd class="mb-2 text-foreground inline-flex items-center gap-2">
+              <span class="design-swatch design-swatch-accent border border-border"></span>
+              <span>burnt ember</span>
+            </dd>
+          </dl>
+        </div>
+
+        <div class="theme-sample theme-sample-dark border border-border rounded px-4 py-3">
+          <h3 class="mb-3 text-accent">Dark</h3>
+          <dl class="text-sm">
+            <dt class="text-muted">colour scheme</dt>
+            <dd class="mb-2 text-foreground"><code>dark</code></dd>
+            <dt class="text-muted">background</dt>
+            <dd class="mb-2 text-foreground inline-flex items-center gap-2">
+              <span class="design-swatch design-swatch-background border border-border"></span>
+              <span>ink</span>
+            </dd>
+            <dt class="text-muted">body text</dt>
+            <dd class="mb-2 text-foreground inline-flex items-center gap-2">
+              <span class="design-swatch design-swatch-foreground border border-border"></span>
+              <span>paper</span>
+            </dd>
+            <dt class="text-muted">muted text</dt>
+            <dd class="mb-2 text-foreground inline-flex items-center gap-2">
+              <span class="design-swatch design-swatch-muted border border-border"></span>
+              <span>steel</span>
+            </dd>
+            <dt class="text-muted">border</dt>
+            <dd class="mb-2 text-foreground inline-flex items-center gap-2">
+              <span class="design-swatch design-swatch-border border border-border"></span>
+              <span>slate</span>
+            </dd>
+            <dt class="text-muted">surface</dt>
+            <dd class="mb-2 text-foreground inline-flex items-center gap-2">
+              <span class="design-swatch design-swatch-surface border border-border"></span>
+              <span>midnight</span>
+            </dd>
+            <dt class="text-muted">primary accent</dt>
+            <dd class="mb-2 text-foreground inline-flex items-center gap-2">
+              <span class="design-swatch design-swatch-accent border border-border"></span>
+              <span>ember</span>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-16">
+      <h2 class="mb-4 text-accent text-lg">Theme Comparison</h2>
+      <div class="grid min-[700px]:grid-cols-2 gap-4">
+        {{- range slice
+          (dict "label" "Light component" "class" "theme-sample-light")
+          (dict "label" "Dark component" "class" "theme-sample-dark")
+        }}
+          <div class="theme-sample {{ .class }} border border-border rounded px-4 py-3">
+            <h3 class="mb-2 text-accent">{{ .label }}</h3>
+            <p class="mb-2">
+              Body text sits on the page background with the primary accent above it.
+            </p>
+            <p class="text-muted">
+              Muted text recedes from the main copy, while borders describe the surrounding chrome.
+            </p>
+          </div>
+        {{- end }}
+      </div>
+    </section>
+
+    <section class="mb-16">
+      <h2 class="mb-4 text-accent text-lg">Typography</h2>
+      <div class="prose prose-invert text-foreground font-sans max-w-none">
+        <h1>Heading One</h1>
+        <p>
+          Long-form prose combines <a href="/design/">regular links</a>,
+          <strong>strong text</strong>, <em>emphasis</em>, and <code>inline code</code> within the
+          same reading texture.
+        </p>
+        <h2>Heading Two</h2>
+        <p>
+          Headings and link underlines carry the ember accent, while paragraphs keep to the
+          foreground colour for sustained reading.
+        </p>
+        <blockquote>
+          <p>
+            Blockquotes use the border colour to separate quoted material from the surrounding body
+            copy.
+          </p>
+        </blockquote>
+        <ul>
+          <li>Unordered list item</li>
+          <li>Another item with <a href="/feed.xml">a feed link</a></li>
+        </ul>
+        <ol>
+          <li>Ordered list item</li>
+          <li>Second ordered item</li>
+        </ol>
+        <pre><code>body {
+  color: var(--color-foreground);
+  background-color: var(--color-background);
+}</code></pre>
+      </div>
+    </section>
+
+    <section class="mb-16">
+      <h2 class="mb-4 text-accent text-lg">Navigation</h2>
+      <div class="mb-4">
+        <h3 class="mb-2 text-accent">Pages</h3>
+        {{ partial "pages.html" . }}
+      </div>
+      <div class="mb-4">
+        <h3 class="mb-2 text-accent">Posts</h3>
+        {{ partial "post-pages.html" (dict "page" . "include_post_kinds" false) }}
+      </div>
+      <div>
+        <h3 class="mb-2 text-accent">Post Kinds</h3>
+        {{ partial "post-kinds.html" (dict "page" .) }}
+      </div>
+    </section>
+
+    <section class="mb-16">
+      <h2 class="mb-4 text-accent text-lg">Social Icons</h2>
+      <ul class="list-none flex items-center gap-2">
+        <li class="mb-2 inline">
+          <a
+            href="https://bsky.app/profile/paultibbetts.uk"
+            class="social-link"
+            aria-label="Bluesky"
+          >
+            <span class="social-icon" style="--social-icon: url('/icons/bluesky.svg')"></span>
+          </a>
+        </li>
+        <li class="mb-2 inline">
+          <a href="https://github.com/paultibbetts" class="social-link" aria-label="GitHub">
+            <span class="social-icon" style="--social-icon: url('/icons/github.svg')"></span>
+          </a>
+        </li>
+        <li class="mb-2 inline">
+          <a href="https://indieweb.social/@paultibbetts" class="social-link" aria-label="Mastodon">
+            <span class="social-icon" style="--social-icon: url('/icons/mastodon.svg')"></span>
+          </a>
+        </li>
+        <li class="mb-2 inline">
+          <a href="https://micro.blog/paultibbetts" class="social-link" aria-label="Micro.blog">
+            <span class="social-icon" style="--social-icon: url('/icons/micro.blog.svg')"></span>
+          </a>
+        </li>
+        <li class="mb-2 inline">
+          <a href="/feed.xml">
+            <img
+              src="/icons/rss.svg"
+              alt="RSS feed"
+              style="display: block; height: 1rem; width: 1rem"
+            />
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="mb-16">
+      <h2 class="mb-4 text-accent text-lg">Post Entries</h2>
+      {{- $sections := slice "articles" "notes" "bookmarks" "likes" "replies" "now" -}}
+      {{- range $sections }}
+        {{- $page := index (first 1 (where site.RegularPages.ByDate.Reverse "Section" .)) 0 -}}
+        {{- with $page }}
+          <div class="mb-12">
+            {{ partial "post/entry.html" (dict "page" . "mode" "list") }}
+          </div>
+        {{- end }}
+      {{- end }}
+    </section>
+
+    <section class="mb-16">
+      <h2 class="mb-4 text-accent text-lg">Media</h2>
+      <h3 class="mb-2 text-muted">Image Grid</h3>
+      <div class="not-prose image-grid">
+        <img src="/icon.png" alt="Paul Tibbetts site icon" class="rounded border border-border" />
+        <img
+          src="/apple-touch-icon.png"
+          alt="Paul Tibbetts touch icon"
+          class="rounded border border-border"
+        />
+      </div>
+    </section>
+
+    <section class="mb-16">
+      <h2 class="mb-4 text-accent text-lg">Webmentions</h2>
+      {{- $replyMention := dict
+        "source" "https://example.com/reply"
+        "verified_date" "2026-06-01T12:00:00Z"
+        "wm-property" "in-reply-to"
+        "post" (dict
+        "author" (dict "name" "Example Person" "url" "https://example.com")
+        "content" (dict "text" "A short response with an avatar, author link, timestamp, and body text.")
+        "published" "2026-06-01T12:00:00Z"
+        "url" "https://example.com/reply"
+        )
+      -}}
+      {{- $bookmarkMention := dict
+        "source" "https://example.com/bookmark"
+        "verified_date" "2026-06-01T13:00:00Z"
+        "wm-property" "bookmark-of"
+        "post" (dict
+        "author" (dict "name" "Another Person" "url" "https://example.com/another")
+        "name" "A bookmarked response title"
+        "content" (dict "text" "A short note about why this page was bookmarked.")
+        "published" "2026-06-01T13:00:00Z"
+        "url" "https://example.com/bookmark"
+        )
+        "show_post_name" true
+      -}}
+      {{- $likeMention := dict
+        "source" "https://example.com/like"
+        "verified_date" "2026-06-01T14:00:00Z"
+        "wm-property" "like-of"
+        "post" (dict
+        "author" (dict "name" "Third Person" "url" "https://example.com/third")
+        "published" "2026-06-01T14:00:00Z"
+        "url" "https://example.com/like"
+        )
+      -}}
+      {{- $replyMentions := slice $replyMention -}}
+      {{- $likeMentions := slice $likeMention -}}
+
+
+      <h3 class="mb-2 text-muted">Grouped Responses</h3>
+      <details class="mb-4" open>
+        <summary>
+          <h3 class="inline">1 Reply</h3>
+          {{ partial "webmention-facepile.html" (dict "mentions" $replyMentions "emoji" "↩️") }}
+        </summary>
+        <ul class="list-none py-2 clear-both">
+          {{ partial "webmention.html" $replyMention }}
+        </ul>
+      </details>
+      <details class="mb-8">
+        <summary>
+          <h3 class="inline">1 Like</h3>
+          {{ partial "webmention-facepile.html" (dict "mentions" $likeMentions "emoji" "❤️") }}
+        </summary>
+        <div class="py-2 clear-both">
+          {{ partial "webmention-reaction.html" (dict "mention" $likeMention "action" "Liked by") }}
+        </div>
+      </details>
+
+      <h3 class="mb-2 text-muted">Individual Mentions</h3>
+      <ul class="list-none">
+        {{ partial "webmention.html" $replyMention }}
+        {{ partial "webmention.html" $bookmarkMention }}
+      </ul>
+    </section>
+  </article>
+{{ end }}
