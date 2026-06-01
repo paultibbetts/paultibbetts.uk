@@ -8,7 +8,6 @@
 {{- end -}}
 {{- if or .IsHome $isArchiveRoot $isFeedRoot -}}
   {{- $feedPage = .Site.Home -}}
-  feed page
 {{- else if $isPostSingle -}}
   {{- if eq .Section "now" -}}
     {{- $feedPage = .Site.GetPage "secton" "now" -}}
