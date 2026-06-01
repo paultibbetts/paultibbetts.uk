@@ -48,9 +48,9 @@
     {{ partial "webmention-image.html" (dict "image_url" . "source_url" $sourceURL "alt" (printf "Image from %s" $authorName)) }}
   {{- end -}}
   {{- with $excerpt -}}
-    <blockquote class="mb-0 border-l-2 border-steel pl-3">
+    <blockquote class="mb-0 border-l-2 border-border pl-3">
       <div class="prose prose-invert max-w-none">
-        <p class="mb-0 text-light">{{ . }}</p>
+        <p class="mb-0 text-foreground">{{ . }}</p>
       </div>
     </blockquote>
   {{- end -}}
