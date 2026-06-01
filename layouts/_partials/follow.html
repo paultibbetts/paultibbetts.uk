@@ -3,15 +3,22 @@
 {{- $isArchiveRoot := eq $path "/archive" -}}
 {{- $isFeedRoot := eq $path "/feed" -}}
 {{- $feedPostSections := .Site.Params.feed_post_sections | default slice -}}
-{{- $isPostSingle := and .IsPage (in $feedPostSections .Section) -}}
+{{- $isPostSingle := and .IsPage (or (in $feedPostSections .Section) (eq .Section "now")) -}}
+{{- if eq .Section "now" -}}
+{{- end -}}
 {{- if or .IsHome $isArchiveRoot $isFeedRoot -}}
   {{- $feedPage = .Site.Home -}}
+  feed page
 {{- else if $isPostSingle -}}
-  {{- $feedPage = .Site.Home -}}
-  {{- with .GetTerms "series" -}}
-    {{- with index . 0 -}}
-      {{- $feedPage = . -}}
-    {{- end -}}
+  {{- if eq .Section "now" -}}
+    {{- $feedPage = .Site.GetPage "secton" "now" -}}
+  {{- else -}}
+    {{- $feedPage = .Site.Home -}}
+  {{- end -}}
+{{- end -}}
+{{- with .GetTerms "series" -}}
+  {{- with index . 0 -}}
+    {{- $feedPage = . -}}
   {{- end -}}
 {{- end -}}
 {{- with $feedPage.OutputFormats.Get "rss" -}}
