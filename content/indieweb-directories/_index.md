@@ -1,7 +1,6 @@
 +++
 title = 'indie web directories'
 description = 'a directory of indie web directories'
-show_in_posts_nav = false
 directory_category_order = ['General',]
 not_directory_category_order = ['Aggregators',]
 not_directories_disclaimer = "These sites aren't primarily directories. They might have some kind of directory within them, or another form of navigation, or I haven't worked out where else to put them."
