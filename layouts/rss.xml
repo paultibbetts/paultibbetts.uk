@@ -86,7 +86,7 @@
     {{- if not $itemDescription -}}
       {{- $itemDescription = .Plain | plainify | htmlUnescape | strings.TrimSpace | truncate 280 -}}
     {{- end -}}
-    {{- if eq .Section "indieweb-directories" -}}
+    {{- if in (slice "indieweb-directories" "directory-of-indieweb-directories") .Section -}}
       {{- with .Params.description -}}
         {{- $itemDescription = . | plainify | htmlUnescape | strings.TrimSpace -}}
       {{- end -}}
@@ -168,13 +168,13 @@
       {{- with $likeOf -}}
         {{- $itemLink = . -}}
       {{- end -}}
-    {{- else if eq .Section "indieweb-directories" -}}
+    {{- else if in (slice "indieweb-directories" "directory-of-indieweb-directories") .Section -}}
       {{- with .Params.link -}}
         {{- $itemLink = . -}}
       {{- end -}}
     {{- end -}}
     {{- $itemContentHTML := .Content | strings.TrimSpace -}}
-    {{- if and (eq .Section "indieweb-directories") (not $itemContentHTML) -}}
+    {{- if and (in (slice "indieweb-directories" "directory-of-indieweb-directories") .Section) (not $itemContentHTML) -}}
       {{- $entryContentParts := slice -}}
       {{- with .Params.description -}}
         {{- $entryContentParts = $entryContentParts | append (printf "<p>%s</p>" (. | htmlEscape)) -}}
