@@ -1,32 +1,27 @@
-{{- $feedPage := . -}}
-{{- $path := replaceRE "/$" "" .RelPermalink -}}
-{{- $isArchiveRoot := eq $path "/archive" -}}
-{{- $isFeedRoot := eq $path "/feed" -}}
-{{- $feedPostSections := .Site.Params.feed_post_sections | default slice -}}
-{{- $isPostSingle := and .IsPage (or (in $feedPostSections .Section) (eq .Section "now")) -}}
-{{- if eq .Section "now" -}}
-{{- end -}}
-{{- if or .IsHome $isArchiveRoot $isFeedRoot -}}
-  {{- $feedPage = .Site.Home -}}
-{{- else if $isPostSingle -}}
-  {{- if eq .Section "now" -}}
-    {{- $feedPage = .Site.GetPage "secton" "now" -}}
-  {{- else -}}
-    {{- $feedPage = .Site.Home -}}
+{{- $feeds := partial "rss-feed-pages.html" . -}}
+{{- $rssFeeds := slice -}}
+{{- range $feeds -}}
+  {{- with .OutputFormats.Get "rss" -}}
+    {{- $rssFeeds = $rssFeeds | append . -}}
   {{- end -}}
 {{- end -}}
-{{- with .GetTerms "series" -}}
-  {{- with index . 0 -}}
-    {{- $feedPage = . -}}
-  {{- end -}}
-{{- end -}}
-{{- with $feedPage.OutputFormats.Get "rss" -}}
+{{- with $rssFeeds -}}
   <div class="lowercase mt-8 text-sm mb-8">
-    <h2 class="mb-2">Followable</h2>
-    <div class="mb-2">
-      {{- $label := replace .RelPermalink "feed.xml" "feed.rss" -}}
-      <a href="{{ .RelPermalink }}">{{ $label }}</a>
-      <img src="/icons/rss.svg" alt="RSS icon" style="display: inline; height: 1rem; width: 1rem" />
-    </div>
+    <details>
+      <summary>Followable</summary>
+      <ul class="mb-2 list-none p-0">
+        {{- range . }}
+          <li class="mb-1">
+            {{- $label := replace .RelPermalink "feed.xml" "feed.rss" -}}
+            <a href="{{ .RelPermalink }}">{{ $label }}</a>
+            <img
+              src="/icons/rss.svg"
+              alt="RSS icon"
+              style="display: inline; height: 1rem; width: 1rem"
+            />
+          </li>
+        {{- end }}
+      </ul>
+    </details>
   </div>
 {{- end -}}
