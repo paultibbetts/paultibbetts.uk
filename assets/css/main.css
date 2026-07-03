@@ -256,14 +256,8 @@ footer a {
       @apply block w-full h-auto rounded-lg;
     }
 
-    &
-      :where(blockquote p:first-of-type):not(
-        :where([class~="not-prose"], [class~="not-prose"] *)
-      )::before,
-    &
-      :where(blockquote p:last-of-type):not(
-        :where([class~="not-prose"], [class~="not-prose"] *)
-      )::after {
+    & :where(blockquote p:first-of-type):not( :where([class~="not-prose"], [class~="not-prose"] *))::before,
+    & :where(blockquote p:last-of-type):not( :where([class~="not-prose"], [class~="not-prose"] *))::after {
       content: none;
     }
   }
@@ -305,7 +299,6 @@ footer a {
   color: var(--color-muted);
   text-decoration: none;
   display: inline-block;
-  padding: 1rem 0 1rem 1rem;
 }
 
 .nav-thing:after {
@@ -428,7 +421,7 @@ footer a {
   text-shadow: none;
 }
 
-#webmention-widget .comments li > a.reaction {
+#webmention-widget .comments li>a.reaction {
   grid-column: 1;
   grid-row: 1;
   align-self: start;
@@ -476,4 +469,78 @@ s,
 del {
   text-decoration-line: line-through;
   text-decoration-thickness: 2px;
+}
+
+.fireboard-archive {
+  @apply my-8 rounded border border-border p-4 text-sm;
+  background-color: var(--color-surface);
+}
+
+.fireboard-archive-header {
+  @apply mb-4 flex flex-col gap-4 md:flex-row md:items-start md:justify-between;
+}
+
+.fireboard-archive h2 {
+  @apply m-0 text-lg text-accent;
+}
+
+.fireboard-archive dl {
+  @apply m-0 grid grid-cols-3 gap-3;
+}
+
+.fireboard-archive dt {
+  @apply text-xs text-muted;
+}
+
+.fireboard-archive dd {
+  @apply m-0 text-foreground;
+}
+
+.fireboard-archive figure {
+  @apply m-0;
+}
+
+.fireboard-archive-chart {
+  @apply block h-auto w-full overflow-visible;
+}
+
+.fireboard-archive-grid {
+  stroke: var(--color-border);
+  stroke-width: 1;
+}
+
+.fireboard-archive-axis {
+  fill: var(--color-muted);
+  font-size: 12px;
+}
+
+.fireboard-archive-line {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.5;
+}
+
+.fireboard-archive figcaption {
+  @apply mt-2 flex flex-wrap gap-x-4 gap-y-2 text-xs text-muted;
+}
+
+.fireboard-archive-swatch {
+  @apply mr-1 inline-block h-2 w-2;
+}
+
+.fireboard-archive table {
+  @apply mt-4 w-full border-collapse text-left;
+}
+
+.fireboard-archive th,
+.fireboard-archive td {
+  @apply border-t border-border px-2 py-1;
+}
+
+.fireboard-archive th {
+  @apply text-muted;
+}
+
+.fireboard-archive p {
+  @apply mb-0 mt-4;
 }

@@ -1,11 +1,15 @@
 {{- $p := .page -}}
 {{- $timeLabel := $p.Date.Format "3:04pm" -}}
+{{- $showSingleDate := and (eq (.mode | default "list") "single") (not $p.Title) -}}
 <footer class="text-sm">
   <div class="hidden">
     {{ partial "post/author.html" }}
   </div>
-  <div class="mb-2 flex justify-end">
+  <div class="mb-2 flex justify-end gap-2">
     <a href="{{ $p.RelPermalink }}" class="text-muted">
+      {{- if $showSingleDate }}
+        {{ partial "date_with_ordinal_day.html" $p.Date }}
+      {{- end }}
       <time datetime="{{ $p.Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ $timeLabel }}</time>
     </a>
   </div>

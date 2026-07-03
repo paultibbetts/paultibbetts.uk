@@ -1,0 +1,4 @@
+{{- $p := .page -}}
+{{- $statusLabel := partial "cooks/status.html" $p -}}
+
+{{ partial "post/body/note-like.html" (merge . (dict "titlePrefix" $statusLabel)) }}

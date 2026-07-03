@@ -1,0 +1,94 @@
+{{- $file := .Get "data" | default "fireboard.json" -}}
+{{- $title := .Get "title" | default .Page.Title -}}
+{{- $titleID := printf "fireboard-archive-title-%d" .Ordinal -}}
+{{- with .Page.Resources.GetMatch $file -}}
+  {{- $archive := . | transform.Unmarshal -}}
+  {{- $csv := $.Page.Resources.GetMatch $archive.csv -}}
+  <section class="fireboard-archive not-prose max-w-none">
+    <div class="fireboard-archive-header">
+      <h2>{{ $title }}</h2>
+      <dl style="display: flex">
+        <div>
+          <dt>Duration</dt>
+          <dd>{{ $archive.summary.duration }}</dd>
+        </div>
+        <div>
+          <dt>Time</dt>
+          <dd>{{ $archive.summary.startLabel }}-{{ $archive.summary.endLabel }}</dd>
+        </div>
+      </dl>
+    </div>
+
+    <figure>
+      <svg
+        aria-labelledby="{{ $titleID }}"
+        class="fireboard-archive-chart"
+        role="img"
+        viewBox="0 0 {{ $archive.chart.width }} {{ $archive.chart.height }}"
+      >
+        <title id="{{ $titleID }}">{{ $title }}</title>
+        {{- range $archive.chart.yTicks }}
+          <line
+            class="fireboard-archive-grid"
+            x1="{{ $archive.chart.paddingLeft }}"
+            x2="{{ sub $archive.chart.width $archive.chart.paddingRight }}"
+            y1="{{ .y }}"
+            y2="{{ .y }}"
+          />
+          <text class="fireboard-archive-axis" x="0" y="{{ add .y 4 }}">{{ .label }}</text>
+        {{- end }}
+        {{- range $archive.chart.xTicks }}
+          <text
+            class="fireboard-archive-axis"
+            text-anchor="middle"
+            x="{{ .x }}"
+            y="{{ sub $archive.chart.height 8 }}"
+          >
+            {{ .label }}
+          </text>
+        {{- end }}
+        {{- range $archive.chart.series }}
+          <polyline
+            class="fireboard-archive-line"
+            fill="none"
+            points="{{ .points }}"
+            stroke="{{ .color }}"
+          />
+        {{- end }}
+      </svg>
+      <figcaption>
+        {{- range $archive.chart.series }}
+          <span>
+            <span class="fireboard-archive-swatch" style="background-color: {{ .color }}"></span>
+            {{ .name }}
+          </span>
+        {{- end }}
+      </figcaption>
+    </figure>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Probe</th>
+          <th>First</th>
+          <th>Last</th>
+          <th>Min</th>
+          <th>Max</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{- range $archive.channels }}
+          <tr>
+            <th>{{ .name }}</th>
+            <td>{{ .first }}C</td>
+            <td>{{ .last }}C</td>
+            <td>{{ .min }}C</td>
+            <td>{{ .max }}C</td>
+          </tr>
+        {{- end }}
+      </tbody>
+    </table>
+  </section>
+{{- else -}}
+  {{- errorf "FireBoard archive data %q not found for %s" $file .Page.File.Path -}}
+{{- end -}}
