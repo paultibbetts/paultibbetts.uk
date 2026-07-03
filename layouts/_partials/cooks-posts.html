@@ -1,0 +1,3 @@
+{{- $posts := where .Site.RegularPages "Section" "cooks" -}}
+{{- $posts = where $posts "Kind" "page" -}}
+{{- return ($posts.ByDate.Reverse) -}}

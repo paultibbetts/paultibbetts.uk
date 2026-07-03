@@ -91,7 +91,7 @@
         {{- $itemDescription = . | plainify | htmlUnescape | strings.TrimSpace -}}
       {{- end -}}
     {{- end -}}
-    {{- $itemTitle := .Title -}}
+    {{- $itemTitle := partial "post/display-title.html" . -}}
     {{- if eq $itemKind "note" -}}
       {{- $itemTitle = .Plain | plainify | htmlUnescape | replaceRE `\s+` ` ` | strings.TrimSpace | truncate 80 -}}
     {{- else if eq $itemKind "like" -}}

@@ -1,0 +1,14 @@
+{{- $p := . -}}
+{{- $status := lower ($p.Params.cook_status | default "") -}}
+{{- if eq $status "live" -}}
+  {{- $status = "cooking" -}}
+{{- else if eq $status "done" -}}
+  {{- $status = "cooked" -}}
+{{- end -}}
+{{- $label := "" -}}
+{{- if eq $status "cooking" -}}
+  {{- $label = "Cooking" -}}
+{{- else if eq $status "cooked" -}}
+  {{- $label = "Cooked" -}}
+{{- end -}}
+{{- return $label -}}

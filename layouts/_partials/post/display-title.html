@@ -1,0 +1,12 @@
+{{- $p := . -}}
+{{- $title := $p.Title -}}
+{{- if eq (partial "post/kind.html" $p) "cook" -}}
+  {{- with partial "cooks/status.html" $p -}}
+    {{- if $title -}}
+      {{- $title = printf "%s %s" . $title -}}
+    {{- else -}}
+      {{- $title = . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $title -}}

@@ -34,9 +34,9 @@ capitalizeListTitles = false
   # "Site images" list used by the built-in Open Graph partial.
 	images = [ '/apple-touch-icon.png' ]
   # Sections treated as post streams (home/feed/year/archive views).
-  post_sections = [ 'articles', 'bookmarks', 'likes', 'notes', 'replies', 'rsvps' ]
+  post_sections = [ 'articles', 'bookmarks', 'cooks', 'likes', 'notes', 'replies', 'rsvps' ]
   # Sections used by the alternate /feed h-feed.
-  feed_post_sections = [ 'articles', 'bookmarks', 'likes', 'notes', 'replies', 'rsvps' ]
+  feed_post_sections = [ 'articles', 'bookmarks', 'cooks', 'likes', 'notes', 'replies', 'rsvps' ]
   # Sections used by /links.
   links_post_sections = [ 'bookmarks', 'likes' ]
   # Sections used by /writing.

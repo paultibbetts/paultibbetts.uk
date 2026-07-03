@@ -1,0 +1,47 @@
+{{- $p := .page -}}
+{{- $mode := .mode | default "list" -}}
+{{- $titlePrefix := .titlePrefix | default "" -}}
+
+{{- if and $p.Title (eq $mode "single") }}
+  <h1 class="p-name mb-4 text-3xl text-accent">
+    {{- with $titlePrefix }}<span class="p-category">{{ . }}</span> {{ end -}}{{ $p.Title }}
+  </h1>
+  {{ if $p.Date }}
+    <div class="mb-8">
+      <time
+        class="no-underline text-muted"
+        datetime="{{ $p.Date.Format "2006-01-02T15:04:05Z07:00" }}"
+      >
+        {{ partial "date_with_ordinal_day.html" $p.Date }}
+      </time>
+    </div>
+  {{ end }}
+{{- else if and $p.Title (eq $mode "list") }}
+  <h2 class="mb-4 text-lg text-accent">
+    <a class="p-name u-url text-muted" href="{{ $p.RelPermalink }}">
+      {{- with $titlePrefix }}<span class="p-category">{{ . }}</span> {{ end -}}{{ $p.Title }}
+    </a>
+  </h2>
+{{- end }}
+
+{{- if eq $mode "single" }}
+  <div class="e-content prose text-foreground font-sans mb-8">
+    {{ $p.Content }}
+  </div>
+{{- else }}
+  {{- if and $p.Truncated $p.Summary }}
+    <div class="p-summary text-foreground mb-4 font-sans prose">
+      {{ $more := printf ` <a class="inline" href="%s">…</a>` $p.RelPermalink }}
+      {{ $summary := replaceRE `</p>\s*$` (printf `%s</p>` $more) $p.Summary }}
+      {{ if eq $summary $p.Summary }}
+        {{ $p.Summary | safeHTML }}{{ $more | safeHTML }}
+      {{ else }}
+        {{ $summary | safeHTML }}
+      {{ end }}
+    </div>
+  {{- else }}
+    <div class="e-content prose text-foreground font-sans mb-8">
+      {{ $p.Content }}
+    </div>
+  {{- end }}
+{{- end }}

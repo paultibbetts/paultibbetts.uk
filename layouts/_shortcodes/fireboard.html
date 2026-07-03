@@ -1,0 +1,15 @@
+<div class="fireboard-embed not-prose max-w-none">
+  <iframe
+    src="{{ .Get "url" }}"
+    width="100%"
+    height="{{ default "700" (.Get "height") }}"
+    style="border: 0; border-radius: 8px;"
+    loading="lazy"
+    title="{{ default "Live FireBoard cook" (.Get "title") }}"
+  >
+  </iframe>
+</div>
+
+<p>
+  <a href="{{ .Get "url" }}" rel="noopener" target="_blank">View on Fireboard.io</a>
+</p>
