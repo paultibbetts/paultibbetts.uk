@@ -44,7 +44,12 @@
     {{- if .Params.date_scope -}}
       <meta name="robots" content="noindex" />
     {{- end -}}
-    {{- with .OutputFormats.Get "rss" -}}
+    {{- $rssOutput := .OutputFormats.Get "rss" -}}
+    {{- if and .IsPage (eq .Section "cooks") -}}
+      {{- $rssFeedPage := partial "rss-feed-page.html" . -}}
+      {{- $rssOutput = $rssFeedPage.OutputFormats.Get "rss" -}}
+    {{- end -}}
+    {{- with $rssOutput -}}
       {{- printf `
         <link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML
       -}}
