@@ -1,0 +1,11 @@
+.DS_Store
+.env
+.env.*
+.hugo_cache
+.hugo_build.lock
+.ready-tmux
+node_modules
+public
+resources/_gen
+coverage
+npm-debug.log*
