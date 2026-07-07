@@ -8,5 +8,3 @@ tags = []
 
 {{< fireboard-archive >}}
 
-Test
-
