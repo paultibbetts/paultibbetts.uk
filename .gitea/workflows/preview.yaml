@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - feat/cooks
+      - feat/name-as-title
+      - feat/projects
     tags-ignore:
       - "*"
   delete:
