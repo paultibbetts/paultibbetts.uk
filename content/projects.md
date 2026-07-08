@@ -47,7 +47,7 @@ Hacker News client built in React, with dark mode support and unread links highl
 
 ### IndieWebify.me SlimPHP migration
 
-I'm working on migrating IndieWebify.me from the Silex framework to SlimPHP, since Silex is no longer supported.
+I'm working on migrating [IndieWebify.me](https://indiewebify.me/) from the Silex framework to SlimPHP, since Silex is no longer supported.
 
 More details on this soon.
 
