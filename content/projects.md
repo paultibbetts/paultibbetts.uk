@@ -45,6 +45,16 @@ Hacker News client built in React, with dark mode support and unread links highl
 
 ## Code
 
+### IndieWebify.me SlimPHP migration
+
+I'm working on migrating IndieWebify.me from the Silex framework to SlimPHP, since Silex is no longer supported.
+
+More details on this soon.
+
+[Code](https://github.com/paultibbetts/indiewebify-me/tree/feat/h-entry-validator) [Preview](https://indiewebify-me-h-entry-validator.preview.lab.paultibbetts.uk)
+
+<span class="text-muted">#PHP</span> <span class="text-muted">#IndieWeb</span> <span class="text-muted">#Microformats</span>
+
 ### [terraform-provider-mythicbeasts](https://registry.terraform.io/providers/paultibbetts/mythicbeasts/latest/docs)
 
 A Terraform provider for Mythic Beasts - which I use to [host my site on a Raspberry Pi](/2026/02/19/moved-my-website-from-github-pages-to-a-raspberry-pi/).
