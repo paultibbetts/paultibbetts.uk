@@ -13,13 +13,15 @@ show_in_pages_nav = true
 
 My website is my favourite project.
 
+Built with Hugo, uses a custom theme made with TailwindCSS, hosted on a Raspberry Pi.
+
 [Code](https://github.com/paultibbetts/paultibbetts.uk) [Posts](/tags/meta)
 
 <span class="text-muted">#Hugo</span> <span class="text-muted">#TailwindCSS</span>
 
 ### [infra.paultibbetts.uk](infra.paultibbetts.uk)
 
-Documentation that explains how I use code to configure the infrastructure for my website.
+Documentation for how I use code to configure the infrastructure for my website.
 
 [Code](https://github.com/paultibbetts/infra.paultibbetts.uk)
 
