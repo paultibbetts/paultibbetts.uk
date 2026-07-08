@@ -2,6 +2,8 @@
 title = "Follow"
 page_title = "Follow Paul Tibbetts?"
 type = "page"
+show_in_pages_nav = true
+show_in_posts_nav = false
 +++
 
 You can follow my blog with [RSS](https://aboutfeeds.com).

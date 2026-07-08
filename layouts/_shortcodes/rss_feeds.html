@@ -1,0 +1,33 @@
+<div>
+  {{ $sorted := sort site.Taxonomies.tags ".Count" "desc" }}
+
+
+  <h3 class="mb-2">Feeds</h3>
+  <ul class="mb-3">
+    <li><a href="/feed.xml">All posts</a></li>
+    <li><a href="/writing/feed.xml">Writing (articles + notes)</a></li>
+    <li><a href="/links/feed.xml">Links (bookmarks + likes)</a></li>
+  </ul>
+
+  <h3 class="mb-2">Post kinds</h3>
+  <ul class="mb-3">
+    <li><a href="/articles/feed.xml">Articles</a></li>
+    <li><a href="/bookmarks/feed.xml">Bookmarks</a></li>
+    <li><a href="/likes/feed.xml">Likes</a></li>
+    <li><a href="/notes/feed.xml">Notes</a></li>
+    <li><a href="/replies/feed.xml">Replies</a></li>
+    <li><a href="/rsvps/feed.xml">RSVPs</a></li>
+  </ul>
+
+  <h3 class="mb-1">Tags</h3>
+  <ul>
+    {{ range first 3 $sorted }}
+      <li>
+        <a href="{{ (printf "/tags/%s/feed.xml" .Page.Title | urlize) | relURL }}"
+          >#{{ .Page.Title }}</a
+        >
+      </li>
+    {{ end }}
+  </ul>
+  <p>See <a href="/tags">/tags</a> for more.</p>
+</div>

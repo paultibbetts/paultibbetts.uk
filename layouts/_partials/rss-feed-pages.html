@@ -1,0 +1,41 @@
+{{- $page := . -}}
+{{- $feeds := slice -}}
+{{- $path := replaceRE "/$" "" $page.RelPermalink -}}
+{{- $isArchiveRoot := eq $path "/archive" -}}
+{{- $isFeedRoot := eq $path "/feed" -}}
+{{- $postSections := $page.Site.Params.post_sections | default slice -}}
+{{- $writingSections := $page.Site.Params.writing_post_sections | default slice -}}
+{{- $linkSections := $page.Site.Params.links_post_sections | default slice -}}
+{{- if or $page.IsHome $isArchiveRoot $isFeedRoot -}}
+  {{- $feeds = $feeds | append $page.Site.Home -}}
+{{- else if $page.IsPage -}}
+  {{- with $page.GetTerms "series" -}}
+    {{- range . -}}
+      {{- $feeds = $feeds | append . -}}
+    {{- end -}}
+  {{- end -}}
+  {{- with $page.Site.GetPage "section" $page.Section -}}
+    {{- $feeds = $feeds | append . -}}
+  {{- end -}}
+  {{- if in $writingSections $page.Section -}}
+    {{- with $page.Site.GetPage "section" "writing" -}}
+      {{- $feeds = $feeds | append . -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if in $linkSections $page.Section -}}
+    {{- with $page.Site.GetPage "section" "links" -}}
+      {{- $feeds = $feeds | append . -}}
+    {{- end -}}
+  {{- end -}}
+  {{- with $page.GetTerms "tags" -}}
+    {{- range . -}}
+      {{- $feeds = $feeds | append . -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if in $postSections $page.Section -}}
+    {{- $feeds = $feeds | append $page.Site.Home -}}
+  {{- end -}}
+{{- else -}}
+  {{- $feeds = $feeds | append $page -}}
+{{- end -}}
+{{- return ($feeds | uniq) -}}

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Usage:
+#   ./bin/new/rsvp "https://example.com/event"
+#   ./bin/new/rsvp "https://example.com/event" "Optional Event Name Override"
+
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+repo_root="$(cd "$script_dir/../.." && pwd)"
+
+exec "$repo_root/scripts/new-rsvp.sh" "$@"

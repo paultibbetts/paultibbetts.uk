@@ -10,7 +10,7 @@ My Homelab has hit its first milestone 🚀
 
 ## Cloud
 
-The biggest problem with my homelab was that I kept breaking it. 
+The biggest problem with my homelab was that I kept breaking it.
 
 I couldn't get used to using [mealie](https://mealie.io/) as a meal planner because I would go to use it and it didn't work. Or it did, but I couldn't connect to it properly. Or something else went wrong.
 
@@ -38,7 +38,7 @@ The TrueNAS devs thought the same thing and took out Kubernetes and replaced it 
 - **object storage** via [MinIO](https://min.io) installed as a Docker container
 - **backups** for virtual machines via [Proxmox Backup Server](https://www.proxmox.com/en/products/proxmox-backup-server/overview)
 
-and **nothing else**. 
+and **nothing else**.
 
 I just want it to do network attached storage, and I don't want to mess with it.
 
@@ -86,7 +86,7 @@ The last part of my "cloud" is the Raspberry Pi 4 I have on my desk.
 
 (I named it before I heard about the company with the same name)
 
-I had future plans for it, since it's sat on my desk, so I installed the desktop version of Ubuntu and hooked it up to my second screen. 
+I had future plans for it, since it's sat on my desk, so I installed the desktop version of Ubuntu and hooked it up to my second screen.
 
 Then I installed [Uptime Kuma]() on it to monitor all my services and apps.
 
@@ -100,6 +100,6 @@ I've been looking for a good excuse to buy a Raspberry Pi 5 but technically this
 
 Now that the stable self-hosted part is out of the way I'm going to leave it alone and use something else for the new ideas.
 
-My Turing Pi 2.5 has finally arrived, along with its case, 3 x [RK1](https://turingpi.com/product/turing-rk1/?attribute_ram=8+GB) compute modules and 3 x 1 TB  NVME drives. I'm planning on using it as a cluster to run Kubernetes and potentially host my own website, but we'll see about that.
+My Turing Pi 2.5 has finally arrived, along with its case, 3 x [RK1](https://turingpi.com/product/turing-rk1/?attribute_ram=8+GB) compute modules and 3 x 1 TB NVME drives. I'm planning on using it as a cluster to run Kubernetes and potentially host my own website, but we'll see about that.
 
 Right now it's on the bench in the lab.

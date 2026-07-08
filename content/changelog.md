@@ -1,9 +1,37 @@
 +++
 title = "Changelog"
 type = "page"
+show_in_pages_nav = true
 +++
 
-Some things never change. My website does.
+Some things never change.
+
+My website does.
+
+## 2026-04-16
+
+- [`c22aaf1`](https://github.com/paultibbetts/paultibbetts.uk/commit/c22aaf16b04c822da7a1162a85753dd8651bf77a): added [/indieweb-directories](/indieweb-directories) page
+- [`9b6f1b4`](https://github.com/paultibbetts/paultibbetts.uk/commit/9b6f1b4cfc00e5a5207c4bd0cef44427a43d4266): added [/directory-of-indieweb-directories](/directory-of-indieweb-directories) page
+
+Trying to keep track of all the indie web directories I find.
+
+## 2026-03-17
+
+- [`65a0528`](https://github.com/paultibbetts/paultibbetts.uk/commit/65a0528e75fa56cbe81600c05f93ceb67f1a79ac): added support for photos and videos
+
+See [the post](/2026/03/17/added-support-for-photos-and-videos/) for more details. It's a Temporary™ setup until I change to use a CDN.
+
+## 2026-03-04
+
+- [`9993b6f`](https://github.com/paultibbetts/paultibbetts.uk/commit/9993b6fdae626b4b782e338e375c2263a794d934): added [/bookmarks](/bookmarks) page
+- [`7c34d1d`](https://github.com/paultibbetts/paultibbetts.uk/commit/7c34d1d4aee7f61526bdc52741473a66cda44f6a): added [/likes](/likes) page
+- [`e6a3355`](https://github.com/paultibbetts/paultibbetts.uk/commit/e6a3355bec533ddfedf9a7d463ef52a2f4d425f0): added [/links](/links) page
+
+## 2026-03-02
+
+- [`9d652c6`](https://github.com/paultibbetts/paultibbetts.uk/commit/9d652c6776fd8a364d020829fdc95991d2fe630c): added `content:encoded` and `source:markdown` to RSS feeds
+
+These are used by some feed readers to show the full contents of the post.
 
 ## 2026-02-18
 

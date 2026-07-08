@@ -51,4 +51,3 @@ Which means the IndieWeb is more than having your own site, it's a movement, to 
 ## If you agree
 
 [Here's how you can join in](https://indieweb.org/Getting_Started).
-

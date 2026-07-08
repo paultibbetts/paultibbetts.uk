@@ -1,0 +1,60 @@
+{{- $p := .page -}}
+{{- $likeOf := or (index $p.Params "like_of") (or (index $p.Params "likeOf") (index $p.Params "likeof")) -}}
+{{- if not $likeOf -}}
+  {{- errorf "like post %q is missing like_of" $p.File.Path -}}
+{{- end -}}
+{{- $likeLabel := $p.Title | default $likeOf -}}
+{{- $embed := partial "post/embed.html" (dict "url" $likeOf) -}}
+{{- $embedEmoji := "" -}}
+{{- $embedHTML := "" -}}
+{{- with $embed -}}
+  {{- with (index . "emoji") -}}
+    {{- $embedEmoji = . -}}
+  {{- end -}}
+  {{- with (index . "html") -}}
+    {{- $embedHTML = . -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $mode := .mode | default "list" -}}
+{{- if eq $mode "single" }}
+  <div class="mb-4">
+    <p class="text-lg">
+      liked
+      <a class="p-name u-like-of h-cite text-muted" href="{{ $likeOf }}">{{ $likeLabel }}</a>
+      {{- with $embedEmoji }}
+        {{ . }}
+      {{- end }}
+    </p>
+  </div>
+  {{- with $embedHTML }}
+    {{ . }}
+  {{- end }}
+  {{- if $p.Content }}
+    <div class="e-content prose text-foreground font-sans mb-8">
+      {{ $p.Content }}
+    </div>
+  {{- end }}
+{{- else -}}
+  <p class="mb-4 text-lg">
+    liked
+    <a class="p-name u-like-of h-cite text-muted" href="{{ $likeOf }}">{{ $likeLabel }}</a>
+    {{- with $embedEmoji }}
+      {{ . }}
+    {{- end }}
+  </p>
+  {{- with $embedHTML }}
+    {{ . }}
+  {{- end }}
+  {{- if $p.Content }}
+    {{- if $p.Truncated }}
+      <div class="p-summary text-foreground mb-4 font-sans prose">
+        {{ $p.Summary }}
+      </div>
+    {{- else }}
+      <div class="e-content prose text-foreground font-sans mb-8">
+        {{ $p.Content }}
+      </div>
+    {{- end }}
+  {{- end }}
+{{- end -}}

@@ -1,13 +1,14 @@
 +++
 title = "IndieMark"
 type = "page"
+show_in_pages_nav = false
 +++
 
 [IndieMark](https://indieweb.org/IndieMark) is an _in-progress_ developer guide that organises the [building blocks](https://indieweb.org/Category:building-blocks) that make up an IndieWeb site.
 
-I currently get **<span class="text-orange">1.2</span>** points.
+I currently get **<span class="text-accent">1.2</span>** points.
 
-<img src="./image.png">
+![IndieMark diagram](./image.png)
 
 ## Level 0
 
@@ -23,7 +24,7 @@ You're looking at it!
 
 ### Identity ✅
 
-You're reading this on my primary domain. 
+You're reading this on my primary domain.
 
 ### Authentication ✅
 
@@ -76,4 +77,3 @@ Apparently I can do this with [Hugo's Related Content](https://gohugo.io/content
 ### Have a UI for searching ❌
 
 Not yet.
-

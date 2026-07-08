@@ -2,6 +2,7 @@
 title = "Elsewhere"
 page_title = "Paul Tibbetts Elsewhere"
 type = "page"
+show_in_pages_nav = true
 +++
 
 - [Bluesky](https://bsky.app/profile/paultibbetts.uk)

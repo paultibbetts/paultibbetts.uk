@@ -1,0 +1,7 @@
+{{- $writingSections := site.Params.writing_post_sections -}}
+{{- if not $writingSections -}}
+  {{- errorf "site.Params.writing_post_sections must be set to the sections included in /writing." -}}
+{{- end -}}
+{{- $posts := where .Site.RegularPages "Section" "in" $writingSections -}}
+{{- $posts = where $posts "Kind" "page" -}}
+{{- return ($posts.ByDate.Reverse) -}}

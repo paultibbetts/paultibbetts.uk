@@ -1,0 +1,27 @@
+{{- $feeds := partial "rss-feed-pages.html" . -}}
+{{- $rssFeeds := slice -}}
+{{- range $feeds -}}
+  {{- with .OutputFormats.Get "rss" -}}
+    {{- $rssFeeds = $rssFeeds | append . -}}
+  {{- end -}}
+{{- end -}}
+{{- with $rssFeeds -}}
+  <div class="lowercase mt-8 text-sm mb-8">
+    <details>
+      <summary>Followable</summary>
+      <ul class="mb-2 list-none p-0">
+        {{- range . }}
+          <li class="mb-1">
+            {{- $label := replace .RelPermalink "feed.xml" "feed.rss" -}}
+            <a href="{{ .RelPermalink }}">{{ $label }}</a>
+            <img
+              src="/icons/rss.svg"
+              alt="RSS icon"
+              style="display: inline; height: 1rem; width: 1rem"
+            />
+          </li>
+        {{- end }}
+      </ul>
+    </details>
+  </div>
+{{- end -}}

@@ -1,6 +1,7 @@
 +++
 title = 'Archive'
 description = 'All posts by Paul Tibbetts'
+show_in_posts_nav = true
 +++
 
 <p class="hidden p-description">All posts by Paul Tibbetts</p>

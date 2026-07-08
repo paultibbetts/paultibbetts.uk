@@ -1,0 +1,225 @@
+name: Preview environment
+
+on:
+  push:
+    branches:
+      - feat/cooks
+      - feat/name-as-title
+      - feat/projects
+    tags-ignore:
+      - "*"
+  delete:
+
+env:
+  APP_NAME: paultibbetts-uk
+  REGISTRY: gitea.cloud.paultibbetts.uk
+  IMAGE: gitea.cloud.paultibbetts.uk/paul/paultibbetts.uk
+  IMAGE_PLATFORMS: linux/amd64,linux/arm64
+  GITOPS_REPO: https://gitea.cloud.paultibbetts.uk/paul/homelab.git
+  PREVIEW_DOMAIN: preview.lab.paultibbetts.uk
+
+jobs:
+  build-and-deploy:
+    if: ${{ github.event_name == 'push' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Derive preview metadata
+        id: meta
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          BRANCH_NAME="${GITHUB_REF_NAME:-${GITEA_REF_NAME:-}}"
+          if [ -z "${BRANCH_NAME}" ]; then
+            BRANCH_NAME="$(git branch --show-current)"
+          fi
+
+          BRANCH_SLUG="$(
+            printf '%s' "${BRANCH_NAME}" \
+              | tr '[:upper:]' '[:lower:]' \
+              | sed -E 's/[^a-z0-9]+/-/g; s/-+/-/g; s/^-+//; s/-+$//'
+          )"
+          BRANCH_SLUG="${BRANCH_SLUG:0:47}"
+          BRANCH_SLUG="${BRANCH_SLUG%-}"
+
+          if [ -z "${BRANCH_SLUG}" ]; then
+            echo "Unable to derive a non-empty branch slug from '${BRANCH_NAME}'." >&2
+            exit 1
+          fi
+
+          SHORT_SHA="$(git rev-parse --short=12 HEAD)"
+          PREVIEW_NAME="${APP_NAME}-${BRANCH_SLUG}"
+          BRANCH_TAG="${BRANCH_SLUG}"
+          IMMUTABLE_TAG="${BRANCH_SLUG}-${SHORT_SHA}"
+          IMAGE_REF="${IMAGE}:${IMMUTABLE_TAG}"
+          PREVIEW_HOST="${PREVIEW_NAME}.${PREVIEW_DOMAIN}"
+          PREVIEW_URL="https://${PREVIEW_HOST}/"
+          GITOPS_PREVIEW_FILE="dev/previews/${PREVIEW_NAME}.yaml"
+
+          {
+            echo "branch_name=${BRANCH_NAME}"
+            echo "branch_slug=${BRANCH_SLUG}"
+            echo "short_sha=${SHORT_SHA}"
+            echo "preview_name=${PREVIEW_NAME}"
+            echo "branch_tag=${BRANCH_TAG}"
+            echo "immutable_tag=${IMMUTABLE_TAG}"
+            echo "image_ref=${IMAGE_REF}"
+            echo "preview_host=${PREVIEW_HOST}"
+            echo "preview_url=${PREVIEW_URL}"
+            echo "gitops_preview_file=${GITOPS_PREVIEW_FILE}"
+          } >> "${GITHUB_OUTPUT}"
+
+          echo "Preview URL: ${PREVIEW_URL}"
+          echo "Image: ${IMAGE_REF}"
+          echo "GitOps preview spec: ${GITOPS_PREVIEW_FILE}"
+
+      - name: Log in to container registry
+        shell: bash
+        env:
+          REGISTRY_USER: ${{ secrets.REGISTRY_USER }}
+          REGISTRY_TOKEN: ${{ secrets.REGISTRY_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          echo "${REGISTRY_TOKEN}" | docker login "${REGISTRY}" \
+            --username "${REGISTRY_USER}" \
+            --password-stdin
+
+      - name: Set up multi-platform builds
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if ! docker buildx version >/dev/null 2>&1; then
+            echo "Docker buildx is required to build the multi-platform image manifest." >&2
+            exit 1
+          fi
+
+          docker run --privileged --rm tonistiigi/binfmt --install amd64,arm64
+          docker buildx create --name paultibbetts-uk-builder --use || docker buildx use paultibbetts-uk-builder
+          docker buildx inspect --bootstrap
+
+      - name: Build and push container image
+        shell: bash
+        env:
+          BRANCH_TAG: ${{ steps.meta.outputs.branch_tag }}
+          IMMUTABLE_TAG: ${{ steps.meta.outputs.immutable_tag }}
+          PREVIEW_URL: ${{ steps.meta.outputs.preview_url }}
+        run: |
+          set -euo pipefail
+
+          docker buildx build \
+            --platform "${IMAGE_PLATFORMS}" \
+            --build-arg "HUGO_BASEURL=${PREVIEW_URL}" \
+            --tag "${IMAGE}:${BRANCH_TAG}" \
+            --tag "${IMAGE}:${IMMUTABLE_TAG}" \
+            --push \
+            .
+
+      - name: Update GitOps preview
+        shell: bash
+        env:
+          BRANCH_SLUG: ${{ steps.meta.outputs.branch_slug }}
+          SHORT_SHA: ${{ steps.meta.outputs.short_sha }}
+          PREVIEW_NAME: ${{ steps.meta.outputs.preview_name }}
+          PREVIEW_HOST: ${{ steps.meta.outputs.preview_host }}
+          IMAGE_REF: ${{ steps.meta.outputs.image_ref }}
+          GITOPS_PREVIEW_FILE: ${{ steps.meta.outputs.gitops_preview_file }}
+          GITOPS_USER: ${{ secrets.GITOPS_USER }}
+          GITOPS_TOKEN: ${{ secrets.GITOPS_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          GITOPS_REPO_PATH="${GITOPS_REPO#https://}"
+          git clone "https://${GITOPS_USER}:${GITOPS_TOKEN}@${GITOPS_REPO_PATH}" homelab
+          cd homelab
+          git checkout main
+
+          mkdir -p "$(dirname "${GITOPS_PREVIEW_FILE}")"
+
+          cat > "${GITOPS_PREVIEW_FILE}" <<EOF
+          name: ${PREVIEW_NAME}
+          namespace: preview-${PREVIEW_NAME}
+          preset: web-app
+          host: ${PREVIEW_HOST}
+          helmValues: |
+            image:
+              value: ${IMAGE_REF}
+          EOF
+
+          git add "${GITOPS_PREVIEW_FILE}"
+
+          if git diff --cached --quiet; then
+            echo "No GitOps changes to commit"
+            exit 0
+          fi
+
+          git config user.name "gitea-actions"
+          git config user.email "actions@gitea.cloud.paultibbetts.uk"
+
+          git commit -m "Deploy ${PREVIEW_NAME} ${SHORT_SHA}"
+          git push origin main
+
+  delete-preview:
+    if: ${{ github.event_name == 'delete' && github.event.ref_type == 'branch' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Derive preview metadata
+        id: meta
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          BRANCH_NAME="${{ github.event.ref }}"
+          BRANCH_SLUG="$(
+            printf '%s' "${BRANCH_NAME}" \
+              | tr '[:upper:]' '[:lower:]' \
+              | sed -E 's/[^a-z0-9]+/-/g; s/-+/-/g; s/^-+//; s/-+$//'
+          )"
+          BRANCH_SLUG="${BRANCH_SLUG:0:47}"
+          BRANCH_SLUG="${BRANCH_SLUG%-}"
+
+          if [ -z "${BRANCH_SLUG}" ]; then
+            echo "Unable to derive a non-empty branch slug from '${BRANCH_NAME}'." >&2
+            exit 1
+          fi
+
+          PREVIEW_NAME="${APP_NAME}-${BRANCH_SLUG}"
+          echo "preview_name=${PREVIEW_NAME}" >> "${GITHUB_OUTPUT}"
+          echo "gitops_preview_file=dev/previews/${PREVIEW_NAME}.yaml" >> "${GITHUB_OUTPUT}"
+
+      - name: Remove GitOps preview
+        shell: bash
+        env:
+          PREVIEW_NAME: ${{ steps.meta.outputs.preview_name }}
+          GITOPS_PREVIEW_FILE: ${{ steps.meta.outputs.gitops_preview_file }}
+          GITOPS_USER: ${{ secrets.GITOPS_USER }}
+          GITOPS_TOKEN: ${{ secrets.GITOPS_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          GITOPS_REPO_PATH="${GITOPS_REPO#https://}"
+          git clone "https://${GITOPS_USER}:${GITOPS_TOKEN}@${GITOPS_REPO_PATH}" homelab
+          cd homelab
+          git checkout main
+
+          if [ ! -f "${GITOPS_PREVIEW_FILE}" ]; then
+            echo "Preview spec does not exist: ${GITOPS_PREVIEW_FILE}"
+            exit 0
+          fi
+
+          rm "${GITOPS_PREVIEW_FILE}"
+
+          git config user.name "gitea-actions"
+          git config user.email "actions@gitea.cloud.paultibbetts.uk"
+
+          git add -A "${GITOPS_PREVIEW_FILE}"
+          git commit -m "Remove ${PREVIEW_NAME} preview"
+          git push origin main

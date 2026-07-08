@@ -1,0 +1,98 @@
+{{ define "main" }}
+  {{- if .Title }}
+    <h1 class="mb-4 text-3xl text-accent">{{ .Title }}</h1>
+  {{- end }}
+  <div class="prose text-foreground font-sans">
+    {{ .Content }}
+
+    {{ $pages := .RegularPages.ByTitle }}
+    {{ $directories := where $pages "Params.directory" true }}
+    {{ $notDirectories := where $pages "Params.directory" false }}
+
+    {{ $directoryCategoryOrder := .Param "directory_category_order" | default (slice) }}
+    {{ $notDirectoryCategoryOrder := .Param "not_directory_category_order" | default (slice) }}
+
+    {{ if $directories }}
+      <h2>Directories</h2>
+
+      {{ range $category := $directoryCategoryOrder }}
+        {{ $pagesInCategory := where $directories "Params.category" $category }}
+        {{ if $pagesInCategory }}
+          <h3>{{ $category }}</h3>
+
+          <ul>
+            {{ range $pagesInCategory }}
+              <li>
+                <a href="{{ .Params.link }}">{{ .Title }}</a>
+                {{ with .Params.description }}
+                  <p>{{ . }}</p>
+                {{ end }}
+              </li>
+            {{ end }}
+          </ul>
+        {{ end }}
+      {{ end }}
+
+      {{ range $directories.GroupByParam "category" }}
+        {{ if not (in $directoryCategoryOrder .Key) }}
+          <h3>{{ .Key }}</h3>
+
+          <ul>
+            {{ range .Pages }}
+              <li>
+                <a href="{{ .Params.link }}">{{ .Title }}</a>
+                {{ with .Params.description }}
+                  <p>{{ . }}</p>
+                {{ end }}
+              </li>
+            {{ end }}
+          </ul>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+
+    {{ if $notDirectories }}
+      <h2>Not directories</h2>
+
+      {{ with .Params.not_directories_disclaimer }}
+        <p>{{ . }}</p>
+      {{ end }}
+
+      {{ range $category := $notDirectoryCategoryOrder }}
+        {{ $pagesInCategory := where $notDirectories "Params.category" $category }}
+        {{ if $pagesInCategory }}
+          <h3>{{ $category }}</h3>
+
+          <ul>
+            {{ range $pagesInCategory }}
+              <li>
+                <a href="{{ .Params.link }}">{{ .Title }}</a>
+                {{ with .Params.description }}
+                  <p>{{ . }}</p>
+                {{ end }}
+              </li>
+            {{ end }}
+          </ul>
+        {{ end }}
+      {{ end }}
+
+      {{ range $notDirectories.GroupByParam "category" }}
+        {{ if not (in $notDirectoryCategoryOrder .Key) }}
+          <h3>{{ .Key }}</h3>
+
+          <ul>
+            {{ range .Pages }}
+              <li>
+                <a href="{{ .Params.link }}">{{ .Title }}</a>
+                {{ with .Params.description }}
+                  <p>{{ . }}</p>
+                {{ end }}
+              </li>
+            {{ end }}
+          </ul>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+
+  </div>
+{{ end }}

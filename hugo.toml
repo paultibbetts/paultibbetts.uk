@@ -5,8 +5,8 @@
 # Canonical site URL used for absolute URLS (RSS, sitemaps, etc.)
 baseURL = 'https://paultibbetts.uk/'
 
-# Content language.
-languageCode = 'en-gb'
+# Content locale.
+locale = 'en-gb'
 
 # Site title (used in templates, <title>, RSS <title>, etc.)
 title = 'Paul Tibbetts'
@@ -22,7 +22,7 @@ capitalizeListTitles = false
 [caches]
   [caches.images]
     # Stores Hugo's processed image cache under the build cache directory.
-    # :cacheDir is an internal Hugo placeholder.
+    # :cacheDir is an internal Hugo placeholder.
     dir = ':cacheDir/images'
 
 # ==========================
@@ -30,29 +30,43 @@ capitalizeListTitles = false
 # ==========================
 
 [params]
-  # "Site iamges" list used by the built-in Open Graph partial.
+  description = 'Personal website of Paul Tibbetts, a software engineer in the UK.'
+  # "Site images" list used by the built-in Open Graph partial.
 	images = [ '/apple-touch-icon.png' ]
+  # Sections treated as post streams (home/feed/year/archive views).
+  post_sections = [ 'articles', 'bookmarks', 'likes', 'notes', 'replies', 'rsvps' ]
+  # Sections used by the alternate /feed h-feed.
+  feed_post_sections = [ 'articles', 'bookmarks', 'likes', 'notes', 'replies', 'rsvps' ]
+  # Sections used by /links.
+  links_post_sections = [ 'bookmarks', 'likes' ]
+  # Sections used by /writing.
+  writing_post_sections = [ 'articles', 'notes' ]
 	[params.author]
-    # Author name used by some templates.
+    # Author name used by some templates.
 	  name = 'Paul Tibbetts'
 
 # ==========================
-# Permalinks
+# Permalinks
 # ==========================
 
 [permalinks]
   # Sets URl patterns for the sections.
-  articles = '/:year/:month/:day/:title/'
+  articles = '/:year/:month/:day/:slug/'
+  bookmarks = '/:year/:month/:day/:slugorcontentbasename/'
+  likes = '/:year/:month/:day/:slugorcontentbasename/'
+  now = '/:year/:month/:day/:slugorcontentbasename/'
   notes = '/:year/:month/:day/:slugorcontentbasename/'
+  replies = '/:year/:month/:day/:slugorcontentbasename/'
+  rsvps = '/:year/:month/:day/:slugorcontentbasename/'
 
 # ==========================
-# Taxonomies
-# =========================
+# Taxonomies
+# =========================
 
 [taxonomies]
-  # Defines taxonomy singular -> plural
-  # This sets only tags, overridng the default tags + categories
-	tags = 'tags'
+  # Defines taxonomy singular -> plural
+  tags = 'tags'
+  series = 'series'
 
 # ==========================
 # Output kinds (what gets generated)
@@ -67,29 +81,37 @@ capitalizeListTitles = false
   section = ['html', 'rss']
 
   # Taxonomy list pages (e.g. /tags) output only HTML.
-  # The default setting of both HTML and RSS meant I had an RSS feed for the tags themselves.
+  # The default setting of both HTML and RSS meant I had an RSS feed for the tags themselves.
   taxonomy = ['html']
 
   # Taxonomy term pages (e.g. /tags/hugo) output both HTML and RSS.
-  # This makes an RSS feed for every tag.
+  # This makes an RSS feed for every tag.
   term = ['html', 'rss']
 
 # ==========================
-# RSS feed customisation
+# RSS feed customisation
 # ==========================
 
 [outputFormats.RSS]
   # Explicit media type for RSS.
   mediatype = "application/rss+xml"
 
-  # The name of the file. This overwrites the default "index.xml" to "feed.xml".
+  # The name of the file. This overwrites the default "index.xml" to "feed.xml".
   # - /feed.xml
   # - /tags/hugo/feed.xml
   baseName = "feed"
 
 # ==========================
+# Minification
+# ==========================
+
+[minify]
+  # Keep RSS/Atom payloads (e.g. content:encoded CDATA) stable for feed parsers/validators.
+  disableXML = true
+
+# ==========================
 # Build pipeline
-# =========================
+# =========================
 
 [build]
   [build.buildStats]
@@ -97,7 +119,7 @@ capitalizeListTitles = false
     enable = true
 
   [[build.cachebusters]]
-    # Cache busting rule: when this file changes, bump the cache for CSS.
+    # Cache busting rule: when this file changes, bump the cache for CSS.
     # This is pointed at a mounted location (see mounting below) to keep the file out of the live-reload watcher.
     source = 'assets/notwatching/hugo_stats\.json'
     target = 'css'
@@ -108,33 +130,33 @@ capitalizeListTitles = false
     target = 'css'
 
 # ==========================
-# Hugo Modules + mounts
+# Hugo Modules + mounts
 # ==========================
 
 [module]
   [[module.mounts]]
-    # Mount the local /assets into Hugo's virtual filesystem at /assets.
+    # Mount the local /assets into Hugo's virtual filesystem at /assets.
     source = 'assets'
     target = 'assets'
 
   # Mount hugo_stats.json into /assets/notwatching, and stop watching it.
   # The above cache buster setting will trigger updates when it needs to.
-  # This stops an infinite loop of file change -> trigger rebuild.
+  # This stops an infinite loop of file change -> trigger rebuild.
   [[module.mounts]]
     disableWatch = true
     source = 'hugo_stats.json'
     target = 'assets/notwatching/hugo_stats.json'
 
 # ==========================
-# Markdown rendering
+# Markdown rendering
 # ==========================
 
 [markup.goldmark.renderer]
-      # If true, hard line breaks in Markdown become <br>.
+      # If true, hard line breaks in Markdown become <br>.
       hardWraps = false
-      # Allows "unsafe" markdown to allow raw HTML passthrough.
+      # Allows "unsafe" markdown to allow raw HTML passthrough.
       # This lets me write HTML in markdown.
-      # It's only me writing content and I don't load in markdown from anywhere else.
+      # It's only me writing content and I don't load in markdown from anywhere else.
       unsafe = true
       # Output XHTML-compatible tags if true. False is HTML5-style markup.
       xhtml = false

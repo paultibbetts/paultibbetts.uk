@@ -1,3 +1,0 @@
-{{- $posts := where .Site.RegularPages "Section" "in" (slice "articles" "notes") -}}
-{{- $posts = where $posts "Kind" "page" -}}
-{{- return ($posts.ByDate.Reverse) -}}

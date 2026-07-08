@@ -1,13 +1,16 @@
 {{ define "main" }}
   <div class="mb-20">
-    <h1 class="mb-8 text-3xl text-light">{{ .Title }}</h1>
+    <h1 class="mb-8 text-3xl text-accent">{{ .Title }}</h1>
     {{- with .Content -}}
       <div class="mb-4">{{ . }}</div>
     {{ end -}}
-    {{- range .Site.Taxonomies.tags }}
-      <ul class="mb-2">
+    {{- range .Data.Terms.Alphabetical }}
+      <ul class="mb-2 list-disc pl-4">
         <li>
-          <a href="{{ .Page.RelPermalink }}">#{{ .Page.Title }}</a> {{ .Count }}
+          <a href="{{ .Page.RelPermalink }}">
+            {{- if eq $.Data.Plural "tags" }}#{{- end -}}{{ .Page.Title }}</a
+          >
+          {{ .Count }}
         </li>
       </ul>
     {{- end }}

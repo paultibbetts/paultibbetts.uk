@@ -15,16 +15,16 @@ I've fixed that with a Raspberry Pi.
 
 ## Why leave GitHub Pages?
 
-[GitHub Pages](https://docs.github.com/en/pages) is excellent at what it does. 
+[GitHub Pages](https://docs.github.com/en/pages) is excellent at what it does.
 
-You upload the code for your site to GitHub and they will build and  host it for you.  
-All for free. 
+You upload the code for your site to GitHub and they will build and host it for you.  
+All for free.
 
 So why leave?
 
 ### Independence
 
-GitHub is owned by Microsoft, one of the biggest companies on the planet. 
+GitHub is owned by Microsoft, one of the biggest companies on the planet.
 
 I have no problem with Microsoft, or using their economies of scale to do something for free that would otherwise cost me money, but ultimately I didn't feel very indie hosting my site on something I didn't control.
 
@@ -36,13 +36,13 @@ Moving has brought my website closer to home - physically, legally, and ethicall
 
 ### Portability
 
-The work to move from GitHub Pages to _anything else_ has also made it easier to move it all again to another provider, should I ever choose to do so. 
+The work to move from GitHub Pages to _anything else_ has also made it easier to move it all again to another provider, should I ever choose to do so.
 
 I've taken the script to build the site out of GitHub Actions and made it part of the code itself. This decouples the site from any specific CI platform and makes both hosting and deployment replaceable.
- 
+
 ## What it now runs on
 
-There's no good reason for using a Raspberry Pi for this, I just thought it would be cool. 
+There's no good reason for using a Raspberry Pi for this, I just thought it would be cool.
 
 It is some of the cheapest hosting I could find from a UK-based provider, but there are cheaper options and hosting in Europe works just the same and is even cheaper.
 
@@ -70,7 +70,7 @@ None of this was really required, I could have moved to the Pi without writing a
 
 ## What this means
 
-As a result my setup is now reproducible, portable and more independent. 
+As a result my setup is now reproducible, portable and more independent.
 
 I can see all the parts that make up my infrastructure and swap them out for alternatives. I'm not tied down to a provider I can replace with a few lines of code.
 

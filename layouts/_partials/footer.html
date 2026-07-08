@@ -1,0 +1,28 @@
+<footer class="print:hidden">
+  <div class="mt-4 text-sm lowercase" id="footer">
+    <div class="mb-4">
+      <h2 class="mb-2 lowercase">Footer</h2>
+      <div class="mb-2 {{ if .IsHome }}hidden{{ end }}">
+        {{ partial "h-card.html" . }}
+      </div>
+      <nav class="mb-2" aria-label="Pages">
+        {{ partial "pages.html" . }}
+      </nav>
+      <nav class="mb-2" aria-label="Posts">
+        {{ partial "post-pages.html" (dict "page" . "include_post_kinds" false) }}
+      </nav>
+      <nav class="mb-2" aria-label="Post kinds">
+        {{ partial "post-kinds.html" (dict "page" .) }}
+      </nav>
+      <div class="mb-4">
+        <p class="mb-1">
+          Powered by
+          <a href="https://gohugo.io">Hugo</a>
+        </p>
+        <p class="mb-1">
+          <a href="https://github.com/paultibbetts/paultibbetts.uk">View source</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
