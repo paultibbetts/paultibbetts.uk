@@ -25,6 +25,12 @@
 {{- $pages = partial "archive/posts-for-scope.html" . }}
 {{- else if $.IsHome }}
 {{- $pages = partial "all-posts.html" . }}
+{{- else if and $.IsSection (eq .Section "feed") }}
+{{- $pages = partial "feed-posts.html" . }}
+{{- else if and $.IsSection (eq .Section "links") }}
+{{- $pages = partial "links-posts.html" . }}
+{{- else if and $.IsSection (eq .Section "writing") }}
+{{- $pages = partial "writing-posts.html" . }}
 {{- else if $.IsSection }}
 {{- $pages = (where $pctx.RegularPages "Kind" "page") }}
 {{- else }}
@@ -37,6 +43,8 @@
 {{- $feedDescription := "" -}}
 {{- if .Params.Description -}}
   {{- $feedDescription = .Params.Description -}}
+{{- else if and (eq .Kind "term") (eq .Data.Plural "series") -}}
+  {{- $feedDescription = printf "Posts in the %s series by %s" .Title $authorName -}}
 {{- else if eq .Params.date_scope "year" -}}
   {{- $feedDescription = printf "Posts by %s published in %v" $authorName .Params.archive_year -}}
 {{- else if eq .Params.date_scope "month" -}}
@@ -53,13 +61,18 @@
 {{- end -}}
 {{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
 {{- printf "<?xml-stylesheet type=\"text/xsl\" href=\"/pretty-feed-v3.xsl\"?>" | safeHTML }}
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss
+  version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:source="https://source.scripting.com/"
+>
   <channel>
     <title>{{ .Site.Title }}</title>
     <link>{{ .Permalink }}</link>
     <description>{{ $feedDescription }}</description>
     <generator>Hugo</generator>
-    <language>{{ .Site.Language.LanguageCode }}</language>{{ with $authorEmail }}
+    <language>{{ .Site.Language.Locale }}</language>{{ with $authorEmail }}
     <managingEditor>{{.}}{{ with $authorName }} ({{ . }}){{ end }}</managingEditor>{{ end }}{{ with $authorEmail }}
     <webMaster>{{ . }}{{ with $authorName }} ({{ . }}){{ end }}</webMaster>{{ end }}{{ with .Site.Copyright }}
     <copyright>{{ . }}</copyright>{{ end }}{{ if not .Date.IsZero }}
@@ -68,13 +81,134 @@
     {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
     {{- end }}
     {{- range $pages }}
+    {{- $itemKind := partial "post/kind.html" . -}}
+    {{- $itemDescription := .Summary | plainify | htmlUnescape | strings.TrimSpace -}}
+    {{- if not $itemDescription -}}
+      {{- $itemDescription = .Plain | plainify | htmlUnescape | strings.TrimSpace | truncate 280 -}}
+    {{- end -}}
+    {{- if in (slice "indieweb-directories" "directory-of-indieweb-directories") .Section -}}
+      {{- with .Params.description -}}
+        {{- $itemDescription = . | plainify | htmlUnescape | strings.TrimSpace -}}
+      {{- end -}}
+    {{- end -}}
+    {{- $itemTitle := .Title -}}
+    {{- if eq $itemKind "note" -}}
+      {{- $itemTitle = .Plain | plainify | htmlUnescape | replaceRE `\s+` ` ` | strings.TrimSpace | truncate 80 -}}
+    {{- else if eq $itemKind "like" -}}
+      {{- $likeOf := or (index .Params "like_of") (or (index .Params "likeOf") (index .Params "likeof")) -}}
+      {{- if $itemTitle -}}
+        {{- $itemTitle = printf "Liked: %s" $itemTitle -}}
+      {{- else if $likeOf -}}
+        {{- $likeOfLabel := $likeOf | replaceRE `^https?://` `` | replaceRE `/$` `` -}}
+        {{- with (urls.Parse $likeOf) -}}
+          {{- with .Host -}}
+            {{- $likeOfLabel = printf "%s%s" . (.Path | replaceRE `/$` ``) -}}
+          {{- end -}}
+        {{- end -}}
+        {{- $itemTitle = printf "Liked: %s" $likeOfLabel -}}
+      {{- end -}}
+    {{- else if eq $itemKind "bookmark" -}}
+      {{- $bookmarkOf := or (index .Params "bookmark_of") (or (index .Params "bookmarkOf") (index .Params "bookmarkof")) -}}
+      {{- if $itemTitle -}}
+        {{- $itemTitle = printf "Bookmarked: %s" $itemTitle -}}
+      {{- else if $bookmarkOf -}}
+        {{- $bookmarkOfLabel := $bookmarkOf | replaceRE `^https?://` `` | replaceRE `/$` `` -}}
+        {{- with (urls.Parse $bookmarkOf) -}}
+          {{- with .Host -}}
+            {{- $bookmarkOfLabel = printf "%s%s" . (.Path | replaceRE `/$` ``) -}}
+          {{- end -}}
+        {{- end -}}
+        {{- $itemTitle = printf "Bookmarked: %s" $bookmarkOfLabel -}}
+      {{- end -}}
+    {{- else if eq $itemKind "reply" -}}
+      {{- $replyTo := or (index .Params "in_reply_to") (or (index .Params "inReplyTo") (index .Params "inreplyto")) -}}
+      {{- $replyTargetTitle := "" -}}
+      {{- with (index .Params "references") -}}
+        {{- with (index . $replyTo) -}}
+          {{- with (index . "name") -}}
+            {{- $replyTargetTitle = printf "%v" . -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+      {{- if not $replyTargetTitle -}}
+        {{- $replyTargetTitle = $itemTitle -}}
+      {{- end -}}
+      {{- if $replyTargetTitle -}}
+        {{- $itemTitle = printf "Replied to: %s" $replyTargetTitle -}}
+      {{- else if $replyTo -}}
+        {{- $replyDomain := $replyTo -}}
+        {{- with (urls.Parse $replyTo) -}}
+          {{- with .Host -}}
+            {{- $replyDomain = . -}}
+          {{- end -}}
+        {{- end -}}
+        {{- $itemTitle = printf "Replied to: %s" $replyDomain -}}
+      {{- end -}}
+    {{- else if eq $itemKind "rsvp" -}}
+      {{- $rsvp := partial "post/rsvp-data.html" . -}}
+      {{- $rsvpName := index $rsvp "name" -}}
+      {{- $rsvpValue := index $rsvp "value" -}}
+      {{- if $rsvpName -}}
+        {{- $itemTitle = printf "RSVP (%s): %s" $rsvpValue $rsvpName -}}
+      {{- else -}}
+        {{- $itemTitle = printf "RSVP (%s)" $rsvpValue -}}
+      {{- end -}}
+    {{- end -}}
+    {{- if not $itemTitle -}}
+      {{- $itemTitle = .Date.Format "2006-01-02 15:04:05" -}}
+    {{- end -}}
+    {{- $itemLink := .Permalink -}}
+    {{- if eq $itemKind "bookmark" -}}
+      {{- $bookmarkOf := or (index .Params "bookmark_of") (or (index .Params "bookmarkOf") (index .Params "bookmarkof")) -}}
+      {{- with $bookmarkOf -}}
+        {{- $itemLink = . -}}
+      {{- end -}}
+    {{- else if eq $itemKind "like" -}}
+      {{- $likeOf := or (index .Params "like_of") (or (index .Params "likeOf") (index .Params "likeof")) -}}
+      {{- with $likeOf -}}
+        {{- $itemLink = . -}}
+      {{- end -}}
+    {{- else if in (slice "indieweb-directories" "directory-of-indieweb-directories") .Section -}}
+      {{- with .Params.link -}}
+        {{- $itemLink = . -}}
+      {{- end -}}
+    {{- end -}}
+    {{- $itemContentHTML := .Content | strings.TrimSpace -}}
+    {{- if and (in (slice "indieweb-directories" "directory-of-indieweb-directories") .Section) (not $itemContentHTML) -}}
+      {{- $entryContentParts := slice -}}
+      {{- with .Params.description -}}
+        {{- $entryContentParts = $entryContentParts | append (printf "<p>%s</p>" (. | htmlEscape)) -}}
+      {{- end -}}
+      {{- with .Params.category -}}
+        {{- $entryContentParts = $entryContentParts | append (printf "<p>Category: %s</p>" (. | htmlEscape)) -}}
+      {{- end -}}
+      {{- if eq .Params.directory false -}}
+        {{- $entryContentParts = $entryContentParts | append "<p>This is not a directory.</p>" -}}
+      {{- end -}}
+      {{- with .Params.link -}}
+        {{- $escapedLink := . | htmlEscape -}}
+        {{- $entryContentParts = $entryContentParts | append (printf `<p><a href="%s">%s</a></p>` $escapedLink $escapedLink) -}}
+      {{- end -}}
+      {{- $itemContentHTML = delimit $entryContentParts "\n" -}}
+    {{- end -}}
+    {{- $itemContentCDATA := printf "<![CDATA[%s]]>" (replace $itemContentHTML "]]>" "]]]]><![CDATA[>") -}}
+    {{- $itemMarkdown := .RawContent | htmlEscape -}}
     <item>
-      <title>{{ .Title }}</title>
-      <link>{{ .Permalink }}</link>
+      <title>{{ $itemTitle }}</title>
+      <link>{{ $itemLink }}</link>
       <pubDate>{{ .PublishDate.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
       {{- with $authorEmail }}<author>{{ . }}{{ with $authorName }} ({{ . }}){{ end }}</author>{{ end }}
       <guid>{{ .Permalink }}</guid>
-      <description>{{- .Summary | htmlUnescape | safeHTML -}}</description>
+      {{- with .GetTerms "tags" }}
+      {{- range . }}
+      <category>{{ .Title }}</category>
+      {{- end }}
+      {{- end }}
+      <description>{{- $itemDescription | htmlEscape -}}</description>
+      <content:encoded>{{- $itemContentCDATA | safeHTML -}}</content:encoded>
+      {{- with $itemMarkdown -}}
+        <source:markdown>{{- . | safeHTML -}}</source:markdown>
+      {{- end -}}
     </item>
     {{- end }}
   </channel>

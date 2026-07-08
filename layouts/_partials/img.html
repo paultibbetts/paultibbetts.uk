@@ -1,0 +1,104 @@
+{{- /* layouts/partials/img.html
+  Usage:
+  {{ partial "img.html" (dict
+  "Page" .         (required)
+  "Src"  "img-1.jpg"  (required, page-bundle resource)
+  "Alt"  "Description" (optional)
+  "Class" "rounded-xl" (optional)
+  "Width" 1200 (optional, default 1200)
+  )
+}}
+*/ -}}
+{{- $p := .Page -}}
+{{- $src := .Src -}}
+{{- $alt := default "" .Alt -}}
+{{- $class := default "" .Class -}}
+{{- $w := .Width -}}
+{{- $h := default "" .Height -}}
+{{- $figcaption := default "" .Figcaption -}}
+{{- $isExternal := or (hasPrefix $src "/") (findRE `^(https?:)?//` $src) -}}
+
+{{- if $isExternal -}}
+  {{- if $figcaption -}}
+    <figure>
+      <img
+        src="{{ $src }}"
+        {{ with $w }}width="{{ . }}"{{ end }}
+        {{ with $h }}height="{{ . }}"{{ end }}
+        alt="{{ $alt }}"
+        loading="lazy"
+        decoding="async"
+        class="{{ $class }}"
+      />
+      <figcaption>{{ $figcaption | safeHTML }}</figcaption>
+    </figure>
+  {{- else -}}
+    <img
+      src="{{ $src }}"
+      {{ with $w }}width="{{ . }}"{{ end }}
+      {{ with $h }}height="{{ . }}"{{ end }}
+      alt="{{ $alt }}"
+      loading="lazy"
+      decoding="async"
+      class="{{ $class }}"
+    />
+  {{- end -}}
+{{- else -}}
+  {{- $img := $p.Resources.GetMatch $src -}}
+  {{- if not $img -}}
+    {{- errorf "img.html: could not find resource %q in %q" $src $p.File.Path -}}
+  {{- end -}}
+
+  {{- $targetWidth := default 1200 $w | int -}}
+
+  {{- $renderWidth := $img.Width -}}
+  {{- $renderHeight := $img.Height -}}
+  {{- if gt $img.Width $targetWidth -}}
+    {{- $renderWidth = $targetWidth -}}
+    {{- $renderHeight = div (mul $img.Height $targetWidth) $img.Width -}}
+  {{- end -}}
+  {{- $webp := cond (ne $img.MediaType.SubType "webp") ($img.Resize (printf "%dx webp q80" $renderWidth)) nil -}}
+
+  {{- if $figcaption -}}
+    <figure>
+      <picture>
+        {{- /* Optional AVIF
+          <source srcset="{{ $avif.RelPermalink
+        }}"
+        type="image/avif"> */ -}}
+        {{- with $webp -}}
+          <source srcset="{{ .RelPermalink }}" type="image/webp" />
+        {{- end -}}
+        <img
+          src="{{ $img.RelPermalink }}"
+          width="{{ $renderWidth }}"
+          height="{{ $renderHeight }}"
+          alt="{{ $alt }}"
+          loading="lazy"
+          decoding="async"
+          class="{{ $class }}"
+        />
+      </picture>
+      <figcaption>{{ $figcaption | safeHTML }}</figcaption>
+    </figure>
+  {{- else -}}
+    <picture>
+      {{- /* Optional AVIF
+        <source srcset="{{ $avif.RelPermalink
+      }}"
+      type="image/avif"> */ -}}
+      {{- with $webp -}}
+        <source srcset="{{ .RelPermalink }}" type="image/webp" />
+      {{- end -}}
+      <img
+        src="{{ $img.RelPermalink }}"
+        width="{{ $renderWidth }}"
+        height="{{ $renderHeight }}"
+        alt="{{ $alt }}"
+        loading="lazy"
+        decoding="async"
+        class="{{ $class }}"
+      />
+    </picture>
+  {{- end -}}
+{{- end -}}

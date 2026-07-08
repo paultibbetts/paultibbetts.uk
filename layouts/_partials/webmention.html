@@ -1,0 +1,88 @@
+{{- $post := (index . "post") | default dict -}}
+{{- $author := (index $post "author") | default dict -}}
+{{- $authorName := (index $author "name") | default "Someone" -}}
+{{- $authorPhoto := (index $author "photo") | default "" -}}
+{{- $defaultURL := (index $post "url") | default (index . "source") -}}
+{{- $authorURL := (index $author "url") | default $defaultURL -}}
+{{- $sourceURL := (index . "source") | default $defaultURL -}}
+{{- $imageURL := partial "webmention-image-url.html" . -}}
+{{- $property := (index $post "wm-property") | default (index . "wm-property") | default "mention-of" -}}
+{{- $hasPropertyLabelOverride := isset . "property_label" -}}
+{{- $propertyLabel := "" -}}
+{{- if $hasPropertyLabelOverride -}}
+  {{- $propertyLabel = index . "property_label" -}}
+{{- else -}}
+  {{- $propertyLabel = "mentioned this" -}}
+  {{- if eq $property "in-reply-to" -}}
+    {{- $propertyLabel = "replied" -}}
+  {{- else if eq $property "like-of" -}}
+    {{- $propertyLabel = "liked this" -}}
+  {{- else if eq $property "repost-of" -}}
+    {{- $propertyLabel = "reposted this" -}}
+  {{- else if eq $property "bookmark-of" -}}
+    {{- $propertyLabel = "bookmarked this" -}}
+  {{- end -}}
+{{- end -}}
+{{- $postName := (index $post "name") | default "" -}}
+{{- $showPostName := (index . "show_post_name") | default false -}}
+{{- $publishedRaw := (index $post "published") | default (index . "verified_date") -}}
+{{- $publishedLabel := $publishedRaw -}}
+{{- with $publishedRaw -}}
+  {{- $ts := time . -}}
+  {{- $publishedLabel = printf "%s at %s" (partial "date_with_ordinal_day.html" $ts) ($ts.Format "3:04pm") -}}
+{{- end -}}
+
+{{- $content := index $post "content" -}}
+{{- $contentText := "" -}}
+{{- if $content -}}
+  {{- if reflect.IsMap $content -}}
+    {{- $contentText = ((index $content "text") | default ((index $content "html") | plainify)) -}}
+  {{- else -}}
+    {{- $contentText = ($content | plainify) -}}
+  {{- end -}}
+{{- else -}}
+  {{- $contentText = ((index $post "name") | default "") -}}
+{{- end -}}
+
+
+<li class="mb-6">
+  <article class="u-comment h-cite rounded border border-border px-4 py-3">
+    <header class="mb-2 flex items-center gap-3">
+      {{ partial "webmention-avatar.html" (dict "name" $authorName "photo" $authorPhoto "sizeClass" "h-8 w-8 text-xs") }}
+      <p class="text-sm">
+        <span class="p-author h-card">
+          <a class="u-url p-name" href="{{ $authorURL }}">{{ $authorName }}</a>
+        </span>
+        {{- with $propertyLabel }}
+          <span class="text-muted">{{ . }}</span>
+        {{- end -}}
+      </p>
+    </header>
+
+    {{- if and $showPostName $postName -}}
+      <p class="mb-2">
+        <a class="p-name u-url text-muted" href="{{ $sourceURL }}">{{ $postName }}</a>
+      </p>
+    {{- end -}}
+
+    {{- with $contentText -}}
+      <div class="p-content mb-2 prose text-foreground font-sans">
+        {{ . | plainify }}
+      </div>
+    {{- end -}}
+
+    {{- with $imageURL -}}
+      {{ partial "webmention-image.html" (dict "image_url" . "source_url" $sourceURL "alt" (printf "Image from %s" $authorName)) }}
+    {{- end -}}
+
+    {{- with $publishedRaw -}}
+      <footer>
+        <p class="text-xs">
+          <a class="u-url" href="{{ $sourceURL }}">
+            <abbr class="dt-published" title="{{ . }}">{{ $publishedLabel }}</abbr>
+          </a>
+        </p>
+      </footer>
+    {{- end -}}
+  </article>
+</li>

@@ -1,38 +1,78 @@
 {{ define "main" }}
-  {{ if .Params.date_scope }}
+  {{- if .Params.date_scope -}}
     <div class="h-feed hfeed mb-20">
-      {{ partial "archive/date-scope-heading.html" . }}
-      {{ with .Content }}
-        <div class="p-summary mb-8">{{ . }}</div>
-      {{ end }}
-      {{ partial "date-archive-content.html" . }}
+      {{- partial "archive/date-scope-heading.html" . -}}
+      {{- with .Content -}}
+        <div class="p-summary mb-8">{{- . -}}</div>
+      {{- end -}}
+      {{- partial "date-archive-content.html" . -}}
     </div>
-  {{ else }}
+  {{- else -}}
     <div class="h-feed hfeed mb-20">
-      <h1 class="p-name mb-8 text-3xl text-light">{{ .Title }}</h1>
+      <h1 class="p-name mb-8 text-3xl text-accent">{{ .Title }}</h1>
       {{ with .Content }}
         <div class="p-summary mb-8">{{ . }}</div>
       {{ end }}
-      {{ $posts := partial "all-posts.html" . }}
-      {{ $paginator := .Paginate $posts }}
-      {{ $yearGroups := ($paginator.Pages.ByDate.Reverse).GroupByDate "2006" }}
-      {{ $yearJumpItems := partial "archive/jump-items.html" (dict "Groups" $yearGroups "Kind" "year") }}
-      {{ partial "archive/jump-nav.html" (dict "AriaLabel" "Years" "IntroLabel" "By year:" "Items" $yearJumpItems) }}
-      {{ range $yearGroups }}
-        {{ $yearMeta := partial "archive/year-meta.html" (dict "Group" .) }}
-        {{ $yearLabel := index $yearMeta "label" }}
-        {{ $yearURL := index $yearMeta "url" }}
-        <section id="{{ $yearLabel }}" class="mb-8">
-          <p class="mb-8 text-orange text-xl" style="border-color: rgba(156, 163, 175, 1);">
-            <a href="{{ $yearURL }}" class="no-underline" style="color: inherit;"
-              >{{ $yearLabel }}</a
-            >
-          </p>
-          {{ $monthGroups := (.Pages.ByDate.Reverse).GroupByDate "January" }}
-          {{ partial "archive/month-sections.html" (dict "MonthGroups" $monthGroups "Year" $yearLabel) }}
-        </section>
+      {{- $posts := partial "all-posts.html" . -}}
+      {{- $yearGroups := $posts.GroupByDate "2006" -}}
+      {{- $yearJumpItems := partial "archive/jump-items.html" (dict "Groups" $yearGroups "Kind" "year") -}}
+      {{- partial "archive/jump-nav.html" (dict "AriaLabel" "Years" "IntroLabel" "By year:" "Items" $yearJumpItems) -}}
+
+      {{- $postSections := slice -}}
+      {{- range $posts -}}
+        {{- if not (in $postSections .Section) -}}
+          {{- $postSections = $postSections | append .Section -}}
+        {{- end -}}
+      {{- end -}}
+
+      {{- range sort $postSections -}}
+        {{- $section := . -}}
+        {{- $sectionPosts := where $posts "Section" $section -}}
+        {{- if gt (len $sectionPosts) 0 -}}
+          {{- $sectionPage := $.Site.GetPage (printf "/%s" $section) -}}
+          {{- $sectionLabel := $section | title -}}
+          {{- with $sectionPage -}}{{ $sectionLabel = .Title }}{{ end }}
+          <details class="mb-4">
+            <summary>
+              <h2 class="inline">{{ len $sectionPosts }} {{ $sectionLabel }}</h2>
+            </summary>
+            <div class="py-2 clear-both">
+              {{- range $sectionPosts -}}
+                {{- $id := printf "%s-%s" $section .File.UniqueID -}}
+                {{- $kind := partial "post/kind.html" . -}}
+                {{- $itemLabel := .Title -}}
+                {{- if eq $kind "note" -}}
+                  {{- $itemLabel = .Slug | default .File.ContentBaseName -}}
+                {{- end -}}
+                {{- if eq $itemLabel "" -}}
+                  {{- $itemLabel = .File.ContentBaseName -}}
+                {{- end -}}
+                <article class="h-entry meta mb-2 text-right" id="{{ $id }}">
+                  <a href="#{{ $id }}" rel="bookmark">#</a>
+                  <a
+                    class="{{ if .Title }}p-name{{ end }} u-url u-uid"
+                    href="{{ .RelPermalink }}"
+                    style="text-wrap: wrap;"
+                  >
+                    {{- $itemLabel -}}
+                  </a>
+                  <a
+                    href="{{ .RelPermalink }}"
+                    style="color: inherit; text-decoration: none; text-wrap: nowrap;"
+                  >
+                    <abbr
+                      class="dt-published"
+                      title="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}"
+                    >
+                      {{ .Date.Format "2006-01-02 15:04" }}
+                    </abbr>
+                  </a>
+                </article>
+              {{ end }}
+            </div>
+          </details>
+        {{ end }}
       {{ end }}
-      {{ partial "pagination.html" (dict "page" . "format" "terse") }}
     </div>
   {{ end }}
 {{ end }}

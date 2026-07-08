@@ -2,9 +2,10 @@
 title = "Uses"
 page_title = "Paul Tibbetts Uses"
 type = "page"
+show_in_pages_nav = true
 +++
 
-This is the tech I use. 
+This is the tech I use.
 
 I have separate pages for my [developer environment](https://dev.paultibbetts.uk) and [wildcamping gear](https://pinthewild.micro.blog/uses).
 
@@ -78,7 +79,7 @@ Accurate as of {{<gitinfo>}}.
 - 🐹 **Go** for backend and tooling
 - 🐍 **Python** for scripts and experiments
 
-See [paultibbetts/dev](https://dev.paultibbetts.uk) for more.
+See [dev.paultibbetts.uk](https://dev.paultibbetts.uk) for more.
 
 ## Desk
 

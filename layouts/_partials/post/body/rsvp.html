@@ -1,0 +1,53 @@
+{{- $p := .page -}}
+{{- $mode := .mode | default "list" -}}
+{{- $rsvp := partial "post/rsvp-data.html" $p -}}
+{{- $date := index $rsvp "date" -}}
+{{- $dateLabel := index $rsvp "dateLabel" -}}
+{{- $hasCustomDateLabel := index $rsvp "hasCustomDateLabel" -}}
+{{- $label := index $rsvp "label" -}}
+{{- $name := index $rsvp "name" -}}
+{{- $url := index $rsvp "url" -}}
+{{- $value := index $rsvp "value" -}}
+
+
+<div class="mb-4">
+  <p class="p-summary text-foreground">
+    <data class="p-rsvp" value="{{ $value }}">{{ $label }}</data>
+    <a class="{{ cond (ne $name ``) `p-name h-cite ` `` }}u-in-reply-to" href="{{ $url }}"
+      >{{ $name }}</a
+    >
+    {{- with $date }}
+      <span>
+        {{- if not $hasCustomDateLabel }}on{{ end }}
+        <time class="dt-start" datetime="{{ . }}">{{ $dateLabel }}</time>.
+      </span>
+    {{- end }}
+    {{- if and (not $date) $dateLabel }}
+      <span>{{ $dateLabel }}.</span>
+    {{- end }}
+  </p>
+</div>
+
+{{- if eq $mode "single" }}
+  {{- if $p.Content }}
+    <div class="e-content prose text-foreground font-sans mb-8">
+      {{ $p.Content }}
+    </div>
+  {{- end }}
+{{- else }}
+  {{- if and $p.Truncated $p.Summary }}
+    <div class="text-foreground mb-4 font-sans prose">
+      {{ $more := printf ` <a class="inline" href="%s">…</a>` $p.RelPermalink }}
+      {{ $summary := replaceRE `</p>\s*$` (printf `%s</p>` $more) $p.Summary }}
+      {{ if eq $summary $p.Summary }}
+        {{ $p.Summary | safeHTML }}{{ $more | safeHTML }}
+      {{ else }}
+        {{ $summary | safeHTML }}
+      {{ end }}
+    </div>
+  {{- else if $p.Content }}
+    <div class="e-content prose text-foreground font-sans mb-8">
+      {{ $p.Content }}
+    </div>
+  {{- end }}
+{{- end }}

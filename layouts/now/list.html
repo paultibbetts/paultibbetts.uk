@@ -1,0 +1,19 @@
+{{ define "main" }}
+  <div class="h-feed hfeed mb-20">
+    {{- $posts := where .Site.RegularPages "Section" "now" -}}
+    {{- $posts = where $posts "Kind" "page" -}}
+    {{- $byDate := $posts.ByDate.Reverse -}}
+    {{- $paginator := .Paginate $byDate 1 }}
+    {{- $current := index $paginator.Pages 0 -}}
+    {{- with $current -}}
+      {{ partial "now-entry.html" . }}
+    {{- end -}}
+  </div>
+  <div class="mb-8">
+    <nav>
+      {{ with $posts.Prev $current }}
+        <a href="{{ .RelPermalink }}">Previously…</a>
+      {{ end }}
+    </nav>
+  </div>
+{{ end }}
