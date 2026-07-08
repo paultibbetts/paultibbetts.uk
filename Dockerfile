@@ -30,7 +30,7 @@ RUN npm ci
 COPY . .
 RUN HUGO_BASEURL="${HUGO_BASEURL}" ./scripts/build.sh
 
-FROM nginx:1.29-alpine
+FROM nginx:1.31-alpine
 
 COPY docker/nginx/default.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /site/public /usr/share/nginx/html
