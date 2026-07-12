@@ -5,6 +5,7 @@ on:
     branches:
       - feat/cooks
       - feat/name-as-title
+      - feat/photos
       - feat/projects
     tags-ignore:
       - "*"
