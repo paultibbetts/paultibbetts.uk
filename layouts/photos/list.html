@@ -1,0 +1,63 @@
+{{ define "main" }}
+  <div class="h-feed hfeed mb-20">
+    <h1 class="p-name mb-8 text-3xl text-accent">{{ .Title }}</h1>
+    {{ with .Content }}
+      <div class="p-summary mb-8">{{ . }}</div>
+    {{ end }}
+
+    {{ $pages := .Data.Pages -}}
+    {{- $paginator := .Paginate $pages -}}
+    <ol class="photo-grid not-prose list-none p-0 m-0">
+      {{- range $paginator.Pages }}
+        {{- $photoURL := "" -}}
+        {{- $photoAlt := "" -}}
+        {{- with .Params.photo -}}
+          {{- $photo := . -}}
+          {{- if reflect.IsSlice . -}}
+            {{- $photo = index . 0 -}}
+          {{- end -}}
+          {{- if reflect.IsMap $photo -}}
+            {{- $photoURL = index $photo "url" | default "" -}}
+            {{- $photoAlt = index $photo "alt" | default "" -}}
+          {{- else -}}
+            {{- $photoURL = printf "%v" $photo -}}
+          {{- end -}}
+        {{- end -}}
+        {{- if not $photoURL -}}
+          {{- with .Params.images -}}
+            {{- if reflect.IsSlice . -}}
+              {{- with index . 0 -}}
+                {{- $photoURL = printf "%v" . -}}
+              {{- end -}}
+            {{- else -}}
+              {{- $photoURL = printf "%v" . -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+        {{- if $photoURL }}
+          <li>
+            <article class="h-entry">
+              <a
+                class="photo-grid-link u-url u-uid"
+                href="{{ .RelPermalink }}"
+                aria-label="{{ $photoAlt | default (printf "Photo from %s" (.Date.Format "January 2, 2006")) }}"
+              >
+                <img
+                  class="photo-grid-image u-photo"
+                  src="{{ $photoURL }}"
+                  alt="{{ $photoAlt }}"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </a>
+              <time class="dt-published hidden" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+                {{ .Date.Format "2006-01-02 15:04" }}
+              </time>
+            </article>
+          </li>
+        {{- end }}
+      {{- end }}
+    </ol>
+    {{- partial "pagination.html" (dict "page" . "format" "terse" ) }}
+  </div>
+{{- end -}}
