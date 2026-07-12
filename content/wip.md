@@ -38,9 +38,3 @@ This took a while because I didn't have much public work to mention, so I've bee
 I'm still working on it.
 
 [Preview](https://paultibbetts-uk-feat-projects.preview.lab.paultibbetts.uk/projects)
-
-## Photos
-
-Adds a `/photos` page and the `photo` post kind.
-
-[Preview](https://paultibbetts-uk-feat-photos.preview.lab.paultibbetts.uk/photos)
