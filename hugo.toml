@@ -153,14 +153,14 @@ capitalizeListTitles = false
 # ==========================
 
 [markup.goldmark.renderer]
-      # If true, hard line breaks in Markdown become <br>.
-      hardWraps = false
-      # Allows "unsafe" markdown to allow raw HTML passthrough.
-      # This lets me write HTML in markdown.
-      # It's only me writing content and I don't load in markdown from anywhere else.
-      unsafe = true
-      # Output XHTML-compatible tags if true. False is HTML5-style markup.
-      xhtml = false
+  # If true, hard line breaks in Markdown become <br>.
+  hardWraps = false
+  # Allows "unsafe" markdown to allow raw HTML passthrough.
+  # This lets me write HTML in markdown.
+  # It's only me writing content and I don't load in markdown from anywhere else.
+  unsafe = true
+  # Output XHTML-compatible tags if true. False is HTML5-style markup.
+  xhtml = false
 
 # ==========================
 # Security
