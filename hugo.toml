@@ -161,3 +161,9 @@ capitalizeListTitles = false
       unsafe = true
       # Output XHTML-compatible tags if true. False is HTML5-style markup.
       xhtml = false
+
+# ==========================
+# Security
+# ==========================
+[security.exec]
+  allow = ['^(dart-)?sass$', '^go$', '^git$', '^node$', '^postcss$', '^tailwindcss$']
