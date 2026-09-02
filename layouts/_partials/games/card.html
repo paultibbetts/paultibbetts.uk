@@ -1,0 +1,26 @@
+{{ $game := .game }}
+<article
+  class="min-w-0"
+  data-game-card
+  data-game-genres="{{ range $game.Params.metadata.igdb.genres }}{{ . | urlize }} {{ end }}"
+>
+  <a class="group block no-underline" href="{{ $game.RelPermalink }}">
+    {{ with $game.Params.assets.cover }}
+      <img
+        class="mb-3 aspect-[3/4] w-full rounded object-cover transition-opacity group-hover:opacity-85"
+        src="{{ . }}"
+        alt="Cover art for {{ $game.Title }}"
+        {{ if $.lazy }}loading="lazy"{{ end }}
+      />
+    {{ else }}
+      <div
+        class="mb-3 flex aspect-[3/4] items-center justify-center rounded border border-border bg-surface px-4 text-center font-serif text-lg text-foreground"
+      >
+        {{ $game.Title }}
+      </div>
+    {{ end }}
+    <h3 class="text-sm leading-snug text-muted group-hover:text-accent">
+      {{ $game.Title }}
+    </h3>
+  </a>
+</article>

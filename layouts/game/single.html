@@ -1,0 +1,337 @@
+{{ define "main" }}
+  <style>
+    .game-generic {
+      padding-bottom: 5rem;
+    }
+    .game-generic .game-generic-hero {
+      position: relative;
+      min-height: clamp(14rem, 32vw, 25rem);
+      overflow: hidden;
+      background: var(--color-surface);
+    }
+    @media (max-width: 767px) {
+      .game-generic .game-generic-hero {
+        width: calc(100% + 2rem);
+        margin-inline: -1rem;
+      }
+    }
+    .game-generic .game-generic-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 30%, var(--color-background) 100%);
+    }
+    .game-generic .game-generic-hero-image {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      inset: 0;
+      object-fit: cover;
+    }
+    .game-generic .game-generic-logo {
+      position: absolute;
+      z-index: 1;
+      top: 50%;
+      left: 50%;
+      width: min(68%, 28rem);
+      max-height: 45%;
+      transform: translate(-50%, -50%);
+      object-fit: contain;
+      filter: drop-shadow(0 0 1rem rgba(0, 0, 0, 0.8));
+    }
+    .game-generic .game-generic-intro {
+      position: relative;
+      z-index: 2;
+      margin-top: -2rem;
+      padding: 1rem 0 2rem;
+    }
+    .game-generic .game-generic-intro h1 {
+      margin: 0;
+    }
+    .game-generic .game-generic-status {
+      margin: 0.5rem 0 0;
+      color: var(--color-muted);
+      font-family: var(--font-sans, sans-serif);
+    }
+    .game-generic .game-generic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+      gap: 2rem;
+    }
+    .game-generic .game-generic-section {
+      border-top: 1px solid var(--color-border);
+      padding-top: 1.25rem;
+    }
+    .game-generic .game-generic-section h2 {
+      margin-top: 0;
+    }
+    .game-generic .game-generic-facts {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 0.45rem 1rem;
+      margin: 0;
+    }
+    .game-generic .game-generic-facts dt {
+      color: var(--color-muted);
+    }
+    .game-generic .game-generic-facts dd {
+      margin: 0;
+    }
+    .game-generic .game-generic-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.25rem;
+    }
+  </style>
+  <div class="game-generic">
+    {{ if or .Params.assets.hero .Params.assets.logo }}
+      <div class="game-generic-hero">
+        {{ with .Params.assets.hero }}
+          <img class="game-generic-hero-image" src="{{ . }}" alt="" aria-hidden="true" />
+        {{ end }}
+        {{ with .Params.assets.logo }}
+          <img class="game-generic-logo" src="{{ . }}" alt="{{ $.Title }} logo" />
+        {{ end }}
+      </div>
+    {{ end }}
+
+
+    <header class="game-generic-intro">
+      <h1 class="text-3xl text-accent sm:text-4xl">{{ .Title }}</h1>
+      {{ with .Params.relationship }}
+        {{ $relationship := . }}
+        {{ with .external.igdb }}
+          {{ $baseGames := where site.RegularPages "Type" "game" }}
+          {{ $baseGames = where $baseGames "Params.external.igdb" . }}
+          {{ with $baseGames }}
+            {{ with index . 0 }}
+              {{ $label := "Related to" }}
+              {{ if eq $relationship.type "expansion" }}
+                {{ $label = "Expansion for" }}
+              {{ else if eq $relationship.type "dlc_addon" }}
+                {{ $label = "Add-on for" }}
+              {{ else if eq $relationship.type "standalone_expansion" }}
+                {{ $label = "Standalone expansion for" }}
+              {{ else if eq $relationship.type "expanded_game" }}
+                {{ $label = "Expanded edition of" }}
+              {{ end }}
+              <p class="game-generic-status">{{ $label }} <a href="{{ .RelPermalink }}">{{ .Title }}</a></p>
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      {{ with .Params.tracking.status }}
+        <p class="game-generic-status">
+          {{ replace . "-" " " | title }}{{ with $.Params.tracking.progress }}
+            · {{ div . 60 }}h {{ mod . 60 }}m played
+          {{ end }}
+        </p>
+      {{ end }}
+    </header>
+
+    <div class="game-generic-grid">
+      {{ with .Params.metadata.igdb }}
+        <section class="game-generic-section" aria-labelledby="game-details-heading">
+          <h2 id="game-details-heading" class="mb-4 text-2xl text-accent">Game details</h2>
+          <dl class="game-generic-facts">
+            {{ with .developers }}
+              <dt>Developer{{ if gt (len .) 1 }}s{{ end }}</dt>
+              <dd>{{ delimit . ", " }}</dd>
+            {{ end }}
+            {{ with .publishers }}
+              <dt>Publisher{{ if gt (len .) 1 }}s{{ end }}</dt>
+              <dd>{{ delimit . ", " }}</dd>
+            {{ end }}
+            {{ with .release_date }}
+              <dt>Released</dt>
+              <dd>
+                <time datetime="{{ . }}">{{ time.AsTime . | time.Format "2 January 2006" }}</time>
+              </dd>
+            {{ end }}
+            {{ with .genres }}
+              <dt>Genres</dt>
+              <dd>{{ delimit . ", " }}</dd>
+            {{ end }}
+            {{ with .platforms }}
+              <dt>Platforms</dt>
+              <dd>{{ delimit . ", " }}</dd>
+            {{ end }}
+          </dl>
+        </section>
+      {{ end }}
+
+      {{ with .Params.tracking }}
+        {{ if or (isset . "score") (isset . "start_date") (isset . "end_date") }}
+          <section class="game-generic-section" aria-labelledby="game-tracking-heading">
+            <h2 id="game-tracking-heading" class="mb-4 text-2xl text-accent">My tracking</h2>
+            <dl class="game-generic-facts">
+              {{ if isset . "score" }}
+                <dt>Score</dt>
+                <dd>{{ .score }}/10</dd>
+              {{ end }}
+              {{ with .start_date }}
+                <dt>Started</dt>
+                <dd>
+                  <time datetime="{{ . }}">{{ time.AsTime . | time.Format "2 January 2006" }}</time>
+                </dd>
+              {{ end }}
+              {{ with .end_date }}
+                <dt>Finished</dt>
+                <dd>
+                  <time datetime="{{ . }}">{{ time.AsTime . | time.Format "2 January 2006" }}</time>
+                </dd>
+              {{ end }}
+            </dl>
+          </section>
+        {{ end }}
+      {{ end }}
+    </div>
+
+    {{ with .Params.sync.yamtrack.notes }}
+      <section class="game-generic-section mt-8" aria-labelledby="game-notes-heading">
+        <h2 id="game-notes-heading" class="mb-4 text-2xl text-accent">Notes</h2>
+        <div class="prose text-foreground font-sans"><p>{{ . }}</p></div>
+      </section>
+    {{ end }}
+
+    {{ if or .Params.external.steam (and .Params.external.igdb .Params.metadata.igdb.slug) }}
+      <nav class="game-generic-section mt-8 game-generic-links" aria-label="External game links">
+        {{ with .Params.external.steam }}
+          <a href="https://store.steampowered.com/app/{{ . }}">View on Steam</a>
+        {{ end }}
+        {{ with .Params.metadata.igdb.slug }}
+          <a href="https://www.igdb.com/games/{{ . }}">View on IGDB</a>
+        {{ end }}
+      </nav>
+    {{ end }}
+
+    {{ with .Content }}
+      <div class="prose mt-8 text-foreground font-sans">{{ . }}</div>
+    {{ end }}
+
+    {{ with .Params.external.igdb }}
+      {{ $baseID := . }}
+      {{ $relatedGames := where site.RegularPages "Type" "game" }}
+      {{ $relatedGames = where $relatedGames "Params.relationship.external.igdb" $baseID }}
+      {{ with $relatedGames }}
+        <section class="game-generic-section mt-8" aria-labelledby="game-expansions-heading">
+          <h2 id="game-expansions-heading" class="mb-4 text-2xl text-accent">Expansions and add-ons</h2>
+          <div class="not-prose grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {{ range .ByTitle }}
+              {{ $game := . }}
+              <article class="min-w-0">
+                <a class="group block no-underline" href="{{ .RelPermalink }}">
+                  {{ with .Params.assets.cover }}
+                    <img
+                      class="mb-3 aspect-[3/4] w-full rounded object-cover transition-opacity group-hover:opacity-85"
+                      src="{{ . }}"
+                      alt="Cover art for {{ $game.Title }}"
+                      loading="lazy"
+                    />
+                  {{ else }}
+                    <div
+                      class="mb-3 flex aspect-[3/4] items-center justify-center rounded border border-border bg-surface px-4 text-center font-serif text-lg text-foreground"
+                    >
+                      {{ .Title }}
+                    </div>
+                  {{ end }}
+                  <h3 class="text-sm leading-snug text-muted group-hover:text-accent">{{ .Title }}</h3>
+                </a>
+              </article>
+            {{ end }}
+          </div>
+        </section>
+      {{ end }}
+    {{ end }}
+
+    {{ with .Params.series }}
+      {{ $series := . }}
+      {{ with .external.igdb }}
+        {{ $seriesID := . }}
+        {{ $seriesGames := slice }}
+        {{ range where site.RegularPages "Type" "game" }}
+          {{ if and (eq .Params.series.external.igdb $seriesID) (ne .RelPermalink $.RelPermalink) }}
+            {{ if or (not .Params.relationship) (eq .Params.relationship.type "expanded_game") }}
+              {{ $seriesGames = $seriesGames | append . }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+        {{ with $seriesGames }}
+          <section class="game-generic-section mt-8" aria-labelledby="game-series-heading">
+            <h2 id="game-series-heading" class="mb-4 text-2xl text-accent">Series</h2>
+            <div class="not-prose grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {{ range .ByParam "metadata.igdb.release_date" }}
+                {{ $game := . }}
+                <article class="min-w-0">
+                  <a class="group block no-underline" href="{{ .RelPermalink }}">
+                    {{ with .Params.assets.cover }}
+                      <img
+                        class="mb-3 aspect-[3/4] w-full rounded object-cover transition-opacity group-hover:opacity-85"
+                        src="{{ . }}"
+                        alt="Cover art for {{ $game.Title }}"
+                        loading="lazy"
+                      />
+                    {{ else }}
+                      <div
+                        class="mb-3 flex aspect-[3/4] items-center justify-center rounded border border-border bg-surface px-4 text-center font-serif text-lg text-foreground"
+                      >
+                        {{ .Title }}
+                      </div>
+                    {{ end }}
+                    <h3 class="text-sm leading-snug text-muted group-hover:text-accent">
+                      {{ .Title }}
+                    </h3>
+                  </a>
+                </article>
+              {{ end }}
+            </div>
+          </section>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+
+    {{ with .Params.franchise }}
+      {{ with .external.igdb }}
+        {{ $franchiseID := . }}
+        {{ $currentSeriesID := $.Params.series.external.igdb }}
+        {{ $franchiseGames := slice }}
+        {{ range where site.RegularPages "Type" "game" }}
+          {{ if and (eq .Params.franchise.external.igdb $franchiseID) (ne .RelPermalink $.RelPermalink) }}
+            {{ if and (or (not .Params.relationship) (eq .Params.relationship.type "expanded_game")) (ne .Params.series.external.igdb $currentSeriesID) }}
+              {{ $franchiseGames = $franchiseGames | append . }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+        {{ with $franchiseGames }}
+          <section class="game-generic-section mt-8" aria-labelledby="game-franchise-heading">
+            <h2 id="game-franchise-heading" class="mb-4 text-2xl text-accent">Franchise</h2>
+            <div class="not-prose grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {{ range .ByParam "metadata.igdb.release_date" }}
+                {{ $game := . }}
+                <article class="min-w-0">
+                  <a class="group block no-underline" href="{{ .RelPermalink }}">
+                    {{ with .Params.assets.cover }}
+                      <img
+                        class="mb-3 aspect-[3/4] w-full rounded object-cover transition-opacity group-hover:opacity-85"
+                        src="{{ . }}"
+                        alt="Cover art for {{ $game.Title }}"
+                        loading="lazy"
+                      />
+                    {{ else }}
+                      <div
+                        class="mb-3 flex aspect-[3/4] items-center justify-center rounded border border-border bg-surface px-4 text-center font-serif text-lg text-foreground"
+                      >
+                        {{ .Title }}
+                      </div>
+                    {{ end }}
+                    <h3 class="text-sm leading-snug text-muted group-hover:text-accent">{{ .Title }}</h3>
+                  </a>
+                </article>
+              {{ end }}
+            </div>
+          </section>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  </div>
+{{ end }}

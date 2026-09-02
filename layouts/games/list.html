@@ -1,0 +1,136 @@
+{{ define "main" }}
+  <style>
+    .game-genre-filter[aria-pressed="true"] {
+      background: var(--color-surface);
+      color: var(--color-foreground);
+    }
+  </style>
+  <div class="games-index mb-20">
+    <h1 class="mb-8 text-3xl text-accent">{{ .Title }}</h1>
+    {{ with .Content }}
+      <div class="prose mb-8 text-foreground font-sans">{{ . }}</div>
+    {{ end }}
+
+    {{ $games := .RegularPages }}
+    {{ $statuses := slice "in-progress" "planning" "paused" "completed" "dropped" }}
+    {{ $statusNames := dict "in-progress" "Playing" "paused" "Paused" "completed" "Completed" "planning" "Planning" "dropped" "Dropped" }}
+
+    {{ range $status := $statuses }}
+      {{ $gamesByStatus := where $games "Params.tracking.status" $status }}
+      {{ with $gamesByStatus }}
+        {{ $gameEntries := slice }}
+        {{ range . }}
+          {{ $sortKey := .Title }}
+          {{ if eq $status "completed" }}
+            {{ $sortKey = default "" .Params.metadata.igdb.release_date }}
+            {{ with .Params.tracking.end_date }}
+              {{ $sortKey = . }}
+            {{ end }}
+          {{ end }}
+          {{ $gameEntries = $gameEntries | append (dict "game" . "sortkey" $sortKey) }}
+        {{ end }}
+        {{ $sortedGames := sort $gameEntries "sortkey" }}
+        {{ if eq $status "completed" }}
+          {{ $sortedGames = sort $gameEntries "sortkey" "desc" }}
+        {{ end }}
+        <section class="mb-12" aria-labelledby="games-{{ $status }}-heading">
+          <h2 id="games-{{ $status }}-heading" class="mb-5 text-2xl text-accent">
+            {{ index $statusNames $status }}
+          </h2>
+          {{ if or (eq $status "in-progress") (eq $status "planning") (eq $status "paused") (eq $status "completed") }}
+            {{ $genreCounts := dict }}
+            {{ range $gamesByStatus }}
+              {{ range .Params.metadata.igdb.genres }}
+                {{ $genreCounts = merge $genreCounts (dict . (add (default 0 (index $genreCounts .)) 1)) }}
+              {{ end }}
+            {{ end }}
+            {{ $genres := slice }}
+            {{ range $genre, $count := $genreCounts }}
+              {{ $genres = $genres | append (dict "name" $genre "count" $count) }}
+            {{ end }}
+            {{ $topGenres := first 5 (sort $genres "count" "desc") }}
+            {{ with sort $topGenres "name" }}
+              <div
+                class="not-prose mb-5 flex flex-wrap gap-2"
+                data-game-genre-filters
+                aria-label="Genres represented in {{ index $statusNames $status }}"
+              >
+                {{ range . }}
+                  {{ $name := .name }}
+                  {{ if eq $name "Role-playing (RPG)" }}
+                    {{ $name = "RPG" }}
+                  {{ else if eq $name "Real Time Strategy (RTS)" }}
+                    {{ $name = "RTS" }}
+                  {{ end }}
+                  <button
+                    class="game-genre-filter rounded border border-border px-2 py-1 text-sm text-muted hover:text-accent"
+                    type="button"
+                    data-game-genre="{{ .name | urlize }}"
+                    aria-pressed="false"
+                  >
+                    {{ $name }}
+                  </button>
+                {{ end }}
+              </div>
+            {{ end }}
+          {{ end }}
+          {{ if eq $status "dropped" }}
+            <ul class="prose text-foreground font-sans list-disc ml-4">
+              {{ range $sortedGames }}
+                <li><a href="{{ .game.RelPermalink }}">{{ .game.Title }}</a></li>
+              {{ end }}
+            </ul>
+          {{ else }}
+            {{ $lazy := and (ne $status "in-progress") (ne $status "planning") }}
+            <div class="not-prose grid grid-cols-2 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {{ range first 9 $sortedGames }}
+                {{ partial "games/card.html" (dict "game" .game "lazy" $lazy) }}
+              {{ end }}
+            </div>
+            {{ with after 9 $sortedGames }}
+              <details class="not-prose mt-6">
+                <summary class="cursor-pointer text-sm text-accent">
+                  Show more {{ lower (index $statusNames $status) }} games
+                </summary>
+                <div class="mt-6 grid grid-cols-2 gap-6 lg:grid-cols-3">
+                  {{ range . }}
+                    {{ partial "games/card.html" (dict "game" .game "lazy" true) }}
+                  {{ end }}
+                </div>
+              </details>
+            {{ end }}
+          {{ end }}
+        </section>
+      {{ end }}
+    {{ end }}
+  </div>
+  <script>
+    for (const filters of document.querySelectorAll("[data-game-genre-filters]")) {
+      const section = filters.closest("section")
+      const cards = section.querySelectorAll("[data-game-card]")
+      const moreGames = section.querySelector("details")
+
+      for (const button of filters.querySelectorAll("[data-game-genre]")) {
+        button.addEventListener("click", () => {
+          const wasPressed = button.getAttribute("aria-pressed") === "true"
+
+          for (const genreButton of filters.querySelectorAll("[data-game-genre]")) {
+            genreButton.setAttribute("aria-pressed", "false")
+          }
+
+          if (wasPressed) {
+            for (const card of cards) card.hidden = false
+            if (moreGames) moreGames.open = false
+            return
+          }
+
+          button.setAttribute("aria-pressed", "true")
+          if (moreGames) moreGames.open = true
+          for (const card of cards) {
+            card.hidden = !card.dataset.gameGenres.split(" ").includes(button.dataset.gameGenre)
+          }
+        })
+      }
+    }
+  </script>
+{{ end }}
