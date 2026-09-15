@@ -12,8 +12,8 @@ show_in_pages_nav = true
   email   = "hire@paultibbetts.uk"
 
   summary = [
-    "Senior software engineer with experience spanning full-stack web development, cloud infrastructure, and operational tooling.",
-    "I have spent my career developing and operating long-lived production systems, moving comfortably between application code, delivery pipelines, and platform concerns while supporting teams shipping real products at scale.",
+    "Platform engineer with a software engineering background spanning application development, infrastructure, CI/CD, observability, automation and developer tooling.",
+    "Hands-on across Linux, Infrastructure as Code, Kubernetes, cloud platforms and virtualisation, with a track record of improving platform reliability and developer experience through automation, standardisation, and close collaboration with development teams.",
   ]
 
   [[resume.profile]]
@@ -32,71 +32,85 @@ show_in_pages_nav = true
     rel   = "me"
 
   [[resume.skills]]
-    name = "Programming"
+    name = "Platform & Infrastructure"
     items = [
-      "Go",
-      "Python - FastAPI, Flask",
-      "JavaScript, TypeScript - Vue.js, React",
-      "PHP - Laravel"
+      "Linux server administration",
+      "Cloud platforms: AWS, Linode, DigitalOcean",
+      "Virtualisation: Proxmox, LXC",
+      "Cloud-native application architecture",
+      "Networking fundamentals",
+      "Ingress & traffic management: Traefik, ingress-nginx, Caddy, Nginx, Apache",
     ]
 
   [[resume.skills]]
-    name = "Cloud & Infrastructure"
+    name = "Infrastructure as Code & Automation"
     items = [
-      "Kubernetes ecosystem: Kubernetes, K3s, Helm, Talos",
-      "Cloud-native application design principles",
-      "Infrastructure as code (IaC): Terraform, Ansible",
-      "Cloud platforms: AWS, Linode, DigitalOcean",
-      "Linux server administration",
-      "Ingress & traffic management: Traefik, ingress-nginx (RIP), Caddy, Nginx, Apache",
-      "Virtualisation: Proxmox, KVM/QEMU, LXC",
-      "Networking fundamentals"
+      "IaC: Terraform, Ansible",
+      "Bash / shell scripting"
+    ]
+
+  [[resume.skills]]
+    name = "CI/CD & Source Control"
+    items = [
+      "Source control: Git, GitHub, Gitea, GitLab",
+      "CI: GitHub Actions, Gitea Actions, Woodpecker CI",
+      "GitOps: Argo CD",
+      "Release automation and versioning",
+      "Dependency automation: Renovate, Dependabot"
+    ]
+
+  [[resume.skills]]
+    name = "Containers & Orchestration"
+    items = [
+      "Kubernetes ecosystem: Kubernetes, Helm, Talos, K3s",
+      "Container image automation and optimisation: Docker, BuildKit, multi-arch builds",
+      "Secrets management: Kubernetes Secrets, Sealed Secrets"
     ]
 
   [[resume.skills]]
     name = "Observability"
     items = [
-      "Instrumentation: OpenTelemetry (manual + auto)",
-      "Logs, Metrics and Traces: Loki, Prometheus, Tempo",
+      "Instrumentation: OpenTelemetry (manual + automatic)",
+      "Logs, metrics and traces: Loki, Prometheus, Tempo",
       "Dashboards and visualisation: Grafana",
       "Observability pipelines: OpenTelemetry Collector, Alloy, Grafana Cloud ingestion"
     ]
 
   [[resume.skills]]
-    name = "CI/CD & Automation"
+    name = "Databases & Storage"
     items = [
-      "CI systems: GitHub Actions, Woodpecker CI, Gitea Actions",
-      "Container image automation and optimisation: Docker, BuildKit, multi-arch builds",
-      "Release automation and versioning",
-      "Dependency automation: Renovate, Dependabot",
-      "GitOps: Argo CD",
-      "Secrets management: Kubernetes secrets, Sealed Secrets",
-      "Shell scripting",
-      "Make"
+      "PostgreSQL, MySQL/MariaDB",
+      "Redis",
+      "Object storage: Amazon S3, MinIO"
     ]
 
   [[resume.skills]]
-    name = "Databases & Storage"
+    name = "Programming"
     items = [
-      "PostgreSQL, MySQL",
-      "Redis",
-      "Object storage: S3, MinIO"
+      "Go",
+      "Python - FastAPI, Flask",
+      "JavaScript, TypeScript - Vue.js, React",
+      "PHP - Laravel, SlimPHP"
     ]
 
   [[resume.experience]]
-  company = "Professional Development"
+  company = ""
 
   [[resume.experience.role]]
-  title = "Independent Engineer"
+  title = "Professional Development"
   start = "2025-04"
   current = true
 
   summary = [
-    "Full-time independent engineering work."
+    "Hands-on engineering through the ongoing operation and evolution of a persistent self-hosted infrastructure environment."
   ]
 
   highlights = [
-    "Built and operated production-style personal and open-source systems across application code and infrastructure."
+    "Operate and maintain Linux infrastructure across Proxmox virtualisation and a Talos Kubernetes cluster.",
+    "Manage infrastructure configuration and application deployments using Terraform, Ansible, Helm, Argo CD, and Git-based workflows.",
+    "Configure and maintain networking, DNS, ingress, TLS certificate management, secrets management and identity/SSO across self-hosted services.",
+    "Operate monitoring and observability using Grafana, Prometheus and related tooling.",
+    "Maintain persistent storage and backup workflows using TrueNAS, Proxmox Backup Server and S3-compatible object storage."
   ]
 
   [[resume.experience]]  
@@ -108,16 +122,16 @@ show_in_pages_nav = true
   end   = "2025-04"
 
   summary = [
-    "Built shared tooling and internal platforms to support application delivery, observability, and operational consistency across multiple teams."
+    "Built shared tooling and internal platforms to improve application delivery, observability, and operational consistency across multiple teams."
   ]
 
   highlights = [
-    "Led the rollout of application observability using Grafana Cloud APM, onboarding teams and establishing shared monitoring and alerting practices.",
     "Built a Kubernetes-based self-service preview environment, enabling per-pull-request deployments via GitHub Actions, Argo CD, Helm, and shared automation.",
     "Designed and standardised CI/CD pipelines across multiple repositories, aligning build, test, and deployment workflows with preview environments.",
+    "Led the rollout of application observability using Grafana Cloud APM, onboarding teams and establishing shared monitoring and alerting practices.",
     "Developed shared Laravel instrumentation to provide consistent application metrics and job queue visibility across services.",
-    "Created and maintained a company-wide code quality and standards package, integrating PHP CS Fixer, Larastan, and Rector into local and CI workflows.",
-    "Worked closely with application teams to align development and operational practices, providing hands-on support with delivery, reliability, and complex technical issues."
+    "Worked directly with application teams to align development and operational practices, troubleshoot delivery and reliability issues, and provide support for complex technical problems.",
+    "Created and maintained a company-wide code quality and standards package, integrating PHP CS Fixer, Larastan, and Rector into local and CI workflows."
   ]
 
   [[resume.experience.role]]

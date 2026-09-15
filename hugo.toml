@@ -33,7 +33,7 @@ capitalizeListTitles = false
 # ==========================
 
 [params]
-  description = 'Personal website of Paul Tibbetts, a software engineer in the UK.'
+  description = 'Personal website of Paul Tibbetts, a platform engineer in the UK.'
   # "Site images" list used by the built-in Open Graph partial.
 	images = [ '/apple-touch-icon.png' ]
   # Sections treated as post streams (home/feed/year/archive views).

@@ -7,9 +7,9 @@ show_in_pages_nav = true
 
 My name's Paul. I grew up in Birmingham and now live in North Wales <span aria-hidden="true">🏴󠁧󠁢󠁷󠁬󠁳󠁿</span>.
 
-I'm a software engineer with experience across the full web stack and the infrastructure that supports it. I've contributed to products used by some of the most recognisable names in tech.
+I'm a platform engineer with experience spanning application development, cloud infrastructure, and the systems that connect the two. I've contributed to products used by some of the most recognisable names in tech.
 
-In recent years I've focused on DevOps and Platform Engineering, building the foundations that enable teams to deploy, observe, and iterate on backend services with confidence.
+My focus is on building the foundations that help engineering teams deliver reliable software: automating infrastructure, improving developer workflows, and enabling teams to deploy, observe, and iterate on backend services with confidence.
 
 ## More about me
 

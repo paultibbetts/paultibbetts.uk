@@ -76,17 +76,11 @@
           {{ range . }}
             {{ $company := .company }}
             <article>
-              <header>
-                <h3 class="hidden">
-                  {{ $company }}
-                </h3>
-              </header>
-
               {{ range .role }}
                 <section class="p-experience h-event mt-4">
                   <h3 class="p-name">
-                    <span class="p-job-title">{{ .title }}</span> at
-                    {{ $company }}
+                    <span class="p-job-title">{{ .title }}</span>
+                    {{ with $company }}at {{ . }}{{ end }}
                   </h3>
 
                   <p>
