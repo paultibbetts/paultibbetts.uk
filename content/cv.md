@@ -128,6 +128,7 @@ show_in_pages_nav = true
   highlights = [
     "Built a Kubernetes-based self-service preview environment, enabling per-pull-request deployments via GitHub Actions, Argo CD, Helm, and shared automation.",
     "Designed and standardised CI/CD pipelines across multiple repositories, aligning build, test, and deployment workflows with preview environments.",
+    "Developed Infrastructure as Code for environments that had previously been provisioned manually, improving repeatability and maintainability while mentoring a junior engineer in IaC practices.",
     "Led the rollout of application observability using Grafana Cloud APM, onboarding teams and establishing shared monitoring and alerting practices.",
     "Developed shared Laravel instrumentation to provide consistent application metrics and job queue visibility across services.",
     "Worked directly with application teams to align development and operational practices, troubleshoot delivery and reliability issues, and provide support for complex technical problems.",
