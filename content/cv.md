@@ -14,7 +14,7 @@ show_in_pages_nav = true
 
   summary = [
     "Platform engineer with a software engineering background spanning application development, infrastructure, CI/CD, observability, automation and developer tooling.",
-    "Hands-on across Linux, Infrastructure as Code, Kubernetes, cloud platforms and virtualisation. Experienced in modernising infrastructure, standardising delivery, with a focus on platform reliability, developer experience and close collaboration with engineering teams."
+    "Hands-on across Linux, Infrastructure as Code, Kubernetes, cloud platforms and virtualisation. Experienced in modernising infrastructure and standardising delivery, with a focus on platform reliability, developer experience and close collaboration with engineering teams."
   ]
 
   [[resume.profile]]
