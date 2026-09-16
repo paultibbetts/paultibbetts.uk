@@ -27,11 +27,6 @@ show_in_pages_nav = true
     url   = "https://github.com/paultibbetts"
     rel   = "me"
 
-  [[resume.profile]]
-    label = "LinkedIn"
-    url   = "https://www.linkedin.com/in/paultibbetts"
-    rel   = "me"
-
   [[resume.skills]]
     name = "Platform & Infrastructure"
     items = [
