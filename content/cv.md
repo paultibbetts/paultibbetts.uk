@@ -1,6 +1,7 @@
 +++
 title = "CV"
 type = "resume"
+description = "CV of Paul Tibbetts, a platform engineer in North Wales with experience in infrastructure, Kubernetes, cloud platforms, CI/CD and developer tooling."
 show_in_pages_nav = true
 
 [resume]
