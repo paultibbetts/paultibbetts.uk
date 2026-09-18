@@ -11,6 +11,10 @@ type = "game"
   cover = "https://media.paultibbetts.uk/games/battlefield-4/cover.jpg"
   hero = "https://media.paultibbetts.uk/games/battlefield-4/hero.jpg"
 
+[derived]
+  category = "completed"
+  played = true
+
 [external]
   igdb = 1979
 
@@ -36,7 +40,11 @@ type = "game"
 [sync]
   [sync.yamtrack]
     id = 189
-    notes = ""
+    notes = "Played on: Xbox One"
+
+    [[sync.yamtrack.lists]]
+      id = 1
+      name = "Open-ended"
 
 [tracking]
   progress = 0

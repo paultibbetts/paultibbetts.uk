@@ -8,6 +8,10 @@ type = "game"
   hero = "https://media.paultibbetts.uk/games/the-witcher-3-wild-hunt/hero.jpg"
   logo = "https://media.paultibbetts.uk/games/the-witcher-3-wild-hunt/logo.png"
 
+[derived]
+  category = "want-to-revisit"
+  played = true
+
 [external]
   igdb = 1942
   steam = 292030
@@ -34,7 +38,7 @@ type = "game"
 [sync]
   [sync.yamtrack]
     id = 172
-    notes = "This game is amazing. There is a remaster update coming out, and I also have the first book (still unread), so one day I will start a new play through."
+    notes = "Played on: Epic Games\r\n\r\nThis game is amazing. There is a remaster update coming out, and I also have the first book (still unread), so one day I will start a new play through."
 
 [tracking]
   progress = 0

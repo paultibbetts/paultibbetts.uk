@@ -8,6 +8,10 @@ type = "game"
   hero = "https://media.paultibbetts.uk/games/red-dead-redemption-2/hero.jpg"
   logo = "https://media.paultibbetts.uk/games/red-dead-redemption-2/logo.png"
 
+[derived]
+  category = "paused"
+  played = true
+
 [external]
   igdb = 25076
   steam = 1174180
@@ -29,7 +33,7 @@ type = "game"
 [sync]
   [sync.yamtrack]
     id = 153
-    notes = ""
+    notes = "Played on: Rockstar Games"
 
 [tracking]
   progress = 2409

@@ -8,38 +8,82 @@
   <div class="games-index mb-20">
     <h1 class="mb-8 text-3xl text-accent">{{ .Title }}</h1>
     {{ with .Content }}
-      <div class="prose mb-8 text-foreground font-sans">{{ . }}</div>
+      <div class="prose mb-4 text-foreground font-sans">{{ . }}</div>
     {{ end }}
 
     {{ $games := .RegularPages }}
-    {{ $statuses := slice "in-progress" "planning" "paused" "completed" "dropped" }}
-    {{ $statusNames := dict "in-progress" "Playing" "paused" "Paused" "completed" "Completed" "planning" "Planning" "dropped" "Dropped" }}
+    <p class="mb-8 text-sm text-muted">{{ len $games }} games in the library</p>
 
-    {{ range $status := $statuses }}
-      {{ $gamesByStatus := where $games "Params.tracking.status" $status }}
-      {{ with $gamesByStatus }}
-        {{ $gameEntries := slice }}
-        {{ range . }}
-          {{ $sortKey := .Title }}
-          {{ if eq $status "completed" }}
-            {{ $sortKey = default "" .Params.metadata.igdb.release_date }}
+    {{ $categories := slice "playing" "paused" "backlog" "want-to-revisit" "want-to-replay" "interested" "watching" "completed" "no-longer-playing" "dropped" }}
+    {{ $categoryNames := dict
+      "playing" "Playing"
+      "watching" "Anticipating"
+      "backlog" "Backlog"
+      "want-to-revisit" "Want to revisit"
+      "want-to-replay" "Want to replay"
+      "paused" "Paused"
+      "interested" "Interested"
+      "completed" "Completed"
+      "no-longer-playing" "No longer playing"
+      "dropped" "Dropped"
+    }}
+
+    {{ range $category := $categories }}
+      {{ $gamesByCategory := where $games "Params.derived.category" $category }}
+      {{ if eq $category "interested" }}
+        {{ $gamesByCategory = $gamesByCategory | union (where $games "Params.derived.category" "planning") }}
+      {{ end }}
+      {{ with $gamesByCategory }}
+        {{ $sortedGames := .ByTitle }}
+        {{ if eq $category "completed" }}
+          {{ $datedGames := slice }}
+          {{ $undatedGames := slice }}
+          {{ range $gamesByCategory }}
+            {{ $sortKey := default "" .Params.metadata.igdb.release_date }}
             {{ with .Params.tracking.end_date }}
               {{ $sortKey = . }}
             {{ end }}
+            {{ if $sortKey }}
+              {{ $datedGames = $datedGames | append (dict "game" . "sortKey" (printf "%s|%s" $sortKey .Title)) }}
+            {{ else }}
+              {{ $undatedGames = $undatedGames | append (dict "game" . "sortKey" .Title) }}
+            {{ end }}
           {{ end }}
-          {{ $gameEntries = $gameEntries | append (dict "game" . "sortkey" $sortKey) }}
+          {{ $sortedGames = slice }}
+          {{ range sort $datedGames "sortKey" "desc" }}
+            {{ $sortedGames = $sortedGames | append .game }}
+          {{ end }}
+          {{ range sort $undatedGames "sortKey" }}
+            {{ $sortedGames = $sortedGames | append .game }}
+          {{ end }}
         {{ end }}
-        {{ $sortedGames := sort $gameEntries "sortkey" }}
-        {{ if eq $status "completed" }}
-          {{ $sortedGames = sort $gameEntries "sortkey" "desc" }}
+        {{ if eq $category "no-longer-playing" }}
+          {{ $datedGames := slice }}
+          {{ $undatedGames := slice }}
+          {{ range $gamesByCategory }}
+            {{ $releaseDate := default "" .Params.metadata.igdb.release_date }}
+            {{ if $releaseDate }}
+              {{ $datedGames = $datedGames | append (dict "game" . "sortKey" (printf "%s|%s" $releaseDate .Title)) }}
+            {{ else }}
+              {{ $undatedGames = $undatedGames | append (dict "game" . "sortKey" .Title) }}
+            {{ end }}
+          {{ end }}
+          {{ $sortedGames = slice }}
+          {{ range sort $datedGames "sortKey" "desc" }}
+            {{ $sortedGames = $sortedGames | append .game }}
+          {{ end }}
+          {{ range sort $undatedGames "sortKey" }}
+            {{ $sortedGames = $sortedGames | append .game }}
+          {{ end }}
         {{ end }}
-        <section class="mb-12" aria-labelledby="games-{{ $status }}-heading">
-          <h2 id="games-{{ $status }}-heading" class="mb-5 text-2xl text-accent">
-            {{ index $statusNames $status }}
+        <section class="mb-12" aria-labelledby="games-{{ $category }}-heading">
+          <h2 id="games-{{ $category }}-heading" class="mb-5 text-2xl text-accent">
+            {{ index $categoryNames $category }}
           </h2>
-          {{ if or (eq $status "in-progress") (eq $status "planning") (eq $status "paused") (eq $status "completed") }}
+
+          {{ if ne $category "dropped" }}
             {{ $genreCounts := dict }}
-            {{ range $gamesByStatus }}
+            {{ range $gamesByCategory }}
               {{ range .Params.metadata.igdb.genres }}
                 {{ $genreCounts = merge $genreCounts (dict . (add (default 0 (index $genreCounts .)) 1)) }}
               {{ end }}
@@ -53,7 +97,7 @@
               <div
                 class="not-prose mb-5 flex flex-wrap gap-2"
                 data-game-genre-filters
-                aria-label="Genres represented in {{ index $statusNames $status }}"
+                aria-label="Genres represented in {{ index $categoryNames $category }}"
               >
                 {{ range . }}
                   {{ $name := .name }}
@@ -74,27 +118,27 @@
               </div>
             {{ end }}
           {{ end }}
-          {{ if eq $status "dropped" }}
-            <ul class="prose text-foreground font-sans list-disc ml-4">
+
+          {{ if eq $category "dropped" }}
+            <ul class="prose ml-4 list-disc text-foreground font-sans">
               {{ range $sortedGames }}
-                <li><a href="{{ .game.RelPermalink }}">{{ .game.Title }}</a></li>
+                <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
               {{ end }}
             </ul>
           {{ else }}
-            {{ $lazy := and (ne $status "in-progress") (ne $status "planning") }}
             <div class="not-prose grid grid-cols-2 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {{ range first 9 $sortedGames }}
-                {{ partial "games/card.html" (dict "game" .game "lazy" $lazy) }}
+                {{ partial "games/card.html" (dict "game" . "lazy" false) }}
               {{ end }}
             </div>
             {{ with after 9 $sortedGames }}
               <details class="not-prose mt-6">
                 <summary class="cursor-pointer text-sm text-accent">
-                  Show more {{ lower (index $statusNames $status) }} games
+                  Show more {{ lower (index $categoryNames $category) }} games
                 </summary>
                 <div class="mt-6 grid grid-cols-2 gap-6 lg:grid-cols-3">
                   {{ range . }}
-                    {{ partial "games/card.html" (dict "game" .game "lazy" true) }}
+                    {{ partial "games/card.html" (dict "game" . "lazy" true) }}
                   {{ end }}
                 </div>
               </details>

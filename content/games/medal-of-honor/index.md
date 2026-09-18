@@ -3,9 +3,32 @@ slug = "medal-of-honor"
 title = "Medal of Honor"
 type = "game"
 
+[assets]
+  cover = "https://media.paultibbetts.uk/games/medal-of-honor/cover.jpg"
+  hero = "https://media.paultibbetts.uk/games/medal-of-honor/hero.jpg"
+  logo = "https://media.paultibbetts.uk/games/medal-of-honor/logo.png"
+
+[derived]
+  category = "completed"
+  played = true
+
 [external]
   igdb = 556
-steam = 47790
+  steam = 47790
+
+[metadata]
+  [metadata.igdb]
+    developers = ["Danger Close", "EA Digital Illusions CE"]
+    genres = ["Shooter"]
+    platforms = ["Linux", "PC (Microsoft Windows)", "PlayStation 3", "Xbox 360"]
+    publishers = ["Electronic Arts"]
+    release_date = "2010-10-12"
+    slug = "medal-of-honor"
+
+[series]
+  name = "Medal of Honor"
+  [series.external]
+    igdb = 59
 
 [sync]
   [sync.yamtrack]
@@ -17,21 +40,4 @@ steam = 47790
   progress = 300
   start_date = "2010-10-15T11:00:00Z"
   status = "completed"
-[assets]
-cover = "https://media.paultibbetts.uk/games/medal-of-honor/cover.jpg"
-hero = "https://media.paultibbetts.uk/games/medal-of-honor/hero.jpg"
-logo = "https://media.paultibbetts.uk/games/medal-of-honor/logo.png"
-[metadata.igdb]
-developers = ["Danger Close", "EA Digital Illusions CE"]
-genres = ["Shooter"]
-platforms = ["Linux", "PC (Microsoft Windows)", "PlayStation 3", "Xbox 360"]
-publishers = ["Electronic Arts"]
-release_date = "2010-10-12"
-slug = "medal-of-honor"
-
-[series]
-name = "Medal of Honor"
-
-[series.external]
-igdb = 59
 +++

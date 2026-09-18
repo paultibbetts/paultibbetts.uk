@@ -8,6 +8,10 @@ type = "game"
   hero = "https://media.paultibbetts.uk/games/left-4-dead-2/hero.jpg"
   logo = "https://media.paultibbetts.uk/games/left-4-dead-2/logo.png"
 
+[derived]
+  category = "completed"
+  played = true
+
 [external]
   igdb = 124
   steam = 550
@@ -29,7 +33,11 @@ type = "game"
 [sync]
   [sync.yamtrack]
     id = 21
-    notes = ""
+    notes = "Imported from Steam"
+
+    [[sync.yamtrack.lists]]
+      id = 1
+      name = "Open-ended"
 
 [tracking]
   end_date = "2024-02-08T12:00:00Z"

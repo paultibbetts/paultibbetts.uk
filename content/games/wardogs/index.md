@@ -11,6 +11,10 @@ type = "game"
   cover = "https://media.paultibbetts.uk/games/wardogs/cover.jpg"
   hero = "https://media.paultibbetts.uk/games/wardogs/hero.jpg"
 
+[derived]
+  category = "playing"
+  played = true
+
 [external]
   igdb = 388285
   steam = 1867240
@@ -26,7 +30,11 @@ type = "game"
 [sync]
   [sync.yamtrack]
     id = 152
-    notes = ""
+    notes = "Imported from Steam"
+
+    [[sync.yamtrack.lists]]
+      id = 1
+      name = "Open-ended"
 
 [tracking]
   progress = 0

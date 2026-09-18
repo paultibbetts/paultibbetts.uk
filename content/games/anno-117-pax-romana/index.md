@@ -8,28 +8,32 @@ type = "game"
   hero = "https://media.paultibbetts.uk/games/anno-117-pax-romana/hero.jpg"
   logo = "https://media.paultibbetts.uk/games/anno-117-pax-romana/logo.png"
 
+[derived]
+  category = "playing"
+  played = true
+
 [external]
   igdb = 305246
   steam = 3274580
 
 [metadata]
   [metadata.igdb]
-developers = ["Ubisoft Blue Byte", "Ubisoft Mainz"]
-genres = ["Real Time Strategy (RTS)", "Simulator", "Strategy"]
-platforms = ["PC (Microsoft Windows)", "PlayStation 5", "Xbox Series X|S"]
-publishers = ["Ubisoft Entertainment"]
-release_date = "2025-11-13"
+    developers = ["Ubisoft Blue Byte", "Ubisoft Mainz"]
+    genres = ["Real Time Strategy (RTS)", "Simulator", "Strategy"]
+    platforms = ["PC (Microsoft Windows)", "PlayStation 5", "Xbox Series X|S"]
+    publishers = ["Ubisoft Entertainment"]
+    release_date = "2025-11-13"
+    slug = "anno-117-pax-romana"
 
-slug = "anno-117-pax-romana"
 [series]
-name = "Anno"
+  name = "Anno"
   [series.external]
-igdb = 158
+    igdb = 158
 
 [sync]
   [sync.yamtrack]
     id = 95
-    notes = ""
+    notes = "Imported from Steam"
 
 [tracking]
   progress = 2600

@@ -115,7 +115,9 @@
               {{ else if eq $relationship.type "expanded_game" }}
                 {{ $label = "Expanded edition of" }}
               {{ end }}
-              <p class="game-generic-status">{{ $label }} <a href="{{ .RelPermalink }}">{{ .Title }}</a></p>
+              <p class="game-generic-status">
+                {{ $label }} <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+              </p>
             {{ end }}
           {{ end }}
         {{ end }}
@@ -128,6 +130,40 @@
         </p>
       {{ end }}
     </header>
+
+    {{ $yamtrackNotes := default "" .Params.sync.yamtrack.notes }}
+    {{ $firstYamtrackNoteLine := "" }}
+    {{ with split $yamtrackNotes "\n" }}
+      {{ $firstYamtrackNoteLine = index . 0 | strings.TrimSpace }}
+    {{ end }}
+    {{ $ownedOnSteam := eq $firstYamtrackNoteLine "Imported from Steam" }}
+    {{ $displayNotes := $yamtrackNotes }}
+    {{ $ownedPlatforms := slice }}
+    {{ $playedPlatforms := slice }}
+    {{ if $ownedOnSteam }}
+      {{ $displayNotes = replaceRE `^Imported from Steam(\r?\n)*` "" $displayNotes | strings.TrimSpace }}
+      {{ $ownedPlatforms = $ownedPlatforms | append "Steam" }}
+    {{ end }}
+    {{ $displayNoteLines := slice }}
+    {{ range split $displayNotes "\n" }}
+      {{ $noteLine := . }}
+      {{ $trimmedNoteLine := strings.TrimSpace $noteLine }}
+      {{ $ownedPlatform := replaceRE `^Owned on:` "" $trimmedNoteLine | strings.TrimSpace }}
+      {{ $playedPlatform := replaceRE `^Played on:` "" $trimmedNoteLine | strings.TrimSpace }}
+      {{ if and (hasPrefix $trimmedNoteLine "Owned on:") $ownedPlatform }}
+        {{ if not (in $ownedPlatforms $ownedPlatform) }}
+          {{ $ownedPlatforms = $ownedPlatforms | append $ownedPlatform }}
+        {{ end }}
+      {{ else if and (hasPrefix $trimmedNoteLine "Played on:") $playedPlatform }}
+        {{ if not (in $playedPlatforms $playedPlatform) }}
+          {{ $playedPlatforms = $playedPlatforms | append $playedPlatform }}
+        {{ end }}
+      {{ else }}
+        {{ $displayNoteLines = $displayNoteLines | append $noteLine }}
+      {{ end }}
+    {{ end }}
+    {{ $displayNotes = delimit $displayNoteLines "\n" | strings.TrimSpace }}
+
 
     <div class="game-generic-grid">
       {{ with .Params.metadata.igdb }}
@@ -161,10 +197,18 @@
       {{ end }}
 
       {{ with .Params.tracking }}
-        {{ if or (isset . "score") (isset . "start_date") (isset . "end_date") }}
+        {{ if or (gt (len $ownedPlatforms) 0) (gt (len $playedPlatforms) 0) (isset . "score") (isset . "start_date") (isset . "end_date") }}
           <section class="game-generic-section" aria-labelledby="game-tracking-heading">
             <h2 id="game-tracking-heading" class="mb-4 text-2xl text-accent">My tracking</h2>
             <dl class="game-generic-facts">
+              {{ range $ownedPlatforms }}
+                <dt>Owned on</dt>
+                <dd>{{ . }}</dd>
+              {{ end }}
+              {{ range $playedPlatforms }}
+                <dt>Played on</dt>
+                <dd>{{ . }}</dd>
+              {{ end }}
               {{ if isset . "score" }}
                 <dt>Score</dt>
                 <dd>{{ .score }}/10</dd>
@@ -187,7 +231,7 @@
       {{ end }}
     </div>
 
-    {{ with .Params.sync.yamtrack.notes }}
+    {{ with $displayNotes }}
       <section class="game-generic-section mt-8" aria-labelledby="game-notes-heading">
         <h2 id="game-notes-heading" class="mb-4 text-2xl text-accent">Notes</h2>
         <div class="prose text-foreground font-sans"><p>{{ . }}</p></div>
@@ -215,7 +259,9 @@
       {{ $relatedGames = where $relatedGames "Params.relationship.external.igdb" $baseID }}
       {{ with $relatedGames }}
         <section class="game-generic-section mt-8" aria-labelledby="game-expansions-heading">
-          <h2 id="game-expansions-heading" class="mb-4 text-2xl text-accent">Expansions and add-ons</h2>
+          <h2 id="game-expansions-heading" class="mb-4 text-2xl text-accent">
+            Expansions and add-ons
+          </h2>
           <div class="not-prose grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {{ range .ByTitle }}
               {{ $game := . }}
@@ -235,7 +281,9 @@
                       {{ .Title }}
                     </div>
                   {{ end }}
-                  <h3 class="text-sm leading-snug text-muted group-hover:text-accent">{{ .Title }}</h3>
+                  <h3 class="text-sm leading-snug text-muted group-hover:text-accent">
+                    {{ .Title }}
+                  </h3>
                 </a>
               </article>
             {{ end }}
@@ -324,7 +372,9 @@
                         {{ .Title }}
                       </div>
                     {{ end }}
-                    <h3 class="text-sm leading-snug text-muted group-hover:text-accent">{{ .Title }}</h3>
+                    <h3 class="text-sm leading-snug text-muted group-hover:text-accent">
+                      {{ .Title }}
+                    </h3>
                   </a>
                 </article>
               {{ end }}

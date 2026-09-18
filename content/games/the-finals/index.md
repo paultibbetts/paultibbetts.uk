@@ -8,6 +8,10 @@ type = "game"
   hero = "https://media.paultibbetts.uk/games/the-finals/hero.jpg"
   logo = "https://media.paultibbetts.uk/games/the-finals/logo.png"
 
+[derived]
+  category = "paused"
+  played = true
+
 [external]
   igdb = 214417
   steam = 2073850
@@ -24,7 +28,11 @@ type = "game"
 [sync]
   [sync.yamtrack]
     id = 65
-    notes = ""
+    notes = "Imported from Steam"
+
+    [[sync.yamtrack.lists]]
+      id = 1
+      name = "Open-ended"
 
 [tracking]
   progress = 37610

@@ -8,6 +8,10 @@ type = "game"
   hero = "https://media.paultibbetts.uk/games/warhammer-40-000-space-marine-ii/hero.jpg"
   logo = "https://media.paultibbetts.uk/games/warhammer-40-000-space-marine-ii/logo.png"
 
+[derived]
+  category = "paused"
+  played = true
+
 [external]
   igdb = 185252
   steam = 2183900
@@ -34,7 +38,11 @@ type = "game"
 [sync]
   [sync.yamtrack]
     id = 52
-    notes = "For the Emperor!"
+    notes = "Imported from Steam\r\n\r\nFor the Emperor!"
+
+    [[sync.yamtrack.lists]]
+      id = 1
+      name = "Open-ended"
 
 [tracking]
   progress = 5747

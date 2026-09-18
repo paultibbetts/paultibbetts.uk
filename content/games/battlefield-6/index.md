@@ -4,7 +4,12 @@ title = "Battlefield 6"
 type = "game"
 
 [assets]
-  hero = "https://media.paultibbetts.uk/games/battlefield-6/hero.jpg"
+hero = "https://media.paultibbetts.uk/games/battlefield-6/hero.jpg"
+
+cover = "https://media.paultibbetts.uk/games/battlefield-6/cover.jpg"
+[derived]
+  category = "no-longer-playing"
+  played = true
 
 [external]
   igdb = 317407
@@ -32,9 +37,16 @@ type = "game"
 [sync]
   [sync.yamtrack]
     id = 101
-    notes = ""
+    notes = "Imported from Steam"
+
+    [[sync.yamtrack.lists]]
+      id = 1
+      name = "Open-ended"
 
 [tracking]
   progress = 10678
   status = "dropped"
+[asset_sources]
+cover = "igdb"
+hero = "igdb"
 +++

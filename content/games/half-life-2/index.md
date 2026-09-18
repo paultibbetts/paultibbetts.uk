@@ -8,6 +8,10 @@ type = "game"
   hero = "https://media.paultibbetts.uk/games/half-life-2/hero.jpg"
   logo = "https://media.paultibbetts.uk/games/half-life-2/logo.png"
 
+[derived]
+  category = "completed"
+  played = true
+
 [external]
   igdb = 233
   steam = 220
@@ -34,7 +38,7 @@ type = "game"
 [sync]
   [sync.yamtrack]
     id = 71
-    notes = ""
+    notes = "Imported from Steam"
 
 [tracking]
   progress = 1401
