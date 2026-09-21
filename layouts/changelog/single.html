@@ -1,0 +1,9 @@
+{{ define "main" }}
+  <div class="mb-20">
+    <div class="prose text-foreground font-sans">
+      <h1>{{ .Date.Format "2006-01-02" }}</h1>
+      {{ partial "changelog/commits.html" . }}
+      {{ .Content }}
+    </div>
+  </div>
+{{ end }}

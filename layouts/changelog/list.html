@@ -1,0 +1,19 @@
+{{ define "main" }}
+  <div class="mb-20">
+    <h1 class="mb-8 text-3xl text-accent">{{ .Title }}</h1>
+    <div class="prose text-foreground font-sans">
+      <p>Some things never change.</p>
+      <p>My website does.</p>
+
+      {{ range .RegularPages.ByDate.Reverse }}
+        <h2>{{ .Date.Format "2006-01-02" }}</h2>
+        {{ partial "changelog/commits.html" . }}
+        {{ .Content }}
+      {{ end }}
+
+      {{ .Content }}
+
+      {{ partial "changelog/archive.html" . }}
+    </div>
+  </div>
+{{ end }}

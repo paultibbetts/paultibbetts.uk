@@ -1,0 +1,13 @@
+{{ with .Params.commits }}
+  {{ $commits := where . "hash" "ne" "" }}
+  {{ with $commits }}
+    <ul>
+      {{ range . }}
+        {{ $url := partial "changelog/commit-url.html" . }}
+        {{ $message := .message | markdownify | strings.TrimSpace }}
+        {{ $message = replaceRE "^<p>(.*)</p>$" "$1" $message }}
+        <li><a href="{{ $url }}"><code>{{ substr .hash 0 7 }}</code></a>: {{ $message | safeHTML }}</li>
+      {{ end }}
+    </ul>
+  {{ end }}
+{{ end }}

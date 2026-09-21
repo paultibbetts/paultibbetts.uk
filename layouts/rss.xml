@@ -154,7 +154,9 @@
         {{- $itemTitle = printf "RSVP (%s)" $rsvpValue -}}
       {{- end -}}
     {{- end -}}
-    {{- if not $itemTitle -}}
+    {{- if eq .Section "changelog" -}}
+      {{- $itemTitle = .Date.Format "2006-01-02" -}}
+    {{- else if not $itemTitle -}}
       {{- $itemTitle = .Date.Format "2006-01-02 15:04:05" -}}
     {{- end -}}
     {{- $itemLink := .Permalink -}}
@@ -174,6 +176,13 @@
       {{- end -}}
     {{- end -}}
     {{- $itemContentHTML := .Content | strings.TrimSpace -}}
+    {{- if eq .Section "changelog" -}}
+      {{- $commitsHTML := partial "changelog/commits.html" . | strings.TrimSpace -}}
+      {{- if $commitsHTML -}}
+        {{- $itemContentHTML = printf "%s\n%s" $commitsHTML $itemContentHTML | strings.TrimSpace -}}
+      {{- end -}}
+      {{- $itemDescription = $itemContentHTML | plainify | htmlUnescape | strings.TrimSpace -}}
+    {{- end -}}
     {{- if and (in (slice "indieweb-directories" "directory-of-indieweb-directories") .Section) (not $itemContentHTML) -}}
       {{- $entryContentParts := slice -}}
       {{- with .Params.description -}}
@@ -192,7 +201,22 @@
       {{- $itemContentHTML = delimit $entryContentParts "\n" -}}
     {{- end -}}
     {{- $itemContentCDATA := printf "<![CDATA[%s]]>" (replace $itemContentHTML "]]>" "]]]]><![CDATA[>") -}}
-    {{- $itemMarkdown := .RawContent | htmlEscape -}}
+    {{- $itemMarkdown := .RawContent -}}
+    {{- if eq .Section "changelog" -}}
+      {{- $markdownParts := slice -}}
+      {{- with .Params.commits -}}
+        {{- $commits := where . "hash" "ne" "" -}}
+        {{- range $commits -}}
+          {{- $url := partial "changelog/commit-url.html" . -}}
+          {{- $markdownParts = $markdownParts | append (printf "- [`%s`](%s): %s" (substr .hash 0 7) $url .message) -}}
+        {{- end -}}
+      {{- end -}}
+      {{- with .RawContent -}}
+        {{- $markdownParts = $markdownParts | append . -}}
+      {{- end -}}
+      {{- $itemMarkdown = delimit $markdownParts "\n\n" -}}
+    {{- end -}}
+    {{- $itemMarkdown = $itemMarkdown | htmlEscape -}}
     <item>
       <title>{{ $itemTitle }}</title>
       <link>{{ $itemLink }}</link>

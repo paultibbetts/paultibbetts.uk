@@ -1,0 +1,2 @@
+{{- $repository := default "paultibbetts/paultibbetts.uk" .repository -}}
+{{- printf "https://github.com/%s/commit/%s" $repository .hash -}}
