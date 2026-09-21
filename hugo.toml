@@ -8,7 +8,7 @@ baseURL = 'https://paultibbetts.uk/'
 # Content locale.
 locale = 'en-gb'
 
-# Display dates and times in the site's local timezone, including GMT/BST changes.
+# Interpret dates without an explicit offset in the site's local timezone.
 timeZone = 'Europe/London'
 
 # Site title (used in templates, <title>, RSS <title>, etc.)
