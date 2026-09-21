@@ -13,6 +13,8 @@ For day-to-day use there are wrapper commands in `bin/`:
 - `./bin/new/article "Title"`
 - `./bin/new/bookmark "https://example.com"`
 - `./bin/new/bookmark "https://example.com" "Optional Title Override"`
+- `./bin/new/changelog`
+- `./bin/new/changelog "2026-03-17T14:14:56Z"`
 - `./bin/new/like "https://example.com"`
 - `./bin/new/like "https://example.com" "Optional Title Override"`
 - `./bin/new/note`
