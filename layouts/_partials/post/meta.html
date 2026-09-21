@@ -1,12 +1,13 @@
 {{- $p := .page -}}
-{{- $timeLabel := $p.Date.Format "3:04pm" -}}
+{{- $publishedAt := $p.Date | time.In "Europe/London" -}}
+{{- $timeLabel := $publishedAt.Format "3:04pm" -}}
 <footer class="text-sm">
   <div class="hidden">
     {{ partial "post/author.html" }}
   </div>
   <div class="mb-2 flex justify-end">
     <a href="{{ $p.RelPermalink }}" class="text-muted">
-      <time datetime="{{ $p.Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ $timeLabel }}</time>
+      <time datetime="{{ $publishedAt.Format "2006-01-02T15:04:05Z07:00" }}">{{ $timeLabel }}</time>
     </a>
   </div>
   {{- with $p.GetTerms "tags" }}
