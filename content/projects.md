@@ -119,4 +119,6 @@ Kubernetes on a [Turing Pi 2.5](https://turingpi.com/) with 3 x [RK1](https://tu
 
 This is where I experiment with new apps and services to self-host, as well as new ways of doing so.
 
+[Code](https://github.com/paultibbetts/homelab)
+
 <span class="text-muted">#Kubernetes</span> <span class="text-muted">#Argo CD</span> <span class="text-muted">#Helm</span>
