@@ -15,18 +15,7 @@
     <p class="mb-8 text-sm text-muted">{{ len $games }} games in the library</p>
 
     {{ $categories := slice "playing" "paused" "backlog" "want-to-revisit" "want-to-replay" "interested" "watching" "completed" "no-longer-playing" "dropped" }}
-    {{ $categoryNames := dict
-      "playing" "Playing"
-      "watching" "Anticipating"
-      "backlog" "Backlog"
-      "want-to-revisit" "Want to revisit"
-      "want-to-replay" "Want to replay"
-      "paused" "Paused"
-      "interested" "Interested"
-      "completed" "Completed"
-      "no-longer-playing" "No longer playing"
-      "dropped" "Dropped"
-    }}
+    {{ $categoryNames := hugo.Data.games.categories }}
 
     {{ range $category := $categories }}
       {{ $gamesByCategory := where $games "Params.derived.category" $category }}

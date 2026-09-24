@@ -122,9 +122,11 @@
           {{ end }}
         {{ end }}
       {{ end }}
-      {{ with .Params.tracking.status }}
+      {{ $status := default .Params.tracking.status .Params.derived.category }}
+      {{ $statusNames := hugo.Data.games.categories }}
+      {{ with $status }}
         <p class="game-generic-status">
-          {{ replace . "-" " " | title }}{{ with $.Params.tracking.progress }}
+          {{ default (replace . "-" " " | title) (index $statusNames .) }}{{ with $.Params.tracking.progress }}
             · {{ div . 60 }}h {{ mod . 60 }}m played
           {{ end }}
         </p>
