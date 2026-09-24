@@ -1,103 +1,19 @@
 {{ define "main" }}
-  <style>
-    .game-generic {
-      padding-bottom: 5rem;
-    }
-    .game-generic .game-generic-hero {
-      position: relative;
-      min-height: clamp(14rem, 32vw, 25rem);
-      overflow: hidden;
-      background: var(--color-surface);
-    }
-    @media (max-width: 767px) {
-      .game-generic .game-generic-hero {
-        width: calc(100% + 2rem);
-        margin-inline: -1rem;
-      }
-    }
-    .game-generic .game-generic-hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, transparent 30%, var(--color-background) 100%);
-    }
-    .game-generic .game-generic-hero-image {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      inset: 0;
-      object-fit: cover;
-    }
-    .game-generic .game-generic-logo {
-      position: absolute;
-      z-index: 1;
-      top: 50%;
-      left: 50%;
-      width: min(68%, 28rem);
-      max-height: 45%;
-      transform: translate(-50%, -50%);
-      object-fit: contain;
-      filter: drop-shadow(0 0 1rem rgba(0, 0, 0, 0.8));
-    }
-    .game-generic .game-generic-intro {
-      position: relative;
-      z-index: 2;
-      margin-top: -2rem;
-      padding: 1rem 0 2rem;
-    }
-    .game-generic .game-generic-intro h1 {
-      margin: 0;
-    }
-    .game-generic .game-generic-status {
-      margin: 0.5rem 0 0;
-      color: var(--color-muted);
-      font-family: var(--font-sans, sans-serif);
-    }
-    .game-generic .game-generic-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
-      gap: 2rem;
-    }
-    .game-generic .game-generic-section {
-      border-top: 1px solid var(--color-border);
-      padding-top: 1.25rem;
-    }
-    .game-generic .game-generic-section h2 {
-      margin-top: 0;
-    }
-    .game-generic .game-generic-facts {
-      display: grid;
-      grid-template-columns: auto minmax(0, 1fr);
-      gap: 0.45rem 1rem;
-      margin: 0;
-    }
-    .game-generic .game-generic-facts dt {
-      color: var(--color-muted);
-    }
-    .game-generic .game-generic-facts dd {
-      margin: 0;
-    }
-    .game-generic .game-generic-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem 1.25rem;
-    }
-  </style>
-  <div class="game-generic">
+  <div class="pb-20">
     {{ if or .Params.assets.hero .Params.assets.logo }}
-      <div class="game-generic-hero">
+      <div class="relative min-h-[clamp(14rem,32vw,25rem)] overflow-hidden bg-surface after:absolute after:inset-0 after:bg-linear-to-b after:from-transparent after:from-[30%] after:to-background after:content-[''] max-md:-mx-4 max-md:w-[calc(100%+2rem)]">
         {{ with .Params.assets.hero }}
-          <img class="game-generic-hero-image" src="{{ . }}" alt="" aria-hidden="true" />
+          <img class="absolute inset-0 size-full object-cover" src="{{ . }}" alt="" aria-hidden="true" />
         {{ end }}
         {{ with .Params.assets.logo }}
-          <img class="game-generic-logo" src="{{ . }}" alt="{{ $.Title }} logo" />
+          <img class="absolute top-1/2 left-1/2 z-1 w-[min(68%,28rem)] max-h-[45%] -translate-x-1/2 -translate-y-1/2 object-contain drop-shadow-[0_0_1rem_rgba(0,0,0,0.8)]" src="{{ . }}" alt="{{ $.Title }} logo" />
         {{ end }}
       </div>
     {{ end }}
 
 
-    <header class="game-generic-intro">
-      <h1 class="text-3xl text-accent sm:text-4xl">{{ .Title }}</h1>
+    <header class="relative z-2 -mt-8 py-4 pb-8">
+      <h1 class="m-0 text-3xl text-accent sm:text-4xl">{{ .Title }}</h1>
       {{ with .Params.relationship }}
         {{ $relationship := . }}
         {{ with .external.igdb }}
@@ -115,7 +31,7 @@
               {{ else if eq $relationship.type "expanded_game" }}
                 {{ $label = "Expanded edition of" }}
               {{ end }}
-              <p class="game-generic-status">
+              <p class="mt-2 mb-0 font-sans text-muted">
                 {{ $label }} <a href="{{ .RelPermalink }}">{{ .Title }}</a>
               </p>
             {{ end }}
@@ -125,7 +41,7 @@
       {{ $status := default .Params.tracking.status .Params.derived.category }}
       {{ $statusNames := hugo.Data.games.categories }}
       {{ with $status }}
-        <p class="game-generic-status">
+        <p class="mt-2 mb-0 font-sans text-muted">
           {{ default (replace . "-" " " | title) (index $statusNames .) }}{{ with $.Params.tracking.progress }}
             · {{ div . 60 }}h {{ mod . 60 }}m played
           {{ end }}
@@ -167,11 +83,11 @@
     {{ $displayNotes = delimit $displayNoteLines "\n" | strings.TrimSpace }}
 
 
-    <div class="game-generic-grid">
+    <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,14rem),1fr))] gap-8">
       {{ with .Params.metadata.igdb }}
-        <section class="game-generic-section" aria-labelledby="game-details-heading">
-          <h2 id="game-details-heading" class="mb-4 text-2xl text-accent">Game details</h2>
-          <dl class="game-generic-facts">
+        <section class="border-t border-border pt-5" aria-labelledby="game-details-heading">
+          <h2 id="game-details-heading" class="mt-0 mb-4 text-2xl text-accent">Game details</h2>
+          <dl class="m-0 grid grid-cols-[auto_minmax(0,1fr)] gap-x-4 gap-y-[0.45rem] [&_dt]:text-muted [&_dd]:m-0">
             {{ with .developers }}
               <dt>Developer{{ if gt (len .) 1 }}s{{ end }}</dt>
               <dd>{{ delimit . ", " }}</dd>
@@ -200,9 +116,9 @@
 
       {{ with .Params.tracking }}
         {{ if or (gt (len $ownedPlatforms) 0) (gt (len $playedPlatforms) 0) (isset . "score") (isset . "start_date") (isset . "end_date") }}
-          <section class="game-generic-section" aria-labelledby="game-tracking-heading">
-            <h2 id="game-tracking-heading" class="mb-4 text-2xl text-accent">My tracking</h2>
-            <dl class="game-generic-facts">
+          <section class="border-t border-border pt-5" aria-labelledby="game-tracking-heading">
+            <h2 id="game-tracking-heading" class="mt-0 mb-4 text-2xl text-accent">My tracking</h2>
+            <dl class="m-0 grid grid-cols-[auto_minmax(0,1fr)] gap-x-4 gap-y-[0.45rem] [&_dt]:text-muted [&_dd]:m-0">
               {{ range $ownedPlatforms }}
                 <dt>Owned on</dt>
                 <dd>{{ . }}</dd>
@@ -234,14 +150,14 @@
     </div>
 
     {{ with $displayNotes }}
-      <section class="game-generic-section mt-8" aria-labelledby="game-notes-heading">
-        <h2 id="game-notes-heading" class="mb-4 text-2xl text-accent">Notes</h2>
+      <section class="mt-8 border-t border-border pt-5" aria-labelledby="game-notes-heading">
+        <h2 id="game-notes-heading" class="mt-0 mb-4 text-2xl text-accent">Notes</h2>
         <div class="prose text-foreground font-sans"><p>{{ . }}</p></div>
       </section>
     {{ end }}
 
     {{ if or .Params.external.steam (and .Params.external.igdb .Params.metadata.igdb.slug) }}
-      <nav class="game-generic-section mt-8 game-generic-links" aria-label="External game links">
+      <nav class="mt-8 flex flex-wrap gap-x-5 gap-y-3 border-t border-border pt-5" aria-label="External game links">
         {{ with .Params.external.steam }}
           <a href="https://store.steampowered.com/app/{{ . }}">View on Steam</a>
         {{ end }}
@@ -260,8 +176,8 @@
       {{ $relatedGames := where site.RegularPages "Type" "game" }}
       {{ $relatedGames = where $relatedGames "Params.relationship.external.igdb" $baseID }}
       {{ with $relatedGames }}
-        <section class="game-generic-section mt-8" aria-labelledby="game-expansions-heading">
-          <h2 id="game-expansions-heading" class="mb-4 text-2xl text-accent">
+        <section class="mt-8 border-t border-border pt-5" aria-labelledby="game-expansions-heading">
+          <h2 id="game-expansions-heading" class="mt-0 mb-4 text-2xl text-accent">
             Expansions and add-ons
           </h2>
           <div class="not-prose grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -307,8 +223,8 @@
           {{ end }}
         {{ end }}
         {{ with $seriesGames }}
-          <section class="game-generic-section mt-8" aria-labelledby="game-series-heading">
-            <h2 id="game-series-heading" class="mb-4 text-2xl text-accent">Series</h2>
+          <section class="mt-8 border-t border-border pt-5" aria-labelledby="game-series-heading">
+            <h2 id="game-series-heading" class="mt-0 mb-4 text-2xl text-accent">Series</h2>
             <div class="not-prose grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {{ range .ByParam "metadata.igdb.release_date" }}
                 {{ $game := . }}
@@ -353,8 +269,8 @@
           {{ end }}
         {{ end }}
         {{ with $franchiseGames }}
-          <section class="game-generic-section mt-8" aria-labelledby="game-franchise-heading">
-            <h2 id="game-franchise-heading" class="mb-4 text-2xl text-accent">Franchise</h2>
+          <section class="mt-8 border-t border-border pt-5" aria-labelledby="game-franchise-heading">
+            <h2 id="game-franchise-heading" class="mt-0 mb-4 text-2xl text-accent">Franchise</h2>
             <div class="not-prose grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {{ range .ByParam "metadata.igdb.release_date" }}
                 {{ $game := . }}

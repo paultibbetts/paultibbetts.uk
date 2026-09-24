@@ -1,10 +1,4 @@
 {{ define "main" }}
-  <style>
-    .game-genre-filter[aria-pressed="true"] {
-      background: var(--color-surface);
-      color: var(--color-foreground);
-    }
-  </style>
   <div class="games-index mb-20">
     <h1 class="mb-8 text-3xl text-accent">{{ .Title }}</h1>
     {{ with .Content }}
@@ -96,7 +90,7 @@
                     {{ $name = "RTS" }}
                   {{ end }}
                   <button
-                    class="game-genre-filter rounded border border-border px-2 py-1 text-sm text-muted hover:text-accent"
+                    class="rounded border border-border px-2 py-1 text-sm text-muted hover:text-accent aria-pressed:bg-surface aria-pressed:text-foreground aria-pressed:hover:text-foreground"
                     type="button"
                     data-game-genre="{{ .name | urlize }}"
                     aria-pressed="false"
