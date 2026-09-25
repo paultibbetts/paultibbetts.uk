@@ -26,6 +26,15 @@ type = "game"
   [franchise.external]
     igdb = 808
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q16820462"
+  name = "Borderlands"
+  path = "series/borderlands"
+  slug = "borderlands"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["2K Australia", "Gearbox Software"]

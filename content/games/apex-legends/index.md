@@ -21,6 +21,15 @@ type = "game"
   igdb = 114795
   steam = 1172470
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q28678974"
+  name = "Titanfall"
+  path = "series/titanfall"
+  slug = "titanfall"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Respawn Entertainment"]

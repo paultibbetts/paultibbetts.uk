@@ -21,6 +21,15 @@ type = "game"
   igdb = 999
   steam = 15700
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q533268"
+  name = "Oddworld"
+  path = "series/oddworld"
+  slug = "oddworld"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Oddworld Inhabitants"]

@@ -21,6 +21,15 @@ type = "game"
   igdb = 34951
   steam = 383150
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q18206426"
+  name = "Dead Island"
+  path = "series/dead-island"
+  slug = "dead-island"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Techland"]

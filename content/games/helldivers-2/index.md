@@ -16,6 +16,15 @@ type = "game"
   igdb = 250616
   steam = 553850
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q123017176"
+  name = "Helldivers"
+  path = "series/helldivers"
+  slug = "helldivers"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Arrowhead Game Studios"]

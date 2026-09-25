@@ -1,0 +1,34 @@
+{{ define "main" }}
+  <div class="mb-20">
+    <h1 class="mb-8 text-3xl text-accent">{{ .Title }}</h1>
+    {{ $mediaSections := slice "games" "movies" "tv" }}
+    {{ $series := slice }}
+    {{ range .RegularPages }}
+      {{ $entity := .Params.media_entity }}
+      {{ $memberCount := 0 }}
+      {{ range site.RegularPages }}
+        {{ if in $mediaSections .Section }}
+          {{ $matchesEntity := false }}
+          {{ range .Params.media_relationships }}
+            {{ if eq .entity $entity }}
+              {{ $matchesEntity = true }}
+            {{ end }}
+          {{ end }}
+          {{ if $matchesEntity }}
+            {{ $memberCount = add $memberCount 1 }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      {{ if ge $memberCount 2 }}
+        {{ $series = $series | append . }}
+      {{ end }}
+    {{ end }}
+    {{ with $series }}
+      <ul class="prose ml-4 list-disc text-foreground font-sans">
+        {{ range sort . "Title" }}
+          <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        {{ end }}
+      </ul>
+    {{ end }}
+  </div>
+{{ end }}

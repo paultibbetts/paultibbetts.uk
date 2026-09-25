@@ -26,6 +26,15 @@ type = "game"
   [franchise.external]
     igdb = 1034
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q125507102"
+  name = "Fallout"
+  path = "franchises/fallout"
+  slug = "fallout"
+  sources = ["wikidata:P8345"]
+  type = "franchise"
+
 [metadata]
   [metadata.igdb]
     developers = ["Black Isle Studios"]

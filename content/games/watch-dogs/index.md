@@ -24,6 +24,15 @@ type = "game"
   [franchise.external]
     igdb = 1644
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q29919397"
+  name = "Watch Dogs"
+  path = "series/watch-dogs"
+  slug = "watch-dogs"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Ubisoft Montreal"]

@@ -26,6 +26,15 @@ type = "game"
   [franchise.external]
     igdb = 2009
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q76891859"
+  name = "Strider"
+  path = "series/strider"
+  slug = "strider"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Capcom Osaka", "Double Helix Games"]

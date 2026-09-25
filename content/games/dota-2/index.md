@@ -26,6 +26,15 @@ type = "game"
   [franchise.external]
     igdb = 366
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q74015708"
+  name = "Dota"
+  path = "series/dota"
+  slug = "dota"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Valve"]

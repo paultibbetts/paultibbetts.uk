@@ -26,6 +26,15 @@ type = "game"
   [franchise.external]
     igdb = 857
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q6800442"
+  name = "Tom Clancy's Rainbow Six"
+  path = "series/tom-clancy-s-rainbow-six"
+  slug = "tom-clancy-s-rainbow-six"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Ubisoft Montreal"]

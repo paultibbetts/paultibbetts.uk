@@ -1,0 +1,6332 @@
+{
+  "igdb:games:1011": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q16820462",
+          "name": "Borderlands",
+          "slug": "borderlands",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:101461": {
+    "relationships": null
+  },
+  "igdb:games:1020": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q132730",
+          "name": "Grand Theft Auto",
+          "slug": "grand-theft-auto",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:102584": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q56291775",
+          "name": "Dying Light",
+          "slug": "dying-light",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:102868": {
+    "relationships": null
+  },
+  "igdb:games:103298": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q110915052",
+          "name": "Doom",
+          "slug": "doom",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      }
+    ]
+  },
+  "igdb:games:103329": {
+    "relationships": null
+  },
+  "igdb:games:10395": {
+    "relationships": null
+  },
+  "igdb:games:105049": {
+    "relationships": null
+  },
+  "igdb:games:1051": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q62572083",
+          "name": "Mirror's Edge",
+          "slug": "mirror-s-edge",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:105482": {
+    "relationships": null
+  },
+  "igdb:games:10662": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q17511804",
+          "name": "Tarzan",
+          "slug": "tarzan",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q17511804",
+          "name": "Tarzan",
+          "slug": "tarzan",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      }
+    ]
+  },
+  "igdb:games:109633": {
+    "relationships": null
+  },
+  "igdb:games:11137": {
+    "relationships": null
+  },
+  "igdb:games:1121": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q29919397",
+          "name": "Watch Dogs",
+          "slug": "watch-dogs",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:112104": {
+    "relationships": null
+  },
+  "igdb:games:113739": {
+    "relationships": null
+  },
+  "igdb:games:114795": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q28678974",
+          "name": "Titanfall",
+          "slug": "titanfall",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:11492": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q21526531",
+          "name": "Mafia",
+          "slug": "mafia",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:11570": {
+    "relationships": null
+  },
+  "igdb:games:115991": {
+    "relationships": null
+  },
+  "igdb:games:11602": {
+    "relationships": null
+  },
+  "igdb:games:116200": {
+    "relationships": null
+  },
+  "igdb:games:11744": {
+    "relationships": null
+  },
+  "igdb:games:117514": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q18393935",
+          "name": "The Walking Dead",
+          "slug": "the-walking-dead",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:1185": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q507898",
+          "name": "Crash Bandicoot",
+          "slug": "crash-bandicoot",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:1186": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q507898",
+          "name": "Crash Bandicoot",
+          "slug": "crash-bandicoot",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:119171": {
+    "relationships": null
+  },
+  "igdb:games:119295": {
+    "relationships": null
+  },
+  "igdb:games:119313": {
+    "relationships": null
+  },
+  "igdb:games:119360": {
+    "relationships": null
+  },
+  "igdb:games:120619": {
+    "relationships": null
+  },
+  "igdb:games:120710": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q104634426",
+          "name": "Henry Stickmin",
+          "slug": "henry-stickmin",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:122": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q6516784",
+          "name": "Left 4 Dead",
+          "slug": "left-4-dead",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:124": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q6516784",
+          "name": "Left 4 Dead",
+          "slug": "left-4-dead",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:125165": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q44165",
+          "name": "Diablo",
+          "slug": "diablo",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:12517": {
+    "relationships": null
+  },
+  "igdb:games:126098": {
+    "relationships": null
+  },
+  "igdb:games:1265": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q108371292",
+          "name": "PlanetSide",
+          "slug": "planetside",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:1266": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q110915046",
+          "name": "Assassin's Creed",
+          "slug": "assassin-s-creed",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      }
+    ]
+  },
+  "igdb:games:127": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q110915046",
+          "name": "Assassin's Creed",
+          "slug": "assassin-s-creed",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      }
+    ]
+  },
+  "igdb:games:127346": {
+    "relationships": null
+  },
+  "igdb:games:128": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q110915046",
+          "name": "Assassin's Creed",
+          "slug": "assassin-s-creed",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      }
+    ]
+  },
+  "igdb:games:1286": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q722159",
+          "name": "Conker",
+          "slug": "conker",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:13": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q125507102",
+          "name": "Fallout",
+          "slug": "fallout",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      }
+    ]
+  },
+  "igdb:games:130421": {
+    "relationships": null
+  },
+  "igdb:games:13212": {
+    "relationships": null
+  },
+  "igdb:games:132516": {
+    "relationships": null
+  },
+  "igdb:games:133375": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q109807631",
+          "name": "The Last Stand",
+          "slug": "the-last-stand",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:1337": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q96280626",
+          "name": "Torchlight",
+          "slug": "torchlight",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:135998": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q108371686",
+          "name": "Warhammer 40,000",
+          "slug": "warhammer-40-000",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:1367": {
+    "relationships": null
+  },
+  "igdb:games:1368": {
+    "relationships": null
+  },
+  "igdb:games:137206": {
+    "relationships": null
+  },
+  "igdb:games:137894": {
+    "relationships": null
+  },
+  "igdb:games:1384": {
+    "relationships": null
+  },
+  "igdb:games:14": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q125507102",
+          "name": "Fallout",
+          "slug": "fallout",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      }
+    ]
+  },
+  "igdb:games:140691": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q61793430",
+          "name": "Killing Floor",
+          "slug": "killing-floor",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:143482": {
+    "relationships": null
+  },
+  "igdb:games:14523": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q123017176",
+          "name": "Helldivers",
+          "slug": "helldivers",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:146042": {
+    "relationships": null
+  },
+  "igdb:games:14750": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q339962",
+          "name": "Ace Combat",
+          "slug": "ace-combat",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:152063": {
+    "relationships": null
+  },
+  "igdb:games:152087": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q19707372",
+          "name": "Vampire: The Masquerade",
+          "slug": "vampire-the-masquerade",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:152249": {
+    "relationships": null
+  },
+  "igdb:games:1576": {
+    "relationships": null
+  },
+  "igdb:games:1577": {
+    "relationships": null
+  },
+  "igdb:games:1578": {
+    "relationships": null
+  },
+  "igdb:games:1594": {
+    "relationships": null
+  },
+  "igdb:games:16": {
+    "relationships": null
+  },
+  "igdb:games:1631": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q2635372",
+          "name": "James Bond",
+          "slug": "james-bond",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:164290": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q109906136",
+          "name": "Frostpunk",
+          "slug": "frostpunk",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:165351": {
+    "relationships": null
+  },
+  "igdb:games:168670": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q1064135",
+          "name": "Uncharted",
+          "slug": "uncharted",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:17": {
+    "relationships": null
+  },
+  "igdb:games:173432": {
+    "relationships": null
+  },
+  "igdb:games:17447": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q28678974",
+          "name": "Titanfall",
+          "slug": "titanfall",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:18": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q238015",
+          "name": "Max Payne",
+          "slug": "max-payne",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:18088": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q56240431",
+          "name": "Insurgency",
+          "slug": "insurgency",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:18311": {
+    "relationships": null
+  },
+  "igdb:games:18320": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q474587",
+          "name": "Battlefield",
+          "slug": "battlefield",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:185252": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q108371686",
+          "name": "Warhammer 40,000",
+          "slug": "warhammer-40-000",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q110096124",
+          "name": "Warhammer 40,000: Space Marine",
+          "slug": "warhammer-40-000-space-marine",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:185258": {
+    "relationships": null
+  },
+  "igdb:games:1877": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q135245038",
+          "name": "Cyberpunk",
+          "slug": "cyberpunk",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      }
+    ]
+  },
+  "igdb:games:1881": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q16245154",
+          "name": "ARMA",
+          "slug": "arma",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:19": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q238015",
+          "name": "Max Payne",
+          "slug": "max-payne",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:19130": {
+    "relationships": null
+  },
+  "igdb:games:19348": {
+    "relationships": null
+  },
+  "igdb:games:1939": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q61467778",
+          "name": "Destiny",
+          "slug": "destiny",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:1942": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q18935909",
+          "name": "The Witcher",
+          "slug": "the-witcher",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:19531": {
+    "relationships": null
+  },
+  "igdb:games:19542": {
+    "relationships": null
+  },
+  "igdb:games:19564": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q130430901",
+          "name": "Death Stranding",
+          "slug": "death-stranding",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q115682937",
+          "name": "Death Stranding",
+          "slug": "death-stranding",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:1963": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q13219467",
+          "name": "Rayman",
+          "slug": "rayman",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:1970": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q110915046",
+          "name": "Assassin's Creed",
+          "slug": "assassin-s-creed",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      }
+    ]
+  },
+  "igdb:games:1979": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q474587",
+          "name": "Battlefield",
+          "slug": "battlefield",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:203722": {
+    "relationships": null
+  },
+  "igdb:games:204618": {
+    "relationships": null
+  },
+  "igdb:games:204634": {
+    "relationships": null
+  },
+  "igdb:games:20871": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q17048133",
+          "name": "Sniper Elite",
+          "slug": "sniper-elite",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:20910": {
+    "relationships": null
+  },
+  "igdb:games:2113": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q462",
+          "name": "Star Wars",
+          "slug": "star-wars",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q54869",
+          "name": "Star Wars: Battlefront",
+          "slug": "star-wars-battlefront",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:2114": {
+    "relationships": null
+  },
+  "igdb:games:2115": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q28678974",
+          "name": "Titanfall",
+          "slug": "titanfall",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:2126": {
+    "relationships": null
+  },
+  "igdb:games:212877": {
+    "relationships": null
+  },
+  "igdb:games:213240": {
+    "relationships": null
+  },
+  "igdb:games:214417": {
+    "relationships": null
+  },
+  "igdb:games:215769": {
+    "relationships": null
+  },
+  "igdb:games:218277": {
+    "relationships": null
+  },
+  "igdb:games:222803": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q108370509",
+          "name": "Age of Mythology",
+          "slug": "age-of-mythology",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:228175": {
+    "relationships": null
+  },
+  "igdb:games:228535": {
+    "relationships": null
+  },
+  "igdb:games:231": {
+    "relationships": null
+  },
+  "igdb:games:232": {
+    "relationships": null
+  },
+  "igdb:games:2324": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q864",
+          "name": "Pokémon",
+          "slug": "pok-mon",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q52793624",
+          "name": "Pokémon Snap",
+          "slug": "pok-mon-snap",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:23248": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q109906136",
+          "name": "Frostpunk",
+          "slug": "frostpunk",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:233": {
+    "relationships": null
+  },
+  "igdb:games:236547": {
+    "relationships": null
+  },
+  "igdb:games:239999": {
+    "relationships": null
+  },
+  "igdb:games:240": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q474587",
+          "name": "Battlefield",
+          "slug": "battlefield",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:242408": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q15717790",
+          "name": "Counter-Strike",
+          "slug": "counter-strike",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:244283": {
+    "relationships": null
+  },
+  "igdb:games:247": {
+    "relationships": null
+  },
+  "igdb:games:248643": {
+    "relationships": null
+  },
+  "igdb:games:250616": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q123017176",
+          "name": "Helldivers",
+          "slug": "helldivers",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:25076": {
+    "relationships": null
+  },
+  "igdb:games:25358": {
+    "relationships": null
+  },
+  "igdb:games:2549": {
+    "relationships": null
+  },
+  "igdb:games:25657": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q61467778",
+          "name": "Destiny",
+          "slug": "destiny",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:25741": {
+    "relationships": null
+  },
+  "igdb:games:262186": {
+    "relationships": null
+  },
+  "igdb:games:26381": {
+    "relationships": null
+  },
+  "igdb:games:27091": {
+    "relationships": null
+  },
+  "igdb:games:27316": {
+    "relationships": null
+  },
+  "igdb:games:27694": {
+    "relationships": null
+  },
+  "igdb:games:27789": {
+    "relationships": null
+  },
+  "igdb:games:28552": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q2667817",
+          "name": "Far Cry",
+          "slug": "far-cry",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:288": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q2117778",
+          "name": "Operation Flashpoint",
+          "slug": "operation-flashpoint",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:290139": {
+    "relationships": null
+  },
+  "igdb:games:294041": {
+    "relationships": null
+  },
+  "igdb:games:2949": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q61793430",
+          "name": "Killing Floor",
+          "slug": "killing-floor",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:2950": {
+    "relationships": null
+  },
+  "igdb:games:2955": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q99435092",
+          "name": "Elite",
+          "slug": "elite",
+          "path": "series/elite"
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:2963": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q74015708",
+          "name": "Dota",
+          "slug": "dota",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:2965": {
+    "relationships": null
+  },
+  "igdb:games:2993": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q108371600",
+          "name": "The Wolf Among Us",
+          "slug": "the-wolf-among-us",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:3035": {
+    "relationships": null
+  },
+  "igdb:games:3042": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q56291775",
+          "name": "Dying Light",
+          "slug": "dying-light",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:3049": {
+    "relationships": null
+  },
+  "igdb:games:305246": {
+    "relationships": null
+  },
+  "igdb:games:307": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q15717790",
+          "name": "Counter-Strike",
+          "slug": "counter-strike",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:31089": {
+    "relationships": null
+  },
+  "igdb:games:314090": {
+    "relationships": null
+  },
+  "igdb:games:314252": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q56291775",
+          "name": "Dying Light",
+          "slug": "dying-light",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:3174": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q132730",
+          "name": "Grand Theft Auto",
+          "slug": "grand-theft-auto",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:317407": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q474587",
+          "name": "Battlefield",
+          "slug": "battlefield",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:3189": {
+    "relationships": null
+  },
+  "igdb:games:3192": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q131916745",
+          "name": "Sonic the Hedgehog",
+          "slug": "sonic-the-hedgehog",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q22974163",
+          "name": "Sonic the Hedgehog",
+          "slug": "sonic-the-hedgehog",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q1046812",
+          "name": "Sonic the Hedgehog",
+          "slug": "sonic-the-hedgehog",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:321": {
+    "relationships": null
+  },
+  "igdb:games:3225": {
+    "relationships": null
+  },
+  "igdb:games:32365": {
+    "relationships": null
+  },
+  "igdb:games:3249": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q1317828",
+          "name": "Road Rash",
+          "slug": "road-rash",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:325609": {
+    "relationships": null
+  },
+  "igdb:games:326": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q644541",
+          "name": "Medal of Honor",
+          "slug": "medal-of-honor",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:3265": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q132730",
+          "name": "Grand Theft Auto",
+          "slug": "grand-theft-auto",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:33308": {
+    "relationships": null
+  },
+  "igdb:games:33575": {
+    "relationships": null
+  },
+  "igdb:games:338": {
+    "relationships": null
+  },
+  "igdb:games:342687": {
+    "relationships": null
+  },
+  "igdb:games:34293": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q4914658",
+          "name": "BioShock",
+          "slug": "bioshock",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:34294": {
+    "relationships": null
+  },
+  "igdb:games:343": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q474587",
+          "name": "Battlefield",
+          "slug": "battlefield",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:34951": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q18206426",
+          "name": "Dead Island",
+          "slug": "dead-island",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:349524": {
+    "relationships": null
+  },
+  "igdb:games:351": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q109256982",
+          "name": "Battlefield spinoff series",
+          "slug": "battlefield-spinoff-series",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:35389": {
+    "relationships": null
+  },
+  "igdb:games:36616": {
+    "relationships": null
+  },
+  "igdb:games:36952": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q4357563",
+          "name": "Wolfenstein",
+          "slug": "wolfenstein",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:37016": {
+    "relationships": null
+  },
+  "igdb:games:3735": {
+    "relationships": null
+  },
+  "igdb:games:373580": {
+    "relationships": null
+  },
+  "igdb:games:380441": {
+    "relationships": null
+  },
+  "igdb:games:3812": {
+    "relationships": null
+  },
+  "igdb:games:381245": {
+    "relationships": null
+  },
+  "igdb:games:388285": {
+    "relationships": null
+  },
+  "igdb:games:4": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q795183",
+          "name": "Thief",
+          "slug": "thief",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:434": {
+    "relationships": null
+  },
+  "igdb:games:4368": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q2041524",
+          "name": "Strike",
+          "slug": "strike",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:451": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q2117778",
+          "name": "Operation Flashpoint",
+          "slug": "operation-flashpoint",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:471": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q2634284",
+          "name": "Crysis",
+          "slug": "crysis",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:4747": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q5046850",
+          "name": "Cars",
+          "slug": "cars",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      }
+    ]
+  },
+  "igdb:games:4847": {
+    "relationships": null
+  },
+  "igdb:games:500": {
+    "relationships": null
+  },
+  "igdb:games:501": {
+    "relationships": null
+  },
+  "igdb:games:50199": {
+    "relationships": null
+  },
+  "igdb:games:50531": {
+    "relationships": null
+  },
+  "igdb:games:51523": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q108371600",
+          "name": "The Wolf Among Us",
+          "slug": "the-wolf-among-us",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:517": {
+    "relationships": null
+  },
+  "igdb:games:518": {
+    "relationships": null
+  },
+  "igdb:games:519": {
+    "relationships": null
+  },
+  "igdb:games:529": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q2667817",
+          "name": "Far Cry",
+          "slug": "far-cry",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:5333": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q76891859",
+          "name": "Strider",
+          "slug": "strider",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:5335": {
+    "relationships": null
+  },
+  "igdb:games:5336": {
+    "relationships": null
+  },
+  "igdb:games:54996": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q2336369",
+          "name": "Jurassic Park",
+          "slug": "jurassic-park",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      }
+    ]
+  },
+  "igdb:games:5503": {
+    "relationships": null
+  },
+  "igdb:games:55057": {
+    "relationships": null
+  },
+  "igdb:games:556": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q644541",
+          "name": "Medal of Honor",
+          "slug": "medal-of-honor",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:5574": {
+    "relationships": null
+  },
+  "igdb:games:559": {
+    "relationships": null
+  },
+  "igdb:games:6032": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q16820462",
+          "name": "Borderlands",
+          "slug": "borderlands",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:60785": {
+    "relationships": null
+  },
+  "igdb:games:621": {
+    "relationships": null
+  },
+  "igdb:games:623": {
+    "relationships": null
+  },
+  "igdb:games:625": {
+    "relationships": null
+  },
+  "igdb:games:6359": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q18396192",
+          "name": "Team Fortress",
+          "slug": "team-fortress",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:649": {
+    "relationships": null
+  },
+  "igdb:games:650": {
+    "relationships": null
+  },
+  "igdb:games:6574": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q108370646",
+          "name": "Bully",
+          "slug": "bully",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:670": {
+    "relationships": null
+  },
+  "igdb:games:6707": {
+    "relationships": null
+  },
+  "igdb:games:6739": {
+    "relationships": null
+  },
+  "igdb:games:6744": {
+    "relationships": null
+  },
+  "igdb:games:6801": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q2667817",
+          "name": "Far Cry",
+          "slug": "far-cry",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:6803": {
+    "relationships": null
+  },
+  "igdb:games:706": {
+    "relationships": null
+  },
+  "igdb:games:707": {
+    "relationships": null
+  },
+  "igdb:games:7081": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q109256982",
+          "name": "Battlefield spinoff series",
+          "slug": "battlefield-spinoff-series",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:71": {
+    "relationships": null
+  },
+  "igdb:games:72": {
+    "relationships": null
+  },
+  "igdb:games:7205": {
+    "relationships": null
+  },
+  "igdb:games:7291": {
+    "relationships": null
+  },
+  "igdb:games:730": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q132730",
+          "name": "Grand Theft Auto",
+          "slug": "grand-theft-auto",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:731": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q132730",
+          "name": "Grand Theft Auto",
+          "slug": "grand-theft-auto",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:732": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q132730",
+          "name": "Grand Theft Auto",
+          "slug": "grand-theft-auto",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:7323": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q111328790",
+          "name": "Tomb Raider",
+          "slug": "tomb-raider",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q270503",
+          "name": "Tomb Raider",
+          "slug": "tomb-raider",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q131432634",
+          "name": "Tomb Raider: Survivor Trilogy",
+          "slug": "tomb-raider-survivor-trilogy",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:733": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q132730",
+          "name": "Grand Theft Auto",
+          "slug": "grand-theft-auto",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:7360": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q6800442",
+          "name": "Tom Clancy's Rainbow Six",
+          "slug": "tom-clancy-s-rainbow-six",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:7439": {
+    "relationships": null
+  },
+  "igdb:games:759": {
+    "relationships": null
+  },
+  "igdb:games:7603": {
+    "relationships": null
+  },
+  "igdb:games:7706": {
+    "relationships": null
+  },
+  "igdb:games:7843": {
+    "relationships": null
+  },
+  "igdb:games:80853": {
+    "relationships": null
+  },
+  "igdb:games:80961": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q380346",
+          "name": "Total War",
+          "slug": "total-war",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:8173": {
+    "relationships": null
+  },
+  "igdb:games:819": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q132730",
+          "name": "Grand Theft Auto",
+          "slug": "grand-theft-auto",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:8234": {
+    "relationships": null
+  },
+  "igdb:games:843": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q13219467",
+          "name": "Rayman",
+          "slug": "rayman",
+          "path": "series/rayman"
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:879": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q631273",
+          "name": "Commandos",
+          "slug": "commandos",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:9061": {
+    "relationships": null
+  },
+  "igdb:games:9066": {
+    "relationships": null
+  },
+  "igdb:games:912": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q111328790",
+          "name": "Tomb Raider",
+          "slug": "tomb-raider",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q270503",
+          "name": "Tomb Raider",
+          "slug": "tomb-raider",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q133249310",
+          "name": "Tomb Raider original series",
+          "slug": "tomb-raider-original-series",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:9181": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q107658021",
+          "name": "Warhammer: Vermintide",
+          "slug": "warhammer-vermintide",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:9182": {
+    "relationships": null
+  },
+  "igdb:games:9241": {
+    "relationships": null
+  },
+  "igdb:games:9331": {
+    "relationships": null
+  },
+  "igdb:games:9471": {
+    "relationships": null
+  },
+  "igdb:games:948": {
+    "relationships": null
+  },
+  "igdb:games:959": {
+    "relationships": null
+  },
+  "igdb:games:9630": {
+    "relationships": null
+  },
+  "igdb:games:980": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q132730",
+          "name": "Grand Theft Auto",
+          "slug": "grand-theft-auto",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:981": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q13219467",
+          "name": "Rayman",
+          "slug": "rayman",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "igdb:games:9814": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q17512980",
+          "name": "Hercules",
+          "slug": "hercules",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      }
+    ]
+  },
+  "igdb:games:987": {
+    "relationships": null
+  },
+  "igdb:games:9888": {
+    "relationships": null
+  },
+  "igdb:games:989": {
+    "relationships": null
+  },
+  "igdb:games:990": {
+    "relationships": null
+  },
+  "igdb:games:991": {
+    "relationships": null
+  },
+  "igdb:games:999": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q533268",
+          "name": "Oddworld",
+          "slug": "oddworld",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:1003596": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q642878",
+          "name": "Marvel Cinematic Universe",
+          "slug": "marvel-cinematic-universe",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q20021634",
+          "name": "Avengers",
+          "slug": "avengers",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q113281347",
+          "name": "Marvel Cinematic Universe Phase Six",
+          "slug": "marvel-cinematic-universe-phase-six",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:1003598": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q642878",
+          "name": "Marvel Cinematic Universe",
+          "slug": "marvel-cinematic-universe",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q20021634",
+          "name": "Avengers",
+          "slug": "avengers",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q113281347",
+          "name": "Marvel Cinematic Universe Phase Six",
+          "slug": "marvel-cinematic-universe-phase-six",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:10138": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q642878",
+          "name": "Marvel Cinematic Universe",
+          "slug": "marvel-cinematic-universe",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q16642701",
+          "name": "Iron Man",
+          "slug": "iron-man",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q51963292",
+          "name": "Marvel Cinematic Universe Phase One",
+          "slug": "marvel-cinematic-universe-phase-one",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q63405798",
+          "name": "The Infinity Saga",
+          "slug": "the-infinity-saga",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:10189": {
+    "relationships": null
+  },
+  "tmdb:movies:10193": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q2732470",
+          "name": "list of Pixar films",
+          "slug": "list-of-pixar-films",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q2316015",
+          "name": "Toy Story",
+          "slug": "toy-story",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:102382": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q18636794",
+          "name": "The Amazing Spider-Man",
+          "slug": "the-amazing-spider-man",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q2307877",
+          "name": "Spider-Man in film",
+          "slug": "spider-man-in-film",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:10304": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q55641883",
+          "name": "Starship Troopers",
+          "slug": "starship-troopers",
+          "path": "franchises/starship-troopers"
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:10428": {
+    "relationships": null
+  },
+  "tmdb:movies:105864": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q2732470",
+          "name": "list of Pixar films",
+          "slug": "list-of-pixar-films",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:106646": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q26705935",
+          "name": "BBC's 100 Greatest Films of the 21st Century",
+          "slug": "bbc-s-100-greatest-films-of-the-21st-century",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:10681": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q2732470",
+          "name": "list of Pixar films",
+          "slug": "list-of-pixar-films",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q26705935",
+          "name": "BBC's 100 Greatest Films of the 21st Century",
+          "slug": "bbc-s-100-greatest-films-of-the-21st-century",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:1084242": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q56070713",
+          "name": "Walt Disney Animation Studios feature film",
+          "slug": "walt-disney-animation-studios-feature-film",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q137809739",
+          "name": "Zootopia",
+          "slug": "zootopia",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:1084244": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q2316015",
+          "name": "Toy Story",
+          "slug": "toy-story",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:1100988": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q125679809",
+          "name": "28 Days Later",
+          "slug": "28-days-later",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:11127": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q55641883",
+          "name": "Starship Troopers",
+          "slug": "starship-troopers",
+          "path": "franchises/starship-troopers"
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:114478": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q55641883",
+          "name": "Starship Troopers",
+          "slug": "starship-troopers",
+          "path": "franchises/starship-troopers"
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:1170608": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q18011049",
+          "name": "Dune",
+          "slug": "dune",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q109300883",
+          "name": "Dune",
+          "slug": "dune",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:1198994": {
+    "relationships": null
+  },
+  "tmdb:movies:12": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q135895766",
+          "name": "Finding Nemo",
+          "slug": "finding-nemo",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q2732470",
+          "name": "list of Pixar films",
+          "slug": "list-of-pixar-films",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q26705935",
+          "name": "BBC's 100 Greatest Films of the 21st Century",
+          "slug": "bbc-s-100-greatest-films-of-the-21st-century",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:120": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q190214",
+          "name": "The Lord of the Rings",
+          "slug": "the-lord-of-the-rings",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q26214973",
+          "name": "Peter Jackson's Middle-earth film series",
+          "slug": "peter-jackson-s-middle-earth-film-series",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:121": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q190214",
+          "name": "The Lord of the Rings",
+          "slug": "the-lord-of-the-rings",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q26214973",
+          "name": "Peter Jackson's Middle-earth film series",
+          "slug": "peter-jackson-s-middle-earth-film-series",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:1214931": {
+    "relationships": null
+  },
+  "tmdb:movies:122": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q190214",
+          "name": "The Lord of the Rings",
+          "slug": "the-lord-of-the-rings",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q26214973",
+          "name": "Peter Jackson's Middle-earth film series",
+          "slug": "peter-jackson-s-middle-earth-film-series",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:1271": {
+    "relationships": null
+  },
+  "tmdb:movies:1272837": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q125679809",
+          "name": "28 Days Later",
+          "slug": "28-days-later",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:1275779": {
+    "relationships": null
+  },
+  "tmdb:movies:13": {
+    "relationships": null
+  },
+  "tmdb:movies:1318413": {
+    "relationships": null
+  },
+  "tmdb:movies:1359": {
+    "relationships": null
+  },
+  "tmdb:movies:14002": {
+    "relationships": null
+  },
+  "tmdb:movies:14160": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q2732470",
+          "name": "list of Pixar films",
+          "slug": "list-of-pixar-films",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:1493859": {
+    "relationships": null
+  },
+  "tmdb:movies:150540": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q113956747",
+          "name": "Inside Out",
+          "slug": "inside-out",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q113956747",
+          "name": "Inside Out",
+          "slug": "inside-out",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q2732470",
+          "name": "list of Pixar films",
+          "slug": "list-of-pixar-films",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q26705935",
+          "name": "BBC's 100 Greatest Films of the 21st Century",
+          "slug": "bbc-s-100-greatest-films-of-the-21st-century",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:155": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q12859908",
+          "name": "The Dark Knight trilogy",
+          "slug": "the-dark-knight-trilogy",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q2111133",
+          "name": "Batman in film",
+          "slug": "batman-in-film",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q26705935",
+          "name": "BBC's 100 Greatest Films of the 21st Century",
+          "slug": "bbc-s-100-greatest-films-of-the-21st-century",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:1562": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q125679809",
+          "name": "28 Days Later",
+          "slug": "28-days-later",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:1571": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q2716420",
+          "name": "Die Hard",
+          "slug": "die-hard",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:1572": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q2716420",
+          "name": "Die Hard",
+          "slug": "die-hard",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:1573": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q2716420",
+          "name": "Die Hard",
+          "slug": "die-hard",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:157336": {
+    "relationships": null
+  },
+  "tmdb:movies:1591771": {
+    "relationships": null
+  },
+  "tmdb:movies:166428": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q98120630",
+          "name": "How to Train Your Dragon",
+          "slug": "how-to-train-your-dragon",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q26196748",
+          "name": "DreamWorks Animation feature films",
+          "slug": "dreamworks-animation-feature-films",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q98120630",
+          "name": "How to Train Your Dragon",
+          "slug": "how-to-train-your-dragon",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:16869": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q26705935",
+          "name": "BBC's 100 Greatest Films of the 21st Century",
+          "slug": "bbc-s-100-greatest-films-of-the-21st-century",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:170": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q125679809",
+          "name": "28 Days Later",
+          "slug": "28-days-later",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:1726": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q16642701",
+          "name": "Iron Man",
+          "slug": "iron-man",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q642878",
+          "name": "Marvel Cinematic Universe",
+          "slug": "marvel-cinematic-universe",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q51963292",
+          "name": "Marvel Cinematic Universe Phase One",
+          "slug": "marvel-cinematic-universe-phase-one",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q63405798",
+          "name": "The Infinity Saga",
+          "slug": "the-infinity-saga",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:17654": {
+    "relationships": null
+  },
+  "tmdb:movies:1858": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q1323565",
+          "name": "Transformers",
+          "slug": "transformers",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q2073466",
+          "name": "Transformers",
+          "slug": "transformers",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:18785": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q1587838",
+          "name": "The Hangover",
+          "slug": "the-hangover",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:1893": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q462",
+          "name": "Star Wars",
+          "slug": "star-wars",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q22092344",
+          "name": "Star Wars",
+          "slug": "star-wars",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q25540924",
+          "name": "Star Wars prequel trilogy",
+          "slug": "star-wars-prequel-trilogy",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:1894": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q462",
+          "name": "Star Wars",
+          "slug": "star-wars",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q22092344",
+          "name": "Star Wars",
+          "slug": "star-wars",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q25540924",
+          "name": "Star Wars prequel trilogy",
+          "slug": "star-wars-prequel-trilogy",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:1895": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q462",
+          "name": "Star Wars",
+          "slug": "star-wars",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q22092344",
+          "name": "Star Wars",
+          "slug": "star-wars",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q25540924",
+          "name": "Star Wars prequel trilogy",
+          "slug": "star-wars-prequel-trilogy",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:1991": {
+    "relationships": null
+  },
+  "tmdb:movies:22": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q384426",
+          "name": "Pirates of the Caribbean",
+          "slug": "pirates-of-the-caribbean",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q194318",
+          "name": "Pirates of the Caribbean",
+          "slug": "pirates-of-the-caribbean",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:22794": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q27964366",
+          "name": "Cloudy with a Chance of Meatballs",
+          "slug": "cloudy-with-a-chance-of-meatballs",
+          "path": "series/cloudy-with-a-chance-of-meatballs"
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q65071834",
+          "name": "list of Sony Pictures Animation productions",
+          "slug": "list-of-sony-pictures-animation-productions",
+          "path": "series/list-of-sony-pictures-animation-productions"
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:24": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q223132",
+          "name": "Kill Bill",
+          "slug": "kill-bill",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:24428": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q642878",
+          "name": "Marvel Cinematic Universe",
+          "slug": "marvel-cinematic-universe",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q20021634",
+          "name": "Avengers",
+          "slug": "avengers",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q51963292",
+          "name": "Marvel Cinematic Universe Phase One",
+          "slug": "marvel-cinematic-universe-phase-one",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q63405798",
+          "name": "The Infinity Saga",
+          "slug": "the-infinity-saga",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:260513": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q2732470",
+          "name": "list of Pixar films",
+          "slug": "list-of-pixar-films",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q55360232",
+          "name": "The Incredibles",
+          "slug": "the-incredibles",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:269149": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q116753708",
+          "name": "Zootopia",
+          "slug": "zootopia",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q56070713",
+          "name": "Walt Disney Animation Studios feature film",
+          "slug": "walt-disney-animation-studios-feature-film",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q137809739",
+          "name": "Zootopia",
+          "slug": "zootopia",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:273248": {
+    "relationships": null
+  },
+  "tmdb:movies:293660": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q2006869",
+          "name": "X-Men",
+          "slug": "x-men",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q29559108",
+          "name": "Deadpool",
+          "slug": "deadpool",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:299534": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q642878",
+          "name": "Marvel Cinematic Universe",
+          "slug": "marvel-cinematic-universe",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q20021634",
+          "name": "Avengers",
+          "slug": "avengers",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q51963836",
+          "name": "Marvel Cinematic Universe Phase Three",
+          "slug": "marvel-cinematic-universe-phase-three",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q63405798",
+          "name": "The Infinity Saga",
+          "slug": "the-infinity-saga",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:299536": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q642878",
+          "name": "Marvel Cinematic Universe",
+          "slug": "marvel-cinematic-universe",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q20021634",
+          "name": "Avengers",
+          "slug": "avengers",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q51963836",
+          "name": "Marvel Cinematic Universe Phase Three",
+          "slug": "marvel-cinematic-universe-phase-three",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q63405798",
+          "name": "The Infinity Saga",
+          "slug": "the-infinity-saga",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:301528": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q2316015",
+          "name": "Toy Story",
+          "slug": "toy-story",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q2732470",
+          "name": "list of Pixar films",
+          "slug": "list-of-pixar-films",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:315635": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q642878",
+          "name": "Marvel Cinematic Universe",
+          "slug": "marvel-cinematic-universe",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q51963836",
+          "name": "Marvel Cinematic Universe Phase Three",
+          "slug": "marvel-cinematic-universe-phase-three",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q99600913",
+          "name": "Spider-Man",
+          "slug": "spider-man",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q63405798",
+          "name": "The Infinity Saga",
+          "slug": "the-infinity-saga",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q2307877",
+          "name": "Spider-Man in film",
+          "slug": "spider-man-in-film",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:324857": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q99601314",
+          "name": "Spider-Verse",
+          "slug": "spider-verse",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q2307877",
+          "name": "Spider-Man in film",
+          "slug": "spider-man-in-film",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q65071834",
+          "name": "list of Sony Pictures Animation productions",
+          "slug": "list-of-sony-pictures-animation-productions",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:329": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q2336369",
+          "name": "Jurassic Park",
+          "slug": "jurassic-park",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q17862144",
+          "name": "Jurassic Park",
+          "slug": "jurassic-park",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:330459": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q462",
+          "name": "Star Wars",
+          "slug": "star-wars",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q51964873",
+          "name": "Star Wars Anthology",
+          "slug": "star-wars-anthology",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:333339": {
+    "relationships": null
+  },
+  "tmdb:movies:335983": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q55537283",
+          "name": "Sony's Spider-Man Universe",
+          "slug": "sony-s-spider-man-universe",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q109311969",
+          "name": "Venom",
+          "slug": "venom",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:37165": {
+    "relationships": null
+  },
+  "tmdb:movies:374720": {
+    "relationships": null
+  },
+  "tmdb:movies:37799": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q26705935",
+          "name": "BBC's 100 Greatest Films of the 21st Century",
+          "slug": "bbc-s-100-greatest-films-of-the-21st-century",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:383498": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q2006869",
+          "name": "X-Men",
+          "slug": "x-men",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q29559108",
+          "name": "Deadpool",
+          "slug": "deadpool",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:389868": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q114763523",
+          "name": "Train to Busan",
+          "slug": "train-to-busan",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:393": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q223132",
+          "name": "Kill Bill",
+          "slug": "kill-bill",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:396535": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q114763523",
+          "name": "Train to Busan",
+          "slug": "train-to-busan",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:399579": {
+    "relationships": null
+  },
+  "tmdb:movies:404368": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q58815184",
+          "name": "Wreck-It Ralph",
+          "slug": "wreck-it-ralph",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q56070713",
+          "name": "Walt Disney Animation Studios feature film",
+          "slug": "walt-disney-animation-studios-feature-film",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q58815184",
+          "name": "Wreck-It Ralph",
+          "slug": "wreck-it-ralph",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:414906": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q2111133",
+          "name": "Batman in film",
+          "slug": "batman-in-film",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:429617": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q642878",
+          "name": "Marvel Cinematic Universe",
+          "slug": "marvel-cinematic-universe",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q51963836",
+          "name": "Marvel Cinematic Universe Phase Three",
+          "slug": "marvel-cinematic-universe-phase-three",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q99600913",
+          "name": "Spider-Man",
+          "slug": "spider-man",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q63405798",
+          "name": "The Infinity Saga",
+          "slug": "the-infinity-saga",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q2307877",
+          "name": "Spider-Man in film",
+          "slug": "spider-man-in-film",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:436969": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q18281265",
+          "name": "DC Extended Universe",
+          "slug": "dc-extended-universe",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:438631": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q18011049",
+          "name": "Dune",
+          "slug": "dune",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q109300883",
+          "name": "Dune",
+          "slug": "dune",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:447332": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q111993071",
+          "name": "A Quiet Place",
+          "slug": "a-quiet-place",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q111993071",
+          "name": "A Quiet Place",
+          "slug": "a-quiet-place",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:454639": {
+    "relationships": null
+  },
+  "tmdb:movies:457840": {
+    "relationships": null
+  },
+  "tmdb:movies:460790": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q55641883",
+          "name": "Starship Troopers",
+          "slug": "starship-troopers",
+          "path": "franchises/starship-troopers"
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:4638": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q169604",
+          "name": "Three Flavours Cornetto trilogy",
+          "slug": "three-flavours-cornetto-trilogy",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:466272": {
+    "relationships": null
+  },
+  "tmdb:movies:46838": {
+    "relationships": null
+  },
+  "tmdb:movies:47964": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q2716420",
+          "name": "Die Hard",
+          "slug": "die-hard",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:49026": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q12859908",
+          "name": "The Dark Knight trilogy",
+          "slug": "the-dark-knight-trilogy",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q2111133",
+          "name": "Batman in film",
+          "slug": "batman-in-film",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:496": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q141497459",
+          "name": "Borat",
+          "slug": "borat",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:496243": {
+    "relationships": null
+  },
+  "tmdb:movies:497698": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q642878",
+          "name": "Marvel Cinematic Universe",
+          "slug": "marvel-cinematic-universe",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q62604229",
+          "name": "Marvel Cinematic Universe Phase Four",
+          "slug": "marvel-cinematic-universe-phase-four",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:500": {
+    "relationships": null
+  },
+  "tmdb:movies:520763": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q111993071",
+          "name": "A Quiet Place",
+          "slug": "a-quiet-place",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q111993071",
+          "name": "A Quiet Place",
+          "slug": "a-quiet-place",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:530915": {
+    "relationships": null
+  },
+  "tmdb:movies:533535": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q2006869",
+          "name": "X-Men",
+          "slug": "x-men",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q29559108",
+          "name": "Deadpool",
+          "slug": "deadpool",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q18286530",
+          "name": "Wolverine",
+          "slug": "wolverine",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q642878",
+          "name": "Marvel Cinematic Universe",
+          "slug": "marvel-cinematic-universe",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q104643359",
+          "name": "Marvel Cinematic Universe Phase Five",
+          "slug": "marvel-cinematic-universe-phase-five",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q113292798",
+          "name": "The Multiverse Saga",
+          "slug": "the-multiverse-saga",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:539745": {
+    "relationships": null
+  },
+  "tmdb:movies:550": {
+    "relationships": null
+  },
+  "tmdb:movies:557": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q18636789",
+          "name": "Spider-Man trilogy",
+          "slug": "spider-man-trilogy",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q2307877",
+          "name": "Spider-Man in film",
+          "slug": "spider-man-in-film",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:558": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q18636789",
+          "name": "Spider-Man trilogy",
+          "slug": "spider-man-trilogy",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q2307877",
+          "name": "Spider-Man in film",
+          "slug": "spider-man-in-film",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:559": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q18636789",
+          "name": "Spider-Man trilogy",
+          "slug": "spider-man-trilogy",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q2307877",
+          "name": "Spider-Man in film",
+          "slug": "spider-man-in-film",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:559969": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q113461786",
+          "name": "Breaking Bad",
+          "slug": "breaking-bad",
+          "path": "franchises/breaking-bad"
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:562": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q2716420",
+          "name": "Die Hard",
+          "slug": "die-hard",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:563": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q55641883",
+          "name": "Starship Troopers",
+          "slug": "starship-troopers",
+          "path": "franchises/starship-troopers"
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:569094": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q99601314",
+          "name": "Spider-Verse",
+          "slug": "spider-verse",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q2307877",
+          "name": "Spider-Man in film",
+          "slug": "spider-man-in-film",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:580489": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q55537283",
+          "name": "Sony's Spider-Man Universe",
+          "slug": "sony-s-spider-man-universe",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q109311969",
+          "name": "Venom",
+          "slug": "venom",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:581392": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q114763523",
+          "name": "Train to Busan",
+          "slug": "train-to-busan",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:582218": {
+    "relationships": null
+  },
+  "tmdb:movies:585": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q6902872",
+          "name": "Monsters, Inc.",
+          "slug": "monsters-inc",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q2732470",
+          "name": "list of Pixar films",
+          "slug": "list-of-pixar-films",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q6902872",
+          "name": "Monsters, Inc.",
+          "slug": "monsters-inc",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:587792": {
+    "relationships": null
+  },
+  "tmdb:movies:597": {
+    "relationships": null
+  },
+  "tmdb:movies:597922": {
+    "relationships": null
+  },
+  "tmdb:movies:603": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q1210827",
+          "name": "The Matrix series",
+          "slug": "the-matrix-series",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q13014087",
+          "name": "The Matrix",
+          "slug": "the-matrix",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:603692": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q106544377",
+          "name": "John Wick",
+          "slug": "john-wick",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q29554576",
+          "name": "John Wick",
+          "slug": "john-wick",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q106544377",
+          "name": "John Wick",
+          "slug": "john-wick",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:62211": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q6902872",
+          "name": "Monsters, Inc.",
+          "slug": "monsters-inc",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q2732470",
+          "name": "list of Pixar films",
+          "slug": "list-of-pixar-films",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q6902872",
+          "name": "Monsters, Inc.",
+          "slug": "monsters-inc",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:634649": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q642878",
+          "name": "Marvel Cinematic Universe",
+          "slug": "marvel-cinematic-universe",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q642878",
+          "name": "Marvel Cinematic Universe",
+          "slug": "marvel-cinematic-universe",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q62604229",
+          "name": "Marvel Cinematic Universe Phase Four",
+          "slug": "marvel-cinematic-universe-phase-four",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q2307877",
+          "name": "Spider-Man in film",
+          "slug": "spider-man-in-film",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q99600913",
+          "name": "Spider-Man",
+          "slug": "spider-man",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q18636794",
+          "name": "The Amazing Spider-Man",
+          "slug": "the-amazing-spider-man",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:648579": {
+    "relationships": null
+  },
+  "tmdb:movies:680": {
+    "relationships": null
+  },
+  "tmdb:movies:687163": {
+    "relationships": null
+  },
+  "tmdb:movies:68718": {
+    "relationships": null
+  },
+  "tmdb:movies:68721": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q642878",
+          "name": "Marvel Cinematic Universe",
+          "slug": "marvel-cinematic-universe",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q16642701",
+          "name": "Iron Man",
+          "slug": "iron-man",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q51963356",
+          "name": "Marvel Cinematic Universe Phase Two",
+          "slug": "marvel-cinematic-universe-phase-two",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q63405798",
+          "name": "The Infinity Saga",
+          "slug": "the-infinity-saga",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:693134": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q18011049",
+          "name": "Dune",
+          "slug": "dune",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q109300883",
+          "name": "Dune",
+          "slug": "dune",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:72190": {
+    "relationships": null
+  },
+  "tmdb:movies:747": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q169604",
+          "name": "Three Flavours Cornetto trilogy",
+          "slug": "three-flavours-cornetto-trilogy",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:762441": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q111993071",
+          "name": "A Quiet Place",
+          "slug": "a-quiet-place",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q111993071",
+          "name": "A Quiet Place",
+          "slug": "a-quiet-place",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:799583": {
+    "relationships": null
+  },
+  "tmdb:movies:808": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q1203222",
+          "name": "Shrek",
+          "slug": "shrek",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q26196748",
+          "name": "DreamWorks Animation feature films",
+          "slug": "dreamworks-animation-feature-films",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q61946928",
+          "name": "Shrek",
+          "slug": "shrek",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:812": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q15731902",
+          "name": "Aladdin",
+          "slug": "aladdin",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q56070713",
+          "name": "Walt Disney Animation Studios feature film",
+          "slug": "walt-disney-animation-studios-feature-film",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q906232",
+          "name": "Disney Renaissance",
+          "slug": "disney-renaissance",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q4060426",
+          "name": "Aladdin",
+          "slug": "aladdin",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:813": {
+    "relationships": null
+  },
+  "tmdb:movies:82690": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q58815184",
+          "name": "Wreck-It Ralph",
+          "slug": "wreck-it-ralph",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q56070713",
+          "name": "Walt Disney Animation Studios feature film",
+          "slug": "walt-disney-animation-studios-feature-film",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q58815184",
+          "name": "Wreck-It Ralph",
+          "slug": "wreck-it-ralph",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:829400": {
+    "relationships": null
+  },
+  "tmdb:movies:8363": {
+    "relationships": null
+  },
+  "tmdb:movies:855": {
+    "relationships": null
+  },
+  "tmdb:movies:857": {
+    "relationships": null
+  },
+  "tmdb:movies:8587": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q2901452",
+          "name": "The Lion King",
+          "slug": "the-lion-king",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q56070713",
+          "name": "Walt Disney Animation Studios feature film",
+          "slug": "walt-disney-animation-studios-feature-film",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:861": {
+    "relationships": null
+  },
+  "tmdb:movies:862": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q2732470",
+          "name": "list of Pixar films",
+          "slug": "list-of-pixar-films",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q2316015",
+          "name": "Toy Story",
+          "slug": "toy-story",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:863": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q2732470",
+          "name": "list of Pixar films",
+          "slug": "list-of-pixar-films",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q2316015",
+          "name": "Toy Story",
+          "slug": "toy-story",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:872585": {
+    "relationships": null
+  },
+  "tmdb:movies:882569": {
+    "relationships": null
+  },
+  "tmdb:movies:9012": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q106982296",
+          "name": "Jackass",
+          "slug": "jackass",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q106982388",
+          "name": "Jackass",
+          "slug": "jackass",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:911916": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q99601314",
+          "name": "Spider-Verse",
+          "slug": "spider-verse",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:912649": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q55537283",
+          "name": "Sony's Spider-Man Universe",
+          "slug": "sony-s-spider-man-universe",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q109311969",
+          "name": "Venom",
+          "slug": "venom",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:920": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q5046850",
+          "name": "Cars",
+          "slug": "cars",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q2732470",
+          "name": "list of Pixar films",
+          "slug": "list-of-pixar-films",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q62846448",
+          "name": "Cars",
+          "slug": "cars",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:969681": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q642878",
+          "name": "Marvel Cinematic Universe",
+          "slug": "marvel-cinematic-universe",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q99600913",
+          "name": "Spider-Man",
+          "slug": "spider-man",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q113281347",
+          "name": "Marvel Cinematic Universe Phase Six",
+          "slug": "marvel-cinematic-universe-phase-six",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:9806": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q2732470",
+          "name": "list of Pixar films",
+          "slug": "list-of-pixar-films",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q55360232",
+          "name": "The Incredibles",
+          "slug": "the-incredibles",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:986056": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q642878",
+          "name": "Marvel Cinematic Universe",
+          "slug": "marvel-cinematic-universe",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q104643359",
+          "name": "Marvel Cinematic Universe Phase Five",
+          "slug": "marvel-cinematic-universe-phase-five",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q113292798",
+          "name": "The Multiverse Saga",
+          "slug": "the-multiverse-saga",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:movies:9927": {
+    "relationships": null
+  },
+  "tmdb:movies:99861": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q642878",
+          "name": "Marvel Cinematic Universe",
+          "slug": "marvel-cinematic-universe",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q20021634",
+          "name": "Avengers",
+          "slug": "avengers",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q51963356",
+          "name": "Marvel Cinematic Universe Phase Two",
+          "slug": "marvel-cinematic-universe-phase-two",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q63405798",
+          "name": "The Infinity Saga",
+          "slug": "the-infinity-saga",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:tv:100088": {
+    "relationships": null
+  },
+  "tmdb:tv:106379": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q125507102",
+          "name": "Fallout",
+          "slug": "fallout",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      }
+    ]
+  },
+  "tmdb:tv:110492": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q18281265",
+          "name": "DC Extended Universe",
+          "slug": "dc-extended-universe",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q116545465",
+          "name": "DC Universe",
+          "slug": "dc-universe",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:tv:115036": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q462",
+          "name": "Star Wars",
+          "slug": "star-wars",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      }
+    ]
+  },
+  "tmdb:tv:125988": {
+    "relationships": null
+  },
+  "tmdb:tv:126308": {
+    "relationships": null
+  },
+  "tmdb:tv:127235": {
+    "relationships": null
+  },
+  "tmdb:tv:135340": {
+    "relationships": null
+  },
+  "tmdb:tv:136248": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q3177580",
+          "name": "The Walking Dead",
+          "slug": "the-walking-dead",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      }
+    ]
+  },
+  "tmdb:tv:136311": {
+    "relationships": null
+  },
+  "tmdb:tv:1396": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q113461786",
+          "name": "Breaking Bad",
+          "slug": "breaking-bad",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      }
+    ]
+  },
+  "tmdb:tv:1402": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q3177580",
+          "name": "The Walking Dead",
+          "slug": "the-walking-dead",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      }
+    ]
+  },
+  "tmdb:tv:1447": {
+    "relationships": null
+  },
+  "tmdb:tv:18347": {
+    "relationships": null
+  },
+  "tmdb:tv:194583": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q3177580",
+          "name": "The Walking Dead",
+          "slug": "the-walking-dead",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      }
+    ]
+  },
+  "tmdb:tv:201834": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q114289569",
+          "name": "Ted",
+          "slug": "ted",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      }
+    ]
+  },
+  "tmdb:tv:206586": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q3177580",
+          "name": "The Walking Dead",
+          "slug": "the-walking-dead",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      }
+    ]
+  },
+  "tmdb:tv:211684": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q3177580",
+          "name": "The Walking Dead",
+          "slug": "the-walking-dead",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      }
+    ]
+  },
+  "tmdb:tv:215528": {
+    "relationships": null
+  },
+  "tmdb:tv:220102": {
+    "relationships": null
+  },
+  "tmdb:tv:225171": {
+    "relationships": null
+  },
+  "tmdb:tv:226340": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q3177580",
+          "name": "The Walking Dead",
+          "slug": "the-walking-dead",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      }
+    ]
+  },
+  "tmdb:tv:233436": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q3177580",
+          "name": "The Walking Dead",
+          "slug": "the-walking-dead",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      },
+      {
+        "entity": {
+          "id": "wikidata:Q232737",
+          "name": "The Walking Dead",
+          "slug": "the-walking-dead",
+          "path": ""
+        },
+        "type": "series",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P179"
+        ]
+      }
+    ]
+  },
+  "tmdb:tv:234950": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q18844725",
+          "name": "Fear the Walking Dead",
+          "slug": "fear-the-walking-dead",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      }
+    ]
+  },
+  "tmdb:tv:241554": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q137613860",
+          "name": "The Murderbot Diaries",
+          "slug": "the-murderbot-diaries",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      }
+    ]
+  },
+  "tmdb:tv:247767": {
+    "relationships": null
+  },
+  "tmdb:tv:252107": {
+    "relationships": null
+  },
+  "tmdb:tv:270476": {
+    "relationships": null
+  },
+  "tmdb:tv:48866": {
+    "relationships": null
+  },
+  "tmdb:tv:60625": {
+    "relationships": null
+  },
+  "tmdb:tv:61345": {
+    "relationships": null
+  },
+  "tmdb:tv:62286": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q3177580",
+          "name": "The Walking Dead",
+          "slug": "the-walking-dead",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      }
+    ]
+  },
+  "tmdb:tv:62560": {
+    "relationships": null
+  },
+  "tmdb:tv:63639": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q131519400",
+          "name": "The Expanse",
+          "slug": "the-expanse",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      }
+    ]
+  },
+  "tmdb:tv:7831": {
+    "relationships": null
+  },
+  "tmdb:tv:80752": {
+    "relationships": null
+  },
+  "tmdb:tv:82856": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q462",
+          "name": "Star Wars",
+          "slug": "star-wars",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      }
+    ]
+  },
+  "tmdb:tv:83867": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q462",
+          "name": "Star Wars",
+          "slug": "star-wars",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      }
+    ]
+  },
+  "tmdb:tv:87917": {
+    "relationships": null
+  },
+  "tmdb:tv:88052": {
+    "relationships": null
+  },
+  "tmdb:tv:88329": {
+    "relationships": null
+  },
+  "tmdb:tv:93740": {
+    "relationships": null
+  },
+  "tmdb:tv:94305": {
+    "relationships": [
+      {
+        "entity": {
+          "id": "wikidata:Q3177580",
+          "name": "The Walking Dead",
+          "slug": "the-walking-dead",
+          "path": ""
+        },
+        "type": "franchise",
+        "confidence": "high",
+        "sources": [
+          "wikidata:P8345"
+        ]
+      }
+    ]
+  },
+  "tmdb:tv:97546": {
+    "relationships": null
+  }
+}

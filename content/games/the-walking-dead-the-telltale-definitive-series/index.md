@@ -26,6 +26,15 @@ type = "game"
   [franchise.external]
     igdb = 39
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q18393935"
+  name = "The Walking Dead"
+  path = "series/the-walking-dead"
+  slug = "the-walking-dead"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Skybound Games"]

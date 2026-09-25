@@ -16,6 +16,15 @@ type = "game"
   igdb = 222803
   steam = 1934680
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q108370509"
+  name = "Age of Mythology"
+  path = "series/age-of-mythology"
+  slug = "age-of-mythology"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["World's Edge"]

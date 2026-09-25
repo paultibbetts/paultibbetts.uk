@@ -16,12 +16,12 @@ type = "movie"
 
 [metadata]
   [metadata.tmdb]
-directors = ["James Vanderbilt"]
-genres = ["Drama", "History"]
-original_language = "en"
-release_date = "2025-11-06"
-runtime_minutes = 149
-studios = ["Bluestone Entertainment", "Filmsquad", "Mythology Entertainment", "Titan Media", "Walden Media"]
+    directors = ["James Vanderbilt"]
+    genres = ["Drama", "History"]
+    original_language = "en"
+    release_date = "2025-11-06"
+    runtime_minutes = 149
+    studios = ["Bluestone Entertainment", "Filmsquad", "Mythology Entertainment", "Titan Media", "Walden Media"]
 
 [sync]
   [sync.yamtrack]

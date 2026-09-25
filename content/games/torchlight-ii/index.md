@@ -21,6 +21,15 @@ type = "game"
   igdb = 1337
   steam = 200710
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q96280626"
+  name = "Torchlight"
+  path = "series/torchlight"
+  slug = "torchlight"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Runic Games"]

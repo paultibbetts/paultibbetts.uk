@@ -21,6 +21,15 @@ type = "game"
   igdb = 18088
   steam = 581320
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q56240431"
+  name = "Insurgency"
+  path = "series/insurgency"
+  slug = "insurgency"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["New World Interactive"]

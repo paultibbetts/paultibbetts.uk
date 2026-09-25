@@ -21,6 +21,15 @@ type = "game"
   igdb = 2949
   steam = 1250
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q61793430"
+  name = "Killing Floor"
+  path = "series/killing-floor"
+  slug = "killing-floor"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Tripwire Interactive"]

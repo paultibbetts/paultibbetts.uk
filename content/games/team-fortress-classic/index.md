@@ -21,6 +21,15 @@ type = "game"
   igdb = 6359
   steam = 20
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q18396192"
+  name = "Team Fortress"
+  path = "series/team-fortress"
+  slug = "team-fortress"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Valve"]

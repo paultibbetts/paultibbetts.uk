@@ -23,6 +23,15 @@ type = "game"
   [franchise.external]
     igdb = 1351
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q507898"
+  name = "Crash Bandicoot"
+  path = "series/crash-bandicoot"
+  slug = "crash-bandicoot"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Naughty Dog"]

@@ -26,6 +26,15 @@ type = "game"
   [franchise.external]
     igdb = 960
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q61467778"
+  name = "Destiny"
+  path = "series/destiny"
+  slug = "destiny"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Bungie"]

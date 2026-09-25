@@ -21,6 +21,15 @@ type = "game"
   [franchise.external]
     igdb = 493
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q132730"
+  name = "Grand Theft Auto"
+  path = "series/grand-theft-auto"
+  slug = "grand-theft-auto"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["DMA Design", "TransGaming Inc."]

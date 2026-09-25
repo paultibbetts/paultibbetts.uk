@@ -16,6 +16,15 @@ type = "game"
   igdb = 164290
   steam = 1601580
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q109906136"
+  name = "Frostpunk"
+  path = "series/frostpunk"
+  slug = "frostpunk"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["11 bit studios"]

@@ -21,6 +21,15 @@ type = "game"
   igdb = 242408
   steam = 730
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q15717790"
+  name = "Counter-Strike"
+  path = "series/counter-strike"
+  slug = "counter-strike"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Valve"]

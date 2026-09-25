@@ -21,6 +21,15 @@ type = "game"
   [franchise.external]
     igdb = 37
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q2635372"
+  name = "James Bond"
+  path = "series/james-bond"
+  slug = "james-bond"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Eurocom Entertainment Software"]

@@ -1,12 +1,23 @@
 {{ define "main" }}
   <div class="pb-20">
     {{ if or .Params.assets.hero .Params.assets.logo }}
-      <div class="relative min-h-[clamp(14rem,32vw,25rem)] overflow-hidden bg-surface after:absolute after:inset-0 after:bg-linear-to-b after:from-transparent after:from-[30%] after:to-background after:content-[''] max-md:-mx-4 max-md:w-[calc(100%+2rem)]">
+      <div
+        class="relative min-h-[clamp(14rem,32vw,25rem)] overflow-hidden bg-surface after:absolute after:inset-0 after:bg-linear-to-b after:from-transparent after:from-[30%] after:to-background after:content-[''] max-md:-mx-4 max-md:w-[calc(100%+2rem)]"
+      >
         {{ with .Params.assets.hero }}
-          <img class="absolute inset-0 size-full object-cover" src="{{ . }}" alt="" aria-hidden="true" />
+          <img
+            class="absolute inset-0 size-full object-cover"
+            src="{{ . }}"
+            alt=""
+            aria-hidden="true"
+          />
         {{ end }}
         {{ with .Params.assets.logo }}
-          <img class="absolute top-1/2 left-1/2 z-1 w-[min(68%,28rem)] max-h-[45%] -translate-x-1/2 -translate-y-1/2 object-contain drop-shadow-[0_0_1rem_rgba(0,0,0,0.8)]" src="{{ . }}" alt="{{ $.Title }} logo" />
+          <img
+            class="absolute top-1/2 left-1/2 z-1 w-[min(68%,28rem)] max-h-[45%] -translate-x-1/2 -translate-y-1/2 object-contain drop-shadow-[0_0_1rem_rgba(0,0,0,0.8)]"
+            src="{{ . }}"
+            alt="{{ $.Title }} logo"
+          />
         {{ end }}
       </div>
     {{ end }}
@@ -87,7 +98,9 @@
       {{ with .Params.metadata.igdb }}
         <section class="border-t border-border pt-5" aria-labelledby="game-details-heading">
           <h2 id="game-details-heading" class="mt-0 mb-4 text-2xl text-accent">Game details</h2>
-          <dl class="m-0 grid grid-cols-[auto_minmax(0,1fr)] gap-x-4 gap-y-[0.45rem] [&_dt]:text-muted [&_dd]:m-0">
+          <dl
+            class="m-0 grid grid-cols-[auto_minmax(0,1fr)] gap-x-4 gap-y-[0.45rem] [&_dt]:text-muted [&_dd]:m-0"
+          >
             {{ with .developers }}
               <dt>Developer{{ if gt (len .) 1 }}s{{ end }}</dt>
               <dd>{{ delimit . ", " }}</dd>
@@ -118,7 +131,9 @@
         {{ if or (gt (len $ownedPlatforms) 0) (gt (len $playedPlatforms) 0) (isset . "score") (isset . "start_date") (isset . "end_date") }}
           <section class="border-t border-border pt-5" aria-labelledby="game-tracking-heading">
             <h2 id="game-tracking-heading" class="mt-0 mb-4 text-2xl text-accent">My tracking</h2>
-            <dl class="m-0 grid grid-cols-[auto_minmax(0,1fr)] gap-x-4 gap-y-[0.45rem] [&_dt]:text-muted [&_dd]:m-0">
+            <dl
+              class="m-0 grid grid-cols-[auto_minmax(0,1fr)] gap-x-4 gap-y-[0.45rem] [&_dt]:text-muted [&_dd]:m-0"
+            >
               {{ range $ownedPlatforms }}
                 <dt>Owned on</dt>
                 <dd>{{ . }}</dd>
@@ -157,7 +172,10 @@
     {{ end }}
 
     {{ if or .Params.external.steam (and .Params.external.igdb .Params.metadata.igdb.slug) }}
-      <nav class="mt-8 flex flex-wrap gap-x-5 gap-y-3 border-t border-border pt-5" aria-label="External game links">
+      <nav
+        class="mt-8 flex flex-wrap gap-x-5 gap-y-3 border-t border-border pt-5"
+        aria-label="External game links"
+      >
         {{ with .Params.external.steam }}
           <a href="https://store.steampowered.com/app/{{ . }}">View on Steam</a>
         {{ end }}
@@ -269,7 +287,10 @@
           {{ end }}
         {{ end }}
         {{ with $franchiseGames }}
-          <section class="mt-8 border-t border-border pt-5" aria-labelledby="game-franchise-heading">
+          <section
+            class="mt-8 border-t border-border pt-5"
+            aria-labelledby="game-franchise-heading"
+          >
             <h2 id="game-franchise-heading" class="mt-0 mb-4 text-2xl text-accent">Franchise</h2>
             <div class="not-prose grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {{ range .ByParam "metadata.igdb.release_date" }}
@@ -301,5 +322,7 @@
         {{ end }}
       {{ end }}
     {{ end }}
+
+    {{ partial "media/relationships.html" . }}
   </div>
 {{ end }}

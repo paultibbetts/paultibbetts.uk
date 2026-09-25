@@ -26,6 +26,15 @@ type = "game"
   [franchise.external]
     igdb = 1822
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q238015"
+  name = "Max Payne"
+  path = "series/max-payne"
+  slug = "max-payne"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Remedy Entertainment"]

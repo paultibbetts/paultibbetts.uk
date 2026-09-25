@@ -16,6 +16,15 @@ type = "game"
   igdb = 879
   steam = 6800
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q631273"
+  name = "Commandos"
+  path = "series/commandos"
+  slug = "commandos"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Pyro Studios"]

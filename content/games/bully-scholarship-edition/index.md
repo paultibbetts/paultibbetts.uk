@@ -21,6 +21,15 @@ type = "game"
   igdb = 6574
   steam = 12200
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q108370646"
+  name = "Bully"
+  path = "series/bully"
+  slug = "bully"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Rockstar New England", "Rockstar Toronto", "Rockstar Vancouver"]

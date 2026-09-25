@@ -179,6 +179,8 @@
       {{ end }}
     {{ end }}
 
+    {{ partial "media/relationships.html" . }}
+
     {{ with .Params.external.tmdb }}
       <nav class="movie-generic-section mt-8" aria-label="External movie links">
         <a href="https://www.themoviedb.org/movie/{{ . }}">View on TMDB</a>

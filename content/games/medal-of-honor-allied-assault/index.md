@@ -18,6 +18,15 @@ type = "game"
 [external]
   igdb = 326
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q644541"
+  name = "Medal of Honor"
+  path = "series/medal-of-honor"
+  slug = "medal-of-honor"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["2015"]

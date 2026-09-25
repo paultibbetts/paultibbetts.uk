@@ -1,0 +1,10 @@
+{{ $themes := slice }}
+{{ range .Params.sync.yamtrack.lists }}
+  {{ $list := . }}
+  {{ range hugo.Data.media.themes.themes }}
+    {{ if eq .id $list.id }}
+      {{ $themes = $themes | append . }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ return $themes }}

@@ -3,8 +3,57 @@ slug = "the-dark-knight"
 title = "The Dark Knight"
 type = "movie"
 
+[asset_sources]
+  cover = "tmdb"
+  hero = "tmdb"
+
+[assets]
+  cover = "https://media.paultibbetts.uk/movies/the-dark-knight/cover.jpg"
+  hero = "https://media.paultibbetts.uk/movies/the-dark-knight/hero.jpg"
+
 [external]
   tmdb = 155
+
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q12859908"
+  name = "The Dark Knight trilogy"
+  path = "series/the-dark-knight-trilogy"
+  slug = "the-dark-knight-trilogy"
+  sources = ["wikidata:P179"]
+  type = "series"
+
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q2111133"
+  name = "Batman in film"
+  path = "series/batman-in-film"
+  slug = "batman-in-film"
+  sources = ["wikidata:P179"]
+  type = "series"
+
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q26705935"
+  name = "BBC's 100 Greatest Films of the 21st Century"
+  path = "series/bbc-s-100-greatest-films-of-the-21st-century"
+  slug = "bbc-s-100-greatest-films-of-the-21st-century"
+  sources = ["wikidata:P179"]
+  type = "series"
+
+[metadata]
+  [metadata.tmdb]
+    directors = ["Christopher Nolan"]
+    genres = ["Action", "Crime", "Thriller"]
+    original_language = "en"
+    release_date = "2008-07-16"
+    runtime_minutes = 152
+    studios = ["DC", "Legendary Pictures", "Syncopy", "Warner Bros. Pictures"]
+
+[series]
+  name = "The Dark Knight Collection"
+  [series.external]
+    tmdb = 263
 
 [sync]
   [sync.yamtrack]
@@ -14,24 +63,4 @@ type = "movie"
 [tracking]
   progress = 0
   status = "completed"
-[assets]
-cover = "https://media.paultibbetts.uk/movies/the-dark-knight/cover.jpg"
-hero = "https://media.paultibbetts.uk/movies/the-dark-knight/hero.jpg"
-
-[asset_sources]
-cover = "tmdb"
-hero = "tmdb"
-[metadata.tmdb]
-release_date = "2008-07-16"
-directors = ["Christopher Nolan"]
-genres = ["Action", "Crime", "Thriller"]
-original_language = "en"
-runtime_minutes = 152
-studios = ["DC", "Legendary Pictures", "Syncopy", "Warner Bros. Pictures"]
-
-[series]
-name = "The Dark Knight Collection"
-
-[series.external]
-tmdb = 263
 +++

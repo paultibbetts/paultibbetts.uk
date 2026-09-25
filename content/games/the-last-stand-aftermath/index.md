@@ -21,6 +21,15 @@ type = "game"
   igdb = 133375
   steam = 1266840
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q109807631"
+  name = "The Last Stand"
+  path = "series/the-last-stand"
+  slug = "the-last-stand"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Con Artist Games"]

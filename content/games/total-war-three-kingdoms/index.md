@@ -26,6 +26,15 @@ type = "game"
   [franchise.external]
     igdb = 977
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q380346"
+  name = "Total War"
+  path = "series/total-war"
+  slug = "total-war"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["The Creative Assembly"]

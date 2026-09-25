@@ -21,6 +21,15 @@ type = "game"
   [franchise.external]
     igdb = 451
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q135245038"
+  name = "Cyberpunk"
+  path = "franchises/cyberpunk"
+  slug = "cyberpunk"
+  sources = ["wikidata:P8345"]
+  type = "franchise"
+
 [metadata]
   [metadata.igdb]
     developers = ["CD Projekt RED"]

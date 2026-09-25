@@ -21,6 +21,15 @@ type = "game"
   [franchise.external]
     igdb = 4973
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q339962"
+  name = "Ace Combat"
+  path = "series/ace-combat"
+  slug = "ace-combat"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Namco"]

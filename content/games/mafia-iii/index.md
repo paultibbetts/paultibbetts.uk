@@ -21,6 +21,15 @@ type = "game"
   igdb = 11492
   steam = 360430
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q21526531"
+  name = "Mafia"
+  path = "series/mafia"
+  slug = "mafia"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Hangar 13"]

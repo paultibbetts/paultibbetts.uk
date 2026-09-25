@@ -21,6 +21,15 @@ type = "game"
   igdb = 20871
   steam = 301640
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q17048133"
+  name = "Sniper Elite"
+  path = "series/sniper-elite"
+  slug = "sniper-elite"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Rebellion Developments"]

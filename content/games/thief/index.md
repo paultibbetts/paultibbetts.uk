@@ -21,6 +21,15 @@ type = "game"
   igdb = 4
   steam = 239160
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q795183"
+  name = "Thief"
+  path = "series/thief"
+  slug = "thief"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Eidos Montréal"]

@@ -21,6 +21,15 @@ type = "game"
   igdb = 1881
   steam = 107410
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q16245154"
+  name = "ARMA"
+  path = "series/arma"
+  slug = "arma"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Bohemia Interactive Studio"]

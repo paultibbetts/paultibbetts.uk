@@ -23,6 +23,24 @@ type = "game"
   [franchise.external]
     igdb = 60
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q52793624"
+  name = "Pokémon Snap"
+  path = "series/pok-mon-snap"
+  slug = "pok-mon-snap"
+  sources = ["wikidata:P179"]
+  type = "series"
+
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q864"
+  name = "Pokémon"
+  path = "franchises/pok-mon"
+  slug = "pok-mon"
+  sources = ["wikidata:P8345"]
+  type = "franchise"
+
 [metadata]
   [metadata.igdb]
     developers = ["HAL Laboratory", "Pax Softnica"]

@@ -16,6 +16,15 @@ type = "game"
   igdb = 556
   steam = 47790
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q644541"
+  name = "Medal of Honor"
+  path = "series/medal-of-honor"
+  slug = "medal-of-honor"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Danger Close", "EA Digital Illusions CE"]

@@ -1,0 +1,132 @@
+{{ $mediaSections := slice "games" "movies" "tv" }}
+{{ $suppressedEntities := slice }}
+{{ with .Params.series.external.igdb }}
+  {{ $seriesID := . }}
+  {{ $legacySeriesMembers := slice $.RelPermalink }}
+  {{ range where site.RegularPages "Type" "game" }}
+    {{ if and (eq .Params.series.external.igdb $seriesID) (ne .RelPermalink $.RelPermalink) }}
+      {{ if or (not .Params.relationship) (eq .Params.relationship.type "expanded_game") }}
+        {{ $legacySeriesMembers = $legacySeriesMembers | append .RelPermalink }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  {{ range $.Params.media_relationships }}
+    {{ if eq .type "series" }}
+      {{ $relationship := . }}
+      {{ $mediaSeriesMembers := slice }}
+      {{ range site.RegularPages }}
+        {{ if in $mediaSections .Section }}
+          {{ $matchesEntity := false }}
+          {{ range .Params.media_relationships }}
+            {{ if eq .entity $relationship.entity }}
+              {{ $matchesEntity = true }}
+            {{ end }}
+          {{ end }}
+          {{ if $matchesEntity }}
+            {{ $mediaSeriesMembers = $mediaSeriesMembers | append .RelPermalink }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      {{ $sameMembers := eq (len $legacySeriesMembers) (len $mediaSeriesMembers) }}
+      {{ if $sameMembers }}
+        {{ range $mediaSeriesMembers }}
+          {{ if not (in $legacySeriesMembers .) }}
+            {{ $sameMembers = false }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      {{ if $sameMembers }}
+        {{ $suppressedEntities = $suppressedEntities | append $relationship.entity }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ with .Params.series.external.tmdb }}
+  {{ $seriesID := . }}
+  {{ $legacySeriesMembers := slice $.RelPermalink }}
+  {{ range where site.RegularPages "Type" "movie" }}
+    {{ if and (eq .Params.series.external.tmdb $seriesID) (ne .RelPermalink $.RelPermalink) }}
+      {{ $legacySeriesMembers = $legacySeriesMembers | append .RelPermalink }}
+    {{ end }}
+  {{ end }}
+  {{ range $.Params.media_relationships }}
+    {{ if in (slice "series" "franchise") .type }}
+      {{ $relationship := . }}
+      {{ $mediaSeriesMembers := slice }}
+      {{ range site.RegularPages }}
+        {{ if in $mediaSections .Section }}
+          {{ $matchesEntity := false }}
+          {{ range .Params.media_relationships }}
+            {{ if eq .entity $relationship.entity }}
+              {{ $matchesEntity = true }}
+            {{ end }}
+          {{ end }}
+          {{ if $matchesEntity }}
+            {{ $mediaSeriesMembers = $mediaSeriesMembers | append .RelPermalink }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      {{ $sameMembers := eq (len $legacySeriesMembers) (len $mediaSeriesMembers) }}
+      {{ if $sameMembers }}
+        {{ range $mediaSeriesMembers }}
+          {{ if not (in $legacySeriesMembers .) }}
+            {{ $sameMembers = false }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      {{ if $sameMembers }}
+        {{ $suppressedEntities = $suppressedEntities | append $relationship.entity }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ $relatedGroups := slice }}
+{{ $seenEntities := dict }}
+{{ range .Params.media_relationships }}
+  {{ $relationship := . }}
+  {{ if and (not (in $suppressedEntities $relationship.entity)) (not (isset $seenEntities $relationship.entity)) }}
+    {{ $seenEntities = merge $seenEntities (dict $relationship.entity true) }}
+    {{ $memberCount := 0 }}
+    {{ range site.RegularPages }}
+      {{ if in $mediaSections .Section }}
+        {{ $matchesEntity := false }}
+        {{ range .Params.media_relationships }}
+          {{ if eq .entity $relationship.entity }}
+            {{ $matchesEntity = true }}
+          {{ end }}
+        {{ end }}
+        {{ if $matchesEntity }}
+          {{ $memberCount = add $memberCount 1 }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    {{ if ge $memberCount 2 }}
+      {{ $relatedGroups = $relatedGroups | append $relationship }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ with $relatedGroups }}
+  {{ $nameCounts := dict }}
+  {{ range . }}
+    {{ $nameCounts = merge $nameCounts (dict .name (add (default 0 (index $nameCounts .name)) 1)) }}
+  {{ end }}
+  <section
+    class="mt-8 border-t border-border pt-5"
+    aria-labelledby="{{ $.Type }}-related-media-heading"
+  >
+    <h2 id="{{ $.Type }}-related-media-heading" class="mt-0 mb-4 text-2xl text-accent">
+      Related media
+    </h2>
+    <ul class="prose ml-4 list-disc text-foreground font-sans">
+      {{ range sort . "name" }}
+        {{ $path := default .slug .path }}
+        <li>
+          <a href="{{ printf "/media/%s/" $path | relURL }}">{{ .name }}</a
+          >{{ if gt (index $nameCounts .name) 1 }}&nbsp;— {{ .type }}{{ end }}
+        </li>
+      {{ end }}
+    </ul>
+  </section>
+{{ end }}

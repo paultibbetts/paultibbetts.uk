@@ -16,6 +16,15 @@ type = "game"
   igdb = 122
   steam = 500
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q6516784"
+  name = "Left 4 Dead"
+  path = "series/left-4-dead"
+  slug = "left-4-dead"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Certain Affinity", "Turtle Rock Studios", "Valve"]

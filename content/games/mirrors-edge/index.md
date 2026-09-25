@@ -21,6 +21,15 @@ type = "game"
   igdb = 1051
   steam = 17410
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q62572083"
+  name = "Mirror's Edge"
+  path = "series/mirror-s-edge"
+  slug = "mirror-s-edge"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["EA Digital Illusions CE"]

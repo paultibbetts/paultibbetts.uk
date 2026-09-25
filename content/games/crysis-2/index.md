@@ -18,6 +18,15 @@ type = "game"
 [external]
   igdb = 471
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q2634284"
+  name = "Crysis"
+  path = "series/crysis"
+  slug = "crysis"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Crytek Frankfurt"]

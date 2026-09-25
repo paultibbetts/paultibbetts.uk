@@ -21,6 +21,15 @@ type = "game"
   [franchise.external]
     igdb = 1036
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q474587"
+  name = "Battlefield"
+  path = "series/battlefield"
+  slug = "battlefield"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["EA Digital Illusions CE"]

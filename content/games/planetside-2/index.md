@@ -21,6 +21,15 @@ type = "game"
   igdb = 1265
   steam = 218230
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q108371292"
+  name = "PlanetSide"
+  path = "series/planetside"
+  slug = "planetside"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Rogue Planet Games"]

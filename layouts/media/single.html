@@ -1,0 +1,64 @@
+{{ define "main" }}
+  <div class="pb-20">
+    <header class="mb-8">
+      <h1 class="m-0 text-3xl text-accent sm:text-4xl">{{ .Title }}</h1>
+    </header>
+    {{ $entity := .Params.media_entity }}
+    {{ $mediaTypes := slice
+      (dict "section" "games" "title" "Games")
+      (dict "section" "movies" "title" "Movies")
+      (dict "section" "tv" "title" "TV")
+    }}
+    {{ range $mediaTypes }}
+      {{ $mediaType := . }}
+      {{ $section := .section }}
+      {{ $works := slice }}
+      {{ range where site.RegularPages "Section" $section }}
+        {{ $work := . }}
+        {{ $matchesEntity := false }}
+        {{ range .Params.media_relationships }}
+          {{ if eq .entity $entity }}
+            {{ $matchesEntity = true }}
+          {{ end }}
+        {{ end }}
+        {{ if $matchesEntity }}
+          {{ $works = $works | append $work }}
+        {{ end }}
+      {{ end }}
+      {{ with $works }}
+        {{ $datedWorks := slice }}
+        {{ $undatedWorks := slice }}
+        {{ range . }}
+          {{ $work := . }}
+          {{ $releaseDate := "" }}
+          {{ if eq $section "games" }}
+            {{ $releaseDate = .Params.metadata.igdb.release_date }}
+          {{ else if eq $section "movies" }}
+            {{ $releaseDate = .Params.metadata.tmdb.release_date }}
+          {{ else if eq $section "tv" }}
+            {{ $releaseDate = .Params.metadata.yamtrack.first_air_date }}
+          {{ end }}
+          {{ if $releaseDate }}
+            {{ $datedWorks = $datedWorks | append (dict "work" $work "sortKey" (printf "%s|%s" $releaseDate .Title)) }}
+          {{ else }}
+            {{ $undatedWorks = $undatedWorks | append $work }}
+          {{ end }}
+        {{ end }}
+        <section class="mt-8 pt-5" aria-labelledby="media-{{ $section }}-heading">
+          <h2 id="media-{{ $section }}-heading" class="mt-0 mb-4 text-2xl text-accent">
+            {{ $mediaType.title }}
+          </h2>
+          <ul class="ml-4 list-disc font-sans">
+            {{ range sort $datedWorks "sortKey" }}
+              <li><a href="{{ .work.RelPermalink }}">{{ .work.Title }}</a></li>
+            {{ end }}
+            {{ range sort $undatedWorks "Title" }}
+              <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+            {{ end }}
+          </ul>
+        </section>
+      {{ end }}
+    {{ end }}
+    {{ with .Content }}<div class="prose text-foreground font-sans">{{ . }}</div>{{ end }}
+  </div>
+{{ end }}

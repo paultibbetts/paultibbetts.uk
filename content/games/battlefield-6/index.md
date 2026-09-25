@@ -3,10 +3,14 @@ slug = "battlefield-6"
 title = "Battlefield 6"
 type = "game"
 
-[assets]
-hero = "https://media.paultibbetts.uk/games/battlefield-6/hero.jpg"
+[asset_sources]
+  cover = "igdb"
+  hero = "igdb"
 
-cover = "https://media.paultibbetts.uk/games/battlefield-6/cover.jpg"
+[assets]
+  cover = "https://media.paultibbetts.uk/games/battlefield-6/cover.jpg"
+  hero = "https://media.paultibbetts.uk/games/battlefield-6/hero.jpg"
+
 [derived]
   category = "no-longer-playing"
   played = true
@@ -19,6 +23,15 @@ cover = "https://media.paultibbetts.uk/games/battlefield-6/cover.jpg"
   name = "Battlefield"
   [franchise.external]
     igdb = 1036
+
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q474587"
+  name = "Battlefield"
+  path = "series/battlefield"
+  slug = "battlefield"
+  sources = ["wikidata:P179"]
+  type = "series"
 
 [metadata]
   [metadata.igdb]
@@ -46,7 +59,4 @@ cover = "https://media.paultibbetts.uk/games/battlefield-6/cover.jpg"
 [tracking]
   progress = 10678
   status = "dropped"
-[asset_sources]
-cover = "igdb"
-hero = "igdb"
 +++

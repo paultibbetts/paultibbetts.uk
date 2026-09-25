@@ -26,6 +26,15 @@ type = "game"
   [franchise.external]
     igdb = 509
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q107658021"
+  name = "Warhammer: Vermintide"
+  path = "series/warhammer-vermintide"
+  slug = "warhammer-vermintide"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Fatshark"]

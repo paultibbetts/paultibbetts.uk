@@ -18,6 +18,15 @@ type = "game"
 [external]
   igdb = 7081
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q109256982"
+  name = "Battlefield spinoff series"
+  path = "series/battlefield-spinoff-series"
+  slug = "battlefield-spinoff-series"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["EA Digital Illusions CE", "Visceral Games"]

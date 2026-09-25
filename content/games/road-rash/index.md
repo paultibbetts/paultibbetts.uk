@@ -16,6 +16,15 @@ type = "game"
 [external]
   igdb = 3249
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q1317828"
+  name = "Road Rash"
+  path = "series/road-rash"
+  slug = "road-rash"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Electronic Arts"]

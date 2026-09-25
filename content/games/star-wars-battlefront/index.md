@@ -26,6 +26,24 @@ type = "game"
   [franchise.external]
     igdb = 1
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q462"
+  name = "Star Wars"
+  path = "franchises/star-wars"
+  slug = "star-wars"
+  sources = ["wikidata:P8345"]
+  type = "franchise"
+
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q54869"
+  name = "Star Wars: Battlefront"
+  path = "series/star-wars-battlefront"
+  slug = "star-wars-battlefront"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["EA Digital Illusions CE"]

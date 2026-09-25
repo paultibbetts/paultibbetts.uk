@@ -21,6 +21,15 @@ type = "game"
   [franchise.external]
     igdb = 2417
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q44165"
+  name = "Diablo"
+  path = "series/diablo"
+  slug = "diablo"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Blizzard Entertainment"]

@@ -24,6 +24,33 @@ type = "game"
   [franchise.external]
     igdb = 457
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q1046812"
+  name = "Sonic the Hedgehog"
+  path = "series/sonic-the-hedgehog"
+  slug = "sonic-the-hedgehog"
+  sources = ["wikidata:P179"]
+  type = "series"
+
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q131916745"
+  name = "Sonic the Hedgehog"
+  path = "franchises/sonic-the-hedgehog"
+  slug = "sonic-the-hedgehog"
+  sources = ["wikidata:P8345"]
+  type = "franchise"
+
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q22974163"
+  name = "Sonic the Hedgehog"
+  path = "series/sonic-the-hedgehog"
+  slug = "sonic-the-hedgehog"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Sonic Team"]

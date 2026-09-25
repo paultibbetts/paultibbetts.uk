@@ -16,6 +16,15 @@ type = "game"
 [external]
   igdb = 4368
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q2041524"
+  name = "Strike"
+  path = "series/strike"
+  slug = "strike"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Electronic Arts"]

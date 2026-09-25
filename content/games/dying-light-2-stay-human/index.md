@@ -21,6 +21,15 @@ type = "game"
   [franchise.external]
     igdb = 1062
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q56291775"
+  name = "Dying Light"
+  path = "series/dying-light"
+  slug = "dying-light"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Techland", "Techland Publishing"]

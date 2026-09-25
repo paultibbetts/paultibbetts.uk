@@ -24,6 +24,15 @@ type = "game"
   [franchise.external]
     igdb = 3786
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q17512980"
+  name = "Hercules"
+  path = "franchises/hercules"
+  slug = "hercules"
+  sources = ["wikidata:P8345"]
+  type = "franchise"
+
 [metadata]
   [metadata.igdb]
     developers = ["Eurocom Entertainment Software"]

@@ -26,6 +26,15 @@ type = "game"
   [franchise.external]
     igdb = 798
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q110915052"
+  name = "Doom"
+  path = "franchises/doom"
+  slug = "doom"
+  sources = ["wikidata:P8345"]
+  type = "franchise"
+
 [metadata]
   [metadata.igdb]
     developers = ["id Software"]

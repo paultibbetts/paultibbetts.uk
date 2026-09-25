@@ -18,6 +18,15 @@ type = "game"
 [external]
   igdb = 1286
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q722159"
+  name = "Conker"
+  path = "series/conker"
+  slug = "conker"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Rare"]

@@ -21,6 +21,15 @@ type = "game"
   [franchise.external]
     igdb = 2121
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q1064135"
+  name = "Uncharted"
+  path = "series/uncharted"
+  slug = "uncharted"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Naughty Dog"]

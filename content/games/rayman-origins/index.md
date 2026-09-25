@@ -24,6 +24,15 @@ type = "game"
   [franchise.external]
     igdb = 994
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q13219467"
+  name = "Rayman"
+  path = "series/rayman"
+  slug = "rayman"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Ubisoft Montpellier"]

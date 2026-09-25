@@ -26,6 +26,15 @@ type = "game"
   [franchise.external]
     igdb = 486
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q2336369"
+  name = "Jurassic Park"
+  path = "franchises/jurassic-park"
+  slug = "jurassic-park"
+  sources = ["wikidata:P8345"]
+  type = "franchise"
+
 [metadata]
   [metadata.igdb]
     developers = ["Frontier Developments"]

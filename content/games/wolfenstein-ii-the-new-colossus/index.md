@@ -21,6 +21,15 @@ type = "game"
   [franchise.external]
     igdb = 1277
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q4357563"
+  name = "Wolfenstein"
+  path = "series/wolfenstein"
+  slug = "wolfenstein"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["MachineGames"]

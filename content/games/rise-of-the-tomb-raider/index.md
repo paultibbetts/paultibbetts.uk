@@ -26,6 +26,33 @@ type = "game"
   [franchise.external]
     igdb = 279
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q111328790"
+  name = "Tomb Raider"
+  path = "franchises/tomb-raider"
+  slug = "tomb-raider"
+  sources = ["wikidata:P8345"]
+  type = "franchise"
+
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q131432634"
+  name = "Tomb Raider: Survivor Trilogy"
+  path = "series/tomb-raider-survivor-trilogy"
+  slug = "tomb-raider-survivor-trilogy"
+  sources = ["wikidata:P179"]
+  type = "series"
+
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q270503"
+  name = "Tomb Raider"
+  path = "series/tomb-raider"
+  slug = "tomb-raider"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Crystal Dynamics"]

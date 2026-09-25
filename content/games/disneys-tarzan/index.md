@@ -23,6 +23,24 @@ type = "game"
   [franchise.external]
     igdb = 2254
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q17511804"
+  name = "Tarzan"
+  path = "franchises/tarzan"
+  slug = "tarzan"
+  sources = ["wikidata:P8345"]
+  type = "franchise"
+
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q17511804"
+  name = "Tarzan"
+  path = "series/tarzan"
+  slug = "tarzan"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Eurocom Entertainment Software"]

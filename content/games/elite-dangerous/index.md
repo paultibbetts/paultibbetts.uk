@@ -21,6 +21,15 @@ type = "game"
   igdb = 2955
   steam = 359320
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q99435092"
+  name = "Elite"
+  path = "series/elite"
+  slug = "elite"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Frontier Developments"]

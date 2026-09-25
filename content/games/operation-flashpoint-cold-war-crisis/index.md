@@ -17,6 +17,15 @@ type = "game"
   igdb = 288
   steam = 65790
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q2117778"
+  name = "Operation Flashpoint"
+  path = "series/operation-flashpoint"
+  slug = "operation-flashpoint"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Bohemia Interactive Studio"]

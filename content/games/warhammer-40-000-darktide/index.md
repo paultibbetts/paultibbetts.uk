@@ -26,6 +26,15 @@ type = "game"
   [franchise.external]
     igdb = 6
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q108371686"
+  name = "Warhammer 40,000"
+  path = "series/warhammer-40-000"
+  slug = "warhammer-40-000"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Fatshark"]

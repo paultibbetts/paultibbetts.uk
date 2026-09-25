@@ -24,6 +24,15 @@ type = "game"
   [franchise.external]
     igdb = 185
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q5046850"
+  name = "Cars"
+  path = "franchises/cars"
+  slug = "cars"
+  sources = ["wikidata:P8345"]
+  type = "franchise"
+
 [metadata]
   [metadata.igdb]
     developers = ["Avalanche Software"]

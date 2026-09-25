@@ -24,6 +24,15 @@ type = "game"
   [franchise.external]
     igdb = 571
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q110915046"
+  name = "Assassin's Creed"
+  path = "franchises/assassin-s-creed"
+  slug = "assassin-s-creed"
+  sources = ["wikidata:P8345"]
+  type = "franchise"
+
 [metadata]
   [metadata.igdb]
     developers = ["Ubisoft Montreal"]

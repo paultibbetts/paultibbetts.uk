@@ -21,6 +21,15 @@ type = "game"
   [franchise.external]
     igdb = 452
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q18935909"
+  name = "The Witcher"
+  path = "series/the-witcher"
+  slug = "the-witcher"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["CD Projekt RED"]

@@ -26,6 +26,33 @@ type = "game"
   [franchise.external]
     igdb = 279
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q111328790"
+  name = "Tomb Raider"
+  path = "franchises/tomb-raider"
+  slug = "tomb-raider"
+  sources = ["wikidata:P8345"]
+  type = "franchise"
+
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q133249310"
+  name = "Tomb Raider original series"
+  path = "series/tomb-raider-original-series"
+  slug = "tomb-raider-original-series"
+  sources = ["wikidata:P179"]
+  type = "series"
+
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q270503"
+  name = "Tomb Raider"
+  path = "series/tomb-raider"
+  slug = "tomb-raider"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Core Design"]

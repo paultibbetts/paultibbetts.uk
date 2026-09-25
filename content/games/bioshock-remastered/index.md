@@ -26,6 +26,15 @@ type = "game"
   [franchise.external]
     igdb = 1686
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q4914658"
+  name = "BioShock"
+  path = "series/bioshock"
+  slug = "bioshock"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["2K Australia", "2K Boston", "Feral Interactive"]

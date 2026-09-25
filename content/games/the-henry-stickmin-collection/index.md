@@ -21,6 +21,15 @@ type = "game"
   igdb = 120710
   steam = 1089980
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q104634426"
+  name = "Henry Stickmin"
+  path = "series/henry-stickmin"
+  slug = "henry-stickmin"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["PuffballsUnited"]

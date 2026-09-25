@@ -26,6 +26,15 @@ type = "game"
   [franchise.external]
     igdb = 784
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q19707372"
+  name = "Vampire: The Masquerade"
+  path = "series/vampire-the-masquerade"
+  slug = "vampire-the-masquerade"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Sharkmob"]

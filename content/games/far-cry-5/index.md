@@ -21,6 +21,15 @@ type = "game"
   [franchise.external]
     igdb = 1466
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q2667817"
+  name = "Far Cry"
+  path = "series/far-cry"
+  slug = "far-cry"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Ubisoft Montreal"]

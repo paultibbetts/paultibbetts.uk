@@ -21,6 +21,15 @@ type = "game"
   [franchise.external]
     igdb = 134
 
+[[media_relationships]]
+  confidence = "high"
+  entity = "wikidata:Q108371600"
+  name = "The Wolf Among Us"
+  path = "series/the-wolf-among-us"
+  slug = "the-wolf-among-us"
+  sources = ["wikidata:P179"]
+  type = "series"
+
 [metadata]
   [metadata.igdb]
     developers = ["Telltale Games"]
