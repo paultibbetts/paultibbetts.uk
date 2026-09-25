@@ -1,0 +1,191 @@
+{{ define "main" }}
+  <style>
+    .movie-generic {
+      padding-bottom: 5rem;
+    }
+    .movie-generic .movie-generic-hero {
+      position: relative;
+      min-height: clamp(14rem, 32vw, 25rem);
+      overflow: hidden;
+      background: var(--color-surface);
+    }
+    @media (max-width: 767px) {
+      .movie-generic .movie-generic-hero {
+        width: calc(100% + 2rem);
+        margin-inline: -1rem;
+      }
+    }
+    .movie-generic .movie-generic-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 30%, var(--color-background) 100%);
+    }
+    .movie-generic .movie-generic-hero-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .movie-generic .movie-generic-intro {
+      position: relative;
+      z-index: 1;
+      margin-top: -2rem;
+      padding: 1rem 0 2rem;
+    }
+    .movie-generic .movie-generic-intro h1 {
+      margin: 0;
+    }
+    .movie-generic .movie-generic-status {
+      margin: 0.5rem 0 0;
+      color: var(--color-muted);
+      font-family: var(--font-sans, sans-serif);
+    }
+    .movie-generic .movie-generic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+      gap: 2rem;
+    }
+    .movie-generic .movie-generic-section {
+      border-top: 1px solid var(--color-border);
+      padding-top: 1.25rem;
+    }
+    .movie-generic .movie-generic-section h2 {
+      margin-top: 0;
+    }
+    .movie-generic .movie-generic-facts {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 0.45rem 1rem;
+      margin: 0;
+    }
+    .movie-generic .movie-generic-facts dt {
+      color: var(--color-muted);
+    }
+    .movie-generic .movie-generic-facts dd {
+      margin: 0;
+    }
+  </style>
+
+  <div class="movie-generic">
+    {{ with .Params.assets.hero }}
+      <div class="movie-generic-hero">
+        <img class="movie-generic-hero-image" src="{{ . }}" alt="" aria-hidden="true" />
+      </div>
+    {{ end }}
+
+    {{ $statusNames := dict
+      "in-progress" "Paused"
+      "planning" "Planning"
+      "paused" "Paused"
+      "completed" "Watched"
+      "dropped" "Dropped"
+    }}
+    <header class="movie-generic-intro">
+      <h1 class="text-3xl text-accent sm:text-4xl">{{ .Title }}</h1>
+      {{ with .Params.tracking.status }}
+        <p class="movie-generic-status">
+          {{ index $statusNames . | default (replace . "-" " " | title) }}
+        </p>
+      {{ end }}
+    </header>
+
+    <div class="movie-generic-grid">
+      {{ with .Params.metadata.tmdb }}
+        <section class="movie-generic-section" aria-labelledby="movie-details-heading">
+          <h2 id="movie-details-heading" class="mb-4 text-2xl text-accent">Movie details</h2>
+          <dl class="movie-generic-facts">
+            {{ with .directors }}
+              <dt>Director{{ if gt (len .) 1 }}s{{ end }}</dt>
+              <dd>{{ delimit . ", " }}</dd>
+            {{ end }}
+            {{ with .release_date }}
+              <dt>Released</dt>
+              <dd>
+                <time datetime="{{ . }}">{{ time.AsTime . | time.Format "2 January 2006" }}</time
+                >{{ with $.Params.metadata.tmdb.release_date_region }}({{ . }}){{ end }}
+              </dd>
+            {{ end }}
+            {{ with .runtime_minutes }}
+              {{ $runtime := . }}
+              <dt>Runtime</dt>
+              <dd>{{ with div $runtime 60 }}{{ . }}h{{ end }}{{ mod $runtime 60 }}m</dd>
+            {{ end }}
+            {{ with .genres }}
+              <dt>Genres</dt>
+              <dd>{{ delimit . ", " }}</dd>
+            {{ end }}
+            {{ with .studios }}
+              <dt>Studio{{ if gt (len .) 1 }}s{{ end }}</dt>
+              <dd>{{ delimit . ", " }}</dd>
+            {{ end }}
+          </dl>
+        </section>
+      {{ end }}
+
+      {{ with .Params.tracking }}
+        {{ if or (isset . "score") (isset . "end_date") }}
+          <section class="movie-generic-section" aria-labelledby="movie-tracking-heading">
+            <h2 id="movie-tracking-heading" class="mb-4 text-2xl text-accent">My tracking</h2>
+            <dl class="movie-generic-facts">
+              {{ if isset . "score" }}
+                <dt>Score</dt>
+                <dd>{{ .score }}/10</dd>
+              {{ end }}
+              {{ with .end_date }}
+                <dt>Watched</dt>
+                <dd>
+                  <time datetime="{{ . }}">{{ time.AsTime . | time.Format "2 January 2006" }}</time>
+                </dd>
+              {{ end }}
+            </dl>
+          </section>
+        {{ end }}
+      {{ end }}
+    </div>
+
+    {{ with .Params.sync.yamtrack.notes }}
+      <section class="movie-generic-section mt-8" aria-labelledby="movie-notes-heading">
+        <h2 id="movie-notes-heading" class="mb-4 text-2xl text-accent">Notes</h2>
+        <div class="prose text-foreground font-sans"><p>{{ . }}</p></div>
+      </section>
+    {{ end }}
+
+    {{ with .Content }}
+      <div class="prose mt-8 text-foreground font-sans">{{ . }}</div>
+    {{ end }}
+
+    {{ with .Params.series }}
+      {{ $series := . }}
+      {{ with .external.tmdb }}
+        {{ $seriesID := . }}
+        {{ $seriesMovies := slice }}
+        {{ range where site.RegularPages "Type" "movie" }}
+          {{ if and (eq .Params.series.external.tmdb $seriesID) (ne .RelPermalink $.RelPermalink) }}
+            {{ $seriesMovies = $seriesMovies | append . }}
+          {{ end }}
+        {{ end }}
+        {{ with $seriesMovies }}
+          <section class="movie-generic-section mt-8" aria-labelledby="movie-series-heading">
+            <h2 id="movie-series-heading" class="mb-4 text-2xl text-accent">{{ $series.name }}</h2>
+            <div class="not-prose grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {{ range .ByParam "metadata.tmdb.release_date" }}
+                {{ partial "movies/card.html" (dict "movie" . "lazy" true) }}
+              {{ end }}
+            </div>
+          </section>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+
+    {{ with .Params.external.tmdb }}
+      <nav class="movie-generic-section mt-8" aria-label="External movie links">
+        <a href="https://www.themoviedb.org/movie/{{ . }}">View on TMDB</a>
+      </nav>
+    {{ end }}
+    <p class="my-4 text-sm text-muted">
+      All movie images come from <a href="https://www.themoviedb.org/">TMDB</a>
+    </p>
+  </div>
+{{ end }}

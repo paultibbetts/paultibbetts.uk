@@ -1,0 +1,117 @@
+{{ define "main" }}
+  <div class="movies-index mb-20">
+    <h1 class="mb-8 text-3xl text-accent">{{ .Title }}</h1>
+    {{ with .Content }}
+      <div class="prose mb-4 text-foreground font-sans">{{ . }}</div>
+    {{ end }}
+
+    {{ $movies := .RegularPages }}
+    <p class="mb-8 text-sm text-muted">{{ len $movies }} movies in the library</p>
+
+    {{ $statuses := slice "completed" "planning" "in-progress" "paused" "dropped" }}
+    {{ $statusNames := dict
+      "in-progress" "Paused"
+      "planning" "Planning"
+      "paused" "Paused"
+      "completed" "Watched"
+      "dropped" "Dropped"
+    }}
+
+    {{ range $status := $statuses }}
+      {{ with where $movies "Params.tracking.status" $status }}
+        {{ $datedMovies := slice }}
+        {{ $undatedMovies := slice }}
+        {{ range . }}
+          {{ $sortKey := default "" .Params.metadata.tmdb.release_date }}
+          {{ with .Params.tracking.start_date }}
+            {{ $sortKey = . }}
+          {{ end }}
+          {{ with .Params.tracking.end_date }}
+            {{ $sortKey = . }}
+          {{ end }}
+          {{ if $sortKey }}
+            {{ $datedMovies = $datedMovies | append (dict "movie" . "sortKey" (printf "%s|%s" $sortKey .Title)) }}
+          {{ else }}
+            {{ $undatedMovies = $undatedMovies | append (dict "movie" . "sortKey" .Title) }}
+          {{ end }}
+        {{ end }}
+        {{ $sortedMovies := slice }}
+        {{ range sort $datedMovies "sortKey" "desc" }}
+          {{ $sortedMovies = $sortedMovies | append .movie }}
+        {{ end }}
+        {{ range sort $undatedMovies "sortKey" }}
+          {{ $sortedMovies = $sortedMovies | append .movie }}
+        {{ end }}
+
+
+        <section class="mb-12" aria-labelledby="movies-{{ $status }}-heading">
+          <h2 id="movies-{{ $status }}-heading" class="mb-5 text-2xl text-accent">
+            {{ index $statusNames $status }}
+          </h2>
+          {{ if eq $status "completed" }}
+            {{ $yearGroups := dict }}
+            {{ range $sortedMovies }}
+              {{ $date := default "" .Params.metadata.tmdb.release_date }}
+              {{ with .Params.tracking.start_date }}
+                {{ $date = . }}
+              {{ end }}
+              {{ with .Params.tracking.end_date }}
+                {{ $date = . }}
+              {{ end }}
+              {{ $year := "Undated" }}
+              {{ if ge (len $date) 4 }}
+                {{ $year = substr $date 0 4 }}
+              {{ end }}
+              {{ $yearGroups = merge $yearGroups (dict $year ((default (slice) (index $yearGroups $year)) | append .)) }}
+            {{ end }}
+            {{ $years := slice }}
+            {{ range $year, $movies := $yearGroups }}
+              {{ $sortKey := $year }}
+              {{ if eq $year "Undated" }}
+                {{ $sortKey = "0000" }}
+              {{ end }}
+              {{ $years = $years | append (dict "name" $year "movies" $movies "sortKey" $sortKey) }}
+            {{ end }}
+            {{ $years = sort $years "sortKey" "desc" }}
+            {{ $latestYear := (index $years 0).name }}
+            {{ range $years }}
+              {{ $isLatestYear := eq .name $latestYear }}
+              <details class="not-prose mb-6" {{ if $isLatestYear }}open{{ end }}>
+                <summary class="cursor-pointer text-xl text-accent">
+                  <span role="heading" aria-level="3">{{ .name }}</span>
+                  <span class="text-sm text-muted">{{ len .movies }} movies</span>
+                </summary>
+                <div class="mt-5 grid grid-cols-2 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                  {{ range $index, $movie := .movies }}
+                    {{ partial "movies/card.html" (dict "movie" $movie "lazy" (or (not $isLatestYear) (ge $index 9))) }}
+                  {{ end }}
+                </div>
+              </details>
+            {{ end }}
+          {{ else }}
+            <div class="not-prose grid grid-cols-2 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {{ range first 9 $sortedMovies }}
+                {{ partial "movies/card.html" (dict "movie" . "lazy" false) }}
+              {{ end }}
+            </div>
+            {{ with after 9 $sortedMovies }}
+              <details class="not-prose mt-6">
+                <summary class="cursor-pointer text-sm text-accent">
+                  Show more {{ lower (index $statusNames $status) }} movies
+                </summary>
+                <div class="mt-6 grid grid-cols-2 gap-6 lg:grid-cols-3">
+                  {{ range . }}
+                    {{ partial "movies/card.html" (dict "movie" . "lazy" true) }}
+                  {{ end }}
+                </div>
+              </details>
+            {{ end }}
+          {{ end }}
+        </section>
+      {{ end }}
+    {{ end }}
+    <p class="mb-8 text-sm text-muted">
+      All movie images come from <a href="https://www.themoviedb.org/">TMDB</a>
+    </p>
+  </div>
+{{ end }}
