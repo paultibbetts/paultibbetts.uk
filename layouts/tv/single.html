@@ -1,0 +1,198 @@
+{{ define "main" }}
+  {{ $themes := partial "media/themes.html" . }}
+  {{ $statusNames := dict
+    "in-progress" "Watching"
+    "planning" "Planning"
+    "paused" "Paused"
+    "completed" "Watched"
+    "dropped" "Dropped"
+  }}
+  {{ $episodeCount := 0 }}
+  {{ range .Params.seasons }}
+    {{ $episodeCount = add $episodeCount (default 0 .episode_count) }}
+  {{ end }}
+
+
+  <div class="pb-20">
+    {{ with .Params.assets.hero }}
+      <div
+        class="relative min-h-[clamp(14rem,32vw,25rem)] overflow-hidden bg-surface after:absolute after:inset-0 after:bg-linear-to-b after:from-transparent after:from-[30%] after:to-background after:content-[''] max-md:-mx-4 max-md:w-[calc(100%+2rem)]"
+      >
+        <img
+          class="absolute inset-0 size-full object-cover"
+          src="{{ . }}"
+          alt=""
+          aria-hidden="true"
+        />
+      </div>
+    {{ end }}
+
+
+    <header class="relative z-2 -mt-8 py-4 pb-8">
+      <h1 class="m-0 text-3xl text-accent sm:text-4xl">{{ .Title }}</h1>
+      {{ with .Params.tracking.status }}
+        <p class="mt-2 mb-0 font-sans text-muted">
+          {{ index $statusNames . | default (replace . "-" " " | title) }}
+        </p>
+      {{ end }}
+    </header>
+
+    {{ with .Params.metadata.yamtrack.synopsis }}
+      <div class="prose mb-8 text-foreground font-sans"><p>{{ . }}</p></div>
+    {{ end }}
+
+
+    <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,14rem),1fr))] gap-8">
+      {{ with .Params.metadata.yamtrack }}
+        {{ if or .genres $themes .first_air_date .provider_status .season_count .episode_count }}
+          <section class="border-t border-border pt-5" aria-labelledby="tv-details-heading">
+            <h2 id="tv-details-heading" class="mt-0 mb-4 text-2xl text-accent">Details</h2>
+            <dl
+              class="m-0 grid grid-cols-[auto_minmax(0,1fr)] gap-x-4 gap-y-[0.45rem] [&_dt]:text-muted [&_dd]:m-0"
+            >
+              {{ with .genres }}
+                <dt>Genres</dt>
+                <dd>{{ delimit . ", " }}</dd>
+              {{ end }}
+              {{ with $themes }}
+                <dt>Themes</dt>
+                <dd>
+                  {{ range $index, $theme := . }}{{ if $index }},{{ end }}{{ $theme.name }}{{ end }}
+                </dd>
+              {{ end }}
+              {{ with .first_air_date }}
+                <dt>First aired</dt>
+                <dd>
+                  <time datetime="{{ . }}">{{ time.AsTime . | time.Format "2 January 2006" }}</time>
+                </dd>
+              {{ end }}
+              {{ with .provider_status }}
+                <dt>Status</dt>
+                <dd>{{ . }}</dd>
+              {{ end }}
+              {{ with .season_count }}
+                <dt>Seasons</dt>
+                <dd>{{ . }}</dd>
+              {{ end }}
+            </dl>
+          </section>
+        {{ end }}
+      {{ end }}
+
+      {{ with .Params.tracking }}
+        {{ if or (isset . "score") (isset . "start_date") (isset . "end_date") (isset . "progress") }}
+          <section class="border-t border-border pt-5" aria-labelledby="tv-tracking-heading">
+            <h2 id="tv-tracking-heading" class="mt-0 mb-4 text-2xl text-accent">My tracking</h2>
+            <dl
+              class="m-0 grid grid-cols-[auto_minmax(0,1fr)] gap-x-4 gap-y-[0.45rem] [&_dt]:text-muted [&_dd]:m-0"
+            >
+              {{ if isset . "score" }}
+                <dt>Score</dt>
+                <dd>{{ .score }}/10</dd>
+              {{ end }}
+              {{ with .start_date }}
+                <dt>Started</dt>
+                <dd>
+                  <time datetime="{{ . }}">{{ time.AsTime . | time.Format "2 January 2006" }}</time>
+                </dd>
+              {{ end }}
+              {{ with .end_date }}
+                <dt>Last watched</dt>
+                <dd>
+                  <time datetime="{{ . }}">{{ time.AsTime . | time.Format "2 January 2006" }}</time>
+                </dd>
+              {{ end }}
+              {{ if isset . "progress" }}
+                <dt>Episodes watched</dt>
+                <dd>
+                  {{ if gt $episodeCount 0 }}
+                    {{ printf "%v / %v" .progress $episodeCount }}
+                  {{ else }}
+                    {{ .progress }}
+                  {{ end }}
+                </dd>
+              {{ end }}
+            </dl>
+          </section>
+        {{ end }}
+      {{ end }}
+    </div>
+
+    {{ with .Params.seasons }}
+      <section class="mt-8 border-t border-border pt-5" aria-labelledby="tv-seasons-heading">
+        <h2 id="tv-seasons-heading" class="mt-0 mb-4 text-2xl text-accent">Seasons</h2>
+        {{ range sort . "number" }}
+          {{ $season := . }}
+          {{ $episodes := default (slice) $season.episodes }}
+          {{ $seasonStatus := $season.tracking.status }}
+          {{ $seasonProgress := default 0 $season.tracking.progress }}
+          <details
+            class="mb-4 rounded px-4 py-3"
+            {{ if eq $seasonStatus "in-progress" }}open{{ end }}
+          >
+            <summary class="cursor-pointer text-lg text-accent">
+              {{ $season.number }}
+              {{ with $seasonStatus }}
+                <span class="text-sm text-muted"
+                  >{{ index $statusNames . | default (replace . "-" " " | title) }}</span
+                >
+              {{ end }}
+              <span class="text-sm text-muted">
+                {{ with $season.episode_count }}
+                  {{ printf "· %v of %v episodes" $seasonProgress . }}
+                {{ else }}
+                  {{ printf "· %v episodes" $seasonProgress }}
+                {{ end }}
+              </span>
+            </summary>
+            {{ with $episodes }}
+              <ol
+                class="mt-4 divide-y divide-border border-t border-border font-sans text-foreground"
+              >
+                {{ range sort . "number" }}
+                  <li class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 py-3">
+                    <span
+                      ><span class="text-muted">E{{ printf "%02d" .number }}</span>
+                      {{ .title }}</span
+                    >
+                    {{ with .watched_at }}
+                      <time class="text-sm text-muted" datetime="{{ . }}"
+                        >Watched {{ time.AsTime . | time.Format "2 January 2006" }}</time
+                      >
+                    {{ else }}
+                      <span class="text-sm text-muted">Unwatched</span>
+                    {{ end }}
+                  </li>
+                {{ end }}
+              </ol>
+            {{ else }}
+              <p class="mt-4 font-sans text-muted">No episodes are tracked for this season.</p>
+            {{ end }}
+          </details>
+        {{ end }}
+      </section>
+    {{ end }}
+
+    {{ with .Params.sync.yamtrack.notes }}
+      <section class="mt-8 border-t border-border pt-5" aria-labelledby="tv-notes-heading">
+        <h2 id="tv-notes-heading" class="mt-0 mb-4 text-2xl text-accent">Notes</h2>
+        <div class="prose text-foreground font-sans"><p>{{ . }}</p></div>
+      </section>
+    {{ end }}
+
+    {{ with .Content }}
+      <div class="prose mt-8 text-foreground font-sans">{{ . }}</div>
+    {{ end }}
+
+    {{ partial "media/relationships.html" . }}
+
+    {{ with .Params.external.tmdb }}
+      <nav class="mt-8 border-t border-border pt-5" aria-label="External TV links">
+        <a href="https://www.themoviedb.org/tv/{{ . }}">View on TMDB</a>
+      </nav>
+    {{ end }}
+    <p class="my-4 text-sm text-muted">
+      All TV show images come from <a href="https://www.themoviedb.org/">TMDB</a>
+    </p>
+  </div>
+{{ end }}
