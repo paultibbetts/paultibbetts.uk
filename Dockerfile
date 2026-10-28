@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.28
 
-FROM node:24-bookworm AS builder
+FROM node:26-bookworm AS builder
 
 ARG HUGO_VERSION=0.163.3
 ARG TARGETARCH
