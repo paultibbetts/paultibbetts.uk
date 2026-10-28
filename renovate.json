@@ -6,7 +6,11 @@
   "dependencyDashboard": true,
   "configMigration": true,
   "rangeStrategy": "replace",
-  "schedule": ["after 10pm every weekday", "* * * * 0,6", "before 5am every weekday"],
+  "schedule": [
+    "after 10pm every weekday",
+    "* * * * 0,6",
+    "before 5am every weekday"
+  ],
   "lockFileMaintenance": {
     "enabled": false
   },
@@ -22,7 +26,7 @@
     },
     {
       "description": "Keep the Volta and Docker Node.js runtimes aligned",
-      "matchDatasources": ["docker", "node"],
+      "matchDatasources": ["docker", "node-version"],
       "matchPackageNames": ["node"],
       "groupName": "Node.js runtime"
     }
