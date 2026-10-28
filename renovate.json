@@ -34,7 +34,9 @@
   "customManagers": [
     {
       "customType": "regex",
-      "managerFilePatterns": ["/(^|/)\\.github/workflows/.+\\.ya?ml$/"],
+      "managerFilePatterns": [
+        "/(^|/)\\.(?:github|gitea)/workflows/.+\\.ya?ml$/"
+      ],
       "matchStrings": ["HUGO_VERSION:\\s*(?<currentValue>\\S+)"],
       "depNameTemplate": "gohugoio/hugo",
       "datasourceTemplate": "github-releases",
