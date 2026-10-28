@@ -41,8 +41,8 @@
 {{- $pages = $pages | first $limit }}
 {{- end }}
 {{- $feedDescription := "" -}}
-{{- if .Params.Description -}}
-  {{- $feedDescription = .Params.Description -}}
+{{- if .Description -}}
+  {{- $feedDescription = .Description -}}
 {{- else if and (eq .Kind "term") (eq .Data.Plural "series") -}}
   {{- $feedDescription = printf "Posts in the %s series by %s" .Title $authorName -}}
 {{- else if eq .Params.date_scope "year" -}}
@@ -87,7 +87,7 @@
       {{- $itemDescription = .Plain | plainify | htmlUnescape | strings.TrimSpace | truncate 280 -}}
     {{- end -}}
     {{- if in (slice "indieweb-directories" "directory-of-indieweb-directories") .Section -}}
-      {{- with .Params.description -}}
+      {{- with .Description -}}
         {{- $itemDescription = . | plainify | htmlUnescape | strings.TrimSpace -}}
       {{- end -}}
     {{- end -}}
@@ -185,7 +185,7 @@
     {{- end -}}
     {{- if and (in (slice "indieweb-directories" "directory-of-indieweb-directories") .Section) (not $itemContentHTML) -}}
       {{- $entryContentParts := slice -}}
-      {{- with .Params.description -}}
+      {{- with .Description -}}
         {{- $entryContentParts = $entryContentParts | append (printf "<p>%s</p>" (. | htmlEscape)) -}}
       {{- end -}}
       {{- with .Params.category -}}

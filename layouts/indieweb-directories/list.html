@@ -24,7 +24,7 @@
             {{ range $pagesInCategory }}
               <li>
                 <a href="{{ .Params.link }}">{{ .Title }}</a>
-                {{ with .Params.description }}
+                {{ with .Description }}
                   <p>{{ . }}</p>
                 {{ end }}
               </li>
@@ -41,7 +41,7 @@
             {{ range .Pages }}
               <li>
                 <a href="{{ .Params.link }}">{{ .Title }}</a>
-                {{ with .Params.description }}
+                {{ with .Description }}
                   <p>{{ . }}</p>
                 {{ end }}
               </li>
@@ -67,7 +67,7 @@
             {{ range $pagesInCategory }}
               <li>
                 <a href="{{ .Params.link }}">{{ .Title }}</a>
-                {{ with .Params.description }}
+                {{ with .Description }}
                   <p>{{ . }}</p>
                 {{ end }}
               </li>
@@ -84,7 +84,7 @@
             {{ range .Pages }}
               <li>
                 <a href="{{ .Params.link }}">{{ .Title }}</a>
-                {{ with .Params.description }}
+                {{ with .Description }}
                   <p>{{ . }}</p>
                 {{ end }}
               </li>

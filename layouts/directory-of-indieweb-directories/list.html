@@ -10,7 +10,7 @@
       {{ range .RegularPages.ByTitle }}
         <li>
           <a href="{{ .Params.link }}">{{ .Title }}</a>
-          {{ with .Params.description }}
+          {{ with .Description }}
             <p>{{ . }}</p>
           {{ end }}
         </li>

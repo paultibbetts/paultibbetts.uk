@@ -1,4 +1,4 @@
-{{- $currentTitle := .Page.Params.Title -}}
+{{- $currentTitle := .Page.Title -}}
 {{- with .GetTerms "series" -}}
   {{- with index . 0 -}}
     {{- $seriesTitle := .Title -}}
