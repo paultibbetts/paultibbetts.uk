@@ -19,6 +19,12 @@
     {
       "matchManagers": ["github-actions"],
       "groupName": "github actions"
+    },
+    {
+      "description": "Keep the Volta and Docker Node.js runtimes aligned",
+      "matchDatasources": ["docker", "node"],
+      "matchPackageNames": ["node"],
+      "groupName": "Node.js runtime"
     }
   ],
   "customManagers": [
