@@ -29,6 +29,12 @@
       "matchDatasources": ["docker", "node-version"],
       "matchPackageNames": ["node"],
       "groupName": "Node.js runtime"
+    },
+    {
+      "description": "Keep every Hugo build aligned",
+      "matchDatasources": ["github-releases"],
+      "matchPackageNames": ["gohugoio/hugo"],
+      "groupName": "Hugo"
     }
   ],
   "customManagers": [
@@ -38,6 +44,14 @@
         "/(^|/)\\.(?:github|gitea)/workflows/.+\\.ya?ml$/"
       ],
       "matchStrings": ["HUGO_VERSION:\\s*(?<currentValue>\\S+)"],
+      "depNameTemplate": "gohugoio/hugo",
+      "datasourceTemplate": "github-releases",
+      "versioningTemplate": "semver"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["/(^|/)Dockerfile$/"],
+      "matchStrings": ["ARG HUGO_VERSION=(?<currentValue>\\S+)"],
       "depNameTemplate": "gohugoio/hugo",
       "datasourceTemplate": "github-releases",
       "versioningTemplate": "semver"
